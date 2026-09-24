@@ -1,0 +1,52 @@
+{
+  "recorded_at": "2026-09-24T13:27:24.051357+00:00",
+  "candidate_id": "candidate/02e8eabcc4c7343d6794a354b3ec074bde0b9ab5e256d0d86a5856336a5a4f38",
+  "gate": {
+    "candidate_id": "candidate/02e8eabcc4c7343d6794a354b3ec074bde0b9ab5e256d0d86a5856336a5a4f38",
+    "split": "validation",
+    "contract_passed": false,
+    "transfer_passed": true,
+    "retention_passed": true,
+    "budget_passed": true,
+    "independent_evaluator": true,
+    "evidence_verified": true,
+    "small_development_gate": {
+      "accepted": true,
+      "baseline_successes": 1,
+      "candidate_successes": 8,
+      "baseline_calls": 82,
+      "candidate_calls": 8,
+      "regressions": [],
+      "infrastructure_error": false,
+      "meaning": "Small development gate, not a statistical generalization claim"
+    },
+    "program_successful_fresh_instances": [
+      "libero_spatial-00-i7-validation",
+      "libero_spatial-01-i7-validation",
+      "libero_object-00-i7-validation",
+      "libero_object-01-i7-validation",
+      "libero_goal-00-i7-validation",
+      "libero_goal-01-i7-validation",
+      "libero_10-00-i7-validation",
+      "libero_10-01-i7-validation"
+    ],
+    "infrastructure_or_unknown_outcomes": [
+      "libero_goal-01-i7-validation/baseline",
+      "libero_10-00-i7-validation/baseline",
+      "libero_10-01-i7-validation/baseline"
+    ],
+    "validation_instances": 8,
+    "heldout_used_for_selection": false,
+    "statistical_mastery_established": false
+  },
+  "decision": "No eight-task promotion: three baseline interface/protocol failures invalidate the comparison contract.",
+  "four_task_activation_retained": true,
+  "activation_scope": "Original four-task small development gate only, not stable mastery",
+  "reason_no_rollback": "Candidate has no observed development regression; failed expansion contract is not evidence that the previous four-task acceptance was reversed.",
+  "heldout_outcomes_opened_before_this_review": false,
+  "candidate_changes_after_round3_freeze": false,
+  "next_required_evidence": "Separate matched policy reference and a new reliability comparison; do not reinterpret fixed-budget completion as a model capability limit.",
+  "further_model_proposals_in_this_experiment": false,
+  "difficulty_changed": false,
+  "engineering_recovery_switch_used_in_this_campaign": false
+}
