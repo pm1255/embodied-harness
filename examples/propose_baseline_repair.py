@@ -282,6 +282,7 @@ Development evidence:\n""" + json.dumps(evidence, ensure_ascii=False)
         "harness/tool-binding.json": json.dumps(
             {
                 "name": proposal["program"]["name"],
+                "description": proposal["program"]["description"],
                 "parameters": proposal["program"]["parameters"],
                 "max_ticks": 321,
                 "timeout_s": 600,

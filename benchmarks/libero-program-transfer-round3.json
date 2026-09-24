@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "name": "libero-program-transfer-round3-v1",
+  "purpose": "Predeclared four-family development gate and untouched final reset; small pilot, not statistical mastery",
+  "arms": [
+    "baseline",
+    "candidate"
+  ],
+  "model": "gpt-6-astra",
+  "max_decisions": 24,
+  "max_control_ticks": 960,
+  "success_criterion": "native_success_terminal",
+  "memory": "baseline none; candidate frozen model-authored memory",
+  "skill_updates": "candidate frozen before any validation; no online mutation",
+  "task_generation": false,
+  "cases": [
+    {
+      "id": "libero_spatial-00-i5-validation",
+      "environment": "libero",
+      "seed": 5,
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "config": {
+        "suite": "libero_spatial",
+        "task_id": 0,
+        "size": 256,
+        "init_state_index": 5
+      },
+      "task_id": "libero_spatial-00",
+      "split": "validation"
+    },
+    {
+      "id": "libero_object-00-i5-validation",
+      "environment": "libero",
+      "seed": 5,
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "config": {
+        "suite": "libero_object",
+        "task_id": 0,
+        "size": 256,
+        "init_state_index": 5
+      },
+      "task_id": "libero_object-00",
+      "split": "validation"
+    },
+    {
+      "id": "libero_goal-00-i5-validation",
+      "environment": "libero",
+      "seed": 5,
+      "instruction": "open the middle drawer of the cabinet",
+      "config": {
+        "suite": "libero_goal",
+        "task_id": 0,
+        "size": 256,
+        "init_state_index": 5
+      },
+      "task_id": "libero_goal-00",
+      "split": "validation"
+    },
+    {
+      "id": "libero_10-00-i5-validation",
+      "environment": "libero",
+      "seed": 5,
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "config": {
+        "suite": "libero_10",
+        "task_id": 0,
+        "size": 256,
+        "init_state_index": 5
+      },
+      "task_id": "libero_10-00",
+      "split": "validation"
+    },
+    {
+      "id": "libero_spatial-00-i6-heldout",
+      "environment": "libero",
+      "seed": 6,
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "config": {
+        "suite": "libero_spatial",
+        "task_id": 0,
+        "size": 256,
+        "init_state_index": 6
+      },
+      "task_id": "libero_spatial-00",
+      "split": "heldout"
+    },
+    {
+      "id": "libero_object-00-i6-heldout",
+      "environment": "libero",
+      "seed": 6,
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "config": {
+        "suite": "libero_object",
+        "task_id": 0,
+        "size": 256,
+        "init_state_index": 6
+      },
+      "task_id": "libero_object-00",
+      "split": "heldout"
+    },
+    {
+      "id": "libero_goal-00-i6-heldout",
+      "environment": "libero",
+      "seed": 6,
+      "instruction": "open the middle drawer of the cabinet",
+      "config": {
+        "suite": "libero_goal",
+        "task_id": 0,
+        "size": 256,
+        "init_state_index": 6
+      },
+      "task_id": "libero_goal-00",
+      "split": "heldout"
+    },
+    {
+      "id": "libero_10-00-i6-heldout",
+      "environment": "libero",
+      "seed": 6,
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "config": {
+        "suite": "libero_10",
+        "task_id": 0,
+        "size": 256,
+        "init_state_index": 6
+      },
+      "task_id": "libero_10-00",
+      "split": "heldout"
+    }
+  ],
+  "checkpoint_repo": "RLinf/RLinf-Pi05-LIBERO-130-fullshot-SFT",
+  "checkpoint_revision": "6222623f635769bfc73c9472e29fab9b7fd8e027",
+  "checkpoint_sha256": "4d9089c941793f170b625c2ed0ac7a3aa09b6f103e52dbbc82e67301529d6683",
+  "planner_settings": {
+    "api_mode": "responses",
+    "provider_host": "aixor.cc",
+    "reasoning_effort": "high",
+    "stream": true,
+    "note": "Model label reported by provider; upstream identity not independently verified"
+  },
+  "declared_before_execution": true,
+  "selection_policy": "Same four original task families. Fresh state 5 for validation and 6 for final heldout, declared before third proposal. No previous heldout outcomes used.",
+  "candidate_sha256": "BIND_EXACT_CANDIDATE_BEFORE_EXECUTION"
+}
