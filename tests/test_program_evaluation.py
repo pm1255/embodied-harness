@@ -102,3 +102,24 @@ def test_gate_rejects_unverified_improvement(tmp_path, corruption):
     path.write_text("".join(json.dumps(e) + "\n" for e in events))
     report = evaluate_validation(rows, protocol, candidate)
     assert not (report["evidence_verified"] and report["transfer_passed"])
+
+
+def test_supplement_binds_frozen_artifact_and_never_selects_using_heldout(tmp_path):
+    import runpy
+    from pathlib import Path
+
+    combine = runpy.run_path(
+        str(Path(__file__).parents[1] / "examples/confirm_program_transfer.py")
+    )["combine"]
+    rows, protocol, candidate = paired_evidence(tmp_path)
+    protocol.update(candidate_sha256="frozen", checkpoint_sha256="weights")
+    rows.append({"split": "heldout", "summary": {"success": False}})
+    campaign = tmp_path / "campaign"
+    campaign.mkdir()
+    (campaign / "protocol.json").write_text(json.dumps(protocol))
+    (campaign / "results.json").write_text(json.dumps({"completed": True, "rows": rows}))
+    assert combine([campaign], candidate, "frozen")["transfer_passed"]
+    with pytest.raises(ValueError, match="artifact"):
+        combine([campaign], candidate, "changed")
+    with pytest.raises(ValueError, match="double-count"):
+        combine([campaign, campaign], candidate, "frozen")

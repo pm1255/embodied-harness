@@ -16,6 +16,12 @@
 
 GPT 修复了一项策略失败，但在抽屉任务造成回归，并在一个双物体任务上提前宣布完成。这给出了具体的调度修复目标，**不能据此判断 GPT 的能力上限**。八项域内任务、每项一个状态，不是完整 benchmark、未见任务泛化成绩，也不是优于 RPent 的证据。此前三次决策的试验协议不同，不能当作进化前的可比基线。
 
+| GPT 修复汤罐入篮失败 | GPT 调度未能打开抽屉 |
+|---|---|
+| [![汤罐入篮成功](docs/rsi/baseline/soup-gpt-success.gif)](https://pm1255.github.io/embodied-harness/rsi/baseline/) | [![抽屉任务失败](docs/rsi/baseline/drawer-gpt-failure.gif)](https://pm1255.github.io/embodied-harness/rsi/baseline/) |
+
+上图为加速的双视角抽样事件回放。页面可查看准确的模型参数、工具展开、原生结果和全部配对回合。
+
 ## 当前路线：先完成 benchmark，再逐步突破能力边界
 
 **已有任务 → 失败分解 → 检索并复用已有练习 → 仅补建缺失子任务 → 回测完整原任务。全部已选任务稳定掌握后，再改变环境提高难度、设计新任务。**

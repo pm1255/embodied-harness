@@ -11,18 +11,31 @@ from export_rsi import video, wilson
 from package_baseline_evidence import public_events
 
 
-def export(proposal, campaign, destination):
+def export(proposal, campaign, destination, rejected=(), supplements=(), confirmation_gate=None):
     proposal, campaign, destination = map(Path, (proposal, campaign, destination))
     destination.mkdir(parents=True, exist_ok=True)
     candidate = json.loads((proposal / "candidate.json").read_text())
     result = json.loads((campaign / "results.json").read_text())
     gate = json.loads((campaign / "validation-gate.json").read_text())
+    initial_gate = gate
+    if supplements and not confirmation_gate:
+        raise ValueError("Seal the combined development decision before opening held-out replay")
+    if confirmation_gate:
+        gate = json.loads(Path(confirmation_gate).read_text())
     protocol = json.loads((campaign / "protocol.json").read_text())
+    source_rows = [(campaign, row) for row in result["rows"]]
+    additional_protocols = []
+    for supplement in map(Path, supplements):
+        extra = json.loads((supplement / "results.json").read_text())
+        if not extra["completed"] or any(r["split"] != "validation" for r in extra["rows"]):
+            raise ValueError("Supplement must contain only completed development instances")
+        source_rows += [(supplement, row) for row in extra["rows"]]
+        additional_protocols.append(json.loads((supplement / "protocol.json").read_text()))
     rows = []
-    for original in result["rows"]:
+    for source, original in source_rows:
         row = {k: v for k, v in original.items() if k != "trace"}
         identity = row["case_id"] + "--" + row["arm"]
-        root = campaign / identity
+        root = source / identity
         events = [json.loads(line) for line in (root / "events.jsonl").read_text().splitlines()]
         media = destination / "media" / identity
         media.parent.mkdir(exist_ok=True)
@@ -78,18 +91,44 @@ def export(proposal, campaign, destination):
                 )
             ),
         }
+    ledger = EvolutionStore(proposal / "evolution").verify()
+    proposal_event = next(e for e in ledger if e["event_id"] == candidate["candidate_id"])
+    binding_ref = proposal_event["artifacts"]["harness/tool-binding.json"]
+    binding = (proposal / "evolution/objects" / binding_ref["sha256"]).read_text()
+    (destination / "tool-binding.json").write_text(binding)
+    changes["tool-binding.json (operator registration)"] = {
+        "source": binding,
+        "diff": "".join(
+            difflib.unified_diff(
+                [],
+                binding.splitlines(True),
+                fromfile="baseline/tool-binding.json",
+                tofile="candidate/tool-binding.json",
+            )
+        ),
+    }
     data = {
         "candidate": candidate,
         "gate": gate,
+        "initial_gate": initial_gate,
+        "additional_protocols": additional_protocols,
         "protocol": protocol,
         "rows": rows,
         "statistics": statistics,
         "changes": changes,
-        "ledger": EvolutionStore(proposal / "evolution").verify(),
+        "ledger": ledger,
         "api": json.loads((proposal / "api-metadata.json").read_text()),
         "completed": result["completed"],
         "difficulty_changed": False,
         "note": "One model-authored memory/skill/tool bundle; no component ablation, no new task or weight training. Small fresh-reset pilot, not a generalization or mastery claim.",
+        "rejected_proposals": [
+            {
+                "proposal": json.loads((Path(path) / "model-output.json").read_text()),
+                "rejection": json.loads((Path(path) / "rejected.json").read_text()),
+                "api": json.loads((Path(path) / "api-metadata.json").read_text()),
+            }
+            for path in rejected
+        ],
     }
     (destination / "data.json").write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
     template = (
@@ -107,5 +146,8 @@ if __name__ == "__main__":
     p.add_argument("proposal")
     p.add_argument("campaign")
     p.add_argument("destination")
+    p.add_argument("--rejected", action="append", default=[])
+    p.add_argument("--supplement", action="append", default=[])
+    p.add_argument("--confirmation-gate")
     a = p.parse_args()
-    export(a.proposal, a.campaign, a.destination)
+    export(a.proposal, a.campaign, a.destination, a.rejected, a.supplement, a.confirmation_gate)

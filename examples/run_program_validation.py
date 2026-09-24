@@ -26,6 +26,11 @@ def main():
     p.add_argument("--out", required=True)
     p.add_argument("--broker", required=True)
     p.add_argument("--endpoint", default="http://127.0.0.1:8907")
+    p.add_argument(
+        "--validation-only",
+        action="store_true",
+        help="Collect additional development evidence without opening a held-out split",
+    )
     a = p.parse_args()
     protocol = json.loads(Path(a.manifest).read_text())
     content = Path(a.candidate).read_bytes()
@@ -37,7 +42,8 @@ def main():
     (root / "protocol.json").write_text(json.dumps(protocol, indent=2))
     rows = []
     splits = [case["split"] for case in protocol["cases"]]
-    if set(splits) != {"validation", "heldout"} or splits != sorted(splits, reverse=True):
+    expected_splits = {"validation"} if a.validation_only else {"validation", "heldout"}
+    if set(splits) != expected_splits or splits != sorted(splits, reverse=True):
         raise ValueError("Run all validation cases before sealed held-out cases")
     gate_sealed = False
     for case in protocol["cases"]:
@@ -114,6 +120,9 @@ def main():
                 ),
                 flush=True,
             )
+    if not gate_sealed:
+        with (root / "validation-gate.json").open("x") as stream:
+            json.dump(evaluate_validation(rows, protocol, candidate), stream, indent=2)
     (root / "results.json").write_text(json.dumps({"completed": True, "rows": rows}, indent=2))
 
 

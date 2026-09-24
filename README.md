@@ -16,6 +16,12 @@ A small GPT-first runtime that separates **visual decisions, geometry, local con
 
 GPT rescued one policy-only failure but regressed on a drawer task and prematurely declared a two-object task complete. This identifies a concrete orchestration repair target; it does **not** establish a GPT capability limit. Eight in-domain tasks / one state each are not full-suite performance, unseen-task generalization, or a claim of superiority to RPent. The earlier three-decision pilot used a different protocol and is not an evolution baseline.
 
+| GPT rescues soup placement | GPT fails to open the drawer |
+|---|---|
+| [![Soup: successful GPT + VLA execution](docs/rsi/baseline/soup-gpt-success.gif)](https://pm1255.github.io/embodied-harness/rsi/baseline/) | [![Drawer: failed GPT orchestration](docs/rsi/baseline/drawer-gpt-failure.gif)](https://pm1255.github.io/embodied-harness/rsi/baseline/) |
+
+Accelerated sampled-event replays, two cameras each. Open the dashboard for exact model calls, tool expansion, native outcomes and every paired episode.
+
 ## Current direction: master existing benchmarks before generating challenges
 
 **Original tasks → failure decomposition → reuse existing practice → create only missing subtask practice → retest the whole original task.** Harder environments and new challenge tasks unlock only after every task in the frozen scope is reliably mastered.
