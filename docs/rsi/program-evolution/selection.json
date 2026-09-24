@@ -1,0 +1,12 @@
+{
+  "candidate": "candidate/02e8eabcc4c7343d6794a354b3ec074bde0b9ab5e256d0d86a5856336a5a4f38",
+  "accepted": true,
+  "failed_checks": [],
+  "active_development_revision": "candidate/02e8eabcc4c7343d6794a354b3ec074bde0b9ab5e256d0d86a5856336a5a4f38",
+  "next_action": "evaluate_original_scope_for_mastery",
+  "heldout_used_for_selection": false,
+  "statistical_mastery_established": false,
+  "heldout_opening_authorized_after_selection_utc": "2026-09-24T11:52:51.414711+00:00",
+  "eight_task_confirmation_protocol": "benchmarks/libero-program-eight-task-confirmation.json",
+  "conditional_confirmation_triggered": true
+}
