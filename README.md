@@ -28,7 +28,7 @@ Six adaptively selected native task families, two held-out seeds each. Both cand
 |---|---|
 | [![Door replay](docs/rsi/door-memory-replay.gif)](https://pm1255.github.io/embodied-harness/rsi/experiment-v1/) | [![π0.5 tool replay](docs/rsi/pi05-bell-replay.gif)](https://pm1255.github.io/embodied-harness/rsi/pi05/) |
 
-These are sampled event replays, not real-time video. One success is not evidence of general improvement. [Download the full-frame evidence release](https://github.com/pm1255/embodied-harness/releases/tag/v0.2.0).
+These are sampled event replays, not real-time video. One success is not evidence of general improvement. [Code release](https://github.com/pm1255/embodied-harness/releases/tag/v0.2.0). The full-frame evidence archive is preserved privately; public upload is awaiting owner approval.
 
 ```mermaid
 flowchart LR

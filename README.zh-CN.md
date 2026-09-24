@@ -28,7 +28,7 @@
 |---|---|
 | [![开门回放](docs/rsi/door-memory-replay.gif)](https://pm1255.github.io/embodied-harness/rsi/experiment-v1/) | [![π0.5 工具回放](docs/rsi/pi05-bell-replay.gif)](https://pm1255.github.io/embodied-harness/rsi/pi05/) |
 
-动图为抽样事件回放，不是实时录像。单次成功不代表整体提升。[下载包含完整观测图像的证据包](https://github.com/pm1255/embodied-harness/releases/tag/v0.2.0)。
+动图为抽样事件回放，不是实时录像。单次成功不代表整体提升。[代码发布页](https://github.com/pm1255/embodied-harness/releases/tag/v0.2.0)。完整观测图像证据包已在服务器保存，公开上传等待所有者确认。
 
 | 模块 | 现在实际做的事 |
 |---|---|
