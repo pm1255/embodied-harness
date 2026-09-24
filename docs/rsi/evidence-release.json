@@ -9,5 +9,6 @@
   "episodes": 72,
   "omitted_camera_scratch_files": 6106,
   "scratch_files_missing_from_recorded_frames": 0,
-  "publication_status": "full_frame_archive_awaiting_owner_approval"
+  "publication_status": "published",
+  "asset_url": "https://github.com/pm1255/embodied-harness/releases/download/v0.2.0/embodied-harness-rsi-v1-public-evidence-20260924.tar.gz"
 }

@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "embodied-harness"
-version = "0.2.0"
-description = "Evidence-bound robot self-improvement: task discovery, memory, skills, and inspectable tool execution."
+version = "0.3.0"
+description = "Evidence-bound robot self-improvement: benchmark-first curricula, memory, skills, and inspectable tool execution."
 readme = "README.md"
 requires-python = ">=3.10"
 license = "Apache-2.0"

@@ -1,6 +1,8 @@
 # Frontier exploration, absorption, and local stopping
 
-The goal is **measurable progress on nearby unsolved tasks**, not an endless stream of harder tasks or longer memory files. The agent may propose changes to its model configuration, task-facing harness, memory, skills, tool source code, and task definitions. An external experiment controller holds the evaluator, evidence store, resource budgets, and final-test partition fixed for a comparison.
+**Current curriculum: [benchmark first, decompose failures, return to the original task](benchmark-first-rsi.md).** Task generation is gated by that controller: only missing-subtask practice may be created early, after catalog search; harder challenges wait for whole-scope mastery. This document supplies the lower-level evidence and stopping rules.
+
+The goal is **measurable progress on existing unsolved benchmark tasks**, not an endless stream of harder tasks or longer memory files. The agent may propose changes to its model configuration, task-facing harness, memory, skills, tool source code, and task definitions. An external experiment controller holds the evaluator, evidence store, resource budgets, and final-test partition fixed for a comparison.
 
 ## Status of this implementation
 
@@ -35,7 +37,7 @@ For example, if a mug is reached but never lifted, “try a harder mug task” i
 | Diverse repairs have no meaningful gain with adequate evidence | Record a local plateau | Decompose the task or change the tool / representation class |
 | Budget exhausted | Stop the current allocation | Preserve the frontier as unresolved |
 
-Task difficulty is a **vector**: clutter, visibility, precision, contact complexity, horizon and embodiment can change independently. Raw novelty is not progress. Start with positive anchors and nearby counterexamples. Allocate attempts to measured learning progress per cost, while reserving trials for uncertainty reduction and old-task retention. A scalar leaderboard score should not allow fewer API calls to compensate for failing the physical task.
+Task difficulty is a **vector**: clutter, visibility, precision, contact complexity, horizon and embodiment can change independently. Raw novelty is not progress. Start with original benchmark failures and existing practice tasks. Use positive anchors to validate genuinely missing subtask practice. Allocate attempts to measured learning progress per cost, while reserving trials for uncertainty reduction and old-task retention. A scalar leaderboard score should not allow fewer API calls to compensate for failing the physical task.
 
 The present `FrontierPolicy` classifies evidence and `guidance_packet` builds a proposer contract. It does not claim to implement a learned difficulty metric or an optimal budget allocator.
 

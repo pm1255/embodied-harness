@@ -1,4 +1,6 @@
-# RSI Lab: generate, attempt, remember, verify
+# Historical v1 RSI Lab: generate, attempt, remember, verify
+
+**The recommended development route is now [benchmark-first RSI](benchmark-first-rsi.md). This page documents the preserved v1 implementation and experiment, not the new curriculum order.**
 
 Embodied Harness now includes an experimental **non-parametric self-improvement loop**. GPT proposes scenario configurations, operates a robot through real tools, inspects development failures, writes a memory document and composes reusable skills. Model weights remain frozen. Improvement is a hypothesis to test, not a property guaranteed by the loop.
 

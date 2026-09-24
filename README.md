@@ -7,7 +7,17 @@
 
 A small GPT-first runtime that separates **visual decisions, geometry, local control and evaluation**. The model calls implemented tools instead of generating every controller command. It can submit one primitive or a bounded plan; the executor returns control when the plan ends or a step fails.
 
-## RSI Lab: tasks → failures → memory → skills → held-out tests
+## Current direction: master existing benchmarks before generating challenges
+
+**Original tasks → failure decomposition → reuse existing practice → create only missing subtask practice → retest the whole original task.** Harder environments and new challenge tasks unlock only after every task in the frozen scope is reliably mastered.
+
+Environment interventions serve separate robustness, assisted-practice and harder-challenge tracks. Subtask success, easier resets and passing smoke tests never substitute for original-task success.
+
+[Curriculum and environment rules](docs/benchmark-first-rsi.md) · [Curriculum status](https://pm1255.github.io/embodied-harness/rsi/curriculum/) · [186 registered existing tasks](benchmarks/rsi-benchmark-first.json)
+
+The work-order state machine, whole-scope gate, decomposition checks and reuse rules are implemented and tested. A general autonomous consumer with task-specific subgoal checkers and repair execution still needs integration. **The current work order runs no new model or simulator episodes.** The 186-entry inventory includes RoboCasa/RoboTwin subsets and is not a completed benchmark score.
+
+## Historical v1: tasks → failures → memory → skills → held-out tests
 
 The experimental RSI loop lets GPT propose **real simulator scenario configurations**, inspect multimodal development failures, write a versioned `MEMORY.md`, and compile parameterized primitive programs into callable skills. Model weights stay frozen. Candidates must pass a development gate; an independent four-arm test checks whether memory and skills actually help.
 
@@ -28,7 +38,7 @@ Six adaptively selected native task families, two held-out seeds each. Both cand
 |---|---|
 | [![Door replay](docs/rsi/door-memory-replay.gif)](https://pm1255.github.io/embodied-harness/rsi/experiment-v1/) | [![π0.5 tool replay](docs/rsi/pi05-bell-replay.gif)](https://pm1255.github.io/embodied-harness/rsi/pi05/) |
 
-These are sampled event replays, not real-time video. One success is not evidence of general improvement. [Code release](https://github.com/pm1255/embodied-harness/releases/tag/v0.2.0). The full-frame evidence archive is preserved privately; public upload is awaiting owner approval.
+These are sampled event replays, not real-time video. One success is not evidence of general improvement. [Code release](https://github.com/pm1255/embodied-harness/releases/tag/v0.2.0). The [complete 72-episode frame and trace archive](https://github.com/pm1255/embodied-harness/releases/download/v0.2.0/embodied-harness-rsi-v1-public-evidence-20260924.tar.gz) is public (261 MB; hashes and contents in [the evidence manifest](docs/rsi/evidence-release.json)).
 
 ```mermaid
 flowchart LR
@@ -55,9 +65,11 @@ Inspired by [NVIDIA ASPIRE](https://research.nvidia.com/labs/gear/aspire/); this
 
 ```bash
 pip install -e '.[metaworld]'
-# Configure OPENAI_API_KEY using your own secret store.
-python -m embodied_harness.rsi.experiment \
-  --output runs/my-rsi --model YOUR_MODEL --base-url YOUR_API_BASE
+# Work-order inspection only; no API requests. See docs/benchmark-first-rsi.md.
+python -m embodied_harness.rsi.curriculum \
+  --benchmark benchmarks/rsi-benchmark-first.json \
+  --revision my-system-revision --budget-hash my-frozen-protocol \
+  --output runs/benchmark-first/next-work.json
 ```
 
 ## Twenty real tasks, two cameras each

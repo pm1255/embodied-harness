@@ -1,0 +1,2187 @@
+{
+  "schema_version": 1,
+  "name": "benchmark-first-registered-scope-v2",
+  "protocol": "Task catalog only. No smoke completion grants task mastery. Fresh original-task development and validation are required.",
+  "sources": [
+    "metaworld-all-smoke.json",
+    "libero-all-smoke.json",
+    "robocasa-robotwin-smoke.json"
+  ],
+  "scope_note": "50 MetaWorld + 130 LIBERO + 3 RoboCasa + 3 RoboTwin registered tasks; RoboCasa/RoboTwin are subsets, not full suites.",
+  "generation_policy": "No harder/new challenge tasks until every task in this frozen scope is mastered. Missing subtask practice requires an audited catalog gap.",
+  "cases": [
+    {
+      "id": "metaworld-assembly-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the assembly task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "assembly-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-basketball-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the basketball task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "basketball-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-bin-picking-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the bin picking task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "bin-picking-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-box-close-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the box close task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "box-close-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-button-press-topdown-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the button press topdown task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "button-press-topdown-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-button-press-topdown-wall-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the button press topdown wall task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "button-press-topdown-wall-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-button-press-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the button press task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "button-press-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-button-press-wall-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the button press wall task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "button-press-wall-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-coffee-button-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the coffee button task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "coffee-button-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-coffee-pull-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the coffee pull task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "coffee-pull-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-coffee-push-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the coffee push task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "coffee-push-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-dial-turn-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the dial turn task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "dial-turn-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-disassemble-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the disassemble task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "disassemble-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-door-close-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the door close task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "door-close-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-door-lock-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the door lock task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "door-lock-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-door-open-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the door open task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "door-open-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-door-unlock-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the door unlock task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "door-unlock-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-hand-insert-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the hand insert task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "hand-insert-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-drawer-close-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the drawer close task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "drawer-close-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-drawer-open-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the drawer open task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "drawer-open-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-faucet-open-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the faucet open task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "faucet-open-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-faucet-close-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the faucet close task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "faucet-close-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-hammer-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the hammer task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "hammer-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-handle-press-side-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the handle press side task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "handle-press-side-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-handle-press-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the handle press task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "handle-press-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-handle-pull-side-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the handle pull side task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "handle-pull-side-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-handle-pull-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the handle pull task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "handle-pull-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-lever-pull-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the lever pull task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "lever-pull-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-pick-place-wall-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the pick place wall task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "pick-place-wall-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-pick-out-of-hole-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the pick out of hole task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "pick-out-of-hole-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-pick-place-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the pick place task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "pick-place-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-plate-slide-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the plate slide task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "plate-slide-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-plate-slide-side-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the plate slide side task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "plate-slide-side-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-plate-slide-back-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the plate slide back task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "plate-slide-back-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-plate-slide-back-side-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the plate slide back side task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "plate-slide-back-side-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-peg-insert-side-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the peg insert side task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "peg-insert-side-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-peg-unplug-side-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the peg unplug side task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "peg-unplug-side-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-soccer-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the soccer task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "soccer-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-stick-push-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the stick push task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "stick-push-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-stick-pull-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the stick pull task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "stick-pull-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-push-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the push task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "push-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-push-wall-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the push wall task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "push-wall-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-push-back-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the push back task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "push-back-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-reach-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the reach task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "reach-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-reach-wall-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the reach wall task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "reach-wall-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-shelf-place-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the shelf place task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "shelf-place-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-sweep-into-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the sweep into task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "sweep-into-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-sweep-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the sweep task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "sweep-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-window-open-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the window open task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "window-open-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-window-close-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the window close task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "window-close-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "libero_spatial-00-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "config": {
+        "suite": "libero_spatial",
+        "task_id": 0,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_spatial-01-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the black bowl next to the ramekin and place it on the plate",
+      "config": {
+        "suite": "libero_spatial",
+        "task_id": 1,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_spatial-02-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "config": {
+        "suite": "libero_spatial",
+        "task_id": 2,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_spatial-03-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the black bowl on the cookie box and place it on the plate",
+      "config": {
+        "suite": "libero_spatial",
+        "task_id": 3,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_spatial-04-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "config": {
+        "suite": "libero_spatial",
+        "task_id": 4,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_spatial-05-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+      "config": {
+        "suite": "libero_spatial",
+        "task_id": 5,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_spatial-06-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "config": {
+        "suite": "libero_spatial",
+        "task_id": 6,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_spatial-07-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the black bowl on the stove and place it on the plate",
+      "config": {
+        "suite": "libero_spatial",
+        "task_id": 7,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_spatial-08-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "config": {
+        "suite": "libero_spatial",
+        "task_id": 8,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_spatial-09-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the black bowl on the wooden cabinet and place it on the plate",
+      "config": {
+        "suite": "libero_spatial",
+        "task_id": 9,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_object-00-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "config": {
+        "suite": "libero_object",
+        "task_id": 0,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_object-01-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the cream cheese and place it in the basket",
+      "config": {
+        "suite": "libero_object",
+        "task_id": 1,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_object-02-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the salad dressing and place it in the basket",
+      "config": {
+        "suite": "libero_object",
+        "task_id": 2,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_object-03-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the bbq sauce and place it in the basket",
+      "config": {
+        "suite": "libero_object",
+        "task_id": 3,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_object-04-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the ketchup and place it in the basket",
+      "config": {
+        "suite": "libero_object",
+        "task_id": 4,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_object-05-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the tomato sauce and place it in the basket",
+      "config": {
+        "suite": "libero_object",
+        "task_id": 5,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_object-06-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the butter and place it in the basket",
+      "config": {
+        "suite": "libero_object",
+        "task_id": 6,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_object-07-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the milk and place it in the basket",
+      "config": {
+        "suite": "libero_object",
+        "task_id": 7,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_object-08-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the chocolate pudding and place it in the basket",
+      "config": {
+        "suite": "libero_object",
+        "task_id": 8,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_object-09-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the orange juice and place it in the basket",
+      "config": {
+        "suite": "libero_object",
+        "task_id": 9,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_goal-00-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "open the middle drawer of the cabinet",
+      "config": {
+        "suite": "libero_goal",
+        "task_id": 0,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_goal-01-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the bowl on the stove",
+      "config": {
+        "suite": "libero_goal",
+        "task_id": 1,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_goal-02-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the wine bottle on top of the cabinet",
+      "config": {
+        "suite": "libero_goal",
+        "task_id": 2,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_goal-03-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "open the top drawer and put the bowl inside",
+      "config": {
+        "suite": "libero_goal",
+        "task_id": 3,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_goal-04-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the bowl on top of the cabinet",
+      "config": {
+        "suite": "libero_goal",
+        "task_id": 4,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_goal-05-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "push the plate to the front of the stove",
+      "config": {
+        "suite": "libero_goal",
+        "task_id": 5,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_goal-06-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the cream cheese in the bowl",
+      "config": {
+        "suite": "libero_goal",
+        "task_id": 6,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_goal-07-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "turn on the stove",
+      "config": {
+        "suite": "libero_goal",
+        "task_id": 7,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_goal-08-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the bowl on the plate",
+      "config": {
+        "suite": "libero_goal",
+        "task_id": 8,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_goal-09-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the wine bottle on the rack",
+      "config": {
+        "suite": "libero_goal",
+        "task_id": 9,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_10-00-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "config": {
+        "suite": "libero_10",
+        "task_id": 0,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_10-01-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put both the cream cheese box and the butter in the basket",
+      "config": {
+        "suite": "libero_10",
+        "task_id": 1,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_10-02-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "turn on the stove and put the moka pot on it",
+      "config": {
+        "suite": "libero_10",
+        "task_id": 2,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_10-03-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the black bowl in the bottom drawer of the cabinet and close it",
+      "config": {
+        "suite": "libero_10",
+        "task_id": 3,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_10-04-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the white mug on the left plate and put the yellow and white mug on the right plate",
+      "config": {
+        "suite": "libero_10",
+        "task_id": 4,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_10-05-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the book and place it in the back compartment of the caddy",
+      "config": {
+        "suite": "libero_10",
+        "task_id": 5,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_10-06-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the white mug on the plate and put the chocolate pudding to the right of the plate",
+      "config": {
+        "suite": "libero_10",
+        "task_id": 6,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_10-07-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put both the alphabet soup and the cream cheese box in the basket",
+      "config": {
+        "suite": "libero_10",
+        "task_id": 7,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_10-08-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put both moka pots on the stove",
+      "config": {
+        "suite": "libero_10",
+        "task_id": 8,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_10-09-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the yellow and white mug in the microwave and close it",
+      "config": {
+        "suite": "libero_10",
+        "task_id": 9,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-00-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "close the top drawer of the cabinet",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 0,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-01-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "close the top drawer of the cabinet and put the black bowl on top of it",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 1,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-02-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the black bowl in the top drawer of the cabinet",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 2,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-03-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the butter at the back in the top drawer of the cabinet and close it",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 3,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-04-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the butter at the front in the top drawer of the cabinet and close it",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 4,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-05-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the chocolate pudding in the top drawer of the cabinet and close it",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 5,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-06-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "open the bottom drawer of the cabinet",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 6,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-07-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "open the top drawer of the cabinet",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 7,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-08-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "open the top drawer of the cabinet and put the bowl in it",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 8,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-09-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the black bowl on the plate",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 9,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-10-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the black bowl on top of the cabinet",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 10,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-11-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "open the top drawer of the cabinet",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 11,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-12-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the black bowl at the back on the plate",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 12,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-13-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the black bowl at the front on the plate",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 13,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-14-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the middle black bowl on the plate",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 14,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-15-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the middle black bowl on top of the cabinet",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 15,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-16-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "stack the black bowl at the front on the black bowl in the middle",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 16,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-17-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "stack the middle black bowl on the back black bowl",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 17,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-18-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the frying pan on the stove",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 18,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-19-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the moka pot on the stove",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 19,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-20-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "turn on the stove",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 20,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-21-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "turn on the stove and put the frying pan on it",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 21,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-22-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "close the bottom drawer of the cabinet",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 22,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-23-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "close the bottom drawer of the cabinet and open the top drawer",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 23,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-24-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the black bowl in the bottom drawer of the cabinet",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 24,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-25-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the black bowl on top of the cabinet",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 25,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-26-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the wine bottle in the bottom drawer of the cabinet",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 26,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-27-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the wine bottle on the wine rack",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 27,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-28-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "close the top drawer of the cabinet",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 28,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-29-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the black bowl in the top drawer of the cabinet",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 29,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-30-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the black bowl on the plate",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 30,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-31-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the black bowl on top of the cabinet",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 31,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-32-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the ketchup in the top drawer of the cabinet",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 32,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-33-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "close the microwave",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 33,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-34-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the yellow and white mug to the front of the white mug",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 34,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-35-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "open the microwave",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 35,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-36-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the white bowl on the plate",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 36,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-37-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the white bowl to the right of the plate",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 37,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-38-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the right moka pot on the stove",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 38,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-39-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "turn off the stove",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 39,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-40-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the frying pan on the cabinet shelf",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 40,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-41-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the frying pan on top of the cabinet",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 41,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-42-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the frying pan under the cabinet shelf",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 42,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-43-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the white bowl on top of the cabinet",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 43,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-44-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "turn on the stove",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 44,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-45-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "turn on the stove and put the frying pan on it",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 45,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-46-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the alphabet soup and put it in the basket",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 46,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-47-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the cream cheese box and put it in the basket",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 47,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-48-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the ketchup and put it in the basket",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 48,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-49-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the tomato sauce and put it in the basket",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 49,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-50-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the alphabet soup and put it in the basket",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 50,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-51-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the butter and put it in the basket",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 51,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-52-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the milk and put it in the basket",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 52,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-53-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the orange juice and put it in the basket",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 53,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-54-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the tomato sauce and put it in the basket",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 54,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-55-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the alphabet soup and put it in the tray",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 55,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-56-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the butter and put it in the tray",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 56,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-57-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the cream cheese and put it in the tray",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 57,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-58-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the ketchup and put it in the tray",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 58,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-59-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the tomato sauce and put it in the tray",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 59,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-60-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the black bowl on the left and put it in the tray",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 60,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-61-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the chocolate pudding and put it in the tray",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 61,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-62-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the salad dressing and put it in the tray",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 62,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-63-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "stack the left bowl on the right bowl and place them in the tray",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 63,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-64-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "stack the right bowl on the left bowl and place them in the tray",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 64,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-65-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the red mug on the left plate",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 65,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-66-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the red mug on the right plate",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 66,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-67-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the white mug on the left plate",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 67,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-68-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the yellow and white mug on the right plate",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 68,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-69-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the chocolate pudding to the left of the plate",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 69,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-70-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the chocolate pudding to the right of the plate",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 70,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-71-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the red mug on the plate",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 71,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-72-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the white mug on the plate",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 72,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-73-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the book and place it in the front compartment of the caddy",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 73,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-74-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the book and place it in the left compartment of the caddy",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 74,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-75-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the book and place it in the right compartment of the caddy",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 75,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-76-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the yellow and white mug and place it to the right of the caddy",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 76,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-77-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the book and place it in the back compartment of the caddy",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 77,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-78-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the book and place it in the front compartment of the caddy",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 78,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-79-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the book and place it in the left compartment of the caddy",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 79,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-80-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the book and place it in the right compartment of the caddy",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 80,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-81-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the book and place it in the front compartment of the caddy",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 81,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-82-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the book and place it in the left compartment of the caddy",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 82,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-83-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the book and place it in the right compartment of the caddy",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 83,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-84-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the red mug and place it to the right of the caddy",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 84,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-85-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the white mug and place it to the right of the caddy",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 85,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-86-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the book in the middle and place it on the cabinet shelf",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 86,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-87-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the book on the left and place it on top of the shelf",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 87,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-88-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the book on the right and place it on the cabinet shelf",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 88,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_90-89-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the book on the right and place it under the cabinet shelf",
+      "config": {
+        "suite": "libero_90",
+        "task_id": 89,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "robocasa-OpenDrawer-s0",
+      "environment": "robocasa",
+      "seed": 0,
+      "instruction": "OpenDrawer",
+      "config": {
+        "task": "OpenDrawer",
+        "size": 256
+      }
+    },
+    {
+      "id": "robocasa-CloseDrawer-s0",
+      "environment": "robocasa",
+      "seed": 0,
+      "instruction": "CloseDrawer",
+      "config": {
+        "task": "CloseDrawer",
+        "size": 256
+      }
+    },
+    {
+      "id": "robocasa-PickPlaceCounterToCabinet-s0",
+      "environment": "robocasa",
+      "seed": 0,
+      "instruction": "PickPlaceCounterToCabinet",
+      "config": {
+        "task": "PickPlaceCounterToCabinet",
+        "size": 256
+      }
+    },
+    {
+      "id": "robotwin-lift_pot-s0",
+      "environment": "robotwin",
+      "seed": 0,
+      "instruction": "lift pot",
+      "config": {
+        "task": "lift_pot",
+        "size": 256,
+        "factory": "embodied_harness.adapters.robotwin_factory:make_environment"
+      }
+    },
+    {
+      "id": "robotwin-click_bell-s0",
+      "environment": "robotwin",
+      "seed": 0,
+      "instruction": "click bell",
+      "config": {
+        "task": "click_bell",
+        "size": 256,
+        "factory": "embodied_harness.adapters.robotwin_factory:make_environment"
+      }
+    },
+    {
+      "id": "robotwin-move_can_pot-s0",
+      "environment": "robotwin",
+      "seed": 0,
+      "instruction": "move can pot",
+      "config": {
+        "task": "move_can_pot",
+        "size": 256,
+        "factory": "embodied_harness.adapters.robotwin_factory:make_environment"
+      }
+    }
+  ]
+}

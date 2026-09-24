@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.0 — benchmark-first curriculum
+
+- Start from a frozen existing-task scope; decompose failures and search existing practice tasks before creating missing subtask practice.
+- Gate harder tasks on every original task meeting revision-bound mastery checks; never substitute smoke, subtask, or assisted-environment scores.
+- Separate robustness evaluation, assisted practice and harder environment interventions.
+- Publish a work-order inspector with 186 registered existing task entries; no new robot evaluation is claimed.
+
 ## 0.2.0 — experimental RSI Lab
 
 - Preserve content-addressed evolution branches, rejected proposals, component source artifacts and activation/rollback records.

@@ -116,10 +116,10 @@ class FrontierPolicy:
             return result('local_plateau', 'Archive a budget- and tool-specific boundary; decompose the task or change tool/representation class')
         low, high = diagnostic['success_interval95']
         if low >= self.learned_lower_bound:
-            return result('consolidate', 'Validate transfer and old-task retention, then expand one difficulty dimension')
+            return result('consolidate', 'Validate original-task transfer and retention; only the whole-benchmark curriculum gate may unlock harder tasks')
         if high <= self.too_hard_upper_bound:
-            return result('beyond_current_frontier', 'Generate a simpler bridge task or propose a missing tool; do not repeatedly sample harder tasks')
-        return result('frontier', 'Explore nearby counterexamples; test one repair hypothesis and measure paired learning progress')
+            return result('beyond_current_frontier', 'Decompose the failed original task, search existing practice tasks, and audit a catalog gap before creating missing practice')
+        return result('frontier', 'Diagnose existing benchmark failures; test one repair hypothesis and measure return-to-original-task progress')
 
 
 def guidance_packet(task, assessment, evidence_ids):
@@ -128,7 +128,7 @@ def guidance_packet(task, assessment, evidence_ids):
             'request':assessment['next'],
             'proposal_requirements':[
                 'Cite a development failure and state one falsifiable repair hypothesis',
-                'Identify parent task, positive anchor, and one changed difficulty dimension',
+                'Identify the failed original benchmark task and observable subgoal; reuse existing practice before proposing a missing task',
                 'Choose memory, skill, tool, harness, model configuration, or task repair',
                 'Predict observable outcomes and a matched-cost comparison before running',
                 'Keep facts separate from hypotheses and independently validated procedures',

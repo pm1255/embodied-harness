@@ -1,4 +1,6 @@
-# RSI scenario benchmark protocol
+# Historical v1 scenario benchmark protocol
+
+New development follows [benchmark-first RSI](../docs/benchmark-first-rsi.md). This file preserves the completed historical protocol for reproducibility.
 
 The complete generated benchmark is published under `docs/rsi/experiment-v1/benchmark.json` after discovery and validation finish. Its `content.cases` is the executable scenario manifest; the outer `sha256` hashes canonical JSON (`sort_keys=True`, Python default separators). The same scheme seals the protocol and memory/skill bundles.
 

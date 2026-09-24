@@ -1,0 +1,1882 @@
+{
+  "deferred_tasks": {},
+  "readiness": {
+    "scope_hash": "6084f04219a3bb64e5ea8f4bd96cad4626bfa9c4110e3ffec9b6b0837184b847",
+    "revision": "benchmark-first-v2-unmeasured",
+    "budget_hash": "pending-frozen-execution-protocol",
+    "policy": {
+      "min_instances": 20,
+      "min_rounds": 2,
+      "success_lower_bound": 0.8,
+      "family_error": 0.05,
+      "max_infrastructure_fraction": 0.05
+    },
+    "tasks": {
+      "metaworld-assembly-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-basketball-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-bin-picking-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-box-close-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-button-press-topdown-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-button-press-topdown-wall-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-button-press-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-button-press-wall-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-coffee-button-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-coffee-pull-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-coffee-push-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-dial-turn-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-disassemble-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-door-close-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-door-lock-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-door-open-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-door-unlock-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-hand-insert-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-drawer-close-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-drawer-open-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-faucet-open-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-faucet-close-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-hammer-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-handle-press-side-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-handle-press-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-handle-pull-side-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-handle-pull-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-lever-pull-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-pick-place-wall-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-pick-out-of-hole-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-pick-place-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-plate-slide-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-plate-slide-side-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-plate-slide-back-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-plate-slide-back-side-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-peg-insert-side-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-peg-unplug-side-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-soccer-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-stick-push-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-stick-pull-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-push-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-push-wall-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-push-back-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-reach-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-reach-wall-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-shelf-place-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-sweep-into-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-sweep-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-window-open-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "metaworld-window-close-v3-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_spatial-00-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_spatial-01-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_spatial-02-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_spatial-03-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_spatial-04-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_spatial-05-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_spatial-06-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_spatial-07-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_spatial-08-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_spatial-09-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_object-00-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_object-01-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_object-02-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_object-03-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_object-04-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_object-05-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_object-06-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_object-07-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_object-08-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_object-09-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_goal-00-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_goal-01-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_goal-02-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_goal-03-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_goal-04-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_goal-05-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_goal-06-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_goal-07-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_goal-08-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_goal-09-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_10-00-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_10-01-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_10-02-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_10-03-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_10-04-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_10-05-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_10-06-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_10-07-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_10-08-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_10-09-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-00-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-01-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-02-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-03-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-04-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-05-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-06-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-07-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-08-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-09-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-10-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-11-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-12-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-13-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-14-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-15-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-16-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-17-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-18-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-19-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-20-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-21-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-22-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-23-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-24-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-25-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-26-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-27-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-28-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-29-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-30-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-31-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-32-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-33-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-34-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-35-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-36-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-37-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-38-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-39-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-40-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-41-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-42-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-43-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-44-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-45-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-46-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-47-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-48-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-49-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-50-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-51-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-52-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-53-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-54-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-55-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-56-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-57-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-58-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-59-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-60-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-61-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-62-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-63-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-64-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-65-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-66-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-67-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-68-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-69-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-70-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-71-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-72-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-73-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-74-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-75-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-76-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-77-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-78-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-79-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-80-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-81-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-82-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-83-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-84-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-85-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-86-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-87-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-88-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "libero_90-89-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "robocasa-OpenDrawer-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "robocasa-CloseDrawer-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "robocasa-PickPlaceCounterToCabinet-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "robotwin-lift_pot-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "robotwin-click_bell-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      },
+      "robotwin-move_can_pot-s0": {
+        "attempts": 0,
+        "independent_instances": 0,
+        "scored_instances": 0,
+        "successes": 0,
+        "rounds": 0,
+        "infrastructure_errors": 0,
+        "simultaneous_wilson_lower": 0,
+        "mastered": false
+      }
+    },
+    "all_mastered": false
+  },
+  "new_challenge_generation_allowed": false,
+  "action": "attempt_original",
+  "task_id": "metaworld-assembly-v3-s0",
+  "mode": "work_order_only_no_robot_or_model_execution"
+}

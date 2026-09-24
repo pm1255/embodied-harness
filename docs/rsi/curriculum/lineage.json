@@ -1,0 +1,120 @@
+[
+  {
+    "seq": 0,
+    "event_id": "benchmark-first-policy-v1",
+    "kind": "curriculum_policy_changed",
+    "actor": "engineering_agent",
+    "observed_at": "2026-09-24T08:56:04.210423+00:00",
+    "previous": null,
+    "payload": {
+      "reason": "User requested existing benchmarks first, failure decomposition, task reuse, then gated difficulty expansion",
+      "historical_v1_results_unchanged": true,
+      "new_robot_episodes": 0
+    },
+    "artifacts": {
+      "controller": {
+        "sha256": "8858f101860d17e9efc0fec18b20e76208dd66612c30f94a0e4154a0fe102407",
+        "bytes": 16617,
+        "media_type": "text/x-python"
+      },
+      "scope": {
+        "sha256": "a86e145d2bb7ca42ff7b6a992355608ab4087b8e48c3420d180567f3ec961034",
+        "bytes": 57094,
+        "media_type": "application/json"
+      }
+    },
+    "hash": "a20ec88e08fdea2ccf80fef4107f1384080463697b8a6a37549fed26df1f4ab1"
+  },
+  {
+    "seq": 1,
+    "event_id": "initial-work-order",
+    "kind": "work_order",
+    "actor": "experiment_controller",
+    "observed_at": "2026-09-24T08:56:04.211255+00:00",
+    "previous": "a20ec88e08fdea2ccf80fef4107f1384080463697b8a6a37549fed26df1f4ab1",
+    "payload": {
+      "mode": "work_order_only_no_robot_or_model_execution",
+      "action": "attempt_original"
+    },
+    "artifacts": {
+      "order": {
+        "sha256": "74a08d2e9bc1a20d71efe424b8d486ab74cb8e5afe6879a34f4a2e54b0a84529",
+        "bytes": 46451,
+        "media_type": "application/json"
+      }
+    },
+    "hash": "e6fb974847aed19e5e17c280fc33feee886b7b8667401813860354ed20262ca4"
+  },
+  {
+    "seq": 2,
+    "event_id": "curriculum-policy/3a17fe98ff3998e0bbfe0fcf74d38f630a00b70b0ae4ae28610b7ae7b0df91ad",
+    "kind": "curriculum_policy_changed",
+    "actor": "engineering_agent",
+    "observed_at": "2026-09-24T08:58:31.008822+00:00",
+    "previous": "e6fb974847aed19e5e17c280fc33feee886b7b8667401813860354ed20262ca4",
+    "payload": {
+      "reason": "User requested existing benchmarks first, failure decomposition, task reuse, then gated difficulty expansion",
+      "historical_v1_results_unchanged": true,
+      "new_robot_episodes": 0
+    },
+    "artifacts": {
+      "controller": {
+        "sha256": "e4742e6a1e4d1bbd9fef6546731cb7985c640e80851d9051523701b8662ee5ba",
+        "bytes": 17893,
+        "media_type": "text/x-python"
+      },
+      "scope": {
+        "sha256": "a86e145d2bb7ca42ff7b6a992355608ab4087b8e48c3420d180567f3ec961034",
+        "bytes": 57094,
+        "media_type": "application/json"
+      }
+    },
+    "hash": "9545ac7e23b0c9b1dffde4423955f8e806d8469c0c0243c297a66b51e866cccd"
+  },
+  {
+    "seq": 3,
+    "event_id": "work-order/ed8cffd8e0dd1f495d06160e7c7976a0731209c6aca8da215de45acdcf37b404",
+    "kind": "work_order",
+    "actor": "experiment_controller",
+    "observed_at": "2026-09-24T08:58:31.009851+00:00",
+    "previous": "9545ac7e23b0c9b1dffde4423955f8e806d8469c0c0243c297a66b51e866cccd",
+    "payload": {
+      "mode": "work_order_only_no_robot_or_model_execution",
+      "action": "attempt_original"
+    },
+    "artifacts": {
+      "order": {
+        "sha256": "d236b4f4e99148188f5012f8022bf9eec3aa52994ded07a1e403d4dd2c3ac5a9",
+        "bytes": 52217,
+        "media_type": "application/json"
+      }
+    },
+    "hash": "4cc4aaa61473c5bebbd96dc6a8892b23a8a24a5cc583f23eb2784adde82b68b6"
+  },
+  {
+    "seq": 4,
+    "event_id": "curriculum-policy/0633720c615339100973777712a75a8df3e3b28cc62c70a9e44163b4cdfcd340",
+    "kind": "curriculum_policy_changed",
+    "actor": "engineering_agent",
+    "observed_at": "2026-09-24T09:02:29.157499+00:00",
+    "previous": "4cc4aaa61473c5bebbd96dc6a8892b23a8a24a5cc583f23eb2784adde82b68b6",
+    "payload": {
+      "reason": "User requested existing benchmarks first, failure decomposition, task reuse, then gated difficulty expansion",
+      "historical_v1_results_unchanged": true,
+      "new_robot_episodes": 0
+    },
+    "artifacts": {
+      "controller": {
+        "sha256": "ba1ef118d54c4715b085ba90fc4ae528a126e651dd4d168dec4bb964686760fc",
+        "bytes": 18532,
+        "media_type": "text/x-python"
+      },
+      "scope": {
+        "sha256": "a86e145d2bb7ca42ff7b6a992355608ab4087b8e48c3420d180567f3ec961034",
+        "bytes": 57094,
+        "media_type": "application/json"
+      }
+    },
+    "hash": "7d2b90a0b538c4a8ad99118554b35cd3ab6b41e86c2b6eeeeccebfe5c3b7276b"
+  }
+]

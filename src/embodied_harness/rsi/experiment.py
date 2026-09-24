@@ -1,4 +1,6 @@
-"""Reproducible discovery -> dev gate -> frozen, paired factorial evaluation.
+"""Historical v1 discovery -> dev gate -> frozen, paired factorial evaluation.
+
+New benchmark-first work orders live in rsi.curriculum; this module preserves v1.
 
 Run: python -m embodied_harness.rsi.experiment --help
 Each episode lives in a fresh process. No benchmark result is returned to the brain.

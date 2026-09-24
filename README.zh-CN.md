@@ -7,7 +7,17 @@
 
 这是一个把**视觉决策、几何计算、连续控制、任务评价**分开的机器人执行框架。模型调用已经实现的工具；底层生成控制指令。模型可以一次调用一个工具，也可以提交短计划，由执行器在完成或失败时交还控制权。
 
-## RSI Lab：让任务、失败、记忆和技能形成实验闭环
+## 当前路线：先完成 benchmark，再逐步突破能力边界
+
+**已有任务 → 失败分解 → 检索并复用已有练习 → 仅补建缺失子任务 → 回测完整原任务。全部已选任务稳定掌握后，再改变环境提高难度、设计新任务。**
+
+环境变化分为原任务泛化评测、缺失子任务练习和进阶挑战，分别记分。子任务成功、简化环境成功和接口 smoke 通过，都不能替代原任务成功。
+
+[查看课程与环境变化规则](docs/benchmark-first-rsi.md) · [课程状态页](https://pm1255.github.io/embodied-harness/rsi/curriculum/) · [186 个已登记任务清单](benchmarks/rsi-benchmark-first.json)
+
+已实现并测试调度状态机、整套任务晋级门槛、分解检查和复用规则；通用的子任务执行/验证器与自主修复循环仍需接入。**当前工作单没有执行新模型或仿真回合。** 186 是登记范围，RoboCasa/RoboTwin 为子集，不能当作已跑完的成绩。
+
+## 历史 v1：任务生成、记忆与技能对照实验
 
 新增的 RSI 实验允许 GPT 提出场景配置，在真实仿真中尝试，依据开发回合生成 `MEMORY.md` 和可调用技能，再用冻结测试集检查效果。**大模型权重不更新；改进来自显式经验和技能，是否有效由实验决定。**
 
@@ -28,7 +38,7 @@
 |---|---|
 | [![开门回放](docs/rsi/door-memory-replay.gif)](https://pm1255.github.io/embodied-harness/rsi/experiment-v1/) | [![π0.5 工具回放](docs/rsi/pi05-bell-replay.gif)](https://pm1255.github.io/embodied-harness/rsi/pi05/) |
 
-动图为抽样事件回放，不是实时录像。单次成功不代表整体提升。[代码发布页](https://github.com/pm1255/embodied-harness/releases/tag/v0.2.0)。完整观测图像证据包已在服务器保存，公开上传等待所有者确认。
+动图为抽样事件回放，不是实时录像。单次成功不代表整体提升。[代码发布页](https://github.com/pm1255/embodied-harness/releases/tag/v0.2.0)。[72 回合完整观测帧与执行记录](https://github.com/pm1255/embodied-harness/releases/download/v0.2.0/embodied-harness-rsi-v1-public-evidence-20260924.tar.gz)已公开（261 MB；[文件清单与校验值](docs/rsi/evidence-release.json)）。
 
 | 模块 | 现在实际做的事 |
 |---|---|
