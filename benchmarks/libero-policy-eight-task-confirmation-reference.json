@@ -1,0 +1,249 @@
+{
+  "schema_version": 1,
+  "name": "libero-policy-eight-task-confirmation-reference-v1",
+  "purpose": "Matched frozen policy-only reference on all sixteen scope-confirmation states; declared after the four-task repair pilot but before inspecting wider confirmation outcomes",
+  "arms": [
+    "checkpoint_only"
+  ],
+  "model": "pi05_checkpoint_only",
+  "max_decisions": 24,
+  "max_control_ticks": 960,
+  "success_criterion": "native_success_terminal",
+  "memory": "none",
+  "skill_updates": false,
+  "task_generation": false,
+  "cases": [
+    {
+      "id": "libero_spatial-00-i7-validation",
+      "environment": "libero",
+      "seed": 7,
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "config": {
+        "suite": "libero_spatial",
+        "task_id": 0,
+        "size": 256,
+        "init_state_index": 7
+      },
+      "task_id": "libero_spatial-00",
+      "split": "validation"
+    },
+    {
+      "id": "libero_spatial-01-i7-validation",
+      "environment": "libero",
+      "seed": 7,
+      "instruction": "pick up the black bowl next to the ramekin and place it on the plate",
+      "config": {
+        "suite": "libero_spatial",
+        "task_id": 1,
+        "size": 256,
+        "init_state_index": 7
+      },
+      "task_id": "libero_spatial-01",
+      "split": "validation"
+    },
+    {
+      "id": "libero_object-00-i7-validation",
+      "environment": "libero",
+      "seed": 7,
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "config": {
+        "suite": "libero_object",
+        "task_id": 0,
+        "size": 256,
+        "init_state_index": 7
+      },
+      "task_id": "libero_object-00",
+      "split": "validation"
+    },
+    {
+      "id": "libero_object-01-i7-validation",
+      "environment": "libero",
+      "seed": 7,
+      "instruction": "pick up the cream cheese and place it in the basket",
+      "config": {
+        "suite": "libero_object",
+        "task_id": 1,
+        "size": 256,
+        "init_state_index": 7
+      },
+      "task_id": "libero_object-01",
+      "split": "validation"
+    },
+    {
+      "id": "libero_goal-00-i7-validation",
+      "environment": "libero",
+      "seed": 7,
+      "instruction": "open the middle drawer of the cabinet",
+      "config": {
+        "suite": "libero_goal",
+        "task_id": 0,
+        "size": 256,
+        "init_state_index": 7
+      },
+      "task_id": "libero_goal-00",
+      "split": "validation"
+    },
+    {
+      "id": "libero_goal-01-i7-validation",
+      "environment": "libero",
+      "seed": 7,
+      "instruction": "put the bowl on the stove",
+      "config": {
+        "suite": "libero_goal",
+        "task_id": 1,
+        "size": 256,
+        "init_state_index": 7
+      },
+      "task_id": "libero_goal-01",
+      "split": "validation"
+    },
+    {
+      "id": "libero_10-00-i7-validation",
+      "environment": "libero",
+      "seed": 7,
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "config": {
+        "suite": "libero_10",
+        "task_id": 0,
+        "size": 256,
+        "init_state_index": 7
+      },
+      "task_id": "libero_10-00",
+      "split": "validation"
+    },
+    {
+      "id": "libero_10-01-i7-validation",
+      "environment": "libero",
+      "seed": 7,
+      "instruction": "put both the cream cheese box and the butter in the basket",
+      "config": {
+        "suite": "libero_10",
+        "task_id": 1,
+        "size": 256,
+        "init_state_index": 7
+      },
+      "task_id": "libero_10-01",
+      "split": "validation"
+    },
+    {
+      "id": "libero_spatial-00-i8-heldout",
+      "environment": "libero",
+      "seed": 8,
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "config": {
+        "suite": "libero_spatial",
+        "task_id": 0,
+        "size": 256,
+        "init_state_index": 8
+      },
+      "task_id": "libero_spatial-00",
+      "split": "heldout"
+    },
+    {
+      "id": "libero_spatial-01-i8-heldout",
+      "environment": "libero",
+      "seed": 8,
+      "instruction": "pick up the black bowl next to the ramekin and place it on the plate",
+      "config": {
+        "suite": "libero_spatial",
+        "task_id": 1,
+        "size": 256,
+        "init_state_index": 8
+      },
+      "task_id": "libero_spatial-01",
+      "split": "heldout"
+    },
+    {
+      "id": "libero_object-00-i8-heldout",
+      "environment": "libero",
+      "seed": 8,
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "config": {
+        "suite": "libero_object",
+        "task_id": 0,
+        "size": 256,
+        "init_state_index": 8
+      },
+      "task_id": "libero_object-00",
+      "split": "heldout"
+    },
+    {
+      "id": "libero_object-01-i8-heldout",
+      "environment": "libero",
+      "seed": 8,
+      "instruction": "pick up the cream cheese and place it in the basket",
+      "config": {
+        "suite": "libero_object",
+        "task_id": 1,
+        "size": 256,
+        "init_state_index": 8
+      },
+      "task_id": "libero_object-01",
+      "split": "heldout"
+    },
+    {
+      "id": "libero_goal-00-i8-heldout",
+      "environment": "libero",
+      "seed": 8,
+      "instruction": "open the middle drawer of the cabinet",
+      "config": {
+        "suite": "libero_goal",
+        "task_id": 0,
+        "size": 256,
+        "init_state_index": 8
+      },
+      "task_id": "libero_goal-00",
+      "split": "heldout"
+    },
+    {
+      "id": "libero_goal-01-i8-heldout",
+      "environment": "libero",
+      "seed": 8,
+      "instruction": "put the bowl on the stove",
+      "config": {
+        "suite": "libero_goal",
+        "task_id": 1,
+        "size": 256,
+        "init_state_index": 8
+      },
+      "task_id": "libero_goal-01",
+      "split": "heldout"
+    },
+    {
+      "id": "libero_10-00-i8-heldout",
+      "environment": "libero",
+      "seed": 8,
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "config": {
+        "suite": "libero_10",
+        "task_id": 0,
+        "size": 256,
+        "init_state_index": 8
+      },
+      "task_id": "libero_10-00",
+      "split": "heldout"
+    },
+    {
+      "id": "libero_10-01-i8-heldout",
+      "environment": "libero",
+      "seed": 8,
+      "instruction": "put both the cream cheese box and the butter in the basket",
+      "config": {
+        "suite": "libero_10",
+        "task_id": 1,
+        "size": 256,
+        "init_state_index": 8
+      },
+      "task_id": "libero_10-01",
+      "split": "heldout"
+    }
+  ],
+  "checkpoint_repo": "RLinf/RLinf-Pi05-LIBERO-130-fullshot-SFT",
+  "checkpoint_revision": "6222623f635769bfc73c9472e29fab9b7fd8e027",
+  "checkpoint_sha256": "4d9089c941793f170b625c2ed0ac7a3aa09b6f103e52dbbc82e67301529d6683",
+  "planner_settings": {
+    "policy": "Repeated run_vla, 8 chunks per segment, five actions executed per chunk; no GPT."
+  },
+  "declared_before_execution": true,
+  "selection_policy": "No candidate selection. Execute the complete same task/state inventory as the eight-task GPT scope confirmation at the same 960 ticks, using full original instructions and the same checkpoint/query-keyed noise. No GPT API requests. This supplementary reference was not part of the original three repair gates."
+}
