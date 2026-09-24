@@ -1,0 +1,88 @@
+{
+  "date": "2026-09-24",
+  "checks": [
+    {
+      "environment": "metaworld",
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.2792,
+        "protocol": "sensor_observation",
+        "model_tested": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.032089042011648417,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.00458420042438918,
+              0.6013881136259887,
+              0.2151434549177042
+            ],
+            "error_m": 0.006764015806440237,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "environment": "libero",
+      "summary": {
+        "schema_version": 1,
+        "environment": "libero",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 10.1736,
+        "protocol": "sensor_observation",
+        "model_tested": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.13518087496049702,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              -0.2084646605658236,
+              0.0,
+              1.1932794757296403
+            ],
+            "error_m": 0.011547810925549653,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    }
+  ],
+  "gpt_tested": false,
+  "robocasa_tested": false,
+  "robotwin_tested": false
+}

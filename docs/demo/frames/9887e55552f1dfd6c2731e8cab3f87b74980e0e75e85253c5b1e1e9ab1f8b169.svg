@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="320" viewBox="0 0 480 320">
+<rect width="480" height="320" fill="#122430"/><path d="M20 270H460" stroke="#52727c"/>
+<path d="M240 270L200 170L240.0 201.0" fill="none" stroke="#a4bfc9" stroke-width="16"/>
+<circle cx="240.0" cy="201.0" r="10" fill="#58e0b7"/>
+<text x="20" y="30" fill="white" font-family="sans-serif" font-size="16">side · OFFLINE KINEMATIC DEMO</text>
+<text x="20" y="300" fill="#a4bfc9" font-family="monospace" font-size="13">tick 3 / gripper open</text></svg>

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "environment": "toy",
+  "task": "Offline fixture: lift, shift left, and command gripper closed",
+  "seed": 0,
+  "status": "agent_finished",
+  "agent_outcome": "completed",
+  "environment_success": true,
+  "success": true,
+  "decisions": 2,
+  "api_calls": 0,
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "control_ticks": 28,
+  "wall_seconds": 0.0065,
+  "protocol": "offline_toy",
+  "model_tested": null
+}
