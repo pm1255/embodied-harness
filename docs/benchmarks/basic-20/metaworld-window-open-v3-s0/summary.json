@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "environment": "metaworld",
+  "task": "Perform the window open task. Use the visible red goal marker when the task has one.",
+  "seed": 0,
+  "status": "decision_budget_exhausted",
+  "agent_outcome": null,
+  "environment_success": false,
+  "success": false,
+  "decisions": 3,
+  "api_calls": 3,
+  "input_tokens": 5645,
+  "output_tokens": 920,
+  "control_ticks": 321,
+  "wall_seconds": 76.2687,
+  "protocol": "sensor_observation",
+  "model_tested": "gpt-6-sol",
+  "provider": "aixor.cc",
+  "api_mode": "responses",
+  "stream": true,
+  "plan_mode": "single"
+}

@@ -1,6 +1,6 @@
 # Evaluation contract
 
-The project makes no GPT success-rate claim yet. API access, simulator smoke validation and task-solving evaluation are separate milestones.
+The project reports a fixed-budget 20-case GPT pilot, not an official benchmark success score. API access, simulator smoke validation and task-solving evaluation are separate milestones.
 
 For comparisons, freeze model ID, reasoning setting, task/seed list, observation channels, tool implementations, controller limits, max decisions and control-step budget. Compare single-tool decisions with multi-tool plans on paired tasks and seeds. Keep memory/traces from evaluation episodes out of later test prompts unless evaluating an explicitly declared online-learning protocol.
 
@@ -18,3 +18,5 @@ Report per environment and per protocol:
 The built-in adapters render simulator depth as a camera sensor and read robot proprioception. They do not read object poses, contact labels, future actions or task predicates for model decisions. The evaluator calls the task predicate only after the run. If a plugin uses privileged information, change and document the observation protocol; never merge those results with sensor-only runs.
 
 Offline fixture examples use a deterministic planner and kinematic motion. A `smoke` run uses a scripted 2cm upward motion. Neither demonstrates GPT intelligence, generalization, manipulation skill or real-world safety.
+
+The manifest runner additionally reports task success over **all planned attempts**, with no hidden retry or failure filtering; see `scripts/run_benchmark.py`. Integration smoke checks require a successful motion tool, not merely a zero process exit.

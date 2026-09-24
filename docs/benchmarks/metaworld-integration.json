@@ -1,0 +1,2909 @@
+{
+  "planned_episodes": 50,
+  "completed_attempts": 50,
+  "integration_passes": 50,
+  "task_successes": 0,
+  "task_success_rate_all_attempts": null,
+  "results": [
+    {
+      "id": "metaworld-assembly-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the assembly task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "assembly-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.751,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.3952,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.03121329192072153,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004584200357827481,
+              0.6013881376581925,
+              0.21514345792565154
+            ],
+            "error_m": 0.0067640156561092684,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-basketball-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the basketball task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "basketball-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.73,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.3597,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.031318083172664046,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.0045842003578274206,
+              0.6013881376581924,
+              0.21514345792565143
+            ],
+            "error_m": 0.006764015656109296,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-bin-picking-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the bin picking task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "bin-picking-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.167,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 0.827,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.023274000035598874,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004584200424389459,
+              0.6013881136259891,
+              0.21514345491770429
+            ],
+            "error_m": 0.00676401580643993,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-box-close-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the box close task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "box-close-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.428,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.0277,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.03664191602729261,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004601670250134785,
+              0.6010370131187365,
+              0.2149342078018591
+            ],
+            "error_m": 0.0066367348798811975,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-button-press-topdown-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the button press topdown task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "button-press-topdown-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.091,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 0.8268,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.025236166082322598,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004528505314075341,
+              0.4003076464354274,
+              0.21568644748246882
+            ],
+            "error_m": 0.008074878614055267,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-button-press-topdown-wall-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the button press topdown wall task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "button-press-topdown-wall-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.061,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 0.7697,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.023280540946871042,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004528505314075341,
+              0.4003076464354274,
+              0.21568644748246882
+            ],
+            "error_m": 0.008074878614055267,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-button-press-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the button press task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "button-press-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.316,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 0.9092,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.027003790950402617,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004528505314075317,
+              0.40030764643542743,
+              0.21568644748246887
+            ],
+            "error_m": 0.008074878614055071,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-button-press-wall-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the button press wall task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "button-press-wall-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.489,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.1487,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.034039208898320794,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004528505314075317,
+              0.40030764643542743,
+              0.21568644748246887
+            ],
+            "error_m": 0.008074878614055071,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-coffee-button-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the coffee button task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "coffee-button-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.576,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.1427,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.035638124914839864,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.0045285053049295846,
+              0.40030764048967127,
+              0.21568644456206745
+            ],
+            "error_m": 0.008451023401574356,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-coffee-pull-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the coffee pull task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "coffee-pull-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.313,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 0.9917,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.030137750087305903,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.0045285053049295846,
+              0.40030764048967127,
+              0.21568644456206745
+            ],
+            "error_m": 0.008451023401574345,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-coffee-push-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the coffee push task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "coffee-push-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.586,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.2432,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.026445165975019336,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.0045285053049295846,
+              0.40030764048967127,
+              0.21568644456206745
+            ],
+            "error_m": 0.008451023401574345,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-dial-turn-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the dial turn task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "dial-turn-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.35,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.0865,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.03337091696448624,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004562983774825298,
+              0.6014653573605454,
+              0.21518841952242926
+            ],
+            "error_m": 0.006800568620430459,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-disassemble-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the disassemble task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "disassemble-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 2.039,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.7188,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.03382320888340473,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004528505314075493,
+              0.4003076464354272,
+              0.21568644748246857
+            ],
+            "error_m": 0.008074878614054952,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-door-close-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the door close task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "door-close-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.904,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 3,
+        "wall_seconds": 1.5631,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.0407817498780787,
+          "ticks": 3,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              -0.49894541730270264,
+              0.6042858661126993,
+              0.21559858332377646
+            ],
+            "error_m": 0.011637387017949282,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-door-lock-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the door lock task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "door-lock-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 2.556,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 2.1757,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.0337524579372257,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              -0.0029630674711132034,
+              0.595153137685729,
+              0.21581199070910054
+            ],
+            "error_m": 0.009150276203831055,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-door-open-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the door open task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "door-open-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 2.501,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 2.1049,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.03242004197090864,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004584200424389253,
+              0.6013881136259889,
+              0.21514345491770462
+            ],
+            "error_m": 0.0067640158064405835,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-door-unlock-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the door unlock task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "door-unlock-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.825,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.4351,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.041251083137467504,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              -0.00432698305267473,
+              0.5957861413254218,
+              0.2157247407549706
+            ],
+            "error_m": 0.00891399885549085,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-hand-insert-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the hand insert task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "hand-insert-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.832,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.4176,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.044126665918156505,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004584200357827433,
+              0.6013881376581925,
+              0.21514345792565157
+            ],
+            "error_m": 0.0067640156561094116,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-drawer-close-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the drawer close task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "drawer-close-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.893,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 3,
+        "wall_seconds": 1.4227,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.025461458833888173,
+          "ticks": 3,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004584200357827524,
+              0.6013881376581925,
+              0.2151434579256514
+            ],
+            "error_m": 0.011685998438387751,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-drawer-open-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the drawer open task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "drawer-open-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.832,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.3712,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.030897707911208272,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004562983774825298,
+              0.6014653573605454,
+              0.21518841952242926
+            ],
+            "error_m": 0.006800568620430459,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-faucet-open-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the faucet open task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "faucet-open-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.314,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 0.9349,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.030012750066816807,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.0045042322238528915,
+              0.40032991947442276,
+              0.21574034568085654
+            ],
+            "error_m": 0.008123924327504526,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-faucet-close-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the faucet close task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "faucet-close-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.245,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 0.8964,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.03115325001999736,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004528505304929818,
+              0.4003076404896714,
+              0.21568644456206734
+            ],
+            "error_m": 0.008074879226812022,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-hammer-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the hammer task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "hammer-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.85,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.3015,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.03970787487924099,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004528505304928257,
+              0.40030764048967216,
+              0.21568644456206792
+            ],
+            "error_m": 0.008074879226812331,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-handle-press-side-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the handle press side task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "handle-press-side-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.357,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 0.8778,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.03577637509442866,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004584200424389245,
+              0.6013881136259892,
+              0.21514345491770437
+            ],
+            "error_m": 0.006764015806440128,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-handle-press-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the handle press task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "handle-press-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 2.241,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.6991,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.03759249998256564,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004594121491808163,
+              0.6013757522627865,
+              0.21514023245437133
+            ],
+            "error_m": 0.00675260747099668,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-handle-pull-side-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the handle pull side task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "handle-pull-side-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.923,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.0988,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.036354040959849954,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004584200424389245,
+              0.6013881136259892,
+              0.21514345491770437
+            ],
+            "error_m": 0.006764015806440128,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-handle-pull-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the handle pull task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "handle-pull-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 2.589,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 2.1911,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.057314333971589804,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004594121491808163,
+              0.6013757522627865,
+              0.21514023245437133
+            ],
+            "error_m": 0.0067614041646619095,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-lever-pull-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the lever pull task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "lever-pull-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 2.375,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.7877,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.04761879192665219,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004504232234804192,
+              0.4003299254211247,
+              0.21574034860017408
+            ],
+            "error_m": 0.00812392372363501,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-pick-place-wall-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the pick place wall task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "pick-place-wall-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.508,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.1132,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.02836925000883639,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.00458420042438918,
+              0.6013881136259887,
+              0.2151434549177042
+            ],
+            "error_m": 0.006764015806440237,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-pick-out-of-hole-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the pick out of hole task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "pick-out-of-hole-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.507,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 0.9502,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.027753791073337197,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004584200424389423,
+              0.6013881136259891,
+              0.21514345491770417
+            ],
+            "error_m": 0.006764015806440211,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-pick-place-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the pick place task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "pick-place-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.372,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 0.9617,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.0399303340818733,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.00458420042438918,
+              0.6013881136259887,
+              0.2151434549177042
+            ],
+            "error_m": 0.006764015806440237,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-plate-slide-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the plate slide task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "plate-slide-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.364,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 0.9982,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.04016441712155938,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004584200357827524,
+              0.6013881376581925,
+              0.2151434579256514
+            ],
+            "error_m": 0.006764015656109173,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-plate-slide-side-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the plate slide side task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "plate-slide-side-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 2.05,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.6486,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.04277125000953674,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004584200357827524,
+              0.6013881376581925,
+              0.2151434579256514
+            ],
+            "error_m": 0.006764015656109173,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-plate-slide-back-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the plate slide back task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "plate-slide-back-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 2.001,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.6354,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.05390891688875854,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004584200357827524,
+              0.6013881376581925,
+              0.2151434579256514
+            ],
+            "error_m": 0.006764015656109173,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-plate-slide-back-side-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the plate slide back side task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "plate-slide-back-side-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 2.219,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.7874,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.04818595782853663,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004584200357827524,
+              0.6013881376581925,
+              0.2151434579256514
+            ],
+            "error_m": 0.006764015656109173,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-peg-insert-side-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the peg insert side task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "peg-insert-side-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 2.202,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.7578,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.04165979195386171,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004584200424389266,
+              0.601388113625989,
+              0.21514345491770412
+            ],
+            "error_m": 0.006764015806440276,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-peg-unplug-side-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the peg unplug side task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "peg-unplug-side-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 2.122,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.5772,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.03480050014331937,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.00458420042443816,
+              0.6013881136259687,
+              0.21514345491769749
+            ],
+            "error_m": 0.006764015806445353,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-soccer-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the soccer task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "soccer-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 2.049,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.4726,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.04057274991646409,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004584200424388934,
+              0.6013881136259893,
+              0.21514345491770445
+            ],
+            "error_m": 0.0067640158064402175,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-stick-push-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the stick push task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "stick-push-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.53,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.2244,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.02815829194150865,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.00458420042438952,
+              0.6013881136259891,
+              0.21514345491770406
+            ],
+            "error_m": 0.0067640158064402175,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-stick-pull-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the stick pull task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "stick-pull-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.484,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.0313,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.02640520897693932,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.00458420042438952,
+              0.6013881136259891,
+              0.21514345491770406
+            ],
+            "error_m": 0.0067640158064402175,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-push-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the push task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "push-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 2.919,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 2.4179,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.03929800004698336,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.00458420042438918,
+              0.6013881136259887,
+              0.2151434549177042
+            ],
+            "error_m": 0.006764015806440237,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-push-wall-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the push wall task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "push-wall-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 2.938,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 2.5823,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.04021341702900827,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.00458420042438918,
+              0.6013881136259887,
+              0.2151434549177042
+            ],
+            "error_m": 0.00676401580644023,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-push-back-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the push back task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "push-back-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 2.624,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.9353,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.0625806248281151,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004584200357827393,
+              0.6013881376581923,
+              0.21514345792565145
+            ],
+            "error_m": 0.006764015656109065,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-reach-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the reach task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "reach-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 2.585,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.8704,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.062373041873797774,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.00458420042438918,
+              0.6013881136259887,
+              0.2151434549177042
+            ],
+            "error_m": 0.006764015806440237,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-reach-wall-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the reach wall task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "reach-wall-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.898,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.4345,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.02742299996316433,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004584200424389128,
+              0.6013881136259891,
+              0.2151434549177045
+            ],
+            "error_m": 0.006764015806440299,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-shelf-place-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the shelf place task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "shelf-place-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.941,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.397,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.03196529089473188,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004584200357827474,
+              0.6013881376581925,
+              0.21514345792565157
+            ],
+            "error_m": 0.006764015656109276,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-sweep-into-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the sweep into task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "sweep-into-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.424,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.0321,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.0253648750949651,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004584200424389168,
+              0.6013881136259892,
+              0.21514345491770426
+            ],
+            "error_m": 0.006764015806440199,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-sweep-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the sweep task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "sweep-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 1.372,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 0.9966,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.02695933310315013,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.004584200424389312,
+              0.601388113625989,
+              0.21514345491770406
+            ],
+            "error_m": 0.006764015806440069,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-window-open-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the window open task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "window-open-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 2.631,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.7607,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.0796236249152571,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.0045042322348042745,
+              0.40032992542112456,
+              0.21574034860017424
+            ],
+            "error_m": 0.008123923723635025,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    },
+    {
+      "id": "metaworld-window-close-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the window close task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "window-close-v3",
+        "task_index": 0,
+        "size": 256
+      },
+      "mode": "smoke",
+      "process_status": "finished",
+      "returncode": 0,
+      "integration_passed": true,
+      "task_success": false,
+      "wall_seconds": 2.715,
+      "summary": {
+        "schema_version": 1,
+        "environment": "metaworld",
+        "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+        "seed": 0,
+        "status": "agent_finished",
+        "agent_outcome": "blocked",
+        "environment_success": false,
+        "success": false,
+        "decisions": 2,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 4,
+        "wall_seconds": 1.8142,
+        "protocol": "sensor_observation",
+        "model_tested": null,
+        "provider": null,
+        "api_mode": null,
+        "stream": null,
+        "plan_mode": null
+      },
+      "tool_results": [
+        {
+          "step_id": "smoke-up",
+          "duration_s": 0.07725512492470443,
+          "ticks": 4,
+          "status": "succeeded",
+          "data": {
+            "target_m": [
+              0.0045042322348042745,
+              0.40032992542112456,
+              0.21574034860017424
+            ],
+            "error_m": 0.008123923723635025,
+            "meaning": "TCP reached target; object contact/grasp is not verified"
+          },
+          "error_code": null
+        }
+      ],
+      "camera_observations": 4
+    }
+  ]
+}

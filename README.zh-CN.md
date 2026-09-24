@@ -7,7 +7,30 @@
 
 这是一个把**视觉决策、几何计算、连续控制、任务评价**分开的机器人执行框架。模型调用已经实现的工具；底层生成控制指令。模型可以一次调用一个工具，也可以提交短计划，由执行器在完成或失败时交还控制权。
 
-## 实测结果表
+## 20 个真实任务与双视角回放
+
+**[打开 20 任务交互网页](https://pm1255.github.io/embodied-harness/benchmarks/basic-20/)** · [GitHub 内查看全部 20 条动图与原始 JSON](docs/benchmarks/basic-20/README.md) · [基础接口覆盖表](docs/benchmarks/README.md)
+
+| 本轮固定预算试跑 | 任务数 | 最终任务成功 | API 调用 | API 错误回合 |
+|---|---:|---:|---:|---:|
+| MetaWorld | 10 | 3 | 28 | 1 |
+| LIBERO Spatial | 10 | 0 | 29 | 2 |
+
+每任务最多 **3 次决策 / 360 个控制步**，单工具模式，seed 0；LIBERO 使用官方初始状态 0。全部失败保留，3/20 是该短预算试跑的结果，**不是官方 benchmark 成绩，也不是与 RPent 的公平对比**。抓取等多阶段任务明显受预算与现有工具能力限制。
+
+| Reach：成功 | Drawer-close：成功 | LIBERO：未完成 |
+|---|---|---|
+| ![Reach 双视角](docs/benchmarks/basic-20/metaworld-reach-v3-s0/replay.gif) | ![Drawer close 双视角](docs/benchmarks/basic-20/metaworld-drawer-close-v3-s0/replay.gif) | ![LIBERO 双视角](docs/benchmarks/basic-20/libero_spatial-00-s0/replay.gif) |
+
+MetaWorld 的倒置画面已修正：新评测同步旋转 RGB、深度和相机标定；历史回放只修正显示，原始模型坐标不改写。基础接口检查：MetaWorld **50/50**，LIBERO **129/130**；LIBERO-90 task 85 的物理不稳定在原生零动作下也能复现。基础接口通过不等于任务成功。
+
+RoboTwin：**3/3 单卡接口检查通过**，[新增三条真实仿真回放](docs/benchmarks/gpu-smokes/README.md)。RoboCasa 仍缺 Lightwheel 物体资产，九条启动失败均保留，不能称为四环境 benchmark 已全部完成。
+
+## 与 RPent 的真实差异
+
+目前没有证据证明我们优于 RPent。它已有 VLA 执行、几何工具、记忆和多环境成绩。我们的定位是可复用的执行与评测内核，探索减少模型调用；抓取与接触控制仍是短板。见[逐项对比与验证标准](docs/rpent-comparison.md)。
+
+## 较早的两条诊断记录
 
 | 真实 API 任务 | 决策方式 | 最终任务判据 | API 调用 | 控制步 | 总耗时 | 停止原因 |
 |---|---|---|---:|---:|---:|---|

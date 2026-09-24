@@ -1,16 +1,16 @@
 # Validation status — 2026-09-24
 
-This file distinguishes implemented code, contract tests, simulator execution and model performance. No success-rate or model-generalization claim is made.
+This file distinguishes implemented code, contract tests, simulator execution and model performance. A 20-case, three-decision pilot is reported separately from official benchmark performance. See the [latest coverage table and all outcomes](benchmarks/README.md).
 
 | Component | Evidence | Remaining boundary |
 |---|---|---|
 | Runtime / offline demo | Unit tests, successful and injected-failure runs | Synthetic kinematic scene; no physics or GPT |
 | GPT Responses adapter | Request/response contract tests using a fake transport | Live AiXor image/function and simulator attempts recorded in [live tests](live-tests/README.md); gateway reliability remains unresolved |
 | Trace viewer | Browser inspection; tool selection and observation synchronization exercised | Sampled observations, not full-rate video |
-| MetaWorld | Actual reset, two RGB-D cameras, local servo and final evaluator run | Limited live diagnostic only; no benchmark estimate |
-| LIBERO | Actual reset, two RGB-D cameras, local servo and final evaluator run | Limited live diagnostic; no official init-state benchmark |
-| RoboCasa | Constructor and named-controller integration implemented | Assets/controller configuration not tested in a real RoboCasa run |
-| RoboTwin | Task-factory bridge, camera/pose extraction and native EE action path implemented | Requires operator task factory; not tested in an asset-backed RoboTwin run |
+| MetaWorld | Actual reset, two RGB-D cameras, local servo and final evaluator run | 50/50 task-type interface checks; 10-case short GPT pilot, not official MT50 |
+| LIBERO | Actual reset, two RGB-D cameras, local servo and final evaluator run | 129/130 interface checks; official initial-state loading added; 10-case short GPT pilot |
+| RoboCasa | Constructor and named-controller integration implemented | Three GPU startup attempts: missing Lightwheel assets remain; see latest coverage |
+| RoboTwin | Task-factory bridge, camera/pose extraction and native EE action path implemented | Three actual native-source GPU motion checks passed; no GPT task-solving result |
 | Real robots | No adapter shipped | Not validated |
 
 ## Actual simulator smoke evidence

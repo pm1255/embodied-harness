@@ -1,0 +1,115 @@
+{
+  "protocol": "10 task types x MT1 instance 0 seed 0; budget-limited GPT pilot, not official MT10 evaluation",
+  "cases": [
+    {
+      "id": "metaworld-reach-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the reach task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "reach-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-push-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the push task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "push-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-pick-place-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the pick place task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "pick-place-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-door-open-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the door open task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "door-open-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-drawer-open-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the drawer open task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "drawer-open-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-drawer-close-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the drawer close task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "drawer-close-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-button-press-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the button press task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "button-press-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-peg-insert-side-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the peg insert side task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "peg-insert-side-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-window-open-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the window open task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "window-open-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-window-close-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the window close task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "window-close-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    }
+  ]
+}

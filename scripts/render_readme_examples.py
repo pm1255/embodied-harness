@@ -77,7 +77,11 @@ def render(label):
         for i, camera in enumerate(observation["frames"][:2]):
             x, y = 24 + i * 388, 112
             with Image.open(src / camera["image_path"]) as original:
-                image = original.convert("RGB").resize((364, 364), Image.Resampling.NEAREST)
+                image = original.convert("RGB")
+                historical_rotation = label == "metaworld" and not camera.get("raster_rotation_deg")
+                if historical_rotation:
+                    image = image.transpose(Image.Transpose.ROTATE_180)
+                image = image.resize((364, 364), Image.Resampling.NEAREST)
             im.paste(image, (x, y))
             d.text((x, 86), camera["name"], font=font(17), fill=MUTED)
             if call:
@@ -87,6 +91,8 @@ def render(label):
                     and a.get("camera") == camera["name"]
                 ):
                     px, py = a["pixel"]
+                    if historical_rotation:
+                        px, py = camera["width"] - 1 - px, camera["height"] - 1 - py
                     xx = x + px * 364 / camera["width"]
                     yy = y + py * 364 / camera["height"]
                     d.ellipse((xx - 8, yy - 8, xx + 8, yy + 8), outline=AMBER, width=3)
@@ -117,7 +123,9 @@ def render(label):
         )
         d.text(
             (24, 637),
-            "Recorded observations; accelerated playback. No frame interpolation.",
+            "Recorded frames; display rotated 180 deg; JSON keeps original pixels."
+            if label == "metaworld"
+            else "Recorded observations; accelerated playback. No frame interpolation.",
             font=font(16),
             fill=MUTED,
         )

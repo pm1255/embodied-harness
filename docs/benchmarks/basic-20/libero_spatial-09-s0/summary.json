@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "environment": "libero",
+  "task": "pick up the black bowl on the wooden cabinet and place it on the plate",
+  "seed": 0,
+  "status": "decision_budget_exhausted",
+  "agent_outcome": null,
+  "environment_success": false,
+  "success": false,
+  "decisions": 3,
+  "api_calls": 3,
+  "input_tokens": 5564,
+  "output_tokens": 394,
+  "control_ticks": 189,
+  "wall_seconds": 56.2292,
+  "protocol": "sensor_observation",
+  "model_tested": "gpt-6-sol",
+  "provider": "aixor.cc",
+  "api_mode": "responses",
+  "stream": true,
+  "plan_mode": "single"
+}

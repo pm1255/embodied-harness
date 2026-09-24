@@ -1,0 +1,555 @@
+{
+  "protocol": "50 task types, MT1 generated instance 0, seed 0; interface sweep, not official MT50 evaluation",
+  "cases": [
+    {
+      "id": "metaworld-assembly-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the assembly task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "assembly-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-basketball-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the basketball task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "basketball-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-bin-picking-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the bin picking task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "bin-picking-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-box-close-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the box close task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "box-close-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-button-press-topdown-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the button press topdown task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "button-press-topdown-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-button-press-topdown-wall-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the button press topdown wall task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "button-press-topdown-wall-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-button-press-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the button press task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "button-press-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-button-press-wall-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the button press wall task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "button-press-wall-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-coffee-button-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the coffee button task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "coffee-button-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-coffee-pull-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the coffee pull task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "coffee-pull-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-coffee-push-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the coffee push task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "coffee-push-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-dial-turn-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the dial turn task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "dial-turn-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-disassemble-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the disassemble task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "disassemble-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-door-close-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the door close task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "door-close-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-door-lock-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the door lock task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "door-lock-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-door-open-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the door open task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "door-open-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-door-unlock-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the door unlock task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "door-unlock-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-hand-insert-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the hand insert task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "hand-insert-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-drawer-close-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the drawer close task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "drawer-close-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-drawer-open-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the drawer open task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "drawer-open-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-faucet-open-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the faucet open task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "faucet-open-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-faucet-close-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the faucet close task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "faucet-close-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-hammer-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the hammer task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "hammer-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-handle-press-side-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the handle press side task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "handle-press-side-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-handle-press-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the handle press task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "handle-press-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-handle-pull-side-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the handle pull side task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "handle-pull-side-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-handle-pull-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the handle pull task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "handle-pull-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-lever-pull-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the lever pull task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "lever-pull-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-pick-place-wall-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the pick place wall task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "pick-place-wall-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-pick-out-of-hole-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the pick out of hole task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "pick-out-of-hole-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-pick-place-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the pick place task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "pick-place-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-plate-slide-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the plate slide task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "plate-slide-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-plate-slide-side-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the plate slide side task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "plate-slide-side-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-plate-slide-back-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the plate slide back task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "plate-slide-back-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-plate-slide-back-side-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the plate slide back side task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "plate-slide-back-side-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-peg-insert-side-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the peg insert side task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "peg-insert-side-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-peg-unplug-side-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the peg unplug side task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "peg-unplug-side-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-soccer-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the soccer task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "soccer-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-stick-push-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the stick push task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "stick-push-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-stick-pull-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the stick pull task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "stick-pull-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-push-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the push task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "push-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-push-wall-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the push wall task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "push-wall-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-push-back-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the push back task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "push-back-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-reach-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the reach task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "reach-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-reach-wall-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the reach wall task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "reach-wall-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-shelf-place-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the shelf place task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "shelf-place-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-sweep-into-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the sweep into task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "sweep-into-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-sweep-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the sweep task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "sweep-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-window-open-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the window open task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "window-open-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-window-close-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the window close task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "window-close-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    }
+  ]
+}

@@ -22,6 +22,7 @@ class CameraFrame:
     height: int
     image_path: str
     timestamp_s: float
+    raster_rotation_deg: int = 0
 
 
 @dataclass

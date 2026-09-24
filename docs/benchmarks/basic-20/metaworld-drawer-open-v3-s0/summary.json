@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "environment": "metaworld",
+  "task": "Perform the drawer open task. Use the visible red goal marker when the task has one.",
+  "seed": 0,
+  "status": "infrastructure_error",
+  "agent_outcome": null,
+  "environment_success": null,
+  "success": false,
+  "decisions": 1,
+  "api_calls": 1,
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "control_ticks": 0,
+  "wall_seconds": 26.5747,
+  "protocol": "sensor_observation",
+  "model_tested": "gpt-6-sol",
+  "provider": "aixor.cc",
+  "api_mode": "responses",
+  "stream": true,
+  "plan_mode": "single"
+}

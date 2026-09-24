@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "environment": "metaworld",
+  "task": "Perform the push task. Use the visible red goal marker when the task has one.",
+  "seed": 0,
+  "status": "decision_budget_exhausted",
+  "agent_outcome": null,
+  "environment_success": null,
+  "success": false,
+  "decisions": 3,
+  "api_calls": 3,
+  "input_tokens": 5603,
+  "output_tokens": 959,
+  "control_ticks": 0,
+  "wall_seconds": 130.8857,
+  "protocol": "sensor_observation",
+  "model_tested": "gpt-6-sol",
+  "provider": "aixor.cc",
+  "api_mode": "responses",
+  "stream": true,
+  "plan_mode": "single"
+}

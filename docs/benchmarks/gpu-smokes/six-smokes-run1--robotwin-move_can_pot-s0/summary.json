@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "environment": "robotwin",
+  "task": "Interface smoke test: move TCP up by 2cm; no task-solving claim",
+  "seed": 0,
+  "status": "agent_finished",
+  "agent_outcome": "blocked",
+  "environment_success": false,
+  "success": false,
+  "decisions": 2,
+  "api_calls": 0,
+  "input_tokens": 0,
+  "output_tokens": 0,
+  "control_ticks": 1,
+  "wall_seconds": 72.5234,
+  "protocol": "sensor_observation",
+  "model_tested": null,
+  "provider": null,
+  "api_mode": null,
+  "stream": null,
+  "plan_mode": null
+}

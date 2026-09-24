@@ -7,6 +7,29 @@
 
 A small GPT-first runtime that separates **visual decisions, geometry, local control and evaluation**. The model calls implemented tools instead of generating every controller command. It can submit one primitive or a bounded plan; the executor returns control when the plan ends or a step fails.
 
+## Twenty real tasks, two cameras each
+
+**[Open the interactive 20-task replay](https://pm1255.github.io/embodied-harness/benchmarks/basic-20/)** · [All 20 GIFs and exact JSON on GitHub](docs/benchmarks/basic-20/README.md) · [Integration coverage and blockers](docs/benchmarks/README.md)
+
+| Fixed-budget pilot | Tasks | Final task successes | API requests | API-error episodes |
+|---|---:|---:|---:|---:|
+| MetaWorld | 10 | 3 | 28 | 1 |
+| LIBERO Spatial | 10 | 0 | 29 | 2 |
+
+Each task gets at most **3 decisions / 360 control ticks**, single-tool mode, seed 0; LIBERO uses official initial state 0. Every failure is included. **3/20 is a short-pilot result, not an official benchmark score or a matched RPent comparison.** Multi-stage grasping is restricted by both this small budget and the primitive tool set.
+
+| Reach: success | Drawer-close: success | LIBERO: not solved |
+|---|---|---|
+| ![Reach two-camera replay](docs/benchmarks/basic-20/metaworld-reach-v3-s0/replay.gif) | ![Drawer close two-camera replay](docs/benchmarks/basic-20/metaworld-drawer-close-v3-s0/replay.gif) | ![LIBERO two-camera replay](docs/benchmarks/basic-20/libero_spatial-00-s0/replay.gif) |
+
+Upside-down MetaWorld cameras are corrected jointly across RGB, depth and calibration. Historical replays rotate presentation only, preserving raw model coordinates. Interface sweeps: **50/50 MetaWorld**, **129/130 LIBERO**; LIBERO-90 task 85 also exhibits unstable physics under native zero-motion actions. Interface completion is not task success.
+
+RoboTwin: **3/3 GPU interface checks passed**; [watch three additional real simulator replays](docs/benchmarks/gpu-smokes/README.md). RoboCasa is still blocked by missing Lightwheel object assets; all nine failed startup attempts are retained.
+
+## Is this better than RPent?
+
+**Not established.** RPent already has VLA execution, geometry tools, memory and multi-environment evaluations. Our narrower goal is a portable execution and measurement kernel for reducing model decisions. Grasp and contact control remain major gaps. Read the [source-backed comparison and required experiments](docs/rpent-comparison.md).
+
 ## Measured results, including reliability failures
 
 | Real API example | Plan mode | Final task predicate | API calls | Control ticks | Wall time | Stop reason |
@@ -71,7 +94,7 @@ Its current strength is an explicit execution contract and inspectable failures.
 | Typed tools, complete-plan validation | Rejects unsupported tools and malformed plans before motion | [Runtime tests](tests/test_runtime.py) | Valid syntax does not guarantee valid robot behavior |
 | Failure stops the remaining plan | Prevents subsequent steps from blindly following a failed movement | LIBERO stale-reference/stall trace; injected-failure tests | Cooperative stop is not collision avoidance or hardware emergency stop |
 | Separate model, controller and task outcomes | Reveals whether a failure came from planning, execution or the API | Both real traces and all-attempt log | Provider outages still break the episode |
-| Shared tool contract, environment-specific adapters | Keeps simulator action encoding out of the model-facing plan | LIBERO and MetaWorld executed real controls | RoboCasa/RoboTwin still need asset-backed validation |
+| Shared tool contract, environment-specific adapters | Keeps simulator action encoding out of the model-facing plan | LIBERO and MetaWorld executed real controls | RoboTwin has three GPU interface checks; RoboCasa remains asset-blocked |
 
 **Scheduling mechanism, tested without GPT:**
 
@@ -169,7 +192,7 @@ The model input consists of current RGB images, robot proprioception, tool speci
 | LIBERO | `--env libero --config examples/libero.json` | Single Panda, delta OSC, RGB-D surface projection |
 | MetaWorld 3.x | `--env metaworld --config examples/metaworld.json` | Sawyer Cartesian control, two RGB-D cameras |
 | RoboCasa | `--env robocasa --config examples/robocasa.json` | Adapter for compatible delta OSC configurations; runtime validation required |
-| RoboTwin 2 | `--env robotwin --config examples/robotwin.json` | Bridge to an operator-supplied, evaluation-ready task factory; two arms, native EE actions |
+| RoboTwin 2 | `--env robotwin --config examples/robotwin.json` | Three native-source GPU interface checks passed; wheel factory still experimental |
 
 These are **not four completed benchmark evaluations**. See [validation evidence](docs/validation.md) before interpreting support. Installing a package or passing a mock test is not evidence of physical task success.
 

@@ -1,0 +1,235 @@
+{
+  "protocol": "20-case pilot; 3 GPT decisions / 360 control ticks per task; all attempts reported, no retries. Not an official benchmark score.",
+  "cases": [
+    {
+      "id": "metaworld-reach-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the reach task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "reach-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-push-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the push task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "push-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-pick-place-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the pick place task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "pick-place-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-door-open-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the door open task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "door-open-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-drawer-open-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the drawer open task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "drawer-open-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-drawer-close-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the drawer close task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "drawer-close-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-button-press-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the button press task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "button-press-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-peg-insert-side-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the peg insert side task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "peg-insert-side-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-window-open-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the window open task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "window-open-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "metaworld-window-close-v3-s0",
+      "environment": "metaworld",
+      "seed": 0,
+      "instruction": "Perform the window close task. Use the visible red goal marker when the task has one.",
+      "config": {
+        "task": "window-close-v3",
+        "task_index": 0,
+        "size": 256
+      }
+    },
+    {
+      "id": "libero_spatial-00-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "config": {
+        "suite": "libero_spatial",
+        "task_id": 0,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_spatial-01-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the black bowl next to the ramekin and place it on the plate",
+      "config": {
+        "suite": "libero_spatial",
+        "task_id": 1,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_spatial-02-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the black bowl from table center and place it on the plate",
+      "config": {
+        "suite": "libero_spatial",
+        "task_id": 2,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_spatial-03-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the black bowl on the cookie box and place it on the plate",
+      "config": {
+        "suite": "libero_spatial",
+        "task_id": 3,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_spatial-04-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "config": {
+        "suite": "libero_spatial",
+        "task_id": 4,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_spatial-05-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the black bowl on the ramekin and place it on the plate",
+      "config": {
+        "suite": "libero_spatial",
+        "task_id": 5,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_spatial-06-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the black bowl next to the cookie box and place it on the plate",
+      "config": {
+        "suite": "libero_spatial",
+        "task_id": 6,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_spatial-07-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the black bowl on the stove and place it on the plate",
+      "config": {
+        "suite": "libero_spatial",
+        "task_id": 7,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_spatial-08-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the black bowl next to the plate and place it on the plate",
+      "config": {
+        "suite": "libero_spatial",
+        "task_id": 8,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_spatial-09-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the black bowl on the wooden cabinet and place it on the plate",
+      "config": {
+        "suite": "libero_spatial",
+        "task_id": 9,
+        "size": 256,
+        "init_state_index": 0
+      }
+    }
+  ]
+}

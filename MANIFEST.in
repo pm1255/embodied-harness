@@ -3,3 +3,8 @@ recursive-include docs *.md *.json *.jsonl *.html *.svg *.png *.jpg *.jpeg *.gif
 recursive-include examples *.json *.py
 recursive-include tests *.py
 recursive-include scripts *.py
+recursive-include benchmarks *.json *.md
+
+# Large replay assets stay in GitHub/Pages, outside the installable source package.
+prune docs/benchmarks/basic-20
+prune docs/benchmarks/gpu-smokes

@@ -8,17 +8,18 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 
-from ..geometry import DepthCache, mujoco_camera
+from ..geometry import DepthCache, mujoco_camera, rotate_rgbd_180
 from ..protocol import CameraFrame, Observation
 
 
 class MetaWorldEnvironment:
     name = "metaworld"
 
-    def __init__(self, directory, task="reach-v3", task_index=0, size=256):
+    def __init__(self, directory, task="reach-v3", task_index=0, size=256, upright=True):
         self.directory = Path(directory)
         self.directory.mkdir(parents=True, exist_ok=True)
         self.task, self.task_index, self.size = task, task_index, size
+        self.upright = upright
         self.env = self.renderer = None
         self.last_success = None
         self.depth = DepthCache()
@@ -30,6 +31,7 @@ class MetaWorldEnvironment:
             "collision_planning": False,
             "control_frame": "world",
             "orientation": "fixed_by_environment",
+            "camera_raster_rotation_deg": 180 if upright else 0,
             "observation_source": "rendered_rgbd_and_proprioception",
         }
 
@@ -63,12 +65,19 @@ class MetaWorldEnvironment:
             self.renderer.enable_depth_rendering()
             depth = self.renderer.render().copy()  # modern MuJoCo renderer returns meters
             K, T = mujoco_camera(self.env.model, self.env.data, camera, self.size, self.size)
+            if self.upright:
+                rgb, depth, K, T = rotate_rgbd_180(rgb, depth, K, T)
             self.depth.cameras[camera] = (depth, K, T)
             path = self.directory / f"{self.episode}_{self.frame}_{camera}.png"
             Image.fromarray(rgb).save(path)
             frames.append(
                 CameraFrame(
-                    camera, self.size, self.size, str(path.resolve()), float(self.env.data.time)
+                    camera,
+                    self.size,
+                    self.size,
+                    str(path.resolve()),
+                    float(self.env.data.time),
+                    raster_rotation_deg=180 if self.upright else 0,
                 )
             )
         # Never forward _get_obs(): it includes privileged object and goal state.

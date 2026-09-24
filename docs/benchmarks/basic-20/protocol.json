@@ -1,0 +1,23 @@
+{
+  "mode": "run",
+  "model_arguments": [
+    "--model",
+    "gpt-6-sol",
+    "--base-url",
+    "https://aixor.cc/v1",
+    "--stream",
+    "--api-timeout",
+    "90",
+    "--max-decisions",
+    "3",
+    "--max-control-ticks",
+    "360",
+    "--plan-mode",
+    "single"
+  ],
+  "workers": 2,
+  "case_timeout_s": 400,
+  "planned_episodes": 20,
+  "manifest_sha256": "d4557fdbeff5e469fe4cd5359288231645020e7c0f837b5ac59c9236ec8a4973",
+  "note": "No retry or success filtering; this manifest is a subset unless explicitly stated."
+}

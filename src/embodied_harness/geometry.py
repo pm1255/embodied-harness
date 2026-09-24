@@ -52,3 +52,14 @@ class DepthCache:
         if camera not in self.cameras:
             raise ValueError("Camera has no calibrated depth")
         return backproject(pixel, *self.cameras[camera])
+
+
+def rotate_rgbd_180(rgb, depth, intrinsic, world_from_camera):
+    """Roll a raster and its optical frame together; preserve every world ray."""
+    height, width = depth.shape
+    K = np.array(intrinsic, dtype=float, copy=True)
+    T = np.array(world_from_camera, dtype=float, copy=True)
+    # Pixel centers map (u, v) -> (width-1-u, height-1-v).
+    K[0, 2], K[1, 2] = width - 1 - K[0, 2], height - 1 - K[1, 2]
+    T[:3, :3] = T[:3, :3] @ np.diag([-1, -1, 1])
+    return np.ascontiguousarray(rgb[::-1, ::-1]), np.ascontiguousarray(depth[::-1, ::-1]), K, T

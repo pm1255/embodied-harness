@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "environment": "metaworld",
+  "task": "Perform the drawer close task. Use the visible red goal marker when the task has one.",
+  "seed": 0,
+  "status": "decision_budget_exhausted",
+  "agent_outcome": null,
+  "environment_success": true,
+  "success": true,
+  "decisions": 3,
+  "api_calls": 3,
+  "input_tokens": 5528,
+  "output_tokens": 1796,
+  "control_ticks": 94,
+  "wall_seconds": 134.1416,
+  "protocol": "sensor_observation",
+  "model_tested": "gpt-6-sol",
+  "provider": "aixor.cc",
+  "api_mode": "responses",
+  "stream": true,
+  "plan_mode": "single"
+}

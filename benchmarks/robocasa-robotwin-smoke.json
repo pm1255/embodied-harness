@@ -1,0 +1,68 @@
+{
+  "protocol": "Reset, dual-camera capture, 2cm TCP movement, evaluator access. Integration only; not task-solving benchmark.",
+  "cases": [
+    {
+      "id": "robocasa-OpenDrawer-s0",
+      "environment": "robocasa",
+      "seed": 0,
+      "instruction": "OpenDrawer",
+      "config": {
+        "task": "OpenDrawer",
+        "size": 256
+      }
+    },
+    {
+      "id": "robocasa-CloseDrawer-s0",
+      "environment": "robocasa",
+      "seed": 0,
+      "instruction": "CloseDrawer",
+      "config": {
+        "task": "CloseDrawer",
+        "size": 256
+      }
+    },
+    {
+      "id": "robocasa-PickPlaceCounterToCabinet-s0",
+      "environment": "robocasa",
+      "seed": 0,
+      "instruction": "PickPlaceCounterToCabinet",
+      "config": {
+        "task": "PickPlaceCounterToCabinet",
+        "size": 256
+      }
+    },
+    {
+      "id": "robotwin-lift_pot-s0",
+      "environment": "robotwin",
+      "seed": 0,
+      "instruction": "lift pot",
+      "config": {
+        "task": "lift_pot",
+        "size": 256,
+        "factory": "embodied_harness.adapters.robotwin_factory:make_environment"
+      }
+    },
+    {
+      "id": "robotwin-click_bell-s0",
+      "environment": "robotwin",
+      "seed": 0,
+      "instruction": "click bell",
+      "config": {
+        "task": "click_bell",
+        "size": 256,
+        "factory": "embodied_harness.adapters.robotwin_factory:make_environment"
+      }
+    },
+    {
+      "id": "robotwin-move_can_pot-s0",
+      "environment": "robotwin",
+      "seed": 0,
+      "instruction": "move can pot",
+      "config": {
+        "task": "move_can_pot",
+        "size": 256,
+        "factory": "embodied_harness.adapters.robotwin_factory:make_environment"
+      }
+    }
+  ]
+}

@@ -8,10 +8,19 @@
 - RoboCasa adapter and RoboTwin task-factory bridge, explicitly pending runtime validation.
 - Offline success/failure fixtures, portable trace viewer, CLI, packaging, tests and CI.
 
-No live GPT benchmark, universal grasp skill, collision planner, remote RPC service or validated physical-robot adapter is included in this release.
+No full official GPT benchmark, universal grasp skill, collision planner, remote RPC service or validated physical-robot adapter is included in this release.
 
 ### Live API diagnostics
 
 - Add explicit Responses streaming and Chat Completions compatibility modes, bounded stream parsing, and no hidden retries.
 - Add single-primitive vs batch plan selection and provider/protocol provenance in traces.
 - Publish all initial simulator attempts and two portable camera/tool traces, including gateway errors and incomplete LIBERO execution.
+
+### Broader execution evidence
+
+- Correct MetaWorld camera orientation across RGB, depth and calibration.
+- Add fixed manifests, isolated per-case execution and all-attempt reporting.
+- Publish 20 real GPT task attempts with dual-view GIFs and an interactive selector.
+- Sweep 50 MetaWorld and 130 LIBERO task interfaces; expose the reproducible LIBERO-90 task 85 physics failure and stop on simulation clock rollback.
+- Add official LIBERO initial-state selection, modern robosuite TCP naming and base-frame delta conversion.
+- Add an explicit, source-backed RPent comparison without an unsupported superiority claim.

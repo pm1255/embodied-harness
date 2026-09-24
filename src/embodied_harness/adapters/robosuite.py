@@ -29,6 +29,11 @@ class RobosuiteEnvironment:
         self.episode = uuid.uuid4().hex
         self.done = False
         self.env.reset()
+        if getattr(self, "initial_state", None) is not None:
+            self.env.set_init_state(self.initial_state)
+            # Standard evaluation settling; no demonstration actions are replayed.
+            for _ in range(10):
+                self.env.step(np.array([0, 0, 0, 0, 0, 0, -1]))
         self.robot = self.env.robots[0]
         if hasattr(self.robot, "part_controllers"):
             self.arm_key = self.robot.arms[0]
@@ -91,7 +96,11 @@ class RobosuiteEnvironment:
         if arm != "arm":
             raise ValueError("Unknown arm")
         self.controller.update(force=True)
-        return np.asarray(self.controller.ee_pos).tolist()
+        # robosuite 1.4 uses ee_pos; 1.5+ renamed this world-space sensor ref_pos.
+        position = getattr(self.controller, "ref_pos", None)
+        if position is None:
+            position = self.controller.ee_pos
+        return np.asarray(position).tolist()
 
     def surface_point(self, observation_id, camera, pixel):
         return self.depth.project(observation_id, self.tick, camera, pixel)
@@ -101,6 +110,12 @@ class RobosuiteEnvironment:
             raise RuntimeError("Environment terminated")
         c = self.controller
         displacement = np.clip(np.asarray(target) - self.ee_position(arm), -0.01, 0.01)
+        if getattr(c, "input_ref_frame", "world") == "base":
+            # RoboCasa's mobile Panda accepts base-frame deltas. The target and
+            # measured TCP remain world-frame; rotate vectors, never positions.
+            displacement = np.asarray(c.origin_ori).T @ displacement
+        elif getattr(c, "input_ref_frame", "world") != "world":
+            raise ValueError("Unsupported OSC input reference frame")
         # Invert OSC's actual configured input/output scaling instead of assuming 5cm.
         low, high = np.asarray(c.output_min)[:3], np.asarray(c.output_max)[:3]
         in_low, in_high = np.asarray(c.input_min)[:3], np.asarray(c.input_max)[:3]
@@ -113,7 +128,15 @@ class RobosuiteEnvironment:
             action = self.robot.create_action_vector(
                 {self.arm_key: pose_action, self.arm_key + "_gripper": [grip]}
             )
+        previous_time = float(self.env.sim.data.time)
         _, _, done, _ = self.env.step(action)
+        if float(self.env.sim.data.time) < previous_time:
+            raise RuntimeError("simulation_clock_reset: MuJoCo reset an unstable simulation")
+        if (
+            not np.isfinite(self.env.sim.data.qpos).all()
+            or not np.isfinite(self.env.sim.data.qvel).all()
+        ):
+            raise RuntimeError("nonfinite_physics_state: stop this episode")
         self.tick += 1
         self.done = bool(done)
 
@@ -138,9 +161,13 @@ class RobosuiteEnvironment:
 class LiberoEnvironment(RobosuiteEnvironment):
     name = "libero"
 
-    def __init__(self, directory, suite="libero_spatial", task_id=0, size=256):
+    def __init__(
+        self, directory, suite="libero_spatial", task_id=0, size=256, init_state_index=None
+    ):
         super().__init__(directory, size)
         self.suite, self.task_id = suite, task_id
+        self.init_state_index = init_state_index
+        self.initial_state = None
         self.capabilities = {
             "arms": ["arm"],
             "cameras": ["agentview", "robot0_eye_in_hand"],
@@ -159,6 +186,11 @@ class LiberoEnvironment(RobosuiteEnvironment):
         self.close()
         tasks = benchmark.get_benchmark_dict()[self.suite]()
         task = tasks.get_task(self.task_id)
+        if self.init_state_index is not None:
+            states = tasks.get_task_init_states(self.task_id)
+            if not 0 <= self.init_state_index < len(states):
+                raise ValueError("init_state_index outside the official task initial states")
+            self.initial_state = states[self.init_state_index]
         self.task_instruction = task.language
         bddl = Path(get_libero_path("bddl_files")) / task.problem_folder / task.bddl_file
         self.env = OffScreenRenderEnv(
@@ -169,14 +201,14 @@ class LiberoEnvironment(RobosuiteEnvironment):
             ignore_done=True,
         )
         self.env.seed(seed)
-        # Randomized environment reset only; no demonstration state or action replay.
+        # Optional official evaluation initial state; never demonstration action replay.
         return self._reset(seed)
 
 
 class RoboCasaEnvironment(RobosuiteEnvironment):
     name = "robocasa"
 
-    def __init__(self, directory, task="PnPCounterToCab", size=256, factory=None):
+    def __init__(self, directory, task="PickPlaceCounterToCabinet", size=256, factory=None):
         super().__init__(directory, size)
         self.task, self.factory = task, factory
         self.capabilities = {
