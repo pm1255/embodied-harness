@@ -8,6 +8,7 @@ import argparse
 import base64
 import hashlib
 import json
+import shutil
 from pathlib import Path
 
 from jsonschema import validate
@@ -32,6 +33,10 @@ def main():
         "--previous-proposal",
         help="Rejected proposal directory; return validator feedback to the model",
     )
+    p.add_argument(
+        "--parent-proposal",
+        help="Evaluated predecessor with preserved lineage and development-only feedback",
+    )
     a = p.parse_args()
     source, root = Path(a.campaign), Path(a.out)
     result = json.loads((source / "results.json").read_text())
@@ -40,6 +45,13 @@ def main():
     if not result["completed"]:
         raise ValueError("Finish the declared development campaign before proposing a repair")
     root.mkdir(parents=True, exist_ok=False)
+    parent_id = "baseline"
+    parent_proposal = None
+    if a.parent_proposal:
+        parent_root = Path(a.parent_proposal)
+        parent_proposal = json.loads((parent_root / "candidate.json").read_text())
+        parent_id = parent_proposal["candidate_id"]
+        shutil.copytree(parent_root / "evolution", root / "evolution")
     store = EvolutionStore(root / "evolution")
     evidence = []
     images = []
@@ -66,13 +78,17 @@ def main():
             packet["id"],
             "rollout",
             "experiment_evaluator",
-            {"split": "discovery", "task_id": row["case_id"], "summary": row["summary"]},
+            {
+                "split": row.get("split", "discovery"),
+                "task_id": row["case_id"],
+                "summary": row["summary"],
+            },
             {"evidence": ref},
         )
         ids.append(packet["id"])
         evidence.append(packet)
         observations = [e for e in events if e["kind"] == "observation"]
-        if row["arm"] == "gpt_policy" and observations:
+        if row["arm"] != "checkpoint_only" and observations:
             for obs in (observations[0], observations[-1]):
                 for frame in obs["payload"]["frames"][:2]:
                     path = (source / identity / frame["image_path"]).resolve()
@@ -81,6 +97,13 @@ def main():
                     if hashlib.sha256(data).hexdigest() != frame["sha256"]:
                         raise ValueError("Changed sensor frame")
                     images.append((packet["id"], obs["seq"], frame["name"], data))
+    ids = sorted(
+        {
+            e["event_id"]
+            for e in store.verify()
+            if e["kind"] == "rollout" and e["payload"].get("split") != "heldout"
+        }
+    )
     refs = {"type": "array", "items": {"type": "string", "enum": ids}, "minItems": 1, "maxItems": 8}
     schema = object_schema(
         {
@@ -131,6 +154,13 @@ New harder tasks are locked until the original scope is mastered. Select validat
 The external protocol is already frozen: task 0 in Spatial, Object, Goal and Long, four fresh validation resets and separate final resets. Both GPT arms receive 24 decisions/960 ticks. You cannot select or change test cases, goals or budgets. Promotion requires no regressions and increased success or more than 10% fewer decisions at equal positive success, plus actual program execution in two successful fresh instances. Do not invent or overgeneralize supporting evidence to satisfy this gate.
 All returned source, including rejected proposals, will be retained. Improvement is untested until fresh paired validation.
 Development evidence:\n""" + json.dumps(evidence, ensure_ascii=False)
+    if parent_proposal:
+        report = json.loads((source / "validation-gate.json").read_text())
+        if report.get("split") != "validation" or report.get("candidate_id") != parent_id:
+            raise ValueError("Predecessor feedback must bind its development-only gate")
+        prompt += "\nEvaluated predecessor (not promoted):\n" + json.dumps(parent_proposal)
+        prompt += "\nFrozen external DEVELOPMENT feedback:\n" + json.dumps(report)
+        prompt += "\nWrite the next complete candidate, citing observed evidence. Held-out results remain unopened and unavailable. Keep a falsifiable hypothesis; do not merely assert improvement."
     if a.previous_proposal:
         previous = Path(a.previous_proposal)
         prompt += "\nPrevious rejected output:\n" + (previous / "model-output.json").read_text()
@@ -259,7 +289,7 @@ Development evidence:\n""" + json.dumps(evidence, ensure_ascii=False)
         ),
     }
     candidate = CandidateArchive(store).propose(
-        parent="baseline",
+        parent=parent_id,
         changes=changes,
         hypothesis=proposal["hypothesis"],
         evidence=proposal["evidence"],
