@@ -287,5 +287,290 @@
   "proposal_input_tokens": 70614,
   "proposal_output_tokens": 6936,
   "task_difficulty_changed": false,
-  "eight_task_confirmation": "running"
+  "eight_task_confirmation": {
+    "completed": true,
+    "gate": {
+      "candidate_id": "candidate/02e8eabcc4c7343d6794a354b3ec074bde0b9ab5e256d0d86a5856336a5a4f38",
+      "split": "validation",
+      "contract_passed": false,
+      "transfer_passed": true,
+      "retention_passed": true,
+      "budget_passed": true,
+      "independent_evaluator": true,
+      "evidence_verified": true,
+      "small_development_gate": {
+        "accepted": true,
+        "baseline_successes": 1,
+        "candidate_successes": 8,
+        "baseline_calls": 82,
+        "candidate_calls": 8,
+        "regressions": [],
+        "infrastructure_error": false,
+        "meaning": "Small development gate, not a statistical generalization claim"
+      },
+      "program_successful_fresh_instances": [
+        "libero_spatial-00-i7-validation",
+        "libero_spatial-01-i7-validation",
+        "libero_object-00-i7-validation",
+        "libero_object-01-i7-validation",
+        "libero_goal-00-i7-validation",
+        "libero_goal-01-i7-validation",
+        "libero_10-00-i7-validation",
+        "libero_10-01-i7-validation"
+      ],
+      "infrastructure_or_unknown_outcomes": [
+        "libero_goal-01-i7-validation/baseline",
+        "libero_10-00-i7-validation/baseline",
+        "libero_10-01-i7-validation/baseline"
+      ],
+      "validation_instances": 8,
+      "heldout_used_for_selection": false,
+      "statistical_mastery_established": false
+    },
+    "statistics": [
+      {
+        "split": "validation",
+        "arm": "baseline",
+        "successes": 1,
+        "n": 8,
+        "wilson95": [
+          0.02241749145005756,
+          0.47088818221284356
+        ],
+        "usage_missing_calls": 1,
+        "infrastructure_errors": 3,
+        "api_calls": 82,
+        "control_ticks": 3692,
+        "wall_seconds": 3254.5465,
+        "input_tokens": 202777,
+        "output_tokens": 40842
+      },
+      {
+        "split": "validation",
+        "arm": "candidate",
+        "successes": 8,
+        "n": 8,
+        "wilson95": [
+          0.6755924351161318,
+          1
+        ],
+        "usage_missing_calls": 0,
+        "infrastructure_errors": 0,
+        "api_calls": 8,
+        "control_ticks": 1177,
+        "wall_seconds": 368.2862,
+        "input_tokens": 22205,
+        "output_tokens": 1406
+      },
+      {
+        "split": "heldout",
+        "arm": "baseline",
+        "successes": 0,
+        "n": 8,
+        "wilson95": [
+          0,
+          0.3244075648838681
+        ],
+        "usage_missing_calls": 1,
+        "infrastructure_errors": 5,
+        "api_calls": 64,
+        "control_ticks": 2827,
+        "wall_seconds": 2895.5392,
+        "input_tokens": 165088,
+        "output_tokens": 29885
+      },
+      {
+        "split": "heldout",
+        "arm": "candidate",
+        "successes": 6,
+        "n": 8,
+        "wilson95": [
+          0.40927543031017727,
+          0.9285207872478887
+        ],
+        "usage_missing_calls": 0,
+        "infrastructure_errors": 1,
+        "api_calls": 17,
+        "control_ticks": 1883,
+        "wall_seconds": 1073.4322,
+        "input_tokens": 50875,
+        "output_tokens": 3098
+      }
+    ],
+    "review": "scope-review.json",
+    "broker_audit": "confirmation/broker-cost-audit.json"
+  },
+  "execution_episode_counts": {
+    "initial_baseline": 16,
+    "model_repair_rounds": 48,
+    "scope_confirmation": 32,
+    "supplementary_policy_reference": 16
+  },
+  "matched_reference": {
+    "statistics": [
+      {
+        "split": "validation",
+        "arm": "checkpoint_only",
+        "n": 8,
+        "successes": 8,
+        "usage_missing_calls": 0,
+        "provider_api_attempts": 0,
+        "provider_input_tokens": 0,
+        "provider_output_tokens": 0,
+        "provider_usage_missing_calls": 0,
+        "infrastructure_errors": 0,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 1197,
+        "wall_seconds": 203.11280000000002
+      },
+      {
+        "split": "validation",
+        "arm": "baseline",
+        "n": 8,
+        "successes": 1,
+        "usage_missing_calls": 1,
+        "provider_api_attempts": 82,
+        "provider_input_tokens": 202777,
+        "provider_output_tokens": 40842,
+        "provider_usage_missing_calls": 1,
+        "infrastructure_errors": 3,
+        "api_calls": 82,
+        "input_tokens": 202777,
+        "output_tokens": 40842,
+        "control_ticks": 3692,
+        "wall_seconds": 3254.5465
+      },
+      {
+        "split": "validation",
+        "arm": "candidate",
+        "n": 8,
+        "successes": 8,
+        "usage_missing_calls": 0,
+        "provider_api_attempts": 8,
+        "provider_input_tokens": 22205,
+        "provider_output_tokens": 1406,
+        "provider_usage_missing_calls": 0,
+        "infrastructure_errors": 0,
+        "api_calls": 8,
+        "input_tokens": 22205,
+        "output_tokens": 1406,
+        "control_ticks": 1177,
+        "wall_seconds": 368.2862
+      },
+      {
+        "split": "heldout",
+        "arm": "checkpoint_only",
+        "n": 8,
+        "successes": 7,
+        "usage_missing_calls": 0,
+        "provider_api_attempts": 0,
+        "provider_input_tokens": 0,
+        "provider_output_tokens": 0,
+        "provider_usage_missing_calls": 0,
+        "infrastructure_errors": 0,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 1950,
+        "wall_seconds": 245.2628
+      },
+      {
+        "split": "heldout",
+        "arm": "baseline",
+        "n": 8,
+        "successes": 0,
+        "usage_missing_calls": 1,
+        "provider_api_attempts": 64,
+        "provider_input_tokens": 165088,
+        "provider_output_tokens": 29885,
+        "provider_usage_missing_calls": 1,
+        "infrastructure_errors": 5,
+        "api_calls": 64,
+        "input_tokens": 165088,
+        "output_tokens": 29885,
+        "control_ticks": 2827,
+        "wall_seconds": 2895.5392
+      },
+      {
+        "split": "heldout",
+        "arm": "candidate",
+        "n": 8,
+        "successes": 6,
+        "usage_missing_calls": 0,
+        "provider_api_attempts": 17,
+        "provider_input_tokens": 50875,
+        "provider_output_tokens": 3098,
+        "provider_usage_missing_calls": 0,
+        "infrastructure_errors": 1,
+        "api_calls": 17,
+        "input_tokens": 50875,
+        "output_tokens": 3098,
+        "control_ticks": 1883,
+        "wall_seconds": 1073.4322
+      },
+      {
+        "split": "all",
+        "arm": "checkpoint_only",
+        "n": 16,
+        "successes": 15,
+        "usage_missing_calls": 0,
+        "provider_api_attempts": 0,
+        "provider_input_tokens": 0,
+        "provider_output_tokens": 0,
+        "provider_usage_missing_calls": 0,
+        "infrastructure_errors": 0,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 3147,
+        "wall_seconds": 448.3756
+      },
+      {
+        "split": "all",
+        "arm": "baseline",
+        "n": 16,
+        "successes": 1,
+        "usage_missing_calls": 2,
+        "provider_api_attempts": 146,
+        "provider_input_tokens": 367865,
+        "provider_output_tokens": 70727,
+        "provider_usage_missing_calls": 2,
+        "infrastructure_errors": 8,
+        "api_calls": 146,
+        "input_tokens": 367865,
+        "output_tokens": 70727,
+        "control_ticks": 6519,
+        "wall_seconds": 6150.0857
+      },
+      {
+        "split": "all",
+        "arm": "candidate",
+        "n": 16,
+        "successes": 14,
+        "usage_missing_calls": 0,
+        "provider_api_attempts": 25,
+        "provider_input_tokens": 73080,
+        "provider_output_tokens": 4504,
+        "provider_usage_missing_calls": 0,
+        "infrastructure_errors": 1,
+        "api_calls": 25,
+        "input_tokens": 73080,
+        "output_tokens": 4504,
+        "control_ticks": 3060,
+        "wall_seconds": 1441.7184
+      }
+    ],
+    "candidate_id": "candidate/02e8eabcc4c7343d6794a354b3ec074bde0b9ab5e256d0d86a5856336a5a4f38",
+    "details": "matched-reference/data.json"
+  },
+  "server_engineering_validation": {
+    "episodes": 2,
+    "successes": 1,
+    "api_calls": 7,
+    "schema_rejections": 0,
+    "model_revision_changed": false,
+    "details": "server-smoke/data.json"
+  }
 }

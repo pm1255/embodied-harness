@@ -14,6 +14,19 @@ module = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(module)
 
 
+def test_failed_provider_usage_remains_unknown_while_reported_zero_is_valid():
+    events = [
+        {"kind": "model_request", "payload": {}},
+        {"kind": "model_response", "payload": {"usage": {}}},
+        {"kind": "model_request", "payload": {}},
+        {"kind": "model_response", "payload": {"usage": {
+            "input_tokens": 0, "output_tokens": 0,
+        }}},
+    ]
+    assert module.usage_missing_calls(events) == 1
+    assert module.usage_missing_calls([]) == 0
+
+
 def evidence():
     protocol = {
         "max_decisions": 24,

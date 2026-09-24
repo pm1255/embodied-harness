@@ -9,7 +9,7 @@ from pathlib import Path
 
 from embodied_harness.rsi.evolution import EvolutionStore
 from export_rsi import video, wilson
-from package_baseline_evidence import public_events
+from package_baseline_evidence import public_events, usage_missing_calls
 
 
 def export(
@@ -22,6 +22,7 @@ def export(
     parent_proposal=None,
     prior_exports=(),
     scope_export=None,
+    matched_reference=None,
 ):
     proposal, campaign, destination = map(Path, (proposal, campaign, destination))
     destination.mkdir(parents=True, exist_ok=True)
@@ -54,6 +55,12 @@ def export(
         identity = row["case_id"] + "--" + row["arm"]
         root = source / identity
         events = [json.loads(line) for line in (root / "events.jsonl").read_text().splitlines()]
+        row["usage_missing_calls"] = usage_missing_calls(events)
+        row["errors"] = [
+            {"type": e["payload"]["error_type"],
+             "message": e["payload"]["message"].splitlines()[0][:2000]}
+            for e in events if e["kind"] == "error"
+        ]
         media = destination / "media" / identity
         media.parent.mkdir(exist_ok=True)
         row["timeline"] = video(events, root, media.with_suffix(".mp4"))
@@ -81,6 +88,10 @@ def export(
                     "successes": k,
                     "n": n,
                     "wilson95": wilson(k, n),
+                    "usage_missing_calls": sum(r["usage_missing_calls"] for r in selected),
+                    "infrastructure_errors": sum(
+                        r["summary"]["status"] == "infrastructure_error" for r in selected
+                    ),
                     **{
                         field: sum(r["summary"][field] for r in selected)
                         for field in (
@@ -227,6 +238,15 @@ def export(
             "statistics": scope["statistics"],
             "details": "confirmation/",
         }
+    if matched_reference:
+        reference = json.loads((Path(matched_reference) / "data.json").read_text())
+        if reference["candidate_id"] != candidate["candidate_id"] or not reference["broker_cost_audit"]:
+            raise ValueError("Reference must bind this candidate and reconcile broker costs")
+        data["matched_reference"] = {
+            "statistics": reference["statistics"], "details": "matched-reference/",
+            "broker_cost_audit": {key: value for key, value in reference["broker_cost_audit"].items()
+                                  if key != "rows"},
+        }
     (destination / "data.json").write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
     template = (
         Path(__file__).resolve().parents[1] / "src/embodied_harness/web/program-evolution.html"
@@ -249,6 +269,7 @@ if __name__ == "__main__":
     p.add_argument("--parent-proposal")
     p.add_argument("--prior-export", action="append", default=[])
     p.add_argument("--scope-export")
+    p.add_argument("--matched-reference")
     a = p.parse_args()
     export(
         a.proposal,
@@ -260,4 +281,5 @@ if __name__ == "__main__":
         a.parent_proposal,
         a.prior_export,
         a.scope_export,
+        a.matched_reference,
     )

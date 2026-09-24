@@ -31,6 +31,8 @@ The published 72-episode v1 experiment generated six scene families before attem
 
 `rsi.curriculum.BenchmarkCurriculum` implements the benchmark-first work-order state machine, whole-scope mastery gate, decomposition validation, task reuse rule and environment-change classification. It is tested library code. The work-order CLI does **not** invoke a model, robot, task generator or arbitrary generated Python. Existing benchmark execution is provided separately by `scripts/run_benchmark.py`. A fully autonomous consumer connecting every work order to task-specific subgoal checkers, skill repair and scene construction is still integration work; the state machine alone is not evidence of self-improvement.
 
+The [v0.4 measured repair path](rsi/program-evolution/README.md) now connects development failures to actual GPT-written memory, skills and bounded executable tools, followed by fresh-state paired LIBERO evaluation. It leaves the original goals unchanged. Its small development acceptance gate is distinct from the whole-scope mastery criterion below; passing it does not automatically unlock harder task generation.
+
 ## Existing task scope comes first
 
 `benchmarks/rsi-benchmark-first.json` registers 186 existing task entries from this project's interface manifests: 50 MetaWorld, 130 LIBERO, 3 RoboCasa and 3 RoboTwin. RoboCasa and RoboTwin are **subsets**, not exhaustive official suites. Interface checks are not task mastery. This manifest is a frozen task inventory, not a claimed 186-task result or an official standardized evaluation protocol.

@@ -1,0 +1,94 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>服务器端链路验证 · Embodied Harness</title>
+<style>body{background:#0b1420;color:#dfebf4;font:16px/1.7 system-ui;margin:0}
+main{max-width:1100px;margin:auto;padding:30px}section{background:#142233;border:1px solid #29435a;
+border-radius:14px;padding:22px;margin:24px 0}a{color:#70e2c5}video{width:100%}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px;background:#09111b;padding:16px}
+p{color:#b0c3d3}h1{font-size:34px}h2{font-size:22px}</style><main>
+<a href="../">三轮模型进化</a> · <a href="../matched-reference/">同状态三组对照</a> · <a href="data.json">数据</a>
+<h1>服务器上的 GPT 服务 → harness → π0.5 → 仿真</h1>
+<p>独立工程验证：沿用第三版冻结记忆、skill 与程序，改用服务器端决策服务，并开启预算内参数纠错。
+两项原任务使用状态 9；每项最多 6 次决策、960 个控制步。任务是在看到扩展实验的问题后选取的。
+它不是第四轮模型改进，也不是与旧链路的配对性能比较，任务难度没有增加。</p>
+<p>参数纠错开关启用不代表本次触发了纠错；下面逐项报告实际拒绝次数。所有成功与失败均保留。
+API key 保存在服务器私有配置目录，不进入公开归档；GPU 工作者通过目录协议收取模型决策。</p>
+<section><h2>pick up the black bowl between the plate and the ramekin and place it on the plate</h2><p>原生成功 ·
+执行器记录 1 次 API 调用 · 75 个控制步 ·
+15 次 VLA 动作块推理 · 0 次参数拒绝</p>
+<video controls playsinline preload="metadata" src="libero_spatial-00-i9-server-smoke--candidate/replay.mp4"></video>
+<p>双视角抽样事件回放，每秒 3 个事件，非实时录像。
+<a href="libero_spatial-00-i9-server-smoke--candidate/">打开完整观测、工具与控制事件</a></p>
+<details open><summary>模型实际选择的工具及参数</summary>
+<pre>[
+  {
+    &quot;tool&quot;: &quot;program_bounded_full_goal_delegation&quot;,
+    &quot;arguments&quot;: {
+      &quot;instruction&quot;: &quot;pick up the black bowl between the plate and the ramekin and place it on the plate&quot;
+    },
+    &quot;id&quot;: &quot;place_target_bowl_on_plate&quot;,
+    &quot;require_fact&quot;: null
+  }
+]</pre></details></section><section><h2>put both the cream cheese box and the butter in the basket</h2><p>decision_budget_exhausted ·
+执行器记录 6 次 API 调用 · 240 个控制步 ·
+48 次 VLA 动作块推理 · 0 次参数拒绝</p>
+<video controls playsinline preload="metadata" src="libero_10-01-i9-server-smoke--candidate/replay.mp4"></video>
+<p>双视角抽样事件回放，每秒 3 个事件，非实时录像。
+<a href="libero_10-01-i9-server-smoke--candidate/">打开完整观测、工具与控制事件</a></p>
+<details open><summary>模型实际选择的工具及参数</summary>
+<pre>[
+  {
+    &quot;tool&quot;: &quot;run_vla&quot;,
+    &quot;arguments&quot;: {
+      &quot;chunks&quot;: 8,
+      &quot;instruction&quot;: &quot;put both the cream cheese box and the butter in the basket&quot;
+    },
+    &quot;id&quot;: &quot;place_items_1&quot;,
+    &quot;require_fact&quot;: null
+  },
+  {
+    &quot;tool&quot;: &quot;run_vla&quot;,
+    &quot;arguments&quot;: {
+      &quot;chunks&quot;: 8,
+      &quot;instruction&quot;: &quot;put both the cream cheese box and the butter in the basket&quot;
+    },
+    &quot;id&quot;: &quot;place_items_2&quot;,
+    &quot;require_fact&quot;: null
+  },
+  {
+    &quot;tool&quot;: &quot;run_vla&quot;,
+    &quot;arguments&quot;: {
+      &quot;chunks&quot;: 8,
+      &quot;instruction&quot;: &quot;put both the cream cheese box and the butter in the basket&quot;
+    },
+    &quot;id&quot;: &quot;place_items_3&quot;,
+    &quot;require_fact&quot;: null
+  },
+  {
+    &quot;tool&quot;: &quot;run_vla&quot;,
+    &quot;arguments&quot;: {
+      &quot;chunks&quot;: 8,
+      &quot;instruction&quot;: &quot;put both the cream cheese box and the butter in the basket&quot;
+    },
+    &quot;id&quot;: &quot;place_items_4&quot;,
+    &quot;require_fact&quot;: null
+  },
+  {
+    &quot;tool&quot;: &quot;run_vla&quot;,
+    &quot;arguments&quot;: {
+      &quot;chunks&quot;: 8,
+      &quot;instruction&quot;: &quot;put both the cream cheese box and the butter in the basket&quot;
+    },
+    &quot;id&quot;: &quot;place_items_5&quot;,
+    &quot;require_fact&quot;: null
+  },
+  {
+    &quot;tool&quot;: &quot;run_vla&quot;,
+    &quot;arguments&quot;: {
+      &quot;chunks&quot;: 8,
+      &quot;instruction&quot;: &quot;put both the cream cheese box and the butter in the basket&quot;
+    },
+    &quot;id&quot;: &quot;place_items_6&quot;,
+    &quot;require_fact&quot;: null
+  }
+]</pre></details></section></main></html>

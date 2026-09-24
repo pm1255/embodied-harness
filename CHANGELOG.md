@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.4.0 — measured model-written tools
+
+- Bind the official LIBERO π0.5 checkpoint, preprocessing and short-horizon execution; preserve loading failures as engineering history.
+- Stop new LIBERO protocols on native success at each control tick, including inside generated programs.
+- Execute GPT-authored bounded Python compositions through a validated primitive API; archive exact memory, skill and tool changes.
+- Complete three fresh-state paired repair rounds. Retain two rejected revisions; the third passes the four-task development gate and improves its held-out result from 3/4 to 4/4 with 19 to 10 GPT calls.
+- Add a frozen-bundle task runner, a bounded repair-loop controller, development-only feedback extraction and trace-verified promotion.
+- Add opt-in schema-error feedback within the existing decision budget. This later engineering fix is excluded from the controlled repair/scope comparisons and is enabled in a separately reported two-task server-integration cohort (1/2 success; no schema-rejection event occurred).
+- Add a credential-isolated Linux decision service with frame-hash binding, request journaling and no automatic retry of ambiguous paid requests.
+- Publish dual-camera replays with model arguments, generated program expansion, VLA chunks and actual control actions. Report task difficulty separately from new initial states.
+- Add a predeclared eight-task scope confirmation and a supplementary matched policy-only reference; their completed measurements are documented in `docs/rsi/program-evolution/README.md`.
+
 ## 0.3.0 — benchmark-first curriculum
 
 - Start from a frozen existing-task scope; decompose failures and search existing practice tasks before creating missing subtask practice.

@@ -310,6 +310,8 @@
         "plan_mode": "batch",
         "stop_on_native_success": true
       },
+      "usage_missing_calls": 0,
+      "errors": [],
       "timeline": [
         {
           "seq": 3,
@@ -3510,6 +3512,71 @@
           "result": null
         },
         {
+          "seq": 361,
+          "kind": "environment_terminal",
+          "elapsed_s": 176.251822,
+          "call": [
+            {
+              "arguments": "{\"steps\":[{\"tool\":\"run_vla\",\"arguments\":{\"chunks\":4,\"instruction\":\"Place the black bowl currently held by the gripper onto the center of the plate with the red rim. Lower it gently onto the plate, open the gripper to release it, and withdraw the gripper.\"},\"id\":\"place_bowl_on_plate\",\"require_fact\":null}]}",
+              "name": "submit_plan"
+            }
+          ],
+          "primitive": {
+            "model": {
+              "model": "RLinf-Pi05-LIBERO-130-fullshot-SFT",
+              "contract": "libero_franka_osc7_v1",
+              "checkpoint_sha256": "4d9089c941793f170b625c2ed0ac7a3aa09b6f103e52dbbc82e67301529d6683",
+              "norm_stats_sha256": "dae37d79a22108af83df9189c6710a3ec8e077d65b28e34bdf1da724e5ae30f1",
+              "tokenizer_sha256": "8986bb4f423f07f8c7f70d0dbe3526fb2316056c17bae71b1ea975e77a168fc6",
+              "loader": "OpenPI PI0Pytorch",
+              "action_horizon": 10,
+              "execute_horizon": 5,
+              "denoising_steps": 10,
+              "discrete_state_input": false,
+              "quantile_normalization": true,
+              "postprocess": "clip_normalized_OSC_to_minus1_plus1_and_binarize_gripper",
+              "training_overlap": "LIBERO-130 fullshot SFT; standard LIBERO is in-domain",
+              "upstream_benchmark_reproduction": false,
+              "runtime_versions": {
+                "torch": "2.8.0a0+5228986c39.nv25.5",
+                "transformers": "4.53.2",
+                "jax": "0.5.3",
+                "flax": "0.10.2",
+                "safetensors": "0.5.3",
+                "sentencepiece": "0.2.0"
+              }
+            },
+            "chunk": 0,
+            "latency_s": 0.31239155190996826,
+            "predicted_actions": 5,
+            "diagnostics": {
+              "raw_min": -0.6860254578608969,
+              "raw_max": 0.9977029044835586,
+              "clipped_values": 0,
+              "gripper_binarized": true
+            },
+            "executed_horizon": 5
+          },
+          "program": null,
+          "geometry": {
+            "action_format": "normalized_osc_pose7",
+            "policy_action": [
+              -0.23182052754799115,
+              -0.09757857339749432,
+              -0.6860254578608969,
+              0.023904147273549725,
+              -0.09523259181414279,
+              -0.018312566466176183,
+              1.0
+            ]
+          },
+          "result": {
+            "condition_met": true,
+            "source": "adapter_terminal_condition",
+            "control_tick": 274
+          }
+        },
+        {
           "seq": 362,
           "kind": "tool_end",
           "elapsed_s": 176.251948,
@@ -3762,6 +3829,8 @@
         "plan_mode": "batch",
         "stop_on_native_success": true
       },
+      "usage_missing_calls": 0,
+      "errors": [],
       "timeline": [
         {
           "seq": 4,
@@ -6093,6 +6162,79 @@
           "result": null
         },
         {
+          "seq": 120,
+          "kind": "environment_terminal",
+          "elapsed_s": 26.281212,
+          "call": [
+            {
+              "arguments": "{\"steps\":[{\"tool\":\"program_bounded_full_goal_delegation\",\"arguments\":{\"instruction\":\"pick up the black bowl between the plate and the ramekin and place it on the plate\"},\"id\":\"place_bowl\",\"require_fact\":null}]}",
+              "name": "submit_plan"
+            }
+          ],
+          "primitive": {
+            "model": {
+              "model": "RLinf-Pi05-LIBERO-130-fullshot-SFT",
+              "contract": "libero_franka_osc7_v1",
+              "checkpoint_sha256": "4d9089c941793f170b625c2ed0ac7a3aa09b6f103e52dbbc82e67301529d6683",
+              "norm_stats_sha256": "dae37d79a22108af83df9189c6710a3ec8e077d65b28e34bdf1da724e5ae30f1",
+              "tokenizer_sha256": "8986bb4f423f07f8c7f70d0dbe3526fb2316056c17bae71b1ea975e77a168fc6",
+              "loader": "OpenPI PI0Pytorch",
+              "action_horizon": 10,
+              "execute_horizon": 5,
+              "denoising_steps": 10,
+              "discrete_state_input": false,
+              "quantile_normalization": true,
+              "postprocess": "clip_normalized_OSC_to_minus1_plus1_and_binarize_gripper",
+              "training_overlap": "LIBERO-130 fullshot SFT; standard LIBERO is in-domain",
+              "upstream_benchmark_reproduction": false,
+              "runtime_versions": {
+                "torch": "2.8.0a0+5228986c39.nv25.5",
+                "transformers": "4.53.2",
+                "jax": "0.5.3",
+                "flax": "0.10.2",
+                "safetensors": "0.5.3",
+                "sentencepiece": "0.2.0"
+              }
+            },
+            "chunk": 7,
+            "latency_s": 0.2972018530126661,
+            "predicted_actions": 5,
+            "diagnostics": {
+              "raw_min": -0.9338763962085184,
+              "raw_max": 1.0020907187890655,
+              "clipped_values": 3,
+              "gripper_binarized": true
+            },
+            "executed_horizon": 5
+          },
+          "program": {
+            "program": "program_bounded_full_goal_delegation",
+            "primitive": "run_vla",
+            "arguments": {
+              "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+              "chunks": 8
+            },
+            "invocation": 2
+          },
+          "geometry": {
+            "action_format": "normalized_osc_pose7",
+            "policy_action": [
+              -0.667803997822315,
+              -0.01443444255024251,
+              -0.8784260036260447,
+              0.02271322104237461,
+              -0.04347817265735454,
+              0.05257284954748709,
+              1.0
+            ]
+          },
+          "result": {
+            "condition_met": true,
+            "source": "adapter_terminal_condition",
+            "control_tick": 77
+          }
+        },
+        {
           "seq": 121,
           "kind": "tool_end",
           "elapsed_s": 26.281352,
@@ -6369,6 +6511,8 @@
         "plan_mode": "batch",
         "stop_on_native_success": true
       },
+      "usage_missing_calls": 0,
+      "errors": [],
       "timeline": [
         {
           "seq": 3,
@@ -10780,6 +10924,53 @@
           "result": null
         },
         {
+          "seq": 234,
+          "kind": "environment_terminal",
+          "elapsed_s": 94.714589,
+          "call": [
+            {
+              "arguments": "{\"steps\":[{\"tool\":\"move_to_pixel\",\"arguments\":{\"arm\":\"arm\",\"approach\":\"surface\",\"camera\":\"agentview\",\"observation_id\":\"f47c07c6e82742efa3a320740ea33af3:37\",\"pixel\":[138,168]},\"id\":\"reach_soup_can\",\"require_fact\":null},{\"tool\":\"set_gripper\",\"arguments\":{\"arm\":\"arm\",\"state\":\"closed\"},\"id\":\"grasp_soup_can\",\"require_fact\":null}]}",
+              "name": "submit_plan"
+            }
+          ],
+          "primitive": {
+            "step": {
+              "tool": "move_to_pixel",
+              "arguments": {
+                "arm": "arm",
+                "approach": "surface",
+                "camera": "agentview",
+                "observation_id": "f47c07c6e82742efa3a320740ea33af3:37",
+                "pixel": [
+                  138,
+                  168
+                ]
+              },
+              "id": "reach_soup_can",
+              "require_fact": null
+            }
+          },
+          "program": null,
+          "geometry": {
+            "target_m": [
+              0.18169118903971027,
+              0.029646028730455035,
+              0.06491780564530913
+            ],
+            "actual_m": [
+              -0.02481666926524921,
+              0.2604656457307602,
+              0.1651583813079031
+            ],
+            "error_m": 0.3255324317837426
+          },
+          "result": {
+            "condition_met": true,
+            "source": "adapter_terminal_condition",
+            "control_tick": 141
+          }
+        },
+        {
           "seq": 235,
           "kind": "tool_end",
           "elapsed_s": 94.714717,
@@ -10978,6 +11169,8 @@
         "plan_mode": "batch",
         "stop_on_native_success": true
       },
+      "usage_missing_calls": 0,
+      "errors": [],
       "timeline": [
         {
           "seq": 4,
@@ -15069,6 +15262,79 @@
           "result": null
         },
         {
+          "seq": 202,
+          "kind": "environment_terminal",
+          "elapsed_s": 30.384918,
+          "call": [
+            {
+              "arguments": "{\"steps\":[{\"tool\":\"program_bounded_full_goal_delegation\",\"arguments\":{\"instruction\":\"pick up the alphabet soup and place it in the basket\"},\"id\":\"place_soup\",\"require_fact\":null}]}",
+              "name": "submit_plan"
+            }
+          ],
+          "primitive": {
+            "model": {
+              "model": "RLinf-Pi05-LIBERO-130-fullshot-SFT",
+              "contract": "libero_franka_osc7_v1",
+              "checkpoint_sha256": "4d9089c941793f170b625c2ed0ac7a3aa09b6f103e52dbbc82e67301529d6683",
+              "norm_stats_sha256": "dae37d79a22108af83df9189c6710a3ec8e077d65b28e34bdf1da724e5ae30f1",
+              "tokenizer_sha256": "8986bb4f423f07f8c7f70d0dbe3526fb2316056c17bae71b1ea975e77a168fc6",
+              "loader": "OpenPI PI0Pytorch",
+              "action_horizon": 10,
+              "execute_horizon": 5,
+              "denoising_steps": 10,
+              "discrete_state_input": false,
+              "quantile_normalization": true,
+              "postprocess": "clip_normalized_OSC_to_minus1_plus1_and_binarize_gripper",
+              "training_overlap": "LIBERO-130 fullshot SFT; standard LIBERO is in-domain",
+              "upstream_benchmark_reproduction": false,
+              "runtime_versions": {
+                "torch": "2.8.0a0+5228986c39.nv25.5",
+                "transformers": "4.53.2",
+                "jax": "0.5.3",
+                "flax": "0.10.2",
+                "safetensors": "0.5.3",
+                "sentencepiece": "0.2.0"
+              }
+            },
+            "chunk": 2,
+            "latency_s": 0.30383158405311406,
+            "predicted_actions": 5,
+            "diagnostics": {
+              "raw_min": -1.0101342241636,
+              "raw_max": 0.3801788780703923,
+              "clipped_values": 5,
+              "gripper_binarized": true
+            },
+            "executed_horizon": 5
+          },
+          "program": {
+            "program": "program_bounded_full_goal_delegation",
+            "primitive": "run_vla",
+            "arguments": {
+              "instruction": "pick up the alphabet soup and place it in the basket",
+              "chunks": 8
+            },
+            "invocation": 4
+          },
+          "geometry": {
+            "action_format": "normalized_osc_pose7",
+            "policy_action": [
+              0.16859297807253748,
+              0.022282979681607196,
+              0.29145538073072474,
+              -0.011984793119934167,
+              0.08814425475654453,
+              -0.013500227576765722,
+              -1.0
+            ]
+          },
+          "result": {
+            "condition_met": true,
+            "source": "adapter_terminal_condition",
+            "control_tick": 133
+          }
+        },
+        {
           "seq": 203,
           "kind": "tool_end",
           "elapsed_s": 30.385003,
@@ -15345,6 +15611,8 @@
         "plan_mode": "batch",
         "stop_on_native_success": true
       },
+      "usage_missing_calls": 0,
+      "errors": [],
       "timeline": [
         {
           "seq": 3,
@@ -18922,6 +19190,71 @@
           "result": null
         },
         {
+          "seq": 193,
+          "kind": "environment_terminal",
+          "elapsed_s": 59.880529,
+          "call": [
+            {
+              "arguments": "{\"steps\":[{\"tool\":\"run_vla\",\"arguments\":{\"chunks\":8,\"instruction\":\"Grasp the middle drawer handle and pull outward to open the middle drawer of the cabinet.\"},\"id\":\"pull_middle_drawer\",\"require_fact\":null}]}",
+              "name": "submit_plan"
+            }
+          ],
+          "primitive": {
+            "model": {
+              "model": "RLinf-Pi05-LIBERO-130-fullshot-SFT",
+              "contract": "libero_franka_osc7_v1",
+              "checkpoint_sha256": "4d9089c941793f170b625c2ed0ac7a3aa09b6f103e52dbbc82e67301529d6683",
+              "norm_stats_sha256": "dae37d79a22108af83df9189c6710a3ec8e077d65b28e34bdf1da724e5ae30f1",
+              "tokenizer_sha256": "8986bb4f423f07f8c7f70d0dbe3526fb2316056c17bae71b1ea975e77a168fc6",
+              "loader": "OpenPI PI0Pytorch",
+              "action_horizon": 10,
+              "execute_horizon": 5,
+              "denoising_steps": 10,
+              "discrete_state_input": false,
+              "quantile_normalization": true,
+              "postprocess": "clip_normalized_OSC_to_minus1_plus1_and_binarize_gripper",
+              "training_overlap": "LIBERO-130 fullshot SFT; standard LIBERO is in-domain",
+              "upstream_benchmark_reproduction": false,
+              "runtime_versions": {
+                "torch": "2.8.0a0+5228986c39.nv25.5",
+                "transformers": "4.53.2",
+                "jax": "0.5.3",
+                "flax": "0.10.2",
+                "safetensors": "0.5.3",
+                "sentencepiece": "0.2.0"
+              }
+            },
+            "chunk": 3,
+            "latency_s": 0.3264863530639559,
+            "predicted_actions": 5,
+            "diagnostics": {
+              "raw_min": -1.0051137732063582,
+              "raw_max": 0.8511111475966258,
+              "clipped_values": 4,
+              "gripper_binarized": true
+            },
+            "executed_horizon": 5
+          },
+          "program": null,
+          "geometry": {
+            "action_format": "normalized_osc_pose7",
+            "policy_action": [
+              -0.10317876552666605,
+              0.8167362002310701,
+              -0.3383947834303931,
+              -0.0248168275278986,
+              -0.00037851470504213225,
+              -0.013374666321105066,
+              -1.0
+            ]
+          },
+          "result": {
+            "condition_met": true,
+            "source": "adapter_terminal_condition",
+            "control_tick": 117
+          }
+        },
+        {
           "seq": 194,
           "kind": "tool_end",
           "elapsed_s": 59.880608,
@@ -19174,6 +19507,8 @@
         "plan_mode": "batch",
         "stop_on_native_success": true
       },
+      "usage_missing_calls": 0,
+      "errors": [],
       "timeline": [
         {
           "seq": 4,
@@ -22730,6 +23065,79 @@
           "result": null
         },
         {
+          "seq": 179,
+          "kind": "environment_terminal",
+          "elapsed_s": 26.78511,
+          "call": [
+            {
+              "arguments": "{\"steps\":[{\"tool\":\"program_bounded_full_goal_delegation\",\"arguments\":{\"instruction\":\"open the middle drawer of the cabinet\"},\"id\":\"open_middle_drawer\",\"require_fact\":null}]}",
+              "name": "submit_plan"
+            }
+          ],
+          "primitive": {
+            "model": {
+              "model": "RLinf-Pi05-LIBERO-130-fullshot-SFT",
+              "contract": "libero_franka_osc7_v1",
+              "checkpoint_sha256": "4d9089c941793f170b625c2ed0ac7a3aa09b6f103e52dbbc82e67301529d6683",
+              "norm_stats_sha256": "dae37d79a22108af83df9189c6710a3ec8e077d65b28e34bdf1da724e5ae30f1",
+              "tokenizer_sha256": "8986bb4f423f07f8c7f70d0dbe3526fb2316056c17bae71b1ea975e77a168fc6",
+              "loader": "OpenPI PI0Pytorch",
+              "action_horizon": 10,
+              "execute_horizon": 5,
+              "denoising_steps": 10,
+              "discrete_state_input": false,
+              "quantile_normalization": true,
+              "postprocess": "clip_normalized_OSC_to_minus1_plus1_and_binarize_gripper",
+              "training_overlap": "LIBERO-130 fullshot SFT; standard LIBERO is in-domain",
+              "upstream_benchmark_reproduction": false,
+              "runtime_versions": {
+                "torch": "2.8.0a0+5228986c39.nv25.5",
+                "transformers": "4.53.2",
+                "jax": "0.5.3",
+                "flax": "0.10.2",
+                "safetensors": "0.5.3",
+                "sentencepiece": "0.2.0"
+              }
+            },
+            "chunk": 7,
+            "latency_s": 0.2946810850407928,
+            "predicted_actions": 5,
+            "diagnostics": {
+              "raw_min": -1.0016833760491912,
+              "raw_max": 0.9010454130777483,
+              "clipped_values": 1,
+              "gripper_binarized": true
+            },
+            "executed_horizon": 5
+          },
+          "program": {
+            "program": "program_bounded_full_goal_delegation",
+            "primitive": "run_vla",
+            "arguments": {
+              "instruction": "open the middle drawer of the cabinet",
+              "chunks": 8
+            },
+            "invocation": 3
+          },
+          "geometry": {
+            "action_format": "normalized_osc_pose7",
+            "policy_action": [
+              -0.2134347033219829,
+              0.8966356950388437,
+              -0.7114275663747431,
+              -0.008555334438524742,
+              0.02553526902866432,
+              0.01668023090333204,
+              -1.0
+            ]
+          },
+          "result": {
+            "condition_met": true,
+            "source": "adapter_terminal_condition",
+            "control_tick": 118
+          }
+        },
+        {
           "seq": 180,
           "kind": "tool_end",
           "elapsed_s": 26.785296,
@@ -23006,6 +23414,8 @@
         "plan_mode": "batch",
         "stop_on_native_success": true
       },
+      "usage_missing_calls": 0,
+      "errors": [],
       "timeline": [
         {
           "seq": 3,
@@ -31013,6 +31423,8 @@
         "plan_mode": "batch",
         "stop_on_native_success": true
       },
+      "usage_missing_calls": 0,
+      "errors": [],
       "timeline": [
         {
           "seq": 4,
@@ -37434,6 +37846,71 @@
           "result": null
         },
         {
+          "seq": 460,
+          "kind": "environment_terminal",
+          "elapsed_s": 121.95041,
+          "call": [
+            {
+              "arguments": "{\"steps\":[{\"tool\":\"run_vla\",\"arguments\":{\"chunks\":4,\"instruction\":\"put both the alphabet soup and the tomato sauce in the basket\"},\"id\":\"continue_release_in_basket\",\"require_fact\":null}]}",
+              "name": "submit_plan"
+            }
+          ],
+          "primitive": {
+            "model": {
+              "model": "RLinf-Pi05-LIBERO-130-fullshot-SFT",
+              "contract": "libero_franka_osc7_v1",
+              "checkpoint_sha256": "4d9089c941793f170b625c2ed0ac7a3aa09b6f103e52dbbc82e67301529d6683",
+              "norm_stats_sha256": "dae37d79a22108af83df9189c6710a3ec8e077d65b28e34bdf1da724e5ae30f1",
+              "tokenizer_sha256": "8986bb4f423f07f8c7f70d0dbe3526fb2316056c17bae71b1ea975e77a168fc6",
+              "loader": "OpenPI PI0Pytorch",
+              "action_horizon": 10,
+              "execute_horizon": 5,
+              "denoising_steps": 10,
+              "discrete_state_input": false,
+              "quantile_normalization": true,
+              "postprocess": "clip_normalized_OSC_to_minus1_plus1_and_binarize_gripper",
+              "training_overlap": "LIBERO-130 fullshot SFT; standard LIBERO is in-domain",
+              "upstream_benchmark_reproduction": false,
+              "runtime_versions": {
+                "torch": "2.8.0a0+5228986c39.nv25.5",
+                "transformers": "4.53.2",
+                "jax": "0.5.3",
+                "flax": "0.10.2",
+                "safetensors": "0.5.3",
+                "sentencepiece": "0.2.0"
+              }
+            },
+            "chunk": 1,
+            "latency_s": 0.29215191514231265,
+            "predicted_actions": 5,
+            "diagnostics": {
+              "raw_min": -1.0112971171197003,
+              "raw_max": 0.4218139511431076,
+              "clipped_values": 5,
+              "gripper_binarized": true
+            },
+            "executed_horizon": 5
+          },
+          "program": null,
+          "geometry": {
+            "action_format": "normalized_osc_pose7",
+            "policy_action": [
+              0.089869386707366,
+              0.0474660438811354,
+              0.2804031926336883,
+              -0.020081612620781897,
+              0.02401216205030421,
+              -0.039476808552218356,
+              -1.0
+            ]
+          },
+          "result": {
+            "condition_met": true,
+            "source": "adapter_terminal_condition",
+            "control_tick": 287
+          }
+        },
+        {
           "seq": 461,
           "kind": "tool_end",
           "elapsed_s": 121.950518,
@@ -37686,6 +38163,8 @@
         "plan_mode": "batch",
         "stop_on_native_success": true
       },
+      "usage_missing_calls": 0,
+      "errors": [],
       "timeline": [
         {
           "seq": 3,
@@ -40064,6 +40543,71 @@
           "result": null
         },
         {
+          "seq": 133,
+          "kind": "environment_terminal",
+          "elapsed_s": 48.335824,
+          "call": [
+            {
+              "arguments": "{\"steps\":[{\"tool\":\"run_vla\",\"arguments\":{\"chunks\":4,\"instruction\":\"Place the held black bowl onto the plate, lower it gently and release it on the plate.\"},\"id\":\"place_bowl_on_plate\",\"require_fact\":null}]}",
+              "name": "submit_plan"
+            }
+          ],
+          "primitive": {
+            "model": {
+              "model": "RLinf-Pi05-LIBERO-130-fullshot-SFT",
+              "contract": "libero_franka_osc7_v1",
+              "checkpoint_sha256": "4d9089c941793f170b625c2ed0ac7a3aa09b6f103e52dbbc82e67301529d6683",
+              "norm_stats_sha256": "dae37d79a22108af83df9189c6710a3ec8e077d65b28e34bdf1da724e5ae30f1",
+              "tokenizer_sha256": "8986bb4f423f07f8c7f70d0dbe3526fb2316056c17bae71b1ea975e77a168fc6",
+              "loader": "OpenPI PI0Pytorch",
+              "action_horizon": 10,
+              "execute_horizon": 5,
+              "denoising_steps": 10,
+              "discrete_state_input": false,
+              "quantile_normalization": true,
+              "postprocess": "clip_normalized_OSC_to_minus1_plus1_and_binarize_gripper",
+              "training_overlap": "LIBERO-130 fullshot SFT; standard LIBERO is in-domain",
+              "upstream_benchmark_reproduction": false,
+              "runtime_versions": {
+                "torch": "2.8.0a0+5228986c39.nv25.5",
+                "transformers": "4.53.2",
+                "jax": "0.5.3",
+                "flax": "0.10.2",
+                "safetensors": "0.5.3",
+                "sentencepiece": "0.2.0"
+              }
+            },
+            "chunk": 3,
+            "latency_s": 0.2922701360657811,
+            "predicted_actions": 5,
+            "diagnostics": {
+              "raw_min": -0.6100876564055833,
+              "raw_max": 1.0043244934926863,
+              "clipped_values": 4,
+              "gripper_binarized": true
+            },
+            "executed_horizon": 5
+          },
+          "program": null,
+          "geometry": {
+            "action_format": "normalized_osc_pose7",
+            "policy_action": [
+              -0.278618181700726,
+              -0.02796339229802225,
+              -0.5722586717479963,
+              0.020698911554949184,
+              -0.03989696603547266,
+              -0.019220693148448986,
+              1.0
+            ]
+          },
+          "result": {
+            "condition_met": true,
+            "source": "adapter_terminal_condition",
+            "control_tick": 80
+          }
+        },
+        {
           "seq": 134,
           "kind": "tool_end",
           "elapsed_s": 48.335911,
@@ -40316,6 +40860,8 @@
         "plan_mode": "batch",
         "stop_on_native_success": true
       },
+      "usage_missing_calls": 0,
+      "errors": [],
       "timeline": [
         {
           "seq": 4,
@@ -42906,6 +43452,79 @@
           "result": null
         },
         {
+          "seq": 129,
+          "kind": "environment_terminal",
+          "elapsed_s": 25.828616,
+          "call": [
+            {
+              "arguments": "{\"steps\":[{\"tool\":\"program_bounded_full_goal_delegation\",\"arguments\":{\"instruction\":\"pick up the black bowl between the plate and the ramekin and place it on the plate\"},\"id\":\"place_bowl\",\"require_fact\":null}]}",
+              "name": "submit_plan"
+            }
+          ],
+          "primitive": {
+            "model": {
+              "model": "RLinf-Pi05-LIBERO-130-fullshot-SFT",
+              "contract": "libero_franka_osc7_v1",
+              "checkpoint_sha256": "4d9089c941793f170b625c2ed0ac7a3aa09b6f103e52dbbc82e67301529d6683",
+              "norm_stats_sha256": "dae37d79a22108af83df9189c6710a3ec8e077d65b28e34bdf1da724e5ae30f1",
+              "tokenizer_sha256": "8986bb4f423f07f8c7f70d0dbe3526fb2316056c17bae71b1ea975e77a168fc6",
+              "loader": "OpenPI PI0Pytorch",
+              "action_horizon": 10,
+              "execute_horizon": 5,
+              "denoising_steps": 10,
+              "discrete_state_input": false,
+              "quantile_normalization": true,
+              "postprocess": "clip_normalized_OSC_to_minus1_plus1_and_binarize_gripper",
+              "training_overlap": "LIBERO-130 fullshot SFT; standard LIBERO is in-domain",
+              "upstream_benchmark_reproduction": false,
+              "runtime_versions": {
+                "torch": "2.8.0a0+5228986c39.nv25.5",
+                "transformers": "4.53.2",
+                "jax": "0.5.3",
+                "flax": "0.10.2",
+                "safetensors": "0.5.3",
+                "sentencepiece": "0.2.0"
+              }
+            },
+            "chunk": 0,
+            "latency_s": 0.2930502889212221,
+            "predicted_actions": 5,
+            "diagnostics": {
+              "raw_min": -1.0075718550272674,
+              "raw_max": 0.5350536469220786,
+              "clipped_values": 5,
+              "gripper_binarized": true
+            },
+            "executed_horizon": 5
+          },
+          "program": {
+            "program": "program_bounded_full_goal_delegation",
+            "primitive": "run_vla",
+            "arguments": {
+              "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+              "chunks": 8
+            },
+            "invocation": 3
+          },
+          "geometry": {
+            "action_format": "normalized_osc_pose7",
+            "policy_action": [
+              -0.3146081352560877,
+              0.02328125809683157,
+              -0.288480358346497,
+              -0.038061423488189305,
+              -0.03905729076266429,
+              0.06974549209398029,
+              -1.0
+            ]
+          },
+          "result": {
+            "condition_met": true,
+            "source": "adapter_terminal_condition",
+            "control_tick": 82
+          }
+        },
+        {
           "seq": 130,
           "kind": "tool_end",
           "elapsed_s": 25.828711,
@@ -43182,6 +43801,8 @@
         "plan_mode": "batch",
         "stop_on_native_success": true
       },
+      "usage_missing_calls": 0,
+      "errors": [],
       "timeline": [
         {
           "seq": 3,
@@ -48324,6 +48945,71 @@
           "result": null
         },
         {
+          "seq": 278,
+          "kind": "environment_terminal",
+          "elapsed_s": 77.580097,
+          "call": [
+            {
+              "arguments": "{\"steps\":[{\"tool\":\"run_vla\",\"arguments\":{\"chunks\":4,\"instruction\":\"Lower the alphabet soup can into the basket and release it, then lift the empty gripper away.\"},\"id\":\"release_soup_in_basket\",\"require_fact\":null}]}",
+              "name": "submit_plan"
+            }
+          ],
+          "primitive": {
+            "model": {
+              "model": "RLinf-Pi05-LIBERO-130-fullshot-SFT",
+              "contract": "libero_franka_osc7_v1",
+              "checkpoint_sha256": "4d9089c941793f170b625c2ed0ac7a3aa09b6f103e52dbbc82e67301529d6683",
+              "norm_stats_sha256": "dae37d79a22108af83df9189c6710a3ec8e077d65b28e34bdf1da724e5ae30f1",
+              "tokenizer_sha256": "8986bb4f423f07f8c7f70d0dbe3526fb2316056c17bae71b1ea975e77a168fc6",
+              "loader": "OpenPI PI0Pytorch",
+              "action_horizon": 10,
+              "execute_horizon": 5,
+              "denoising_steps": 10,
+              "discrete_state_input": false,
+              "quantile_normalization": true,
+              "postprocess": "clip_normalized_OSC_to_minus1_plus1_and_binarize_gripper",
+              "training_overlap": "LIBERO-130 fullshot SFT; standard LIBERO is in-domain",
+              "upstream_benchmark_reproduction": false,
+              "runtime_versions": {
+                "torch": "2.8.0a0+5228986c39.nv25.5",
+                "transformers": "4.53.2",
+                "jax": "0.5.3",
+                "flax": "0.10.2",
+                "safetensors": "0.5.3",
+                "sentencepiece": "0.2.0"
+              }
+            },
+            "chunk": 2,
+            "latency_s": 0.32165063987486064,
+            "predicted_actions": 5,
+            "diagnostics": {
+              "raw_min": -0.9942740900484814,
+              "raw_max": 0.9988610300195253,
+              "clipped_values": 0,
+              "gripper_binarized": true
+            },
+            "executed_horizon": 5
+          },
+          "program": null,
+          "geometry": {
+            "action_format": "normalized_osc_pose7",
+            "policy_action": [
+              -0.13047794060645235,
+              0.01789707421258868,
+              -0.44905033572463915,
+              0.008069352004768326,
+              7.613724238142439e-05,
+              0.039146358531325975,
+              1.0
+            ]
+          },
+          "result": {
+            "condition_met": true,
+            "source": "adapter_terminal_condition",
+            "control_tick": 173
+          }
+        },
+        {
           "seq": 279,
           "kind": "tool_end",
           "elapsed_s": 77.580201,
@@ -48576,6 +49262,8 @@
         "plan_mode": "batch",
         "stop_on_native_success": true
       },
+      "usage_missing_calls": 0,
+      "errors": [],
       "timeline": [
         {
           "seq": 4,
@@ -53892,6 +54580,79 @@
           "result": null
         },
         {
+          "seq": 261,
+          "kind": "environment_terminal",
+          "elapsed_s": 33.124198,
+          "call": [
+            {
+              "arguments": "{\"steps\":[{\"tool\":\"program_bounded_full_goal_delegation\",\"arguments\":{\"instruction\":\"pick up the alphabet soup and place it in the basket\"},\"id\":\"delegate_soup_placement\",\"require_fact\":null}]}",
+              "name": "submit_plan"
+            }
+          ],
+          "primitive": {
+            "model": {
+              "model": "RLinf-Pi05-LIBERO-130-fullshot-SFT",
+              "contract": "libero_franka_osc7_v1",
+              "checkpoint_sha256": "4d9089c941793f170b625c2ed0ac7a3aa09b6f103e52dbbc82e67301529d6683",
+              "norm_stats_sha256": "dae37d79a22108af83df9189c6710a3ec8e077d65b28e34bdf1da724e5ae30f1",
+              "tokenizer_sha256": "8986bb4f423f07f8c7f70d0dbe3526fb2316056c17bae71b1ea975e77a168fc6",
+              "loader": "OpenPI PI0Pytorch",
+              "action_horizon": 10,
+              "execute_horizon": 5,
+              "denoising_steps": 10,
+              "discrete_state_input": false,
+              "quantile_normalization": true,
+              "postprocess": "clip_normalized_OSC_to_minus1_plus1_and_binarize_gripper",
+              "training_overlap": "LIBERO-130 fullshot SFT; standard LIBERO is in-domain",
+              "upstream_benchmark_reproduction": false,
+              "runtime_versions": {
+                "torch": "2.8.0a0+5228986c39.nv25.5",
+                "transformers": "4.53.2",
+                "jax": "0.5.3",
+                "flax": "0.10.2",
+                "safetensors": "0.5.3",
+                "sentencepiece": "0.2.0"
+              }
+            },
+            "chunk": 2,
+            "latency_s": 0.30040456308051944,
+            "predicted_actions": 5,
+            "diagnostics": {
+              "raw_min": -0.5239007066327279,
+              "raw_max": 1.000503406255567,
+              "clipped_values": 1,
+              "gripper_binarized": true
+            },
+            "executed_horizon": 5
+          },
+          "program": {
+            "program": "program_bounded_full_goal_delegation",
+            "primitive": "run_vla",
+            "arguments": {
+              "instruction": "pick up the alphabet soup and place it in the basket",
+              "chunks": 8
+            },
+            "invocation": 5
+          },
+          "geometry": {
+            "action_format": "normalized_osc_pose7",
+            "policy_action": [
+              -0.013176551820659244,
+              0.023208548842179377,
+              -0.06082965493537795,
+              -0.016435542813322268,
+              0.04280546274340935,
+              0.043073836197092596,
+              1.0
+            ]
+          },
+          "result": {
+            "condition_met": true,
+            "source": "adapter_terminal_condition",
+            "control_tick": 174
+          }
+        },
+        {
           "seq": 262,
           "kind": "tool_end",
           "elapsed_s": 33.124333,
@@ -54168,6 +54929,8 @@
         "plan_mode": "batch",
         "stop_on_native_success": true
       },
+      "usage_missing_calls": 0,
+      "errors": [],
       "timeline": [
         {
           "seq": 3,
@@ -57867,6 +58630,8 @@
         "plan_mode": "batch",
         "stop_on_native_success": true
       },
+      "usage_missing_calls": 0,
+      "errors": [],
       "timeline": [
         {
           "seq": 4,
@@ -63045,6 +63810,79 @@
           "result": null
         },
         {
+          "seq": 253,
+          "kind": "environment_terminal",
+          "elapsed_s": 32.936093,
+          "call": [
+            {
+              "arguments": "{\"steps\":[{\"tool\":\"program_bounded_full_goal_delegation\",\"arguments\":{\"instruction\":\"open the middle drawer of the cabinet\"},\"id\":\"open_middle_drawer\",\"require_fact\":null}]}",
+              "name": "submit_plan"
+            }
+          ],
+          "primitive": {
+            "model": {
+              "model": "RLinf-Pi05-LIBERO-130-fullshot-SFT",
+              "contract": "libero_franka_osc7_v1",
+              "checkpoint_sha256": "4d9089c941793f170b625c2ed0ac7a3aa09b6f103e52dbbc82e67301529d6683",
+              "norm_stats_sha256": "dae37d79a22108af83df9189c6710a3ec8e077d65b28e34bdf1da724e5ae30f1",
+              "tokenizer_sha256": "8986bb4f423f07f8c7f70d0dbe3526fb2316056c17bae71b1ea975e77a168fc6",
+              "loader": "OpenPI PI0Pytorch",
+              "action_horizon": 10,
+              "execute_horizon": 5,
+              "denoising_steps": 10,
+              "discrete_state_input": false,
+              "quantile_normalization": true,
+              "postprocess": "clip_normalized_OSC_to_minus1_plus1_and_binarize_gripper",
+              "training_overlap": "LIBERO-130 fullshot SFT; standard LIBERO is in-domain",
+              "upstream_benchmark_reproduction": false,
+              "runtime_versions": {
+                "torch": "2.8.0a0+5228986c39.nv25.5",
+                "transformers": "4.53.2",
+                "jax": "0.5.3",
+                "flax": "0.10.2",
+                "safetensors": "0.5.3",
+                "sentencepiece": "0.2.0"
+              }
+            },
+            "chunk": 1,
+            "latency_s": 0.30286012310534716,
+            "predicted_actions": 5,
+            "diagnostics": {
+              "raw_min": -1.0057865753727193,
+              "raw_max": 0.947521307365415,
+              "clipped_values": 5,
+              "gripper_binarized": true
+            },
+            "executed_horizon": 5
+          },
+          "program": {
+            "program": "program_bounded_full_goal_delegation",
+            "primitive": "run_vla",
+            "arguments": {
+              "instruction": "open the middle drawer of the cabinet",
+              "chunks": 8
+            },
+            "invocation": 5
+          },
+          "geometry": {
+            "action_format": "normalized_osc_pose7",
+            "policy_action": [
+              -0.24008241422687193,
+              0.9330612976945893,
+              -0.7378063025598298,
+              -0.016374865600302435,
+              -0.026358866462016906,
+              -0.005896188411022907,
+              -1.0
+            ]
+          },
+          "result": {
+            "condition_met": true,
+            "source": "adapter_terminal_condition",
+            "control_tick": 168
+          }
+        },
+        {
           "seq": 254,
           "kind": "tool_end",
           "elapsed_s": 32.936189,
@@ -63321,6 +64159,8 @@
         "plan_mode": "batch",
         "stop_on_native_success": true
       },
+      "usage_missing_calls": 0,
+      "errors": [],
       "timeline": [
         {
           "seq": 3,
@@ -70617,6 +71457,71 @@
           "result": null
         },
         {
+          "seq": 390,
+          "kind": "environment_terminal",
+          "elapsed_s": 108.560635,
+          "call": [
+            {
+              "arguments": "{\"steps\":[{\"tool\":\"run_vla\",\"arguments\":{\"chunks\":4,\"instruction\":\"Release the tomato sauce can inside the basket and move the gripper up away from the basket. Put the alphabet soup in the basket too if it is not already inside.\"},\"id\":\"release_and_clear\",\"require_fact\":null}]}",
+              "name": "submit_plan"
+            }
+          ],
+          "primitive": {
+            "model": {
+              "model": "RLinf-Pi05-LIBERO-130-fullshot-SFT",
+              "contract": "libero_franka_osc7_v1",
+              "checkpoint_sha256": "4d9089c941793f170b625c2ed0ac7a3aa09b6f103e52dbbc82e67301529d6683",
+              "norm_stats_sha256": "dae37d79a22108af83df9189c6710a3ec8e077d65b28e34bdf1da724e5ae30f1",
+              "tokenizer_sha256": "8986bb4f423f07f8c7f70d0dbe3526fb2316056c17bae71b1ea975e77a168fc6",
+              "loader": "OpenPI PI0Pytorch",
+              "action_horizon": 10,
+              "execute_horizon": 5,
+              "denoising_steps": 10,
+              "discrete_state_input": false,
+              "quantile_normalization": true,
+              "postprocess": "clip_normalized_OSC_to_minus1_plus1_and_binarize_gripper",
+              "training_overlap": "LIBERO-130 fullshot SFT; standard LIBERO is in-domain",
+              "upstream_benchmark_reproduction": false,
+              "runtime_versions": {
+                "torch": "2.8.0a0+5228986c39.nv25.5",
+                "transformers": "4.53.2",
+                "jax": "0.5.3",
+                "flax": "0.10.2",
+                "safetensors": "0.5.3",
+                "sentencepiece": "0.2.0"
+              }
+            },
+            "chunk": 0,
+            "latency_s": 0.3133477510418743,
+            "predicted_actions": 5,
+            "diagnostics": {
+              "raw_min": -1.0101357735751435,
+              "raw_max": 0.3140105600890397,
+              "clipped_values": 5,
+              "gripper_binarized": true
+            },
+            "executed_horizon": 5
+          },
+          "program": null,
+          "geometry": {
+            "action_format": "normalized_osc_pose7",
+            "policy_action": [
+              0.16121941398777606,
+              0.12282311759063935,
+              0.2596959518172226,
+              -0.041518719744030985,
+              0.06631529917247825,
+              -0.04755889872708541,
+              -1.0
+            ]
+          },
+          "result": {
+            "condition_met": true,
+            "source": "adapter_terminal_condition",
+            "control_tick": 243
+          }
+        },
+        {
           "seq": 391,
           "kind": "tool_end",
           "elapsed_s": 108.560727,
@@ -70869,6 +71774,8 @@
         "plan_mode": "batch",
         "stop_on_native_success": true
       },
+      "usage_missing_calls": 0,
+      "errors": [],
       "timeline": [
         {
           "seq": 4,
@@ -79019,6 +79926,71 @@
           "result": null
         },
         {
+          "seq": 441,
+          "kind": "environment_terminal",
+          "elapsed_s": 113.101867,
+          "call": [
+            {
+              "arguments": "{\"steps\":[{\"tool\":\"run_vla\",\"arguments\":{\"chunks\":8,\"instruction\":\"put both the alphabet soup and the tomato sauce in the basket\"},\"id\":\"place_cans_continue_7\",\"require_fact\":null}]}",
+              "name": "submit_plan"
+            }
+          ],
+          "primitive": {
+            "model": {
+              "model": "RLinf-Pi05-LIBERO-130-fullshot-SFT",
+              "contract": "libero_franka_osc7_v1",
+              "checkpoint_sha256": "4d9089c941793f170b625c2ed0ac7a3aa09b6f103e52dbbc82e67301529d6683",
+              "norm_stats_sha256": "dae37d79a22108af83df9189c6710a3ec8e077d65b28e34bdf1da724e5ae30f1",
+              "tokenizer_sha256": "8986bb4f423f07f8c7f70d0dbe3526fb2316056c17bae71b1ea975e77a168fc6",
+              "loader": "OpenPI PI0Pytorch",
+              "action_horizon": 10,
+              "execute_horizon": 5,
+              "denoising_steps": 10,
+              "discrete_state_input": false,
+              "quantile_normalization": true,
+              "postprocess": "clip_normalized_OSC_to_minus1_plus1_and_binarize_gripper",
+              "training_overlap": "LIBERO-130 fullshot SFT; standard LIBERO is in-domain",
+              "upstream_benchmark_reproduction": false,
+              "runtime_versions": {
+                "torch": "2.8.0a0+5228986c39.nv25.5",
+                "transformers": "4.53.2",
+                "jax": "0.5.3",
+                "flax": "0.10.2",
+                "safetensors": "0.5.3",
+                "sentencepiece": "0.2.0"
+              }
+            },
+            "chunk": 7,
+            "latency_s": 0.3002299938816577,
+            "predicted_actions": 5,
+            "diagnostics": {
+              "raw_min": -1.0069170498719107,
+              "raw_max": 0.29300239001692363,
+              "clipped_values": 5,
+              "gripper_binarized": true
+            },
+            "executed_horizon": 5
+          },
+          "program": null,
+          "geometry": {
+            "action_format": "normalized_osc_pose7",
+            "policy_action": [
+              0.027688461471594206,
+              0.016889201412410126,
+              0.22432098363588793,
+              -0.0068613745381189695,
+              0.03208342009909959,
+              -0.046857839785249045,
+              -1.0
+            ]
+          },
+          "result": {
+            "condition_met": true,
+            "source": "adapter_terminal_condition",
+            "control_tick": 279
+          }
+        },
+        {
           "seq": 442,
           "kind": "tool_end",
           "elapsed_s": 113.101992,
@@ -79251,6 +80223,8 @@
         0.30064184258241056,
         0.9544127391902976
       ],
+      "usage_missing_calls": 0,
+      "infrastructure_errors": 0,
       "api_calls": 22,
       "control_ticks": 792,
       "wall_seconds": 457.10569999999996,
@@ -79266,6 +80240,8 @@
         0.5101091635454165,
         1
       ],
+      "usage_missing_calls": 0,
+      "infrastructure_errors": 0,
       "api_calls": 11,
       "control_ticks": 615,
       "wall_seconds": 206.7756,
@@ -79281,6 +80257,8 @@
         0.30064184258241056,
         0.9544127391902976
       ],
+      "usage_missing_calls": 0,
+      "infrastructure_errors": 0,
       "api_calls": 19,
       "control_ticks": 616,
       "wall_seconds": 293.4656,
@@ -79296,6 +80274,8 @@
         0.5101091635454165,
         1
       ],
+      "usage_missing_calls": 0,
+      "infrastructure_errors": 0,
       "api_calls": 10,
       "control_ticks": 703,
       "wall_seconds": 205.95390000000003,
@@ -81001,6 +81981,29 @@
       },
       "artifacts": {},
       "hash": "f3b426b043f6b3cb7a5dc634ad9195aed07e97cf37f0f0dd1214ed5673af7803"
+    },
+    {
+      "seq": 39,
+      "event_id": "evaluation/a203148bed268f22706b15d96a76cd26cb29d6dd19b28872b285b0d507b378d7",
+      "kind": "candidate_evaluated",
+      "actor": "experiment_evaluator",
+      "observed_at": "2026-09-24T13:06:18.744846+00:00",
+      "previous": "f3b426b043f6b3cb7a5dc634ad9195aed07e97cf37f0f0dd1214ed5673af7803",
+      "payload": {
+        "candidate": "candidate/02e8eabcc4c7343d6794a354b3ec074bde0b9ab5e256d0d86a5856336a5a4f38",
+        "accepted": false,
+        "failed_checks": [
+          "contract_passed"
+        ]
+      },
+      "artifacts": {
+        "report": {
+          "sha256": "a203148bed268f22706b15d96a76cd26cb29d6dd19b28872b285b0d507b378d7",
+          "bytes": 1110,
+          "media_type": "application/json"
+        }
+      },
+      "hash": "a02eef4a123ece55ba069c3759c7dbe2e9ab670b3772e2197cf95832942283ac"
     }
   ],
   "parent_revision": "candidate/2f9dfe251d6a857f2c7b7c797cfc1a947407d9ebec2ab17a7f1fd43374a18d2b",
@@ -81099,6 +82102,48 @@
         "statistical_mastery_established": false,
         "transfer_passed": true,
         "validation_instances": 4
+      }
+    },
+    {
+      "candidate_id": "candidate/02e8eabcc4c7343d6794a354b3ec074bde0b9ab5e256d0d86a5856336a5a4f38",
+      "accepted": false,
+      "report": {
+        "budget_passed": true,
+        "candidate_id": "candidate/02e8eabcc4c7343d6794a354b3ec074bde0b9ab5e256d0d86a5856336a5a4f38",
+        "contract_passed": false,
+        "evidence_verified": true,
+        "heldout_used_for_selection": false,
+        "independent_evaluator": true,
+        "infrastructure_or_unknown_outcomes": [
+          "libero_goal-01-i7-validation/baseline",
+          "libero_10-00-i7-validation/baseline",
+          "libero_10-01-i7-validation/baseline"
+        ],
+        "program_successful_fresh_instances": [
+          "libero_spatial-00-i7-validation",
+          "libero_spatial-01-i7-validation",
+          "libero_object-00-i7-validation",
+          "libero_object-01-i7-validation",
+          "libero_goal-00-i7-validation",
+          "libero_goal-01-i7-validation",
+          "libero_10-00-i7-validation",
+          "libero_10-01-i7-validation"
+        ],
+        "retention_passed": true,
+        "small_development_gate": {
+          "accepted": true,
+          "baseline_calls": 82,
+          "baseline_successes": 1,
+          "candidate_calls": 8,
+          "candidate_successes": 8,
+          "infrastructure_error": false,
+          "meaning": "Small development gate, not a statistical generalization claim",
+          "regressions": []
+        },
+        "split": "validation",
+        "statistical_mastery_established": false,
+        "transfer_passed": true,
+        "validation_instances": 8
       }
     }
   ],
@@ -81215,6 +82260,8 @@
             0.5101091635454165,
             1
           ],
+          "usage_missing_calls": 0,
+          "infrastructure_errors": 0,
           "api_calls": 15,
           "control_ticks": 554,
           "wall_seconds": 247.90030000000002,
@@ -81230,6 +82277,8 @@
             0.5101091635454165,
             1
           ],
+          "usage_missing_calls": 0,
+          "infrastructure_errors": 0,
           "api_calls": 14,
           "control_ticks": 611,
           "wall_seconds": 232.60969999999998,
@@ -81245,6 +82294,8 @@
             0.30064184258241056,
             0.9544127391902976
           ],
+          "usage_missing_calls": 0,
+          "infrastructure_errors": 0,
           "api_calls": 19,
           "control_ticks": 590,
           "wall_seconds": 345.2519,
@@ -81260,6 +82311,8 @@
             0.5101091635454165,
             1
           ],
+          "usage_missing_calls": 0,
+          "infrastructure_errors": 0,
           "api_calls": 20,
           "control_ticks": 629,
           "wall_seconds": 358.9601,
@@ -81280,6 +82333,8 @@
             0.5101091635454165,
             1
           ],
+          "usage_missing_calls": 0,
+          "infrastructure_errors": 0,
           "api_calls": 16,
           "control_ticks": 585,
           "wall_seconds": 281.0851,
@@ -81295,6 +82350,8 @@
             0.5101091635454165,
             1
           ],
+          "usage_missing_calls": 0,
+          "infrastructure_errors": 0,
           "api_calls": 16,
           "control_ticks": 685,
           "wall_seconds": 285.55060000000003,
@@ -81310,6 +82367,8 @@
             0.5101091635454165,
             1
           ],
+          "usage_missing_calls": 0,
+          "infrastructure_errors": 0,
           "api_calls": 18,
           "control_ticks": 630,
           "wall_seconds": 330.22249999999997,
@@ -81325,6 +82384,8 @@
             0.5101091635454165,
             1
           ],
+          "usage_missing_calls": 0,
+          "infrastructure_errors": 0,
           "api_calls": 17,
           "control_ticks": 697,
           "wall_seconds": 307.3962,
@@ -81345,6 +82406,8 @@
             0.30064184258241056,
             0.9544127391902976
           ],
+          "usage_missing_calls": 0,
+          "infrastructure_errors": 0,
           "api_calls": 22,
           "control_ticks": 792,
           "wall_seconds": 457.10569999999996,
@@ -81360,6 +82423,8 @@
             0.5101091635454165,
             1
           ],
+          "usage_missing_calls": 0,
+          "infrastructure_errors": 0,
           "api_calls": 11,
           "control_ticks": 615,
           "wall_seconds": 206.7756,
@@ -81375,6 +82440,8 @@
             0.30064184258241056,
             0.9544127391902976
           ],
+          "usage_missing_calls": 0,
+          "infrastructure_errors": 0,
           "api_calls": 19,
           "control_ticks": 616,
           "wall_seconds": 293.4656,
@@ -81390,6 +82457,8 @@
             0.5101091635454165,
             1
           ],
+          "usage_missing_calls": 0,
+          "infrastructure_errors": 0,
           "api_calls": 10,
           "control_ticks": 703,
           "wall_seconds": 205.95390000000003,
@@ -81398,5 +82467,540 @@
         }
       ]
     }
-  ]
+  ],
+  "scope_confirmation": {
+    "protocol": {
+      "schema_version": 1,
+      "name": "libero-program-eight-task-confirmation-v1",
+      "purpose": "Conditional scope expansion after round-three development acceptance; eight original tasks on two fresh states, not statistical mastery",
+      "arms": [
+        "baseline",
+        "candidate"
+      ],
+      "model": "gpt-6-astra",
+      "max_decisions": 24,
+      "max_control_ticks": 960,
+      "success_criterion": "native_success_terminal",
+      "memory": "baseline none; candidate frozen model-authored memory",
+      "skill_updates": "candidate frozen before any validation; no online mutation",
+      "task_generation": false,
+      "cases": [
+        {
+          "id": "libero_spatial-00-i7-validation",
+          "environment": "libero",
+          "seed": 7,
+          "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+          "config": {
+            "suite": "libero_spatial",
+            "task_id": 0,
+            "size": 256,
+            "init_state_index": 7
+          },
+          "task_id": "libero_spatial-00",
+          "split": "validation"
+        },
+        {
+          "id": "libero_spatial-01-i7-validation",
+          "environment": "libero",
+          "seed": 7,
+          "instruction": "pick up the black bowl next to the ramekin and place it on the plate",
+          "config": {
+            "suite": "libero_spatial",
+            "task_id": 1,
+            "size": 256,
+            "init_state_index": 7
+          },
+          "task_id": "libero_spatial-01",
+          "split": "validation"
+        },
+        {
+          "id": "libero_object-00-i7-validation",
+          "environment": "libero",
+          "seed": 7,
+          "instruction": "pick up the alphabet soup and place it in the basket",
+          "config": {
+            "suite": "libero_object",
+            "task_id": 0,
+            "size": 256,
+            "init_state_index": 7
+          },
+          "task_id": "libero_object-00",
+          "split": "validation"
+        },
+        {
+          "id": "libero_object-01-i7-validation",
+          "environment": "libero",
+          "seed": 7,
+          "instruction": "pick up the cream cheese and place it in the basket",
+          "config": {
+            "suite": "libero_object",
+            "task_id": 1,
+            "size": 256,
+            "init_state_index": 7
+          },
+          "task_id": "libero_object-01",
+          "split": "validation"
+        },
+        {
+          "id": "libero_goal-00-i7-validation",
+          "environment": "libero",
+          "seed": 7,
+          "instruction": "open the middle drawer of the cabinet",
+          "config": {
+            "suite": "libero_goal",
+            "task_id": 0,
+            "size": 256,
+            "init_state_index": 7
+          },
+          "task_id": "libero_goal-00",
+          "split": "validation"
+        },
+        {
+          "id": "libero_goal-01-i7-validation",
+          "environment": "libero",
+          "seed": 7,
+          "instruction": "put the bowl on the stove",
+          "config": {
+            "suite": "libero_goal",
+            "task_id": 1,
+            "size": 256,
+            "init_state_index": 7
+          },
+          "task_id": "libero_goal-01",
+          "split": "validation"
+        },
+        {
+          "id": "libero_10-00-i7-validation",
+          "environment": "libero",
+          "seed": 7,
+          "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+          "config": {
+            "suite": "libero_10",
+            "task_id": 0,
+            "size": 256,
+            "init_state_index": 7
+          },
+          "task_id": "libero_10-00",
+          "split": "validation"
+        },
+        {
+          "id": "libero_10-01-i7-validation",
+          "environment": "libero",
+          "seed": 7,
+          "instruction": "put both the cream cheese box and the butter in the basket",
+          "config": {
+            "suite": "libero_10",
+            "task_id": 1,
+            "size": 256,
+            "init_state_index": 7
+          },
+          "task_id": "libero_10-01",
+          "split": "validation"
+        },
+        {
+          "id": "libero_spatial-00-i8-heldout",
+          "environment": "libero",
+          "seed": 8,
+          "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+          "config": {
+            "suite": "libero_spatial",
+            "task_id": 0,
+            "size": 256,
+            "init_state_index": 8
+          },
+          "task_id": "libero_spatial-00",
+          "split": "heldout"
+        },
+        {
+          "id": "libero_spatial-01-i8-heldout",
+          "environment": "libero",
+          "seed": 8,
+          "instruction": "pick up the black bowl next to the ramekin and place it on the plate",
+          "config": {
+            "suite": "libero_spatial",
+            "task_id": 1,
+            "size": 256,
+            "init_state_index": 8
+          },
+          "task_id": "libero_spatial-01",
+          "split": "heldout"
+        },
+        {
+          "id": "libero_object-00-i8-heldout",
+          "environment": "libero",
+          "seed": 8,
+          "instruction": "pick up the alphabet soup and place it in the basket",
+          "config": {
+            "suite": "libero_object",
+            "task_id": 0,
+            "size": 256,
+            "init_state_index": 8
+          },
+          "task_id": "libero_object-00",
+          "split": "heldout"
+        },
+        {
+          "id": "libero_object-01-i8-heldout",
+          "environment": "libero",
+          "seed": 8,
+          "instruction": "pick up the cream cheese and place it in the basket",
+          "config": {
+            "suite": "libero_object",
+            "task_id": 1,
+            "size": 256,
+            "init_state_index": 8
+          },
+          "task_id": "libero_object-01",
+          "split": "heldout"
+        },
+        {
+          "id": "libero_goal-00-i8-heldout",
+          "environment": "libero",
+          "seed": 8,
+          "instruction": "open the middle drawer of the cabinet",
+          "config": {
+            "suite": "libero_goal",
+            "task_id": 0,
+            "size": 256,
+            "init_state_index": 8
+          },
+          "task_id": "libero_goal-00",
+          "split": "heldout"
+        },
+        {
+          "id": "libero_goal-01-i8-heldout",
+          "environment": "libero",
+          "seed": 8,
+          "instruction": "put the bowl on the stove",
+          "config": {
+            "suite": "libero_goal",
+            "task_id": 1,
+            "size": 256,
+            "init_state_index": 8
+          },
+          "task_id": "libero_goal-01",
+          "split": "heldout"
+        },
+        {
+          "id": "libero_10-00-i8-heldout",
+          "environment": "libero",
+          "seed": 8,
+          "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+          "config": {
+            "suite": "libero_10",
+            "task_id": 0,
+            "size": 256,
+            "init_state_index": 8
+          },
+          "task_id": "libero_10-00",
+          "split": "heldout"
+        },
+        {
+          "id": "libero_10-01-i8-heldout",
+          "environment": "libero",
+          "seed": 8,
+          "instruction": "put both the cream cheese box and the butter in the basket",
+          "config": {
+            "suite": "libero_10",
+            "task_id": 1,
+            "size": 256,
+            "init_state_index": 8
+          },
+          "task_id": "libero_10-01",
+          "split": "heldout"
+        }
+      ],
+      "checkpoint_repo": "RLinf/RLinf-Pi05-LIBERO-130-fullshot-SFT",
+      "checkpoint_revision": "6222623f635769bfc73c9472e29fab9b7fd8e027",
+      "checkpoint_sha256": "4d9089c941793f170b625c2ed0ac7a3aa09b6f103e52dbbc82e67301529d6683",
+      "planner_settings": {
+        "api_mode": "responses",
+        "provider_host": "aixor.cc",
+        "reasoning_effort": "high",
+        "stream": true,
+        "note": "Model label reported by provider; upstream identity not independently verified"
+      },
+      "declared_before_execution": true,
+      "selection_policy": "Declared before round-three gate and before viewing any repair heldout outcomes. Execute only if all round-three development checks pass. Freeze the same candidate; do not modify memory, skill, source, tools, evaluator or budgets. No new proposal can use these final outcomes.",
+      "candidate_sha256": "6f8dc9d6e8adb62ac8df78735d465046a8f79b4c14568100c0b404312d80409c"
+    },
+    "gate": {
+      "candidate_id": "candidate/02e8eabcc4c7343d6794a354b3ec074bde0b9ab5e256d0d86a5856336a5a4f38",
+      "split": "validation",
+      "contract_passed": false,
+      "transfer_passed": true,
+      "retention_passed": true,
+      "budget_passed": true,
+      "independent_evaluator": true,
+      "evidence_verified": true,
+      "small_development_gate": {
+        "accepted": true,
+        "baseline_successes": 1,
+        "candidate_successes": 8,
+        "baseline_calls": 82,
+        "candidate_calls": 8,
+        "regressions": [],
+        "infrastructure_error": false,
+        "meaning": "Small development gate, not a statistical generalization claim"
+      },
+      "program_successful_fresh_instances": [
+        "libero_spatial-00-i7-validation",
+        "libero_spatial-01-i7-validation",
+        "libero_object-00-i7-validation",
+        "libero_object-01-i7-validation",
+        "libero_goal-00-i7-validation",
+        "libero_goal-01-i7-validation",
+        "libero_10-00-i7-validation",
+        "libero_10-01-i7-validation"
+      ],
+      "infrastructure_or_unknown_outcomes": [
+        "libero_goal-01-i7-validation/baseline",
+        "libero_10-00-i7-validation/baseline",
+        "libero_10-01-i7-validation/baseline"
+      ],
+      "validation_instances": 8,
+      "heldout_used_for_selection": false,
+      "statistical_mastery_established": false
+    },
+    "statistics": [
+      {
+        "split": "validation",
+        "arm": "baseline",
+        "successes": 1,
+        "n": 8,
+        "wilson95": [
+          0.02241749145005756,
+          0.47088818221284356
+        ],
+        "usage_missing_calls": 1,
+        "infrastructure_errors": 3,
+        "api_calls": 82,
+        "control_ticks": 3692,
+        "wall_seconds": 3254.5465,
+        "input_tokens": 202777,
+        "output_tokens": 40842
+      },
+      {
+        "split": "validation",
+        "arm": "candidate",
+        "successes": 8,
+        "n": 8,
+        "wilson95": [
+          0.6755924351161318,
+          1
+        ],
+        "usage_missing_calls": 0,
+        "infrastructure_errors": 0,
+        "api_calls": 8,
+        "control_ticks": 1177,
+        "wall_seconds": 368.2862,
+        "input_tokens": 22205,
+        "output_tokens": 1406
+      },
+      {
+        "split": "heldout",
+        "arm": "baseline",
+        "successes": 0,
+        "n": 8,
+        "wilson95": [
+          0,
+          0.3244075648838681
+        ],
+        "usage_missing_calls": 1,
+        "infrastructure_errors": 5,
+        "api_calls": 64,
+        "control_ticks": 2827,
+        "wall_seconds": 2895.5392,
+        "input_tokens": 165088,
+        "output_tokens": 29885
+      },
+      {
+        "split": "heldout",
+        "arm": "candidate",
+        "successes": 6,
+        "n": 8,
+        "wilson95": [
+          0.40927543031017727,
+          0.9285207872478887
+        ],
+        "usage_missing_calls": 0,
+        "infrastructure_errors": 1,
+        "api_calls": 17,
+        "control_ticks": 1883,
+        "wall_seconds": 1073.4322,
+        "input_tokens": 50875,
+        "output_tokens": 3098
+      }
+    ],
+    "details": "confirmation/"
+  },
+  "matched_reference": {
+    "statistics": [
+      {
+        "split": "validation",
+        "arm": "checkpoint_only",
+        "n": 8,
+        "successes": 8,
+        "usage_missing_calls": 0,
+        "provider_api_attempts": 0,
+        "provider_input_tokens": 0,
+        "provider_output_tokens": 0,
+        "provider_usage_missing_calls": 0,
+        "infrastructure_errors": 0,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 1197,
+        "wall_seconds": 203.11280000000002
+      },
+      {
+        "split": "validation",
+        "arm": "baseline",
+        "n": 8,
+        "successes": 1,
+        "usage_missing_calls": 1,
+        "provider_api_attempts": 82,
+        "provider_input_tokens": 202777,
+        "provider_output_tokens": 40842,
+        "provider_usage_missing_calls": 1,
+        "infrastructure_errors": 3,
+        "api_calls": 82,
+        "input_tokens": 202777,
+        "output_tokens": 40842,
+        "control_ticks": 3692,
+        "wall_seconds": 3254.5465
+      },
+      {
+        "split": "validation",
+        "arm": "candidate",
+        "n": 8,
+        "successes": 8,
+        "usage_missing_calls": 0,
+        "provider_api_attempts": 8,
+        "provider_input_tokens": 22205,
+        "provider_output_tokens": 1406,
+        "provider_usage_missing_calls": 0,
+        "infrastructure_errors": 0,
+        "api_calls": 8,
+        "input_tokens": 22205,
+        "output_tokens": 1406,
+        "control_ticks": 1177,
+        "wall_seconds": 368.2862
+      },
+      {
+        "split": "heldout",
+        "arm": "checkpoint_only",
+        "n": 8,
+        "successes": 7,
+        "usage_missing_calls": 0,
+        "provider_api_attempts": 0,
+        "provider_input_tokens": 0,
+        "provider_output_tokens": 0,
+        "provider_usage_missing_calls": 0,
+        "infrastructure_errors": 0,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 1950,
+        "wall_seconds": 245.2628
+      },
+      {
+        "split": "heldout",
+        "arm": "baseline",
+        "n": 8,
+        "successes": 0,
+        "usage_missing_calls": 1,
+        "provider_api_attempts": 64,
+        "provider_input_tokens": 165088,
+        "provider_output_tokens": 29885,
+        "provider_usage_missing_calls": 1,
+        "infrastructure_errors": 5,
+        "api_calls": 64,
+        "input_tokens": 165088,
+        "output_tokens": 29885,
+        "control_ticks": 2827,
+        "wall_seconds": 2895.5392
+      },
+      {
+        "split": "heldout",
+        "arm": "candidate",
+        "n": 8,
+        "successes": 6,
+        "usage_missing_calls": 0,
+        "provider_api_attempts": 17,
+        "provider_input_tokens": 50875,
+        "provider_output_tokens": 3098,
+        "provider_usage_missing_calls": 0,
+        "infrastructure_errors": 1,
+        "api_calls": 17,
+        "input_tokens": 50875,
+        "output_tokens": 3098,
+        "control_ticks": 1883,
+        "wall_seconds": 1073.4322
+      },
+      {
+        "split": "all",
+        "arm": "checkpoint_only",
+        "n": 16,
+        "successes": 15,
+        "usage_missing_calls": 0,
+        "provider_api_attempts": 0,
+        "provider_input_tokens": 0,
+        "provider_output_tokens": 0,
+        "provider_usage_missing_calls": 0,
+        "infrastructure_errors": 0,
+        "api_calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "control_ticks": 3147,
+        "wall_seconds": 448.3756
+      },
+      {
+        "split": "all",
+        "arm": "baseline",
+        "n": 16,
+        "successes": 1,
+        "usage_missing_calls": 2,
+        "provider_api_attempts": 146,
+        "provider_input_tokens": 367865,
+        "provider_output_tokens": 70727,
+        "provider_usage_missing_calls": 2,
+        "infrastructure_errors": 8,
+        "api_calls": 146,
+        "input_tokens": 367865,
+        "output_tokens": 70727,
+        "control_ticks": 6519,
+        "wall_seconds": 6150.0857
+      },
+      {
+        "split": "all",
+        "arm": "candidate",
+        "n": 16,
+        "successes": 14,
+        "usage_missing_calls": 0,
+        "provider_api_attempts": 25,
+        "provider_input_tokens": 73080,
+        "provider_output_tokens": 4504,
+        "provider_usage_missing_calls": 0,
+        "infrastructure_errors": 1,
+        "api_calls": 25,
+        "input_tokens": 73080,
+        "output_tokens": 4504,
+        "control_ticks": 3060,
+        "wall_seconds": 1441.7184
+      }
+    ],
+    "details": "matched-reference/",
+    "broker_cost_audit": {
+      "campaign_results_sha256": "b6f0fa082bc7c02a47262d17871c71f45f32f78448b02a0c2997b5790b59a7bd",
+      "protocol_sha256": "0099d2ce4262d5775c2e0c3a2d9b6b3a8c6c331b4573c18d097d8af74dfb1f3e",
+      "worker_recorded_api_attempts": 171,
+      "broker_recorded_api_attempts": 171,
+      "unacknowledged_api_attempts": 0,
+      "input_tokens": 440945,
+      "output_tokens": 75231,
+      "usage_missing_calls": 2,
+      "note": "Broker totals include late responses once, never added twice to worker totals. Missing token usage is unknown. Worker deadline failures remain failures; this audit does not turn late decisions into robot actions or change any success result. Only recorded API attempts are attested; provider billing is not independently verified."
+    }
+  }
 }

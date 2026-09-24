@@ -3,12 +3,13 @@
 import argparse
 import copy
 import gzip
+import hashlib
 import json
 import os
 from pathlib import Path
 
 from export_rsi import video
-from package_baseline_evidence import public_events
+from package_baseline_evidence import public_events, usage_missing_calls
 
 
 def verify_matched_cases(scope_protocol, policy_protocol, scope_rows, policy_rows):
@@ -35,7 +36,7 @@ def verify_matched_cases(scope_protocol, policy_protocol, scope_rows, policy_row
     return cases
 
 
-def export(scope, scope_export, policy, destination):
+def export(scope, scope_export, policy, destination, broker_audit=None):
     scope, scope_export, policy, destination = map(Path, (scope, scope_export, policy, destination))
     sr = json.loads((scope / "results.json").read_text())
     pr = json.loads((policy / "results.json").read_text())
@@ -93,9 +94,30 @@ def export(scope, scope_export, policy, destination):
                 for field in ("video", "public_trace"):
                     row[field] = os.path.relpath(scope_export / row[field], destination)
             row["split"] = cases[row["case_id"]]["split"]
+            row["usage_missing_calls"] = usage_missing_calls(events)
+            row["errors"] = [
+                {"type": e["payload"]["error_type"],
+                 "message": e["payload"]["message"].splitlines()[0][:2000]}
+                for e in events if e["kind"] == "error"
+            ]
             rows.append(row)
     if any(metadata != checkpoints[0] for metadata in checkpoints):
         raise ValueError("Checkpoint preprocessing, denoising or runtime metadata changed")
+    accounting = json.loads(Path(broker_audit).read_text()) if broker_audit else None
+    if accounting:
+        for filename, field in (("results.json", "campaign_results_sha256"),
+                                ("protocol.json", "protocol_sha256")):
+            if hashlib.sha256((scope / filename).read_bytes()).hexdigest() != accounting[field]:
+                raise ValueError("Cost audit is not bound to the displayed campaign")
+        expected = {row["case_id"] + "--" + row["arm"] for row in sr["rows"]}
+        if any(row["episode"] not in expected for row in accounting["rows"]):
+            raise ValueError("Cost audit contains an unrelated episode")
+        for row in rows:
+            requests = [entry for entry in accounting["rows"]
+                        if entry["episode"] == row["case_id"] + "--" + row["arm"]]
+            row["provider_api_attempts"] = len(requests)
+            for field in ("input_tokens", "output_tokens", "usage_missing_calls"):
+                row["provider_" + field] = sum(entry[field] for entry in requests)
     statistics = []
     for split in ("validation", "heldout", "all"):
         for arm in ("checkpoint_only", "baseline", "candidate"):
@@ -108,6 +130,11 @@ def export(scope, scope_export, policy, destination):
                     "arm": arm,
                     "n": len(selected),
                     "successes": sum(r["summary"]["success"] for r in selected),
+                    "usage_missing_calls": sum(r["usage_missing_calls"] for r in selected),
+                    **({field: sum(row[field] for row in selected)
+                        for field in ("provider_api_attempts", "provider_input_tokens",
+                                      "provider_output_tokens", "provider_usage_missing_calls")}
+                       if accounting else {}),
                     "infrastructure_errors": sum(
                         r["summary"]["status"] == "infrastructure_error" for r in selected
                     ),
@@ -131,6 +158,7 @@ def export(scope, scope_export, policy, destination):
         "reference_protocol": pp,
         "checkpoint": checkpoints[0],
         "candidate_id": displayed["candidate"]["candidate_id"],
+        "broker_cost_audit": accounting,
         "note": "Supplementary matched execution reference, not a candidate-selection round. All task/state pairs included. No model weights changed; standard LIBERO is in-domain.",
     }
     (destination / "data.json").write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
@@ -148,5 +176,6 @@ if __name__ == "__main__":
     p.add_argument("--scope-export", required=True)
     p.add_argument("--policy", required=True)
     p.add_argument("--out", required=True)
+    p.add_argument("--broker-audit")
     a = p.parse_args()
-    export(a.scope, a.scope_export, a.policy, a.out)
+    export(a.scope, a.scope_export, a.policy, a.out, a.broker_audit)

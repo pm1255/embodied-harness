@@ -13,6 +13,20 @@ from pathlib import Path
 import tarfile
 
 
+def usage_missing_calls(events):
+    """Failed provider responses can omit billed usage; never report it as zero."""
+    requests = sum(event["kind"] == "model_request" for event in events)
+    reported = sum(
+        event["kind"] == "model_response"
+        and all(
+            type((event["payload"].get("usage") or {}).get(field)) is int
+            for field in ("input_tokens", "output_tokens")
+        )
+        for event in events
+    )
+    return max(0, requests - reported)
+
+
 def public_events(events):
     rows = copy.deepcopy(events)
     for event in rows:

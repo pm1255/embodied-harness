@@ -1,0 +1,70 @@
+{
+  "release": "v0.4.0",
+  "extract_rollout_archives_separately": true,
+  "assets": [
+    {
+      "archive": "embodied-harness-baseline-v0.4-evidence.tar.gz",
+      "bytes": 259575142,
+      "sha256": "06fb11e3c7bcc0ffe06c08c5061f757bbdddd689b111873ad8e4b1407745dcb4",
+      "files": 3836,
+      "url": "https://github.com/pm1255/embodied-harness/releases/download/v0.4.0/embodied-harness-baseline-v0.4-evidence.tar.gz",
+      "manifest_url": "https://github.com/pm1255/embodied-harness/releases/download/v0.4.0/embodied-harness-baseline-v0.4-evidence.tar.gz.json"
+    },
+    {
+      "archive": "round1-rollouts.tar.gz",
+      "bytes": 73814999,
+      "sha256": "69565a78a55cf038d3eac73e5ed330adde4cd3d8155a6660148bca9989123bc5",
+      "files": 1133,
+      "url": "https://github.com/pm1255/embodied-harness/releases/download/v0.4.0/round1-rollouts.tar.gz",
+      "manifest_url": "https://github.com/pm1255/embodied-harness/releases/download/v0.4.0/round1-rollouts.tar.gz.json"
+    },
+    {
+      "archive": "round2-rollouts.tar.gz",
+      "bytes": 81036567,
+      "sha256": "6b47120d638b9c33921a9b11575ed00e9c4d66b7bfc5e375a3bbd21988dce531",
+      "files": 1223,
+      "url": "https://github.com/pm1255/embodied-harness/releases/download/v0.4.0/round2-rollouts.tar.gz",
+      "manifest_url": "https://github.com/pm1255/embodied-harness/releases/download/v0.4.0/round2-rollouts.tar.gz.json"
+    },
+    {
+      "archive": "round3-rollouts.tar.gz",
+      "bytes": 81652455,
+      "sha256": "ac7cf2d36aa8ed597f2ed46249d1ac3d2bc4b7c9280604788006ce9b769bb095",
+      "files": 1233,
+      "url": "https://github.com/pm1255/embodied-harness/releases/download/v0.4.0/round3-rollouts.tar.gz",
+      "manifest_url": "https://github.com/pm1255/embodied-harness/releases/download/v0.4.0/round3-rollouts.tar.gz.json"
+    },
+    {
+      "archive": "confirmation-rollouts.tar.gz",
+      "bytes": 242591436,
+      "sha256": "7e1f9a2fe4057444a7c8adc72b87647de02222e909de0147777fb2a3aa23bb4d",
+      "files": 3663,
+      "url": "https://github.com/pm1255/embodied-harness/releases/download/v0.4.0/confirmation-rollouts.tar.gz",
+      "manifest_url": "https://github.com/pm1255/embodied-harness/releases/download/v0.4.0/confirmation-rollouts.tar.gz.json"
+    },
+    {
+      "archive": "policy-reference-rollouts.tar.gz",
+      "bytes": 98680354,
+      "sha256": "c7b5530e69d527962835ea06ea857c7a5a04e75f828df9885616e837e3928d0e",
+      "files": 1477,
+      "url": "https://github.com/pm1255/embodied-harness/releases/download/v0.4.0/policy-reference-rollouts.tar.gz",
+      "manifest_url": "https://github.com/pm1255/embodied-harness/releases/download/v0.4.0/policy-reference-rollouts.tar.gz.json"
+    },
+    {
+      "archive": "server-smoke-rollouts.tar.gz",
+      "bytes": 9572394,
+      "sha256": "2656deb32fc2c1855bf22e5e82c58611786806e38d75e2674d1764de564d5350",
+      "files": 149,
+      "url": "https://github.com/pm1255/embodied-harness/releases/download/v0.4.0/server-smoke-rollouts.tar.gz",
+      "manifest_url": "https://github.com/pm1255/embodied-harness/releases/download/v0.4.0/server-smoke-rollouts.tar.gz.json"
+    },
+    {
+      "archive": "embodied-harness-v0.4-provenance.tar.gz",
+      "bytes": 918029,
+      "sha256": "847163e3ad9174191188af0838a05cd1b4a5fd1f8e2b2557e75adfa14f1f468a",
+      "files": 216,
+      "url": "https://github.com/pm1255/embodied-harness/releases/download/v0.4.0/embodied-harness-v0.4-provenance.tar.gz",
+      "manifest_url": "https://github.com/pm1255/embodied-harness/releases/download/v0.4.0/embodied-harness-v0.4-provenance.tar.gz.json"
+    }
+  ]
+}

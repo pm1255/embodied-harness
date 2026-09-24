@@ -6,6 +6,7 @@ The goal is **measurable progress on existing unsolved benchmark tasks**, not an
 
 ## Status of this implementation
 
+- **Executed in v0.4:** three GPT-authored repair revisions on LIBERO with the official π0.5 checkpoint. The first writes an executable bounded tool; successors revise memory, skill and tool description. Two development rejections and a third-round pass are preserved with new-state paired rollouts. See [measured results and exact changes](rsi/program-evolution/README.md). Generated programs use a restricted AST grammar and primitive API; they do not execute arbitrary Python or modify the evaluator.
 - **Executed in v1:** GPT-generated MetaWorld scenario parameters, development rollouts, evidence-bound memory, typed primitive-composition skills, paired development selection and a frozen four-arm final test. See the [actual results](rsi/README.md).
 - **Implemented and tested as v2 infrastructure:** content-addressed evolution archive; branching proposals for all six component types; validation/activation/rollback records; conservative frontier assessment; prompt-ready exploration guidance; development-only retrospective visualization.
 - **Not yet demonstrated:** an autonomous v2 run that writes and executes arbitrary Python tools or harness patches, constructs new physical task predicates, or improves model weights. Python source can be archived as a proposal; it is **not executed by the archive**. The current v1 run is not retroactively described as using v2.

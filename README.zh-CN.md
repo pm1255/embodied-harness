@@ -1,11 +1,11 @@
 # Embodied Harness
 
-**GPT 选择动作，harness 将它转成可检查的机器人执行过程。**
+**GPT 操作机器人，改写工具与技能，并为每次能力改进留下可核验的证据。**
 
 [![CI](https://github.com/pm1255/embodied-harness/actions/workflows/ci.yml/badge.svg)](https://github.com/pm1255/embodied-harness/actions)
 [English](README.md) · [真实调用 JSON](examples/recorded) · [设计依据](docs/design-rationale.md) · [全部实测记录](docs/live-tests/all-attempts.json)
 
-这是一个把**视觉决策、几何计算、连续控制、任务评价**分开的机器人执行框架。模型调用已经实现的工具；底层生成控制指令。模型可以一次调用一个工具，也可以提交短计划，由执行器在完成或失败时交还控制权。
+框架把**视觉决策、几何工具、VLA 控制、独立评价**分开。GPT 可以调用已有工具，也可以编写组合这些工具的受限程序。修复循环保留记忆、skill、源码修改、被拒绝的版本和配对机器人回放。下方实测使用 LIBERO 与 π0.5；更广的课程和环境适配能力另列状态，不混作已完成的成绩。
 
 ## 模型实际改写工具：三轮结果与全部历史
 
@@ -21,11 +21,32 @@
 
 第三版留出调用减少 **47%**，输入 token **39,271→29,987**，记录到的耗时 **293.5→206.0 秒**；控制步数增加 **616→703**。这是四任务小样本结果，不能宣称完成整个 benchmark、轨迹更短或优于 RPent。记忆、skill 和工具组合测试，尚无单模块归因。前两轮被拒绝的版本与回放都保留。**目前任务难度没有增加。**
 
+第三版实际的抽屉任务调用，GPT 没有输出位姿或关节轨迹：
+
+```json
+{
+  "tool": "program_bounded_full_goal_delegation",
+  "arguments": {"instruction": "open the middle drawer of the cabinet"}
+}
+```
+
+[模型写出的程序](docs/rsi/program-evolution/program.py)持续调用 π0.5，动作块之间读取新观测；固定的原生评价器在任务成功时停止动作。
+
 ![真实模型工具开抽屉，双视角回放](docs/rsi/program-evolution/tool-delegation.gif)
 
 上图是第一版的加速抽样回放。网页展示 `program_bounded_full_goal_delegation` 的模型参数、内部 `run_vla` 参数、当前 VLA 动作块及真实 7 维控制动作。单个成功例子不表示第一版整体通过。
 
-已按[提前冻结的八任务确认协议](benchmarks/libero-program-eight-task-confirmation.json)启动同一第三版的扩展评测：两个新状态，共 32 回合。触发依据是开发通过，未根据留出结果挑选任务。更难任务尚未解锁。
+[提前冻结的八任务确认实验](benchmarks/libero-program-eight-task-confirmation.json)已完成：开发集 **1/8 → 8/8**，留出集 **0/8 → 6/8**。基线有 8 个接口异常回合，候选有 1 个；这些端到端结果不能单独衡量模型能力。扩展开发门槛因基线接口异常未通过，第三版只保留此前四任务范围内的接受记录。更难任务尚未解锁。
+
+**强执行基线：同样八项任务 × 两个状态**
+
+| 执行方式 | 原生成功 | 执行器记录 GPT 调用 | 接口异常回合 |
+|---|---:|---:|---:|
+| 独立 π0.5 | 15/16 | 0 | 0 |
+| 原始 GPT＋工具 | 1/16 | 146 | 8 |
+| 第三版 GPT＋工具 | 14/16 | 25 | 1 |
+
+[打开全部 48 个同状态对照回放](https://pm1255.github.io/embodied-harness/rsi/program-evolution/matched-reference/)。第三版**尚未超过强 VLA 基线**：一个长任务失败同样出现在独立 π0.5 中，另一个失败是决策服务超时。改善脆弱的原始调度不等于产生新的操作能力。补充对照在查看扩展结果前冻结，不改变原来的晋级规则。
 
 **实际基线已完成：** [观看 LIBERO 全部 16 个配对回合](https://pm1255.github.io/embodied-harness/rsi/baseline/)，使用 GPT-6 Astra 与官方 LIBERO π0.5 权重。[参考方案、实现与限制](docs/baseline-and-evolution.md)。
 

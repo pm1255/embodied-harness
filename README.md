@@ -1,11 +1,11 @@
 # Embodied Harness
 
-**GPT chooses an action. The harness turns it into robot motion you can inspect.**
+**GPT operates robots, revises its tools and skills, and leaves evidence for every improvement claim.**
 
 [![CI](https://github.com/pm1255/embodied-harness/actions/workflows/ci.yml/badge.svg)](https://github.com/pm1255/embodied-harness/actions)
 [中文](README.zh-CN.md) · [Recorded examples](examples/recorded) · [Design rationale](docs/design-rationale.md) · [Full attempt log](docs/live-tests/all-attempts.json)
 
-A small GPT-first runtime that separates **visual decisions, geometry, local control and evaluation**. The model calls implemented tools instead of generating every controller command. It can submit one primitive or a bounded plan; the executor returns control when the plan ends or a step fails.
+A GPT-first runtime that separates **visual decisions, geometric tools, VLA control and independent evaluation**. GPT can call existing tools or write a bounded program that composes them. A repair loop preserves its memory, skills, source changes, rejected revisions and paired robot rollouts. The measured path below uses LIBERO and π0.5; broader curriculum and adapter capabilities have separate status records.
 
 ## Measured model-written repairs: three preserved revisions
 
@@ -21,11 +21,33 @@ The experiment model wrote a bounded Python tool, then revised its memory, skill
 
 Revision 3's held-out calls fell **47%**, input tokens **39,271 → 29,987**, and observed wall time **293.5 → 206.0 s**. Control ticks increased **616 → 703**. This four-task pilot does not establish full-suite mastery, shorter motion, or superiority to RPent; memory/skill/tool changes were evaluated together. The first two revisions remain visible despite rejection. **Task difficulty has not increased.**
 
+An actual third-revision drawer call, with no pose or joint trajectory in the GPT output:
+
+```json
+{
+  "tool": "program_bounded_full_goal_delegation",
+  "arguments": {"instruction": "open the middle drawer of the cabinet"}
+}
+```
+
+The [model-written program](docs/rsi/program-evolution/program.py) repeatedly calls π0.5 with fresh observations; the fixed native evaluator stops motion when the task succeeds.
+
 ![One actual model-written tool opens the drawer with two camera views](docs/rsi/program-evolution/tool-delegation.gif)
 
 Accelerated sampled-event replay from revision 1. Open the viewer for the exact `program_bounded_full_goal_delegation` call, its internal `run_vla` arguments, current VLA chunk and executed 7D action. It is one successful example, not evidence that revision 1 passed its gate.
 
-A [predeclared eight-task confirmation](benchmarks/libero-program-eight-task-confirmation.json), 32 more paired episodes on two fresh states, is running with the same frozen revision 3. It was triggered by development acceptance, not selected from held-out outcomes. Harder tasks remain locked.
+The [predeclared eight-task confirmation](benchmarks/libero-program-eight-task-confirmation.json) is complete: development **1/8 → 8/8**, held-out **0/8 → 6/8**. There were eight baseline interface-error episodes and one candidate interface-error episode; these end-to-end scores do not isolate model capability. The wider development gate rejected promotion because of baseline interface errors. The third bundle retains only its earlier small-scope acceptance. Harder tasks remain locked.
+
+
+**Strong execution reference, same eight tasks × two states:**
+
+| Arm | Native success | Recorded GPT calls | Interface-error episodes |
+|---|---:|---:|---:|
+| Independent π0.5 | 15/16 | 0 | 0 |
+| Original GPT + tools | 1/16 | 146 | 8 |
+| Frozen revision 3 + tools | 14/16 | 25 | 1 |
+
+[Inspect all 48 matched rollouts](https://pm1255.github.io/embodied-harness/rsi/program-evolution/matched-reference/). Revision 3 **does not beat the strong VLA reference**. Its long-task failure is also a policy-only failure; its other failure is a broker deadline. Improvement over a fragile orchestration baseline is not evidence of a new manipulation capability. The supplementary reference was frozen before examining the wider outcomes and does not change the original selection rules.
 
 **Measured baseline:** [watch all 16 paired LIBERO episodes](https://pm1255.github.io/embodied-harness/rsi/baseline/) with GPT-6 Astra and the official LIBERO π0.5 checkpoint. [References, implementation and limits](docs/baseline-and-evolution.md).
 

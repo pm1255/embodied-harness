@@ -1,0 +1,64 @@
+{
+  "kind": "posthoc_descriptive_audit",
+  "fed_to_proposing_model": false,
+  "counts_are_gpt_calls": false,
+  "meaning": "Instruction equality strips surrounding whitespace only. Each actual run_vla entry is counted, including repeated inner calls. This does not isolate the effect of wording, call duration, memory or skills.",
+  "rows": [
+    {
+      "campaign": "round-1",
+      "arm": "baseline",
+      "vla_primitive_invocations": 32,
+      "exact_original_instruction": 0,
+      "inside_generated_program": 0
+    },
+    {
+      "campaign": "round-1",
+      "arm": "candidate",
+      "vla_primitive_invocations": 38,
+      "exact_original_instruction": 38,
+      "inside_generated_program": 6
+    },
+    {
+      "campaign": "round-2",
+      "arm": "baseline",
+      "vla_primitive_invocations": 33,
+      "exact_original_instruction": 0,
+      "inside_generated_program": 0
+    },
+    {
+      "campaign": "round-2",
+      "arm": "candidate",
+      "vla_primitive_invocations": 40,
+      "exact_original_instruction": 40,
+      "inside_generated_program": 11
+    },
+    {
+      "campaign": "round-3",
+      "arm": "baseline",
+      "vla_primitive_invocations": 36,
+      "exact_original_instruction": 0,
+      "inside_generated_program": 0
+    },
+    {
+      "campaign": "round-3",
+      "arm": "candidate",
+      "vla_primitive_invocations": 37,
+      "exact_original_instruction": 37,
+      "inside_generated_program": 22
+    },
+    {
+      "campaign": "eight-task-confirmation",
+      "arm": "baseline",
+      "vla_primitive_invocations": 89,
+      "exact_original_instruction": 0,
+      "inside_generated_program": 0
+    },
+    {
+      "campaign": "eight-task-confirmation",
+      "arm": "candidate",
+      "vla_primitive_invocations": 83,
+      "exact_original_instruction": 80,
+      "inside_generated_program": 74
+    }
+  ]
+}

@@ -57,7 +57,7 @@ def video(events, source, target):
     if not obs_indices:
         return []
     sampled = set(obs_indices[::max(1, len(obs_indices)//35)] + [obs_indices[-1]])
-    selected = {'model_response', 'tool_start', 'skill_step', 'program_step', 'program_step_end', 'geometry', 'tool_end', 'episode_end', 'vla_prediction'}
+    selected = {'model_response', 'tool_start', 'skill_step', 'program_step', 'program_step_end', 'geometry', 'tool_end', 'episode_end', 'vla_prediction', 'environment_terminal', 'plan_rejected', 'error'}
     timeline, observation, call, geometry, primitive, program = [], None, None, None, None, None
     with tempfile.TemporaryDirectory() as temporary:
         tmp = Path(temporary)
@@ -94,7 +94,7 @@ def video(events, source, target):
             timeline.append({'seq':e['seq'], 'kind':kind, 'elapsed_s':e['elapsed_s'],
                              'call':copy.deepcopy(call), 'primitive':copy.deepcopy(primitive), 'program':copy.deepcopy(program),
                              'geometry':copy.deepcopy(geometry),
-                             'result':payload if kind in ('tool_end','program_step_end','episode_end') else None})
+                             'result':payload if kind in ('tool_end','program_step_end','episode_end','environment_terminal','plan_rejected','error') else None})
         subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-framerate','3','-i',str(tmp/'%05d.png'),
                         '-y','-c:v','libx264','-pix_fmt','yuv420p','-crf','25','-movflags','+faststart',str(target)], check=True)
         if timeline:

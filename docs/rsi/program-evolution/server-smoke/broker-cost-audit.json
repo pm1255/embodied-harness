@@ -1,0 +1,90 @@
+{
+  "campaign_results_sha256": "cd2bc368c8a211307cd00ca305ac791be59f9eaadb55d8b45f536174a865321b",
+  "protocol_sha256": "d8cf8d04affed3dbcf388fad0efb306e261f55f358a5fa9b8c609e3aa9abfe1c",
+  "worker_recorded_api_attempts": 7,
+  "broker_recorded_api_attempts": 7,
+  "unacknowledged_api_attempts": 0,
+  "input_tokens": 33517,
+  "output_tokens": 775,
+  "usage_missing_calls": 0,
+  "rows": [
+    {
+      "request_sha256": "e8265664addb9d0e5d56a4db4dba623b1f6431562ede949a22cb1810510727c2",
+      "episode": "libero_10-01-i9-server-smoke--candidate",
+      "observation_id": "139699f99b034b52b5bc3c305132ac01:31",
+      "included_in_worker_trace": true,
+      "api_attempts": 1,
+      "input_tokens": 4908,
+      "output_tokens": 118,
+      "usage_missing_calls": 0,
+      "late_response_events": []
+    },
+    {
+      "request_sha256": "f300a30061e4721b0f9f230253c6c896f23ff9d7f74c8cc2b305259285aac6d6",
+      "episode": "libero_10-01-i9-server-smoke--candidate",
+      "observation_id": "139699f99b034b52b5bc3c305132ac01:51",
+      "included_in_worker_trace": true,
+      "api_attempts": 1,
+      "input_tokens": 5031,
+      "output_tokens": 107,
+      "usage_missing_calls": 0,
+      "late_response_events": []
+    },
+    {
+      "request_sha256": "f1ca459e05caaac5709b1be570f2d5f19ab6fda62c85f2a85a2a3ff0da7869e7",
+      "episode": "libero_10-01-i9-server-smoke--candidate",
+      "observation_id": "139699f99b034b52b5bc3c305132ac01:21",
+      "included_in_worker_trace": true,
+      "api_attempts": 1,
+      "input_tokens": 4785,
+      "output_tokens": 109,
+      "usage_missing_calls": 0,
+      "late_response_events": []
+    },
+    {
+      "request_sha256": "665af873c5fdee9dae593d70620ca56319f02fa3cc488ecb4e28924788ee9df9",
+      "episode": "libero_spatial-00-i9-server-smoke--candidate",
+      "observation_id": "5d6a6265184c4ad0b41057f13087d005:1",
+      "included_in_worker_trace": true,
+      "api_attempts": 1,
+      "input_tokens": 4555,
+      "output_tokens": 105,
+      "usage_missing_calls": 0,
+      "late_response_events": []
+    },
+    {
+      "request_sha256": "12680c5a1a09e27c3cd6b0baaa45b79b23f95800e5a02ce4639e3f72a0949ae2",
+      "episode": "libero_10-01-i9-server-smoke--candidate",
+      "observation_id": "139699f99b034b52b5bc3c305132ac01:41",
+      "included_in_worker_trace": true,
+      "api_attempts": 1,
+      "input_tokens": 5031,
+      "output_tokens": 114,
+      "usage_missing_calls": 0,
+      "late_response_events": []
+    },
+    {
+      "request_sha256": "fdd1bcc36ac8a284f0cd54b8f326be879ab7d77618583763348fadcaef47b102",
+      "episode": "libero_10-01-i9-server-smoke--candidate",
+      "observation_id": "139699f99b034b52b5bc3c305132ac01:1",
+      "included_in_worker_trace": true,
+      "api_attempts": 1,
+      "input_tokens": 4543,
+      "output_tokens": 123,
+      "usage_missing_calls": 0,
+      "late_response_events": []
+    },
+    {
+      "request_sha256": "9e528e70cea205a27e197ba46f2bee71a77095652128b7591b60f287e0e9ce9b",
+      "episode": "libero_10-01-i9-server-smoke--candidate",
+      "observation_id": "139699f99b034b52b5bc3c305132ac01:11",
+      "included_in_worker_trace": true,
+      "api_attempts": 1,
+      "input_tokens": 4664,
+      "output_tokens": 99,
+      "usage_missing_calls": 0,
+      "late_response_events": []
+    }
+  ],
+  "note": "Broker totals include late responses once, never added twice to worker totals. Missing token usage is unknown. Worker deadline failures remain failures; this audit does not turn late decisions into robot actions or change any success result. Only recorded API attempts are attested; provider billing is not independently verified."
+}
