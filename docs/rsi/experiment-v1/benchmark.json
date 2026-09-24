@@ -1,0 +1,356 @@
+{
+  "sha256": "465f633ce3341174f86b7063bc0386986187db21739c32e600ff3bb51621096c",
+  "content": {
+    "cases": [
+      {
+        "id": "c1t1",
+        "name": "Yaw-shifted puck push",
+        "task": "push-v3",
+        "task_index": 0,
+        "scene": {
+          "camera_yaw_deg": -8,
+          "light_scale": 1.0
+        },
+        "hypothesis": "Under a modest left camera yaw and near-normal lighting, performance will fail when visual alignment does not translate into sustained lateral contact with the puck; success should be falsifiable by puck trajectory ending away from the visible target despite contact attempts.",
+        "failure_source": "The controller may approach the puck with a poor contact point or insufficiently aligned end-effector motion, causing sliding off-axis or failure to reach the target.",
+        "cycle": 1
+      },
+      {
+        "id": "c1t2",
+        "name": "Oblique button press",
+        "task": "button-press-v3",
+        "task_index": 1,
+        "scene": {
+          "camera_yaw_deg": 10,
+          "light_scale": 0.85
+        },
+        "hypothesis": "A rightward camera viewpoint will expose weakness in visual-to-contact depth estimation: the gripper may touch the button without pressing it fully inward. Failure is measured by incomplete button travel or an unpressed final state.",
+        "failure_source": "The controller may stop above or beside the button, or apply insufficient inward displacement because depth and full-press state are difficult to infer from the angled view.",
+        "cycle": 1
+      },
+      {
+        "id": "c1t3",
+        "name": "Low-light side peg insertion",
+        "task": "peg-insert-side-v3",
+        "task_index": 2,
+        "scene": {
+          "camera_yaw_deg": -12,
+          "light_scale": 0.78
+        },
+        "hypothesis": "This harder manipulation scenario will reveal whether the controller can maintain pose and force alignment through constrained insertion under camera yaw and reduced illumination. Failure is falsified by the peg not becoming fully seated in the socket.",
+        "failure_source": "The side-facing socket requires coordinated approach orientation, depth control, and insertion alignment; the peg may collide with the rim, enter at an angle, or fail to seat fully.",
+        "cycle": 1
+      },
+      {
+        "id": "c2t1",
+        "name": "Cycle-2 reachable handle contact under yaw",
+        "task": "door-open-v3",
+        "task_index": 3,
+        "scene": {
+          "camera_yaw_deg": -6,
+          "light_scale": 1.0
+        },
+        "hypothesis": "Under a modest left yaw and normal lighting, the controller will reach the visible handle but fail to establish the continuous contact and motion needed to open the door. Falsifiable criterion: the door remains closed despite a completed approach, or the handle contact/rotation attempt terminates with outside_workspace or target_not_reached.",
+        "failure_source": "Cycle 1 repeatedly produced outside_workspace and target_not_reached errors during pixel-based contact, while successful TCP reaches did not verify contact. The hinged handle may therefore be visually localized but approached at an unreachable or poorly conditioned depth, preventing sustained handle contact and rotation.",
+        "cycle": 2
+      },
+      {
+        "id": "c2t2",
+        "name": "Oblique sustained drawer pull",
+        "task": "drawer-open-v3",
+        "task_index": 4,
+        "scene": {
+          "camera_yaw_deg": 8,
+          "light_scale": 0.9
+        },
+        "hypothesis": "A rightward viewpoint will expose weak depth estimation and contact persistence: the gripper will approach the drawer front but lose alignment or apply insufficient sustained pull. Falsifiable criterion: the drawer does not visibly open or the pull ends before meaningful drawer travel, with target_not_reached or budget exhaustion as supporting failure data.",
+        "failure_source": "Cycle 1 button interactions reached approximate targets but required repeated small corrections, exhausted decision/control budgets, and never provided verified contact. A drawer pull similarly tests whether the controller can maintain contact over a longer translation rather than stopping after a single approach.",
+        "cycle": 2
+      },
+      {
+        "id": "c2t3",
+        "name": "Low-light object grasp and placement",
+        "task": "pick-place-v3",
+        "task_index": 5,
+        "scene": {
+          "camera_yaw_deg": -10,
+          "light_scale": 0.8
+        },
+        "hypothesis": "Under left yaw and reduced but valid illumination, the controller will fail to complete the full grasp-transport-place chain because it cannot verify grasp state and maintain object pose through transport. Falsifiable criterion: the object is not lifted, is dropped during transport, or is not placed at the visible target marker despite attempted grasp and motion.",
+        "failure_source": "Cycle 1 peg insertion repeatedly showed unverified grasps, workspace failures, and budget exhaustion during multi-stage manipulation. Pick-place adds the same fragile grasp requirement plus transport and placement alignment, so a visually plausible approach may leave the object ungrasped or release it away from the target.",
+        "cycle": 2
+      }
+    ],
+    "seeds": [
+      101,
+      102
+    ],
+    "candidate": {
+      "memory": [
+        {
+          "evidence": [
+            "episodes/cycle-1-discover/c1t1-s11-combined",
+            "episodes/cycle-1-validate/c1t1-s31-combined",
+            "episodes/cycle-1-discover/c1t3-s11-combined"
+          ],
+          "lesson": "Pixel targets repeatedly produced outside_workspace, target_not_reached, or motion_stalled, especially when the projected point was near a boundary or required an inferred depth. Treat move_to_pixel as a surface/above reach only, not as a free-space waypoint or reliable contact-pose estimator; use fresh observations and conservative follow-up motions.",
+          "tasks": [
+            "push-v3",
+            "peg-insert-side-v3",
+            "*"
+          ],
+          "title": "Pixel projection can be unreachable or poorly conditioned"
+        },
+        {
+          "evidence": [
+            "episodes/cycle-1-discover/c1t2-s11-combined",
+            "episodes/cycle-1-validate/c1t2-s31-baseline",
+            "episodes/cycle-1-validate/c1t2-s31-combined"
+          ],
+          "lesson": "Repeated successful TCP reaches and small forward motions did not establish a verified button press, and retries consumed decision/control budget. A reached TCP target is not evidence that contact occurred or that the button reached its terminal state; use a short, explicit contact-plus-inward sequence and validate from the task outcome.",
+          "tasks": [
+            "button-press-v3"
+          ],
+          "title": "TCP reach and forward motion do not verify a full press"
+        },
+        {
+          "evidence": [
+            "episodes/cycle-1-discover/c1t3-s11-combined",
+            "episodes/cycle-1-validate/c1t3-s31-combined",
+            "episodes/cycle-2-discover/c2t3-s11-combined"
+          ],
+          "lesson": "Closing the gripper returned grasp_verified=false in peg and pick-place attempts. Do not infer grasp, lift, transport, or placement success from closure or TCP motion; treat grasp as unverified unless the environment outcome visibly confirms object movement and placement.",
+          "tasks": [
+            "peg-insert-side-v3",
+            "pick-place-v3"
+          ],
+          "title": "Gripper closure is not grasp confirmation"
+        },
+        {
+          "evidence": [
+            "episodes/cycle-2-discover/c2t1-s11-combined",
+            "episodes/cycle-2-discover/c2t2-s11-combined"
+          ],
+          "lesson": "Door and drawer approaches often stalled during descent or pixel reaching, even when later relative motions could execute. Contact tasks need clearance-aware, incremental approach motions; large pull motions are only meaningful after a reachable handle pose is established.",
+          "tasks": [
+            "door-open-v3",
+            "drawer-open-v3"
+          ],
+          "title": "Handle approach and contact are the bottleneck before pulling"
+        },
+        {
+          "evidence": [
+            "episodes/cycle-2-discover/c2t2-s11-combined"
+          ],
+          "lesson": "The drawer episode ended unsuccessfully despite a sequence of successful approach, closure, and backward motions; the episode summary asserted visible opening, but environment_success remained false. Treat agent-reported completion and TCP step success as hypotheses, not task validation.",
+          "tasks": [
+            "drawer-open-v3"
+          ],
+          "title": "Agent completion summaries do not establish environment success"
+        },
+        {
+          "evidence": [
+            "episodes/cycle-2-discover/c2t3-s11-combined"
+          ],
+          "lesson": "Pick-place reached and closed on the object, then transported through several relative moves, but a later transport step returned target_not_reached and the tool protocol failed before placement. Long open-loop transports are vulnerable to workspace and budget limits; split transport conservatively and reserve steps for target placement and release.",
+          "tasks": [
+            "pick-place-v3"
+          ],
+          "title": "Open-loop transport can exhaust budget before placement"
+        }
+      ],
+      "skills": [
+        {
+          "description": "Reach a currently visible surface or an above-surface point, then apply a small relative contact motion. Use only with a fresh observation and conservative distances; successful execution does not verify contact.",
+          "evidence": [
+            "episodes/cycle-1-discover/c1t2-s11-combined",
+            "episodes/cycle-2-discover/c2t1-s11-combined",
+            "episodes/cycle-2-discover/c2t2-s11-combined"
+          ],
+          "name": "skill_conservative_pixel_contact",
+          "steps": [
+            {
+              "tool": "move_to_pixel",
+              "arguments": {
+                "approach": {
+                  "$arg": "approach"
+                },
+                "arm": "arm",
+                "camera": {
+                  "$arg": "camera"
+                },
+                "observation_id": {
+                  "$arg": "observation_id"
+                },
+                "pixel": {
+                  "$arg": "pixel"
+                }
+              }
+            },
+            {
+              "tool": "move_relative",
+              "arguments": {
+                "arm": "arm",
+                "direction": {
+                  "$arg": "contact_direction"
+                },
+                "distance": "small"
+              }
+            }
+          ],
+          "tasks": [
+            "button-press-v3",
+            "door-open-v3",
+            "drawer-open-v3",
+            "*"
+          ]
+        },
+        {
+          "description": "Use a visible target projection followed by several small inward motions for a button-like interaction. This is a testable action sequence, not a claim that the terminal state will be reached.",
+          "evidence": [
+            "episodes/cycle-1-discover/c1t2-s11-combined",
+            "episodes/cycle-1-validate/c1t2-s31-baseline",
+            "episodes/cycle-1-validate/c1t2-s31-combined"
+          ],
+          "name": "skill_incremental_button_press",
+          "steps": [
+            {
+              "tool": "move_to_pixel",
+              "arguments": {
+                "approach": "surface",
+                "arm": "arm",
+                "camera": {
+                  "$arg": "camera"
+                },
+                "observation_id": {
+                  "$arg": "observation_id"
+                },
+                "pixel": {
+                  "$arg": "pixel"
+                }
+              }
+            },
+            {
+              "tool": "move_relative",
+              "arguments": {
+                "arm": "arm",
+                "direction": "forward",
+                "distance": "small"
+              }
+            },
+            {
+              "tool": "move_relative",
+              "arguments": {
+                "arm": "arm",
+                "direction": "forward",
+                "distance": "small"
+              }
+            },
+            {
+              "tool": "move_relative",
+              "arguments": {
+                "arm": "arm",
+                "direction": "forward",
+                "distance": "small"
+              }
+            }
+          ],
+          "tasks": [
+            "button-press-v3"
+          ]
+        },
+        {
+          "description": "Attempt a compact pick-and-place chain using a fresh object projection, explicit closure, a small lift, and a fresh target projection before release. Closure and motion remain unverified until the environment reports success.",
+          "evidence": [
+            "episodes/cycle-1-discover/c1t3-s11-combined",
+            "episodes/cycle-2-discover/c2t3-s11-combined"
+          ],
+          "name": "skill_cautious_pick_place",
+          "steps": [
+            {
+              "tool": "move_to_pixel",
+              "arguments": {
+                "approach": "above",
+                "arm": "arm",
+                "camera": {
+                  "$arg": "object_camera"
+                },
+                "observation_id": {
+                  "$arg": "object_observation_id"
+                },
+                "pixel": {
+                  "$arg": "object_pixel"
+                }
+              }
+            },
+            {
+              "tool": "move_relative",
+              "arguments": {
+                "arm": "arm",
+                "direction": "down",
+                "distance": "small"
+              }
+            },
+            {
+              "tool": "set_gripper",
+              "arguments": {
+                "arm": "arm",
+                "state": "closed"
+              }
+            },
+            {
+              "tool": "move_relative",
+              "arguments": {
+                "arm": "arm",
+                "direction": "up",
+                "distance": "small"
+              }
+            }
+          ],
+          "tasks": [
+            "pick-place-v3"
+          ]
+        }
+      ]
+    },
+    "approved": {
+      "memory": [],
+      "skills": []
+    },
+    "cycles": [
+      {
+        "cycle": 1,
+        "gate": {
+          "accepted": false,
+          "baseline_successes": 0,
+          "candidate_successes": 0,
+          "baseline_calls": 17,
+          "candidate_calls": 22,
+          "regressions": [],
+          "infrastructure_error": false,
+          "meaning": "Small development gate, not a statistical generalization claim"
+        },
+        "rejected_programs": [],
+        "candidate_hash": "65ddc7d7399e2a6b1ed7e52a659149c338ef4cf3a91946d35527bb464a33a2b3",
+        "promoted_snapshot_hash": "f63a0c1463259d25cfc04f8498581ac018e9d67e6788847cf55d7da2953916da"
+      },
+      {
+        "cycle": 2,
+        "gate": {
+          "accepted": false,
+          "baseline_successes": 0,
+          "candidate_successes": 0,
+          "baseline_calls": 27,
+          "candidate_calls": 32,
+          "regressions": [],
+          "infrastructure_error": true,
+          "meaning": "Small development gate, not a statistical generalization claim"
+        },
+        "rejected_programs": [],
+        "candidate_hash": "db1b930a0156e0240d75521b64c37f9a8e9b1e3bd474cf0830e4583551f48dde",
+        "promoted_snapshot_hash": "f63a0c1463259d25cfc04f8498581ac018e9d67e6788847cf55d7da2953916da"
+      }
+    ],
+    "protocol_sha256": "2ecdb46fb68ecc7a6fbcfc7aaa4645263c0a176e7ccd6161a4eb9cd92894fcab"
+  }
+}

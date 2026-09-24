@@ -7,6 +7,42 @@
 
 A small GPT-first runtime that separates **visual decisions, geometry, local control and evaluation**. The model calls implemented tools instead of generating every controller command. It can submit one primitive or a bounded plan; the executor returns control when the plan ends or a step fails.
 
+## RSI Lab: tasks → failures → memory → skills → held-out tests
+
+The experimental RSI loop lets GPT propose **real simulator scenario configurations**, inspect multimodal development failures, write a versioned `MEMORY.md`, and compile parameterized primitive programs into callable skills. Model weights stay frozen. Candidates must pass a development gate; an independent four-arm test checks whether memory and skills actually help.
+
+**[Open the RSI experiment dashboard](https://pm1255.github.io/embodied-harness/rsi/experiment-v1/)** · [Design and limits](docs/rsi-design.md) · [Frozen-benchmark reproduction](benchmarks/rsi-protocol.md) · [Results and conclusions](docs/rsi/README.md)
+
+```mermaid
+flowchart LR
+  G[GPT scenario proposal] --> E[Simulator rollout]
+  E --> F[Failure evidence]
+  F --> M[Versioned memory]
+  F --> S[Typed skill program]
+  M --> V[Development gate]
+  S --> V
+  V --> E
+  V --> T[Frozen four-arm test]
+```
+
+| Component | Implemented behavior |
+|---|---|
+| Task / scene discovery | Native MetaWorld layout samples, bounded camera yaw and lighting, explicit weakness hypotheses |
+| Persistent memory | Task-scoped entries with exact development-episode citations; human-readable revision documents |
+| Skill creation | Model-written 1–4-step programs, current-image parameters, validation before motion, stop on failure |
+| Specialist delegation | Operator-bound π0.5 RoboTwin qpos14 endpoint; GPT chooses instruction and bounded execution horizon |
+| Measurement | Baseline / memory / skills / combined on identical held-out seeds; all failures retained |
+| Inspection | Dual-view replay synchronized to model calls, skill expansion, geometry, memory and promotion history |
+
+Inspired by [NVIDIA ASPIRE](https://research.nvidia.com/labs/gear/aspire/); this is an independent small implementation, not an ASPIRE reproduction or a claim of superiority. Generated scenes use existing assets and native task objectives. A functioning loop does not itself demonstrate capability improvement.
+
+```bash
+pip install -e '.[metaworld]'
+# Configure OPENAI_API_KEY using your own secret store.
+python -m embodied_harness.rsi.experiment \
+  --output runs/my-rsi --model YOUR_MODEL --base-url YOUR_API_BASE
+```
+
 ## Twenty real tasks, two cameras each
 
 **[Open the interactive 20-task replay](https://pm1255.github.io/embodied-harness/benchmarks/basic-20/)** · [All 20 GIFs and exact JSON on GitHub](docs/benchmarks/basic-20/README.md) · [Integration coverage and blockers](docs/benchmarks/README.md)

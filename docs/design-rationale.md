@@ -20,7 +20,7 @@ The following are patterns, not claims that all implementations of a model famil
 | Bounded tool plan | Several ordered primitives | Local controller plus executor | Later steps remain valid without a new image | Requires target validity and correct interruption boundaries |
 | A chunked VLA policy | A learned action sequence/chunk | Policy and robot controller | Learned local manipulation behavior is available | Different training, deployment and debugging interface; no comparative result here |
 
-This project implements the first two patterns and an extension contract for additional tools. It does not ship a VLA controller, MoveIt, SLAM, GraspNet, target tracking or learned skill generation. Those capabilities must be implemented and tested before advertising them as callable tools.
+The core implements the first two patterns. Version 0.2 adds experimental model-written typed skills, evidence-bound memory and checkpoint-specific VLA bridges; see [RSI Lab](rsi-design.md) for their measured scope. MoveIt, SLAM, GraspNet and persistent target tracking are still not included. A policy endpoint is not a guarantee of contact or task success.
 
 ## What the first failures tell us to improve
 

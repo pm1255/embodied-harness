@@ -1,0 +1,28 @@
+{
+  "utc": "2026-09-24T07:42:13.689526+00:00",
+  "scope": "Source snapshot at heldout evaluation start; development-stage repairs are separately retained",
+  "sha256": {
+    "src/embodied_harness/vla.py": "bf2788b79e298d589bc772a2a10876faf1075c2b091685c54f89d3e24681e481",
+    "src/embodied_harness/trace.py": "a3a6c390c7197ebf5c6fced780dd6cee2b79d5352adb48fc13687b68e427a55c",
+    "src/embodied_harness/runner.py": "78bbdbc6547cfa811594acb0e06180bf749adfdb0988f45518d139f3540d44f6",
+    "src/embodied_harness/protocol.py": "e70be385f5aa9479f7b95861416cb4478e265df7e27ab05904b022c09e1fa570",
+    "src/embodied_harness/tools.py": "e85e18589f7535ab0e2cdd09986a07c1311c670da1290a80d4357da556acbc6d",
+    "src/embodied_harness/__init__.py": "73dd80c27ed1cb5bbd287ff02caa12ff31d7886d6115db5babfa53e3ab4f3f28",
+    "src/embodied_harness/runtime.py": "221e1d886fe7bc4e7aa3f01f29a98f67e072738dec83166eacbf14aa85a627ac",
+    "src/embodied_harness/cli.py": "6ee799a6685991d42ce5dd493c84d480a31f0b897dbb8a5b4db673429deb7840",
+    "src/embodied_harness/geometry.py": "4d920912f96b4d4141c71f0f3e3b785a1a588375e0ad9c8fa4e0f532567f848c",
+    "src/embodied_harness/broker.py": "6da0a9d555cfe2175483face470f65073ae954570ef7ac6cebd0ee4183b0d35c",
+    "src/embodied_harness/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "src/embodied_harness/gpt.py": "d7fd9a6e0ea3b87be955cd42a4c8d0a3660a4d6c89f0ef5c8ab84ee6e6dc9433",
+    "src/embodied_harness/rsi/__init__.py": "a9e0215f9d32181a9e98756fbf896f76fc0ff476a926540c7b57f2a53c4610a8",
+    "src/embodied_harness/rsi/core.py": "6ee93ed8619248bc295684af0569a8e079c915a0d26188e8b16bc4cbb2c05e91",
+    "src/embodied_harness/rsi/experiment.py": "4d3d0ead81ea5093acbac57c372d5177a2cde8f165be5671d7b69d36fc89674a",
+    "src/embodied_harness/rsi/replay.py": "8a8a6ce99f2bc5ff78097587ccd1c1e654832eff8be527d259c24730d6c1b9fc",
+    "src/embodied_harness/adapters/robosuite.py": "ce09db4b0edfe745967a6b4db0dc0263e3200988feeae5dacaa35b85cfc8ec40",
+    "src/embodied_harness/adapters/__init__.py": "bb41e66e4e53e0cd218c99313ec9f4c8809b399f0c36d873374eb0aeb3f6cf6d",
+    "src/embodied_harness/adapters/robotwin_factory.py": "f85a2ca3b1d2d1e37134df01ebd4f286ba481e5cf3d3b9748c113b659450f11a",
+    "src/embodied_harness/adapters/toy.py": "a886453d04d7a209064e6bbc444a6076efa8972d65dc720581337ff53571103d",
+    "src/embodied_harness/adapters/metaworld.py": "4a484071a40773b2f40ad137d1c35de3b220aadf51e6085c25edea50fcad9f66",
+    "src/embodied_harness/adapters/robotwin.py": "8978be02bc6e2e9f8c044afdf2f776e2d478fba06e7a661325edbfc29dfb6db2"
+  }
+}

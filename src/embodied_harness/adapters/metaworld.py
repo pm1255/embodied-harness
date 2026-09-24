@@ -15,11 +15,19 @@ from ..protocol import CameraFrame, Observation
 class MetaWorldEnvironment:
     name = "metaworld"
 
-    def __init__(self, directory, task="reach-v3", task_index=0, size=256, upright=True):
+    def __init__(self, directory, task="reach-v3", task_index=0, size=256, upright=True, scene=None):
         self.directory = Path(directory)
         self.directory.mkdir(parents=True, exist_ok=True)
         self.task, self.task_index, self.size = task, task_index, size
         self.upright = upright
+        self.scene = scene or {}
+        if set(self.scene) - {"camera_yaw_deg", "light_scale"}:
+            raise ValueError("Unsupported scene parameter")
+        import math
+        for k, low, high in (("camera_yaw_deg", -15, 15), ("light_scale", 0.7, 1.3)):
+            value = self.scene.get(k, 0 if k == "camera_yaw_deg" else 1)
+            if not isinstance(value, (int, float)) or not math.isfinite(value) or not low <= value <= high:
+                raise ValueError("Scene parameter outside validated bounds")
         self.env = self.renderer = None
         self.last_success = None
         self.depth = DepthCache()
@@ -45,6 +53,16 @@ class MetaWorldEnvironment:
         tasks = [task for task in benchmark.train_tasks if task.env_name == self.task]
         self.env.set_task(tasks[self.task_index])
         self.env.reset(seed=seed)
+        # Native MT1 randomization determines physical layout. Camera/light interventions
+        # affect observations only; native task success predicates are unchanged.
+        yaw = np.deg2rad(self.scene.get("camera_yaw_deg", 0))
+        rotation = np.array([np.cos(yaw / 2), 0, 0, np.sin(yaw / 2)])
+        for camera in self.capabilities["cameras"]:
+            cid = mujoco.mj_name2id(self.env.model, mujoco.mjtObj.mjOBJ_CAMERA, camera)
+            old = self.env.model.cam_quat[cid].copy()
+            mujoco.mju_mulQuat(self.env.model.cam_quat[cid], rotation, old)
+        self.env.model.light_diffuse[:] *= self.scene.get("light_scale", 1)
+        mujoco.mj_forward(self.env.model, self.env.data)
         self.renderer = mujoco.Renderer(self.env.model, height=self.size, width=self.size)
         self.tick = self.frame = 0
         self.episode = uuid.uuid4().hex

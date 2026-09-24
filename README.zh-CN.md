@@ -7,6 +7,23 @@
 
 这是一个把**视觉决策、几何计算、连续控制、任务评价**分开的机器人执行框架。模型调用已经实现的工具；底层生成控制指令。模型可以一次调用一个工具，也可以提交短计划，由执行器在完成或失败时交还控制权。
 
+## RSI Lab：让任务、失败、记忆和技能形成实验闭环
+
+新增的 RSI 实验允许 GPT 提出场景配置，在真实仿真中尝试，依据开发回合生成 `MEMORY.md` 和可调用技能，再用冻结测试集检查效果。**大模型权重不更新；改进来自显式经验和技能，是否有效由实验决定。**
+
+**[打开 RSI 实验可视化](https://pm1255.github.io/embodied-harness/rsi/experiment-v1/)** · [结果与结论](docs/rsi/README.md) · [系统设计](docs/rsi-design.md) · [复测冻结 benchmark](benchmarks/rsi-protocol.md)
+
+| 模块 | 现在实际做的事 |
+|---|---|
+| 场景与任务生成 | 选择原生 MetaWorld 任务实例、视角和光照，写出要验证的能力短板 |
+| 记忆 | 按任务检索，关联确切开发回合，保存 Markdown 版本 |
+| 技能 | 模型生成 1–4 步参数化原语程序，运行前校验，失败即停 |
+| π0.5 | 通过固定权重、明确动作合同的工具执行局部动作块 |
+| 验证 | 无记忆无技能 / 只有记忆 / 只有技能 / 两者都有，使用相同测试场景和预算 |
+| 可视化 | 双视角视频、模型参数、工具展开、控制目标、记忆证据和技能准入结果 |
+
+参考 [NVIDIA ASPIRE](https://research.nvidia.com/labs/gear/aspire/)，没有把已有方法包装成原创，也没有宣称优于 ASPIRE 或 RPent。当前场景生成基于既有资产与原生任务目标；不是任意 3D 场景生成。开发集通过与独立测试提升分别报告。
+
 ## 20 个真实任务与双视角回放
 
 **[打开 20 任务交互网页](https://pm1255.github.io/embodied-harness/benchmarks/basic-20/)** · [GitHub 内查看全部 20 条动图与原始 JSON](docs/benchmarks/basic-20/README.md) · [基础接口覆盖表](docs/benchmarks/README.md)

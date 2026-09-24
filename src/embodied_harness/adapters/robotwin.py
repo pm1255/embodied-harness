@@ -42,6 +42,7 @@ class RoboTwinEnvironment:
 
     def reset(self, seed):
         self.close()
+        self.seed = seed
         self.env = load_factory(self.factory)(seed=seed, task=self.task, size=self.size)
         self.episode = uuid.uuid4().hex
         self.frame = self.tick = 0

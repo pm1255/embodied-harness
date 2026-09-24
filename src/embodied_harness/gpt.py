@@ -48,6 +48,7 @@ class GPTPlanner:
         stream: bool = False,
         api_mode: str = "responses",
         plan_mode: str = "batch",
+        context: dict | None = None,
     ):
         if not 0 < timeout_s <= 600:
             raise ValueError("API timeout must be in (0, 600] seconds")
@@ -66,6 +67,7 @@ class GPTPlanner:
         if plan_mode not in ("batch", "single"):
             raise ValueError("Unknown plan mode")
         self.plan_mode = plan_mode
+        self.context = context or {}
         self.api_mode = api_mode
         endpoint = "/responses" if api_mode == "responses" else "/chat/completions"
         self.url = base_url.rstrip("/") + endpoint
@@ -89,10 +91,20 @@ class GPTPlanner:
                     return read_response_stream(response, deadline=started + self.timeout_s)
                 return json.load(response)
         except urllib.error.HTTPError as error:
-            # Do not dump headers, secrets, or an arbitrary upstream response body.
-            raise RuntimeError(
-                f"GPT API HTTP {error.code}; check model access and API configuration"
-            ) from None
+            # Never log headers or the raw body. Bounded standard error fields help
+            # distinguish an invalid schema/context from model-access failures.
+            detail = {}
+            try:
+                payload = json.loads(error.read(16384))
+                info = payload.get("error", {})
+                if isinstance(info, dict):
+                    for field in ("type", "code", "param"):
+                        value = info.get(field)
+                        if isinstance(value, str):
+                            detail[field] = value[:160].replace(self.key or "\x00", "[redacted]")
+            except (ValueError, OSError):
+                pass
+            raise RuntimeError(f"GPT API HTTP {error.code}; {json.dumps(detail)}") from None
 
     def decide(self, task, observation, registry, history, trace):
         observation_data = observation.to_dict()
@@ -105,6 +117,7 @@ class GPTPlanner:
                 "text": json.dumps(
                     {
                         "task": task,
+                        "experience": self.context,
                         "observation": observation_data,
                         "tools": registry.descriptions(),
                         "recent_execution": history[-4:],

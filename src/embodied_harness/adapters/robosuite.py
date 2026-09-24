@@ -25,6 +25,7 @@ class RobosuiteEnvironment:
         self.depth = DepthCache()
 
     def _reset(self, seed):
+        self.seed = seed
         self.tick = self.frame = 0
         self.episode = uuid.uuid4().hex
         self.done = False

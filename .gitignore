@@ -16,3 +16,5 @@ runs/
 *.hdf5
 *.h5
 .DS_Store
+
+MUJOCO_LOG.TXT

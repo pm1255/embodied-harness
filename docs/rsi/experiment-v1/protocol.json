@@ -1,0 +1,39 @@
+{
+  "sha256": "2ecdb46fb68ecc7a6fbcfc7aaa4645263c0a176e7ccd6161a4eb9cd92894fcab",
+  "content": {
+    "schema_version": 1,
+    "name": "RSI-MetaWorld-discovery-v1",
+    "cycles": 2,
+    "tasks_per_cycle": 3,
+    "discovery_seeds": [
+      11
+    ],
+    "validation_seeds": [
+      31
+    ],
+    "heldout_seeds": [
+      101,
+      102
+    ],
+    "arms": [
+      "baseline",
+      "memory",
+      "skills",
+      "combined"
+    ],
+    "config": {
+      "model": "gpt-6-sol",
+      "base_url": "https://aixor.cc/v1",
+      "max_decisions": 8,
+      "max_control_ticks": 400
+    },
+    "max_episodes": 72,
+    "max_episode_decision_requests": 576,
+    "max_designer_requests": 4,
+    "checkpoint_training": false,
+    "success": "Native final-state task predicate; infrastructure failures count as failures",
+    "scope": "Six adaptively chosen task families; unseen paired scene seeds, not unseen task families",
+    "generation": "Native MT1 layout samples + bounded camera/light changes; no new meshes or physics",
+    "selection": "Development-only gate; no heldout feedback until all arms finish"
+  }
+}

@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.2.0 — experimental RSI Lab
+
+- Add two-cycle GPT scenario discovery and multimodal development-failure reflection.
+- Add evidence-bound Markdown memory and task-scoped retrieval.
+- Compile typed, parameterized primitive compositions into bounded skills; reject stale pixel recipes and preserve invalid proposals.
+- Separate development promotion from a frozen four-arm held-out evaluation; publish all attempts and paired reset checks.
+- Add a memory/skill dashboard with dual-view sampled videos synchronized to actual GPT and tool events.
+- Add a checkpoint-bound π0.5 RoboTwin qpos14 tool bridge and a credential-free robot-side decision broker.
+- Keep frozen model weights, supported scene-generation bounds, and unproven generalization explicit.
+
 ## 0.1.0 — engineering alpha
 
 - GPT Responses API image/tool planner with dynamic typed plans.

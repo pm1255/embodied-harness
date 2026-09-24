@@ -1,0 +1,76 @@
+{
+  "reason": "'steps' is a required property",
+  "proposal": {
+    "memory": [
+      {
+        "evidence": [
+          "episodes/cycle-1-discover/c1t1-s11-combined: move_to_pixel failed immediately with error_code outside_workspace; no control ticks were executed.",
+          "episodes/cycle-1-discover/c1t3-s11-combined: initial and later move_to_pixel calls also failed with outside_workspace or target_not_reached, including errors of 0.087 m and 0.208 m."
+        ],
+        "lesson": "Pixel-selected targets can be unreachable or outside the workspace under yaw/low-light views; a plan must treat move_to_pixel failure as a hard branch and avoid issuing dependent actions as if contact occurred.",
+        "tasks": [
+          "push-v3",
+          "peg-insert-side-v3"
+        ],
+        "title": "Treat pixel reachability as unverified"
+      },
+      {
+        "evidence": [
+          "episodes/cycle-1-discover/c1t2-s11-combined: repeated move_relative forward actions succeeded at TCP level, but the episode ended decision_budget_exhausted with environment_success false.",
+          "episodes/cycle-1-discover/c1t2-s11-combined: one contact_button move_to_pixel failed target_not_reached with 0.0176 m error before later attempts."
+        ],
+        "lesson": "Repeated small forward motions do not establish that a button was contacted or fully pressed; visual re-observation and a bounded retry policy are needed, with success judged from the final state rather than tool completion.",
+        "tasks": [
+          "button-press-v3"
+        ],
+        "title": "Do not equate TCP motion with task completion"
+      },
+      {
+        "evidence": [
+          "episodes/cycle-1-discover/c1t3-s11-combined: set_gripper returned command closed with grasp_verified false.",
+          "episodes/cycle-1-discover/c1t3-s11-combined: later insertion attempts failed target_not_reached and the episode ended control_budget_exhausted."
+        ],
+        "lesson": "Gripper closure is not evidence of a grasp, and insertion should not be planned as though the peg is held; verify task-relevant object motion or use conservative bounded actions.",
+        "tasks": [
+          "peg-insert-side-v3"
+        ],
+        "title": "Keep grasp status explicitly unverified"
+      }
+    ],
+    "skills": [
+      {
+        "description": "Approach a visible puck surface and apply one controlled push displacement. The caller must supply a fresh visible puck pixel and observation ID; this sequence does not verify contact or target success.",
+        "evidence": [
+          "episodes/cycle-1-discover/c1t1-s11-combined"
+        ],
+        "name": "push_visible_target",
+        "steps_json": "[{\"tool\":\"move_to_pixel\",\"arguments\":{\"arm\":\"arm\",\"approach\":\"surface\",\"camera\":\"{\\\"$arg\\\":\\\"camera\\\"}\",\"observation_id\":\"{\\\"$arg\\\":\\\"observation_id\\\"}\",\"pixel\":{\\\"$arg\\\":\\\"pixel\\\"}},\"id\":\"approach_puck\"},{\"tool\":\"move_relative\",\"arguments\":{\"arm\":\"arm\",\"direction\":\"forward\",\"distance\":\"small\"},\"id\":\"push_once\"}]",
+        "tasks": [
+          "push-v3"
+        ]
+      },
+      {
+        "description": "Reach a currently visible button surface and apply one inward displacement. Tool completion only reports TCP movement; the caller should inspect a later observation for button state.",
+        "evidence": [
+          "episodes/cycle-1-discover/c1t2-s11-combined"
+        ],
+        "name": "press_visible_button",
+        "steps_json": "[{\"tool\":\"move_to_pixel\",\"arguments\":{\"arm\":\"arm\",\"approach\":\"surface\",\"camera\":\"{\\\"$arg\\\":\\\"camera\\\"}\",\"observation_id\":\"{\\\"$arg\\\":\\\"observation_id\\\"}\",\"pixel\":{\\\"$arg\\\":\\\"pixel\\\"}},\"id\":\"approach_button\"},{\"tool\":\"move_relative\",\"arguments\":{\"arm\":\"arm\",\"direction\":\"forward\",\"distance\":\"small\"},\"id\":\"press_once\"}]",
+        "tasks": [
+          "button-press-v3"
+        ]
+      },
+      {
+        "description": "Attempt a conservative visible peg approach, close the gripper, and make one insertion displacement. Closure is not treated as grasp verification; use only when the target is reachable and insertion direction is appropriate.",
+        "evidence": [
+          "episodes/cycle-1-discover/c1t3-s11-combined"
+        ],
+        "name": "attempt_peg_insert",
+        "steps_json": "[{\"tool\":\"move_to_pixel\",\"arguments\":{\"arm\":\"arm\",\"approach\":\"above\",\"camera\":\"{\\\"$arg\\\":\\\"camera\\\"}\",\"observation_id\":\"{\\\"$arg\\\":\\\"observation_id\\\"}\",\"pixel\":{\\\"$arg\\\":\\\"pixel\\\"}},\"id\":\"approach_peg\"},{\"tool\":\"set_gripper\",\"arguments\":{\"arm\":\"arm\",\"state\":\"closed\"},\"id\":\"close_gripper\"},{\"tool\":\"move_relative\",\"arguments\":{\"arm\":\"arm\",\"direction\":\"forward\",\"distance\":\"small\"},\"id\":\"attempt_insertion\"}]",
+        "tasks": [
+          "peg-insert-side-v3"
+        ]
+      }
+    ]
+  }
+}

@@ -8,3 +8,6 @@ recursive-include benchmarks *.json *.md
 # Large replay assets stay in GitHub/Pages, outside the installable source package.
 prune docs/benchmarks/basic-20
 prune docs/benchmarks/gpu-smokes
+
+prune docs/rsi/experiment-v1
+prune docs/rsi/pi05

@@ -1,0 +1,9 @@
+{
+  "sha256": "3a5ceec83df565baeea2b82855006a005d266a44e0a156d695f7cef618343d88",
+  "content": {
+    "reason": "Explicit infrastructure retry; preserve failed attempts, never retry episodes",
+    "timeout_s": 300,
+    "max_designer_requests": 8,
+    "unchanged": "scenarios, episode budgets, splits, promotion gate and heldout protocol"
+  }
+}

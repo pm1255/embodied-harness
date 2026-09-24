@@ -6,10 +6,10 @@ Reference inspected on 2026-09-24: [RPent commit eecf206](https://github.com/RLi
 
 | Question | This repository today | RPent's public implementation | Conclusion |
 |---|---|---|---|
-| What executes movement? | RGB-D pixel projection and small local Cartesian servo tools; fixed/preserved orientation | Frozen VLA primitives, geometric tools, environment services | Different executor trade-off; our current contact manipulation is less capable |
+| What executes movement? | Local Cartesian servo tools; optional checkpoint-specific VLA bridges added in 0.2 | Frozen VLA primitives, geometric tools, environment services | Different executor trade-off; our current contact manipulation is less capable |
 | Does it support pixels and depth? | `move_to_pixel` projects current calibrated depth | LIBERO registers camera metadata, `back_project` and segmentation tools | Pixel grounding is **not** unique to us |
 | Are tools backed by real interfaces? | Capability-gated registry and schema checks | Toolkit binds specs to available primitive methods | Shared engineering practice, not a differentiator |
-| Can the agent reuse skills? | Operator plugins and short typed plans; no learned skill or memory system | Memory, reusable primitives and flash mode | RPent is more developed |
+| Can the agent reuse skills? | Version 0.2 adds experimental evidence-bound memory and generated typed skills | Memory, reusable primitives and flash mode | Our new RSI implementation is not evidence of superior performance |
 | Is a VLA checkpoint required? | Not for the built-in local servo tools | Published manipulation configurations use Pi0.5, RLDX-1 or LingBot-VLA | Potentially smaller setup for our simple tasks; not proof of better success or total cost |
 | Can execution be inspected? | Exact model JSON, projected target, TCP samples, tool result and two camera streams in one portable trace | Dashboard, logs and service/tool traces | Our portable format is a design choice; inspectability is not exclusive |
 | Is task performance established? | Small budget-limited pilots; integration smoke tests are separately labeled | Published multi-suite benchmark results | No matched comparison yet |

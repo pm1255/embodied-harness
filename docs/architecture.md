@@ -30,3 +30,7 @@ All fields are required by the strict GPT schema. Unknown fields, missing tools,
 v0.1 runs one episode per CLI process, with synchronous simulator stepping. Multiple independent episodes can run in separate processes. There is no distributed job manager or remote simulator RPC implementation in this release. Use separate compatible Python environments and run the CLI alongside each simulator.
 
 The deadline is cooperative. An adapter that blocks for ten seconds cannot be interrupted by a five-second Python deadline while inside that call. RoboTwin's native `take_action` may execute multiple internal physics steps. Hardware and remote-driver plugins must provide their own bounded I/O and stop implementation before being presented as usable robot tools.
+
+## RSI extension
+
+`rsi/core.py` seals memory and skill versions and compiles validated primitive programs. `rsi/experiment.py` owns development-only generation and promotion, then freezes a separate four-arm benchmark. `rsi/replay.py` evaluates that manifest without updates. `vla.py` provides checkpoint-specific bounded policy tools; `broker.py` lets a credential-free robot process request decisions from an operator-controlled broker. See [RSI design](rsi-design.md).
