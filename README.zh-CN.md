@@ -1,20 +1,94 @@
 # Embodied Harness
 
-**让 GPT 在需要决策时推理，让执行过程可以逐步检查。**
+**GPT 选择动作，harness 将它转成可检查的机器人执行过程。**
 
-[English](README.md) · [架构](docs/architecture.md) · [环境接入](docs/adapters.md) · [验证状态](docs/validation.md)
+[![CI](https://github.com/pm1255/embodied-harness/actions/workflows/ci.yml/badge.svg)](https://github.com/pm1255/embodied-harness/actions)
+[English](README.md) · [真实调用 JSON](examples/recorded) · [设计依据](docs/design-rationale.md) · [全部实测记录](docs/live-tests/all-attempts.json)
 
-这是一个 GPT 优先的机器人执行框架。GPT 一次生成包含多个工具操作的短计划，执行器根据反馈执行；遇到失败、前置条件不满足或计划结束，再把新观测交回模型。
+这是一个把**视觉决策、几何计算、连续控制、任务评价**分开的机器人执行框架。模型调用已经实现的工具；底层生成控制指令。模型可以一次调用一个工具，也可以提交短计划，由执行器在完成或失败时交还控制权。
 
-首版包括：可中断计划执行、GPT 图像与工具调用、四种仿真环境的适配路径、双视角执行记录网页、离线演示、测试与 CI。
+## 实测结果表
 
-> **当前是 v0.1 工程预览。** 离线演示没有调用 GPT，也不是物理仿真。仿真器冒烟测试只验证接口和控制，不代表任务成功率。GPT 端到端性能、RoboCasa / RoboTwin 资产环境和真机测试的状态，见验证文档。项目不宣称已经支持任意抓取、避障或双臂任务。
+| 真实 API 任务 | 决策方式 | 最终任务判据 | API 调用 | 控制步 | 总耗时 | 停止原因 |
+|---|---|---|---:|---:|---:|---|
+| MetaWorld `reach-v3`，seed 0 | 单工具 | **成功** | 1 | 35 | 50.20 秒 | 达到预设的一次决策预算 |
+| LIBERO spatial/task 0，seed 0 | 批量计划 | **未成功** | 3 | 159 | 107.87 秒 | 第三次 API 响应失败 |
 
-首轮 [真实 API 测试](docs/live-tests/README.md)：MetaWorld 单次决策到达目标；LIBERO 未完成。共 8 次尝试，7 次遇到接口错误，不构成成功率或泛化结论。
+**全部 8 次仿真尝试共发出 11 次 API 请求，其中 7 次尝试以接口错误结束。**5 次未执行动作，2 次已执行动作后又遇到接口错误，剩余 1 次预算内执行满足任务判据。这些是调试过程中选择的例子，不能据此宣称成功率、泛化能力或批量规划优于单工具。模型名称为 AiXor 返回的 `gpt-6-sol`，未独立核验上游模型身份。[所有尝试](docs/live-tests/all-attempts.json) · [实验条件](docs/live-tests/README.md)。
 
-## 无需 API、GPU 或模型权重即可体验
+MetaWorld 成功例子中，模型请求花了 **49.04 秒**，35 个控制步对应的工具执行花了 **0.21 秒**。一次推理驱动多个控制步已经跑通，但总耗时仍然不快。
+
+## 直接看真实例子
+
+下面的双视角动图可以在 GitHub 首页直接播放。画面来自实际仿真观测，文字来自执行日志；播放经过加速，没有插值或生成机器人画面。黄色圆圈只在对应的原始观测上标出模型选择的像素。
+
+### MetaWorld：一次模型决策到达目标
+
+![MetaWorld 实测：双视角、模型选择的像素、深度投影出的三维目标，以及实际执行的 35 个控制步](docs/assets/metaworld.gif)
+
+模型选择 `[154,137]`，harness 用当前深度和相机标定恢复三维目标，控制器完成移动。预先固定一次决策预算后，环境判定成功；模型没有另行输出完成判断。[查看完整调用与工具结果](examples/recorded/metaworld.json)。
+
+### LIBERO：失败例子说明我们还缺什么
+
+![LIBERO 实测：移动到碗上方后，旧图像引用被拒绝，重新观测后的表面接近发生停滞](docs/assets/libero.gif)
+
+第一段移动完成，第二步复用了旧图像而被拒绝；重新观测后，表面接近停滞，第三次 API 响应失败。**抓碗放盘没有成功。**[查看原始计划、像素坐标和失败结果](examples/recorded/libero.json)。
+
+## 完整例子：模型到底输出什么，harness 做什么？
+
+下面来自真实模型输出，不是手写策略：
+
+```json
+{
+  "name": "move_to_pixel",
+  "arguments": {
+    "arm": "arm",
+    "camera": "corner",
+    "observation_id": "1a93fb0076f24e13a335d0c33d54ee02:1",
+    "pixel": [154, 137],
+    "approach": "surface"
+  }
+}
+```
+
+| 阶段 | 输入 → 输出 | 负责者 |
+|---|---|---|
+| 视觉决策 | 当前图像 → 工具名、相机和像素 `[154,137]` | GPT |
+| 几何恢复 | 像素 + 当前深度 + 相机标定 → `[-0.03683, 0.86508, 0.18571]` 米 | harness |
+| 连续控制 | 三维目标 + 当前末端位置 → 35 个控制步，最终距表面目标 **7.17mm** | harness 与仿真控制器 |
+| 任务评价 | 最终仿真状态 → 任务判据为真 | 独立评价器，不传给 GPT |
+
+模型没有输出这里的三维坐标、关节角或密集轨迹。当前工具保持姿态，这个例子没有证明抓取姿态预测、避障或接触控制已经完成。JSON 中的观测 ID 只对这段记录有效，不能拿到新任务里直接执行。
+
+## 为什么采用这样的 harness？
+
+当前能说明的价值是**降低模型和控制器的耦合，让每一步的输入、执行和失败可检查**。尚未证明总体成功率更高，也未证明比 VLA 更快。
+
+| 设计 | 解决的具体问题 | 现有证据 | 当前限制 |
+|---|---|---|---|
+| 模型选像素，底层做几何与控制 | 不要求 GPT 输出大量连续运动参数 | 上面的真实像素 → 三维 → 35 步执行 | 表面点不等于抓取姿态 |
+| 有界批量计划 | 合适的多个动作可以共用一次决策 | 下表的相同动作离线对照 | 尚无真实 GPT 的配对收益；旧像素会中断计划 |
+| 工具类型约束、执行前校验完整计划 | 不存在的工具和错误参数不能直接开始运动 | [执行器测试](tests/test_runtime.py) | 参数合法不等于动作一定合理 |
+| 失败后中止后续步骤 | 接近失败后不会盲目继续抓取、搬运 | LIBERO 实测和故障注入测试 | 协作式停止不能代替避障和硬件急停 |
+| 分开记录模型判断、工具完成、环境成功 | 能定位规划、控制、接口分别出了什么问题 | 成功与失败记录都保留 | API 不稳定仍会打断任务 |
+| 共用工具接口，隔离环境动作编码 | 模型侧不用直接处理各环境的底层动作向量 | LIBERO、MetaWorld 已实际执行控制 | RoboCasa、RoboTwin 仍需真实资产环境验证 |
+
+**已验证的调度机制，不涉及 GPT 性能：**
+
+| 相同离线动作序列 | 决策次数，含结束判断 | 控制步 | 最终末端位置 | GPT 调用 |
+|---|---:|---:|---|---:|
+| 每次决策一个工具 | 4 | 28 | 相同 | 0 |
+| 一次计划三个工具 | 2 | 28 | 相同 | 0 |
+
+VLA 也能输出动作块，因此“减少调用”不是本项目独有的能力。本项目希望提供可替换的感知/控制工具，以及能复查的执行接口。是否优于某种 VLA 或 RPent，需要同任务、同预算的对照实验，目前没有这项证据。
+
+**下一步真正需要补强的地方：**带有效性检查的持久目标表示、抓取姿态和接触控制工具、碰撞规划，以及稳定的 API 执行与恢复策略。它们还没有实现，不能只在提示词里写一个 `grasp()` 就算支持。[设计取舍与所需实验](docs/design-rationale.md)。
+
+## 无需 API、GPU 即可运行
 
 ```bash
+git clone https://github.com/pm1255/embodied-harness.git
+cd embodied-harness
 python -m venv .venv
 source .venv/bin/activate
 pip install -e .
@@ -22,51 +96,50 @@ embodied-harness demo --out runs/batch
 embodied-harness view runs/batch
 ```
 
-打开命令打印的网址，可以查看双视角观测、每次工具输入与结果、实际 TCP 路径和事件记录。
+查看已经记录的真实双视角交互回放，无需再次调用模型：
 
 ```bash
-# 每个工具分别决策的对照
+embodied-harness view docs/live-tests
+```
+
+GitHub 不直接执行仓库里的 HTML，所以首页使用 GIF，完整交互页面通过上面的本地命令打开。
+
+重现离线调度对照与故障处理：
+
+```bash
 embodied-harness demo --per-tool --out runs/per-tool
-# 故障示例：中止后续操作
 embodied-harness demo --fault-after 12 --out runs/failure
 embodied-harness report runs
 ```
 
-两种成功演示执行相同动作，确定性决策次数为 4 次与 2 次（含最后结束决策），GPT 调用都为 0。这个结果只说明执行机制，没有证明 GPT 性能提升。
-
-## 连接 GPT 和真实仿真器
+## 连接 GPT 与仿真器
 
 ```bash
 pip install -e '.[metaworld]'
-embodied-harness smoke --env metaworld --config examples/metaworld.json
 export OPENAI_API_KEY='你的密钥'
 export OPENAI_MODEL='你的账号可访问的GPT模型ID'
 embodied-harness run --env metaworld --config examples/metaworld.json \
   --task 'Move the gripper to the visible target' --out runs/gpt-metaworld
 ```
 
-模型与 API 权限由使用者配置；框架不会复用 ChatGPT/Codex 登录凭证。LIBERO、RoboCasa、RoboTwin 使用独立的环境安装方式，见 [接入文档](docs/adapters.md)。
+`--plan-mode single` 每次直接调用一个原始工具；`--plan-mode batch` 提交有序计划。兼容网关可显式选择 `--stream` 或非流式 `--api-mode chat-completions`。框架不隐藏重试，也不复用 ChatGPT/Codex 登录凭证。[实测运行参数](docs/live-tests/README.md) · [环境安装](docs/adapters.md)。
 
-## 首版工具的真实能力
+| 环境 | 实际验证状态 |
+|---|---|
+| MetaWorld | 双视角 RGB-D、控制接口、一个真实 GPT 到达目标例子 |
+| LIBERO | 双视角 RGB-D、控制接口、真实 GPT 未完成例子；非官方初始状态 benchmark |
+| RoboCasa | 已有适配代码，尚未完成资产环境验证 |
+| RoboTwin | 已有任务工厂桥接，尚未完成资产环境验证 |
+| 真机机器人 | 尚无已验证适配器 |
 
-- `move_relative`：按机器人坐标轴移动 2、5 或 10cm，局部闭环控制，保持当前姿态。
-- `move_to_pixel`：从当前相机深度反投影可见表面点，移动到该点或其上方 8cm。它不估计空中点的深度，也不生成抓取姿态。
-- `set_gripper`：夹爪开合命令。完成命令不等于抓到了物体。
+## 已实现的工具与边界
 
-当前不包含碰撞规划和通用抓取模型。可以通过插件加入经过验证的 MoveIt、视觉伺服或 VLA 技能。没有后端能力的工具不会出现在模型的工具表里。
+| 工具 | 实际作用 | 不包含的能力 |
+|---|---|---|
+| `move_relative` | 沿机器人/世界坐标轴移动 2、5、10cm | 碰撞规划 |
+| `move_to_pixel` | 投影当前可见表面点，移动到该点或上方 8cm | 空中点深度、抓取姿态、物体跟踪 |
+| `set_gripper` | 保持末端位置并开合夹爪 | 自动确认抓取成功 |
 
-**模型看到的内容**：当前图片、机器人自身状态、工具描述、近期执行结果。
+模型输入只有当前图像、机器人自身状态、可用工具和近期执行结果。不会读取专家轨迹、未来位置、物体真值或环境成功判据。首版没有内置 MoveIt、SLAM、GraspNet 或 VLA；这些需要通过[工具扩展接口](docs/extensions.md)实现并验证。
 
-**模型看不到的内容**：环境任务成功判据、物体真值状态、未来末端深度、专家动作和参考轨迹。
-
-输出记录区分模型判断、工具完成和环境成功。运动后继续使用旧图片的像素会被拒绝，避免错误地把旧坐标当成新观测。
-
-## 项目定位
-
-我们希望减少每个任务所需的手写代码，以及不必要的大模型调用。是否提高成功率、降低总耗时，需要用真实任务评测验证。
-
-参考并致谢 [RPent](https://github.com/RLinf/RPent)。本项目独立编写，聚焦较小的执行内核，不声称超越 RPent。四个环境适配器不是四套已经完成的 benchmark。
-
-当前执行器只能在控制步边界协作式取消；它不能代替硬件急停、实时控制器或碰撞检查。
-
-Apache-2.0 开源。仓库不包含模型权重、私有数据、服务器配置或实验录屏。欢迎贡献环境实测、经过验证的技能和失败复现。
+代码为 Apache-2.0。参考并致谢 [RPent](https://github.com/RLinf/RPent)；本项目不声称性能或原创性超越它。[验证状态](docs/validation.md) · [贡献指南](CONTRIBUTING.md)。

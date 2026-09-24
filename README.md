@@ -1,14 +1,86 @@
 # Embodied Harness
 
-**Let GPT decide at useful boundaries. Inspect everything the robot actually did.**
+**GPT chooses an action. The harness turns it into robot motion you can inspect.**
 
-[中文](README.zh-CN.md) · [Architecture](docs/architecture.md) · [Adapters](docs/adapters.md) · [Validation](docs/validation.md) · [Contributing](CONTRIBUTING.md)
+[![CI](https://github.com/pm1255/embodied-harness/actions/workflows/ci.yml/badge.svg)](https://github.com/pm1255/embodied-harness/actions)
+[中文](README.zh-CN.md) · [Recorded examples](examples/recorded) · [Design rationale](docs/design-rationale.md) · [Full attempt log](docs/live-tests/all-attempts.json)
 
-Embodied Harness is a GPT-first runtime for **bounded, interruptible robot tool plans**. A model can submit several operations in one decision. The runtime executes them locally, checks preconditions, and returns control on failure instead of asking the model after every controller tick.
+A small GPT-first runtime that separates **visual decisions, geometry, local control and evaluation**. The model calls implemented tools instead of generating every controller command. It can submit one primitive or a bounded plan; the executor returns control when the plan ends or a step fails.
 
-It includes an offline demo, a Responses API planner, four simulator integration paths, and a portable trace viewer with camera observations, tool inputs/results, measured TCP paths and model-call accounting.
+## Measured results, including reliability failures
 
-> **v0.1 is an engineering alpha, not a benchmark result.** The offline demo is a deterministic kinematic fixture. Initial live API diagnostics reached a MetaWorld goal with one decision, while LIBERO did not complete and repeated API failures occurred. See the [complete attempt log](docs/live-tests/README.md); this is not a success-rate estimate. LIBERO and MetaWorld smoke tests are distinct from task-solving evaluation. RoboCasa and RoboTwin integration status is documented explicitly. No real robot has been validated.
+| Real API example | Plan mode | Final task predicate | API calls | Control ticks | Wall time | Stop reason |
+|---|---|---|---:|---:|---:|---|
+| MetaWorld `reach-v3`, seed 0 | One primitive | **True** | 1 | 35 | 50.20s | One-decision budget reached |
+| LIBERO spatial/task 0, seed 0 | Batch | **False** | 3 | 159 | 107.87s | Third API response failed |
+
+**All eight simulator attempts:** 11 API requests; **7 attempts ended with infrastructure errors**. Five never moved; two moved before a later API failure. One budget-limited episode completed evaluation successfully. These selected engineering examples do not establish a benchmark success rate, a speedup, or a batch-versus-single comparison. The provider advertised `gpt-6-sol`; its upstream identity was not independently verified. [All attempts](docs/live-tests/all-attempts.json) · [Protocol and caveats](docs/live-tests/README.md).
+
+In the successful MetaWorld example, the model request took **49.04s**, while the 35-tick motion tool took **0.21s** on the local synchronous simulator. One model call can drive many control steps, but this example is not fast end-to-end.
+
+## Watch two real API runs
+
+These GIFs play directly on GitHub. They contain recorded dual-camera observations and trace-derived annotations, with accelerated playback and no interpolated robot frames. Yellow rings mark a model-selected pixel **only on its source observation**.
+
+### MetaWorld: one model decision reaches the target
+
+![Recorded MetaWorld run: two camera views, model-selected pixel, RGB-D world target and 35 executed control ticks](docs/assets/metaworld.gif)
+
+The model chose pixel `[154,137]`. RGB-D projection and local servoing handled the movement. The task predicate was true after a **preselected one-decision budget**; there was no separate model completion verdict. [Exact model arguments and tool results](examples/recorded/metaworld.json).
+
+### LIBERO: a failed attempt exposes missing execution capabilities
+
+![Recorded LIBERO attempt: a batch plan first reaches above a bowl, rejects a stale image reference, then stalls during a new surface approach](docs/assets/libero.gif)
+
+The first movement completed, a reused image reference was rejected, and a subsequent surface approach stalled. The third API response failed. The bowl was **not** successfully placed. [Exact plans and failures](examples/recorded/libero.json).
+
+## One complete example: model → geometry → execution
+
+This is the actual MetaWorld function call, not a hand-written policy:
+
+```json
+{
+  "name": "move_to_pixel",
+  "arguments": {
+    "arm": "arm",
+    "camera": "corner",
+    "observation_id": "1a93fb0076f24e13a335d0c33d54ee02:1",
+    "pixel": [154, 137],
+    "approach": "surface"
+  }
+}
+```
+
+| Stage | Input → output | Who computes it? |
+|---|---|---|
+| Visual decision | Current images → tool name, camera and pixel `[154,137]` | GPT |
+| Geometry | Pixel + current metric depth + camera calibration → `[-0.03683, 0.86508, 0.18571]` m | Harness |
+| Local control | Target + current TCP → 35 controller ticks, final target error **7.17mm** | Harness and simulator controller |
+| Evaluation | Final simulation state → task predicate **true** | Evaluator; withheld from GPT |
+
+The model did not output that 3D coordinate, joint angles or a dense trajectory. The current tool preserves orientation; the example does **not** demonstrate grasp-pose prediction, collision avoidance or contact control. Observation IDs in recorded JSON belong to that recording and cannot be reused for a new episode.
+
+## Why this harness design is useful
+
+Its current strength is an explicit execution contract and inspectable failures. Higher task success and lower end-to-end latency remain hypotheses to test.
+
+| Design choice | Practical benefit | Evidence today | Boundary |
+|---|---|---|---|
+| Pixel selection + backend geometry/control | Avoids asking GPT for dense continuous motion parameters | Real pixel → 3D → 35-tick example above | A surface point does not specify a grasp pose |
+| Bounded plans, local execution | Several suitable actions can share one model decision | Same-motion offline comparison below | Live GPT call savings not established; stale pixels interrupt batches |
+| Typed tools, complete-plan validation | Rejects unsupported tools and malformed plans before motion | [Runtime tests](tests/test_runtime.py) | Valid syntax does not guarantee valid robot behavior |
+| Failure stops the remaining plan | Prevents subsequent steps from blindly following a failed movement | LIBERO stale-reference/stall trace; injected-failure tests | Cooperative stop is not collision avoidance or hardware emergency stop |
+| Separate model, controller and task outcomes | Reveals whether a failure came from planning, execution or the API | Both real traces and all-attempt log | Provider outages still break the episode |
+| Shared tool contract, environment-specific adapters | Keeps simulator action encoding out of the model-facing plan | LIBERO and MetaWorld executed real controls | RoboCasa/RoboTwin still need asset-backed validation |
+
+**Scheduling mechanism, tested without GPT:**
+
+| Same offline action sequence | Planner decisions, including finish | Control ticks | Final TCP | GPT API calls |
+|---|---:|---:|---|---:|
+| One tool per decision | 4 | 28 | Identical | 0 |
+| Three tools in one plan | 2 | 28 | Identical | 0 |
+
+This verifies batching semantics, not GPT performance. A VLA can also emit action chunks; reducing model calls is not unique to this design. We have not shown superiority over VLA policies or RPent. The intended advantage is being able to swap perception/control tools and inspect their execution without changing a dense-action model. [Design tradeoffs and experiments needed](docs/design-rationale.md).
 
 ## Try it without an API key or GPU
 
@@ -25,7 +97,13 @@ embodied-harness demo --out runs/batch
 embodied-harness view runs/batch
 ```
 
-Open the printed localhost URL. The viewer needs no frontend build, CDN, or online service. The CLI refuses to overwrite an existing run.
+Open the printed localhost URL. The viewer needs no frontend build, CDN, or online service. The CLI refuses to overwrite an existing run. To inspect the recorded real API examples without making new API calls:
+
+```bash
+embodied-harness view docs/live-tests
+```
+
+GitHub displays the GIFs above; it does not execute repository HTML. This command opens the full interactive recordings locally.
 
 Compare per-tool decisions with one bounded plan, or inspect a failure:
 

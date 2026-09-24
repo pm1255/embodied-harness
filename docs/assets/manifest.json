@@ -1,0 +1,12 @@
+{
+  "metaworld": {
+    "source_events": 50,
+    "gif_frames": 10,
+    "observations": 6
+  },
+  "libero": {
+    "source_events": 210,
+    "gif_frames": 38,
+    "observations": 29
+  }
+}

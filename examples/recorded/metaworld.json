@@ -1,0 +1,77 @@
+{
+  "source": "docs/live-tests/metaworld/events.jsonl",
+  "note": "Exact recorded model arguments; observation IDs belong to this episode only.",
+  "model_calls": [
+    {
+      "event_seq": 4,
+      "name": "move_to_pixel",
+      "arguments": {
+        "approach": "surface",
+        "arm": "arm",
+        "camera": "corner",
+        "observation_id": "1a93fb0076f24e13a335d0c33d54ee02:1",
+        "pixel": [
+          154,
+          137
+        ]
+      }
+    }
+  ],
+  "geometry_events": [
+    {
+      "source": "current_rgbd_surface",
+      "pixel": [
+        154,
+        137
+      ],
+      "camera": "corner",
+      "observation_id": "1a93fb0076f24e13a335d0c33d54ee02:1",
+      "target_m": [
+        -0.03682976924365766,
+        0.8650845786088376,
+        0.18571000869468296
+      ],
+      "approach": "surface"
+    }
+  ],
+  "tool_results": [
+    {
+      "step_id": "single-1",
+      "duration_s": 0.21445595799013972,
+      "ticks": 35,
+      "status": "succeeded",
+      "data": {
+        "target_m": [
+          -0.03682976924365766,
+          0.8650845786088376,
+          0.18571000869468296
+        ],
+        "error_m": 0.007166042199144625,
+        "meaning": "TCP reached target; object contact/grasp is not verified"
+      },
+      "error_code": null
+    }
+  ],
+  "summary": {
+    "schema_version": 1,
+    "environment": "metaworld",
+    "task": "Move the gripper to the red spherical target marker. This is a reach task; do not grasp the marker.",
+    "seed": 0,
+    "status": "decision_budget_exhausted",
+    "agent_outcome": null,
+    "environment_success": true,
+    "success": true,
+    "decisions": 1,
+    "api_calls": 1,
+    "input_tokens": 2709,
+    "output_tokens": 178,
+    "control_ticks": 35,
+    "wall_seconds": 50.1991,
+    "protocol": "sensor_observation",
+    "model_tested": "gpt-6-sol",
+    "provider": "aixor.cc",
+    "api_mode": "responses",
+    "stream": true,
+    "plan_mode": "single"
+  }
+}

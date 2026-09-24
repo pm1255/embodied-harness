@@ -1,0 +1,230 @@
+{
+  "source": "docs/live-tests/libero/events.jsonl",
+  "note": "Exact recorded model arguments; observation IDs belong to this episode only.",
+  "model_calls": [
+    {
+      "event_seq": 4,
+      "name": "submit_plan",
+      "arguments": {
+        "steps": [
+          {
+            "tool": "move_to_pixel",
+            "arguments": {
+              "arm": "arm",
+              "approach": "above",
+              "camera": "agentview",
+              "observation_id": "e1191190d6964d01ab36fb9c9436d511:1",
+              "pixel": [
+                194,
+                133
+              ]
+            },
+            "id": "above bowl",
+            "require_fact": null
+          },
+          {
+            "tool": "move_to_pixel",
+            "arguments": {
+              "arm": "arm",
+              "approach": "surface",
+              "camera": "agentview",
+              "observation_id": "e1191190d6964d01ab36fb9c9436d511:1",
+              "pixel": [
+                194,
+                133
+              ]
+            },
+            "id": "touch bowl",
+            "require_fact": null
+          },
+          {
+            "tool": "set_gripper",
+            "arguments": {
+              "arm": "arm",
+              "state": "closed"
+            },
+            "id": "close",
+            "require_fact": null
+          },
+          {
+            "tool": "move_to_pixel",
+            "arguments": {
+              "arm": "arm",
+              "approach": "above",
+              "camera": "agentview",
+              "observation_id": "e1191190d6964d01ab36fb9c9436d511:1",
+              "pixel": [
+                204,
+                174
+              ]
+            },
+            "id": "above plate",
+            "require_fact": null
+          }
+        ]
+      }
+    },
+    {
+      "event_seq": 105,
+      "name": "submit_plan",
+      "arguments": {
+        "steps": [
+          {
+            "tool": "move_to_pixel",
+            "arguments": {
+              "arm": "arm",
+              "approach": "surface",
+              "camera": "robot0_eye_in_hand",
+              "observation_id": "e1191190d6964d01ab36fb9c9436d511:15",
+              "pixel": [
+                130,
+                133
+              ]
+            },
+            "id": "reach bowl",
+            "require_fact": null
+          },
+          {
+            "tool": "set_gripper",
+            "arguments": {
+              "arm": "arm",
+              "state": "closed"
+            },
+            "id": "grasp",
+            "require_fact": null
+          },
+          {
+            "tool": "move_to_pixel",
+            "arguments": {
+              "arm": "arm",
+              "approach": "above",
+              "camera": "robot0_eye_in_hand",
+              "observation_id": "e1191190d6964d01ab36fb9c9436d511:15",
+              "pixel": [
+                129,
+                41
+              ]
+            },
+            "id": "move over plate",
+            "require_fact": null
+          },
+          {
+            "tool": "move_to_pixel",
+            "arguments": {
+              "arm": "arm",
+              "approach": "surface",
+              "camera": "robot0_eye_in_hand",
+              "observation_id": "e1191190d6964d01ab36fb9c9436d511:15",
+              "pixel": [
+                129,
+                41
+              ]
+            },
+            "id": "place bowl",
+            "require_fact": null
+          },
+          {
+            "tool": "set_gripper",
+            "arguments": {
+              "arm": "arm",
+              "state": "open"
+            },
+            "id": "release",
+            "require_fact": null
+          }
+        ]
+      }
+    }
+  ],
+  "geometry_events": [
+    {
+      "source": "current_rgbd_surface",
+      "pixel": [
+        194,
+        133
+      ],
+      "camera": "agentview",
+      "observation_id": "e1191190d6964d01ab36fb9c9436d511:1",
+      "target_m": [
+        -0.09250200070722403,
+        0.20892858414660495,
+        1.063448332943152
+      ],
+      "approach": "above"
+    },
+    {
+      "source": "current_rgbd_surface",
+      "pixel": [
+        130,
+        133
+      ],
+      "camera": "robot0_eye_in_hand",
+      "observation_id": "e1191190d6964d01ab36fb9c9436d511:15",
+      "target_m": [
+        -0.05911142728525187,
+        0.1962100677244896,
+        0.9062270617330727
+      ],
+      "approach": "surface"
+    }
+  ],
+  "tool_results": [
+    {
+      "step_id": "above bowl",
+      "duration_s": 2.2772694998420775,
+      "ticks": 78,
+      "status": "succeeded",
+      "data": {
+        "target_m": [
+          -0.09250200070722403,
+          0.20892858414660495,
+          1.063448332943152
+        ],
+        "error_m": 0.009988393085933323,
+        "meaning": "TCP reached target; object contact/grasp is not verified"
+      },
+      "error_code": null
+    },
+    {
+      "step_id": "touch bowl",
+      "duration_s": 7.207971066236496e-06,
+      "ticks": 0,
+      "status": "failed",
+      "data": {
+        "message": "stale_observation: request a new image before projecting a pixel"
+      },
+      "error_code": "ValueError"
+    },
+    {
+      "step_id": "reach bowl",
+      "duration_s": 2.4401410829741508,
+      "ticks": 81,
+      "status": "failed",
+      "data": {
+        "error_m": 0.043074581744324596
+      },
+      "error_code": "motion_stalled"
+    }
+  ],
+  "summary": {
+    "schema_version": 1,
+    "environment": "libero",
+    "task": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+    "seed": 0,
+    "status": "infrastructure_error",
+    "agent_outcome": null,
+    "environment_success": false,
+    "success": false,
+    "decisions": 3,
+    "api_calls": 3,
+    "input_tokens": 3509,
+    "output_tokens": 509,
+    "control_ticks": 159,
+    "wall_seconds": 107.8656,
+    "protocol": "sensor_observation",
+    "model_tested": "gpt-6-sol",
+    "provider": "aixor.cc",
+    "api_mode": "responses",
+    "stream": true
+  }
+}
