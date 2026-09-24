@@ -7,6 +7,26 @@
 
 A small GPT-first runtime that separates **visual decisions, geometry, local control and evaluation**. The model calls implemented tools instead of generating every controller command. It can submit one primitive or a bounded plan; the executor returns control when the plan ends or a step fails.
 
+## Measured model-written repairs: three preserved revisions
+
+**[Watch the evolution: results, exact diffs and 48 dual-camera replays](https://pm1255.github.io/embodied-harness/rsi/program-evolution/)** · [Protocol, costs and limits](docs/rsi/program-evolution/README.md)
+
+The experiment model wrote a bounded Python tool, then revised its memory, skill and tool description after failed development gates. Models, success evaluator and execution budgets stayed fixed. Every round used fresh paired initial states; all held-out outcomes stayed out of proposal feedback.
+
+| Revision | Actual change | Development successes, baseline → candidate | Development GPT calls | Held-out successes | Held-out GPT calls | Development decision |
+|---|---|---|---|---|---|---|
+| 1 | Write bounded VLA continuation tool; route drawer opening | 4/4 → 4/4 | 15 → 14 | 3/4 → 4/4 | 19 → 20 | Rejected |
+| 2 | Reuse code; expand memory/skill/tool description to bowl placement | 4/4 → 4/4 | 16 → 16 | 4/4 → 4/4 | 18 → 17 | Rejected |
+| 3 | Reuse code; expand stated applicability to soup placement | 3/4 → 4/4 | 22 → 11 | 3/4 → 4/4 | 19 → 10 | Passed small development gate |
+
+Revision 3's held-out calls fell **47%**, input tokens **39,271 → 29,987**, and observed wall time **293.5 → 206.0 s**. Control ticks increased **616 → 703**. This four-task pilot does not establish full-suite mastery, shorter motion, or superiority to RPent; memory/skill/tool changes were evaluated together. The first two revisions remain visible despite rejection. **Task difficulty has not increased.**
+
+![One actual model-written tool opens the drawer with two camera views](docs/rsi/program-evolution/tool-delegation.gif)
+
+Accelerated sampled-event replay from revision 1. Open the viewer for the exact `program_bounded_full_goal_delegation` call, its internal `run_vla` arguments, current VLA chunk and executed 7D action. It is one successful example, not evidence that revision 1 passed its gate.
+
+A [predeclared eight-task confirmation](benchmarks/libero-program-eight-task-confirmation.json), 32 more paired episodes on two fresh states, is running with the same frozen revision 3. It was triggered by development acceptance, not selected from held-out outcomes. Harder tasks remain locked.
+
 **Measured baseline:** [watch all 16 paired LIBERO episodes](https://pm1255.github.io/embodied-harness/rsi/baseline/) with GPT-6 Astra and the official LIBERO π0.5 checkpoint. [References, implementation and limits](docs/baseline-and-evolution.md).
 
 | Eight original tasks, fixed development resets | Native successes | GPT calls | Control ticks | Infrastructure errors |
@@ -108,7 +128,7 @@ RoboTwin: **3/3 GPU interface checks passed**; [watch three additional real simu
 
 ## Is this better than RPent?
 
-**Not established.** RPent already has VLA execution, geometry tools, memory and multi-environment evaluations. Our narrower goal is a portable execution and measurement kernel for reducing model decisions. Grasp and contact control remain major gaps. Read the [source-backed comparison and required experiments](docs/rpent-comparison.md).
+**Not established.** RPent already has VLA execution, geometry tools, memory and multi-environment evaluations. Our narrower goal is a portable execution and measurement kernel for reducing model decisions. Reliable orchestration, wider task coverage and verified recovery remain open. Read the [source-backed comparison and required experiments](docs/rpent-comparison.md).
 
 ## Measured results, including reliability failures
 
@@ -170,7 +190,7 @@ Its current strength is an explicit execution contract and inspectable failures.
 | Design choice | Practical benefit | Evidence today | Boundary |
 |---|---|---|---|
 | Pixel selection + backend geometry/control | Avoids asking GPT for dense continuous motion parameters | Real pixel → 3D → 35-tick example above | A surface point does not specify a grasp pose |
-| Bounded plans, local execution | Several suitable actions can share one model decision | Same-motion offline comparison below | Live GPT call savings not established; stale pixels interrupt batches |
+| Bounded plans, local execution | Several suitable actions can share one model decision | Same-motion offline comparison below | Fresh-reset program comparisons are reported separately above; stale pixels interrupt geometric batches |
 | Typed tools, complete-plan validation | Rejects unsupported tools and malformed plans before motion | [Runtime tests](tests/test_runtime.py) | Valid syntax does not guarantee valid robot behavior |
 | Failure stops the remaining plan | Prevents subsequent steps from blindly following a failed movement | LIBERO stale-reference/stall trace; injected-failure tests | Cooperative stop is not collision avoidance or hardware emergency stop |
 | Separate model, controller and task outcomes | Reveals whether a failure came from planning, execution or the API | Both real traces and all-attempt log | Provider outages still break the episode |
@@ -242,6 +262,8 @@ Built-in tools deliberately state their limits:
 | `move_relative` | Closed-loop TCP motion in named robot/world axes; 2/5/10cm presets | Collision-free planning or task completion |
 | `move_to_pixel` | Project a fresh visible RGB-D surface pixel and servo to it or 8cm above | Free-space depth, object tracking or a grasp pose |
 | `set_gripper` | Issue open/close while holding the TCP position | Successful object grasp |
+| `run_vla` | Frozen checkpoint-specific π0.5, current sensors, repeated closed-loop action chunks | Automatic compatibility with arbitrary checkpoints or guaranteed task success |
+| `program_*` | Admitted model-written bounded Python composition of registered primitives | Arbitrary Python, evaluator mutation, unbounded execution |
 
 Orientation is preserved or fixed by the environment. There is no hidden top-down grasp assumption or unimplemented `grasp()` promise. Add validated motion planners, grasp modules or learned policies through the [tool plugin interface](docs/extensions.md).
 

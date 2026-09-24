@@ -21,6 +21,7 @@ def export(
     confirmation_gate=None,
     parent_proposal=None,
     prior_exports=(),
+    scope_export=None,
 ):
     proposal, campaign, destination = map(Path, (proposal, campaign, destination))
     destination.mkdir(parents=True, exist_ok=True)
@@ -213,6 +214,19 @@ def export(
     data["round_results"].append(
         {"candidate_id": candidate["candidate_id"], "statistics": statistics}
     )
+    if scope_export:
+        scope = json.loads((Path(scope_export) / "data.json").read_text())
+        if (
+            not scope["completed"]
+            or scope["candidate"]["candidate_id"] != candidate["candidate_id"]
+        ):
+            raise ValueError("Scope confirmation must execute the same frozen candidate completely")
+        data["scope_confirmation"] = {
+            "protocol": scope["protocol"],
+            "gate": scope["gate"],
+            "statistics": scope["statistics"],
+            "details": "confirmation/",
+        }
     (destination / "data.json").write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
     template = (
         Path(__file__).resolve().parents[1] / "src/embodied_harness/web/program-evolution.html"
@@ -234,6 +248,7 @@ if __name__ == "__main__":
     p.add_argument("--confirmation-gate")
     p.add_argument("--parent-proposal")
     p.add_argument("--prior-export", action="append", default=[])
+    p.add_argument("--scope-export")
     a = p.parse_args()
     export(
         a.proposal,
@@ -244,4 +259,5 @@ if __name__ == "__main__":
         a.confirmation_gate,
         a.parent_proposal,
         a.prior_export,
+        a.scope_export,
     )

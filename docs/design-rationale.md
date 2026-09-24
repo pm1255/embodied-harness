@@ -6,7 +6,7 @@ The goal is to spend GPT decisions at useful boundaries while leaving continuous
 
 A pixel-target call expresses an observable visual choice. Calibration and current depth determine its surface position; the controller closes the loop at its own rate. This separates a model's visual error from camera/depth error and servo error. In the recorded MetaWorld run the model emitted one pixel target and the backend performed 35 ticks. The model request itself took 49.04s, so a low call count alone is not enough to claim low latency.
 
-A plan is an ordered list of available tools, not generated executable Python. Its structure is validated before movement, and an execution lock prevents two plans from concurrently owning the robot. The executor checks budgets and observes tool results. These contracts make integrations easier to inspect; they are not a certified safety layer. Drivers must bound their own blocking I/O.
+A plan is an ordered list of registered tools. Version 0.4 can additionally register model-written Python programs through a restricted AST interpreter: only bounded composition of existing primitives is admitted, with no imports or host I/O. Its structure is validated before movement, and an execution lock prevents two plans from concurrently owning the robot. The executor checks budgets and observes tool results. These contracts make integrations easier to inspect; they are not a certified safety layer. Drivers must bound their own blocking I/O.
 
 The evaluator has a different responsibility from the planner. It reads the task predicate after execution and records it separately from model completion and tool success. A closed gripper is not evidence of a grasp. This distinction matters in the failed LIBERO attempt, where reaching above the selected surface did not complete the manipulation task.
 
@@ -20,7 +20,7 @@ The following are patterns, not claims that all implementations of a model famil
 | Bounded tool plan | Several ordered primitives | Local controller plus executor | Later steps remain valid without a new image | Requires target validity and correct interruption boundaries |
 | A chunked VLA policy | A learned action sequence/chunk | Policy and robot controller | Learned local manipulation behavior is available | Different training, deployment and debugging interface; no comparative result here |
 
-The core implements the first two patterns. Version 0.2 adds experimental model-written typed skills, evidence-bound memory and checkpoint-specific VLA bridges; see [RSI Lab](rsi-design.md) for their measured scope. MoveIt, SLAM, GraspNet and persistent target tracking are still not included. A policy endpoint is not a guarantee of contact or task success.
+The core implements the first two patterns. Versions 0.2–0.4 add model-written typed skills, bounded Python tool programs, evidence-bound memory and checkpoint-specific VLA bridges; see [RSI Lab](rsi-design.md) for their measured scope. MoveIt, SLAM, GraspNet and persistent target tracking are still not included. A policy endpoint is not a guarantee of contact or task success.
 
 ## What the first failures tell us to improve
 

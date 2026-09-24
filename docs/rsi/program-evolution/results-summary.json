@@ -1,0 +1,291 @@
+{
+  "rounds": [
+    {
+      "revision": 1,
+      "candidate_id": "candidate/9897b33b5dec70973dff3a029614b8507b510b7f44d4854ff0c0577a166b2311",
+      "gate": {
+        "candidate_id": "candidate/9897b33b5dec70973dff3a029614b8507b510b7f44d4854ff0c0577a166b2311",
+        "split": "validation",
+        "contract_passed": true,
+        "transfer_passed": false,
+        "retention_passed": true,
+        "budget_passed": true,
+        "independent_evaluator": true,
+        "evidence_verified": true,
+        "small_development_gate": {
+          "accepted": false,
+          "baseline_successes": 4,
+          "candidate_successes": 4,
+          "baseline_calls": 15,
+          "candidate_calls": 14,
+          "regressions": [],
+          "infrastructure_error": false,
+          "meaning": "Small development gate, not a statistical generalization claim"
+        },
+        "program_successful_fresh_instances": [
+          "libero_goal-00-i1-validation"
+        ],
+        "infrastructure_or_unknown_outcomes": [],
+        "validation_instances": 4,
+        "heldout_used_for_selection": false,
+        "statistical_mastery_established": false
+      },
+      "statistics": [
+        {
+          "split": "validation",
+          "arm": "baseline",
+          "successes": 4,
+          "n": 4,
+          "wilson95": [
+            0.5101091635454165,
+            1
+          ],
+          "api_calls": 15,
+          "control_ticks": 554,
+          "wall_seconds": 247.90030000000002,
+          "input_tokens": 30347,
+          "output_tokens": 940
+        },
+        {
+          "split": "validation",
+          "arm": "candidate",
+          "successes": 4,
+          "n": 4,
+          "wilson95": [
+            0.5101091635454165,
+            1
+          ],
+          "api_calls": 14,
+          "control_ticks": 611,
+          "wall_seconds": 232.60969999999998,
+          "input_tokens": 40572,
+          "output_tokens": 830
+        },
+        {
+          "split": "heldout",
+          "arm": "baseline",
+          "successes": 3,
+          "n": 4,
+          "wilson95": [
+            0.30064184258241056,
+            0.9544127391902976
+          ],
+          "api_calls": 19,
+          "control_ticks": 590,
+          "wall_seconds": 345.2519,
+          "input_tokens": 39685,
+          "output_tokens": 2231
+        },
+        {
+          "split": "heldout",
+          "arm": "candidate",
+          "successes": 4,
+          "n": 4,
+          "wilson95": [
+            0.5101091635454165,
+            1
+          ],
+          "api_calls": 20,
+          "control_ticks": 629,
+          "wall_seconds": 358.9601,
+          "input_tokens": 59586,
+          "output_tokens": 1328
+        }
+      ]
+    },
+    {
+      "revision": 2,
+      "candidate_id": "candidate/2f9dfe251d6a857f2c7b7c797cfc1a947407d9ebec2ab17a7f1fd43374a18d2b",
+      "gate": {
+        "candidate_id": "candidate/2f9dfe251d6a857f2c7b7c797cfc1a947407d9ebec2ab17a7f1fd43374a18d2b",
+        "split": "validation",
+        "contract_passed": true,
+        "transfer_passed": false,
+        "retention_passed": true,
+        "budget_passed": true,
+        "independent_evaluator": true,
+        "evidence_verified": true,
+        "small_development_gate": {
+          "accepted": false,
+          "baseline_successes": 4,
+          "candidate_successes": 4,
+          "baseline_calls": 16,
+          "candidate_calls": 16,
+          "regressions": [],
+          "infrastructure_error": false,
+          "meaning": "Small development gate, not a statistical generalization claim"
+        },
+        "program_successful_fresh_instances": [
+          "libero_spatial-00-i3-validation",
+          "libero_goal-00-i3-validation"
+        ],
+        "infrastructure_or_unknown_outcomes": [],
+        "validation_instances": 4,
+        "heldout_used_for_selection": false,
+        "statistical_mastery_established": false
+      },
+      "statistics": [
+        {
+          "split": "validation",
+          "arm": "baseline",
+          "successes": 4,
+          "n": 4,
+          "wilson95": [
+            0.5101091635454165,
+            1
+          ],
+          "api_calls": 16,
+          "control_ticks": 585,
+          "wall_seconds": 281.0851,
+          "input_tokens": 32841,
+          "output_tokens": 967
+        },
+        {
+          "split": "validation",
+          "arm": "candidate",
+          "successes": 4,
+          "n": 4,
+          "wilson95": [
+            0.5101091635454165,
+            1
+          ],
+          "api_calls": 16,
+          "control_ticks": 685,
+          "wall_seconds": 285.55060000000003,
+          "input_tokens": 47397,
+          "output_tokens": 1109
+        },
+        {
+          "split": "heldout",
+          "arm": "baseline",
+          "successes": 4,
+          "n": 4,
+          "wilson95": [
+            0.5101091635454165,
+            1
+          ],
+          "api_calls": 18,
+          "control_ticks": 630,
+          "wall_seconds": 330.22249999999997,
+          "input_tokens": 37415,
+          "output_tokens": 1716
+        },
+        {
+          "split": "heldout",
+          "arm": "candidate",
+          "successes": 4,
+          "n": 4,
+          "wilson95": [
+            0.5101091635454165,
+            1
+          ],
+          "api_calls": 17,
+          "control_ticks": 697,
+          "wall_seconds": 307.3962,
+          "input_tokens": 50649,
+          "output_tokens": 1239
+        }
+      ]
+    },
+    {
+      "revision": 3,
+      "candidate_id": "candidate/02e8eabcc4c7343d6794a354b3ec074bde0b9ab5e256d0d86a5856336a5a4f38",
+      "gate": {
+        "candidate_id": "candidate/02e8eabcc4c7343d6794a354b3ec074bde0b9ab5e256d0d86a5856336a5a4f38",
+        "split": "validation",
+        "contract_passed": true,
+        "transfer_passed": true,
+        "retention_passed": true,
+        "budget_passed": true,
+        "independent_evaluator": true,
+        "evidence_verified": true,
+        "small_development_gate": {
+          "accepted": true,
+          "baseline_successes": 3,
+          "candidate_successes": 4,
+          "baseline_calls": 22,
+          "candidate_calls": 11,
+          "regressions": [],
+          "infrastructure_error": false,
+          "meaning": "Small development gate, not a statistical generalization claim"
+        },
+        "program_successful_fresh_instances": [
+          "libero_spatial-00-i5-validation",
+          "libero_object-00-i5-validation",
+          "libero_goal-00-i5-validation"
+        ],
+        "infrastructure_or_unknown_outcomes": [],
+        "validation_instances": 4,
+        "heldout_used_for_selection": false,
+        "statistical_mastery_established": false
+      },
+      "statistics": [
+        {
+          "split": "validation",
+          "arm": "baseline",
+          "successes": 3,
+          "n": 4,
+          "wilson95": [
+            0.30064184258241056,
+            0.9544127391902976
+          ],
+          "api_calls": 22,
+          "control_ticks": 792,
+          "wall_seconds": 457.10569999999996,
+          "input_tokens": 47516,
+          "output_tokens": 3389
+        },
+        {
+          "split": "validation",
+          "arm": "candidate",
+          "successes": 4,
+          "n": 4,
+          "wilson95": [
+            0.5101091635454165,
+            1
+          ],
+          "api_calls": 11,
+          "control_ticks": 615,
+          "wall_seconds": 206.7756,
+          "input_tokens": 33238,
+          "output_tokens": 641
+        },
+        {
+          "split": "heldout",
+          "arm": "baseline",
+          "successes": 3,
+          "n": 4,
+          "wilson95": [
+            0.30064184258241056,
+            0.9544127391902976
+          ],
+          "api_calls": 19,
+          "control_ticks": 616,
+          "wall_seconds": 293.4656,
+          "input_tokens": 39271,
+          "output_tokens": 1147
+        },
+        {
+          "split": "heldout",
+          "arm": "candidate",
+          "successes": 4,
+          "n": 4,
+          "wilson95": [
+            0.5101091635454165,
+            1
+          ],
+          "api_calls": 10,
+          "control_ticks": 703,
+          "wall_seconds": 205.95390000000003,
+          "input_tokens": 29987,
+          "output_tokens": 594
+        }
+      ]
+    }
+  ],
+  "proposal_api_calls": 4,
+  "proposal_input_tokens": 70614,
+  "proposal_output_tokens": 6936,
+  "task_difficulty_changed": false,
+  "eight_task_confirmation": "running"
+}

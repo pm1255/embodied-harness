@@ -1,0 +1,1 @@
+{"name": "program_bounded_full_goal_delegation", "parameters": {"type": "object", "properties": {"instruction": {"type": "string", "minLength": 1, "maxLength": 500}}, "required": ["instruction"], "additionalProperties": false}, "max_ticks": 321, "timeout_s": 600}

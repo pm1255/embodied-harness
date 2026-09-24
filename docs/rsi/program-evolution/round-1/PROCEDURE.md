@@ -1,0 +1,5 @@
+# Bounded full-goal delegation before semantic intervention
+
+For an evidence-supported task whose checkpoint can complete the full original goal but GPT orchestration appears to interrupt useful continuation. This round tests drawer opening only; successful deployment or broader applicability has not been demonstrated.
+
+1. Use the procedure only where matched development evidence supports unchanged-instruction control; initially route only drawer opening. 2. At episode start, dispatch the program once with the exact original instruction, retaining the whole goal. 3. Allow chunk-level VLA reobservation without intermediate GPT rewrites; native termination stops motion. 4. On a primitive failure, propagate it and return control for observation and diagnosis before further motion. On cap exhaustion, return control to the existing GPT policy with the remaining original episode budget; do not automatically repeat the program or declare completion. 5. Judge the complete episode by frozen native success, then compare decision costs only if success is preserved.

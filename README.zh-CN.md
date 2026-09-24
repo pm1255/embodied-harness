@@ -7,6 +7,26 @@
 
 这是一个把**视觉决策、几何计算、连续控制、任务评价**分开的机器人执行框架。模型调用已经实现的工具；底层生成控制指令。模型可以一次调用一个工具，也可以提交短计划，由执行器在完成或失败时交还控制权。
 
+## 模型实际改写工具：三轮结果与全部历史
+
+**[打开进化可视化：性能、真实改动、48 段双视角回放](https://pm1255.github.io/embodied-harness/rsi/program-evolution/)** · [协议、成本与限制](docs/rsi/program-evolution/README.md)
+
+实验模型先写出受限 Python 工具，再依据失败的开发验证修改记忆、skill 和工具说明。模型权重、成功判据和执行预算保持一致。各轮使用新的配对初始状态；留出结果没有反馈给提案模型。
+
+| 版本 | 实际改动 | 开发成功：原版 → 候选 | 开发 GPT 调用 | 留出成功 | 留出 GPT 调用 | 开发决定 |
+|---|---|---|---|---|---|---|
+| 1 | 写持续调用 VLA 的工具，用于抽屉 | 4/4 → 4/4 | 15 → 14 | 3/4 → 4/4 | 19 → 20 | 未晋级 |
+| 2 | 保留程序，修改记忆/skill/说明，扩展到碗放置 | 4/4 → 4/4 | 16 → 16 | 4/4 → 4/4 | 18 → 17 | 未晋级 |
+| 3 | 保留程序，扩展声明适用范围到汤罐放置 | 3/4 → 4/4 | 22 → 11 | 3/4 → 4/4 | 19 → 10 | 通过小样本开发门槛 |
+
+第三版留出调用减少 **47%**，输入 token **39,271→29,987**，记录到的耗时 **293.5→206.0 秒**；控制步数增加 **616→703**。这是四任务小样本结果，不能宣称完成整个 benchmark、轨迹更短或优于 RPent。记忆、skill 和工具组合测试，尚无单模块归因。前两轮被拒绝的版本与回放都保留。**目前任务难度没有增加。**
+
+![真实模型工具开抽屉，双视角回放](docs/rsi/program-evolution/tool-delegation.gif)
+
+上图是第一版的加速抽样回放。网页展示 `program_bounded_full_goal_delegation` 的模型参数、内部 `run_vla` 参数、当前 VLA 动作块及真实 7 维控制动作。单个成功例子不表示第一版整体通过。
+
+已按[提前冻结的八任务确认协议](benchmarks/libero-program-eight-task-confirmation.json)启动同一第三版的扩展评测：两个新状态，共 32 回合。触发依据是开发通过，未根据留出结果挑选任务。更难任务尚未解锁。
+
 **实际基线已完成：** [观看 LIBERO 全部 16 个配对回合](https://pm1255.github.io/embodied-harness/rsi/baseline/)，使用 GPT-6 Astra 与官方 LIBERO π0.5 权重。[参考方案、实现与限制](docs/baseline-and-evolution.md)。
 
 | 八项原始任务、固定开发状态 | 原生成功 | GPT 调用 | 控制步 | 接口异常 |
@@ -87,7 +107,7 @@ RoboTwin：**3/3 单卡接口检查通过**，[新增三条真实仿真回放](d
 
 ## 与 RPent 的真实差异
 
-目前没有证据证明我们优于 RPent。它已有 VLA 执行、几何工具、记忆和多环境成绩。我们的定位是可复用的执行与评测内核，探索减少模型调用；抓取与接触控制仍是短板。见[逐项对比与验证标准](docs/rpent-comparison.md)。
+目前没有证据证明我们优于 RPent。它已有 VLA 执行、几何工具、记忆和多环境成绩。我们的定位是可复用的执行与评测内核，探索减少模型调用；稳定调度、广泛任务验证与可靠失败恢复仍需完善。见[逐项对比与验证标准](docs/rpent-comparison.md)。
 
 ## 较早的两条诊断记录
 
@@ -209,9 +229,9 @@ embodied-harness run --env metaworld --config examples/metaworld.json \
 | 环境 | 实际验证状态 |
 |---|---|
 | MetaWorld | 双视角 RGB-D、控制接口、一个真实 GPT 到达目标例子 |
-| LIBERO | 双视角 RGB-D、控制接口、真实 GPT 未完成例子；非官方初始状态 benchmark |
+| LIBERO | 官方初始状态、π0.5 / GPT 配对基线与模型修改验证；尚非完整 benchmark |
 | RoboCasa | 已有适配代码，尚未完成资产环境验证 |
-| RoboTwin | 已有任务工厂桥接，尚未完成资产环境验证 |
+| RoboTwin | 三项 GPU 接口检查与 π0.5 工具已执行；不是完整 benchmark |
 | 真机机器人 | 尚无已验证适配器 |
 
 ## 已实现的工具与边界
@@ -221,7 +241,9 @@ embodied-harness run --env metaworld --config examples/metaworld.json \
 | `move_relative` | 沿机器人/世界坐标轴移动 2、5、10cm | 碰撞规划 |
 | `move_to_pixel` | 投影当前可见表面点，移动到该点或上方 8cm | 空中点深度、抓取姿态、物体跟踪 |
 | `set_gripper` | 保持末端位置并开合夹爪 | 自动确认抓取成功 |
+| `run_vla` | 固定权重 π0.5 从当前图像和机器人状态生成动作块，分块重观测 | 任意模型自动兼容、任务必然成功 |
+| `program_*` | 执行模型编写且通过准入的受限 Python 工具，组合已有原语 | 任意 Python、修改评价器、无限循环 |
 
-模型输入只有当前图像、机器人自身状态、可用工具和近期执行结果。不会读取专家轨迹、未来位置、物体真值或环境成功判据。首版没有内置 MoveIt、SLAM、GraspNet 或 VLA；这些需要通过[工具扩展接口](docs/extensions.md)实现并验证。
+模型输入只有当前图像、机器人自身状态、可用工具和近期执行结果。不会读取专家轨迹、未来位置、物体真值或环境成功判据。当前已接通固定权重的 LIBERO / RoboTwin π0.5 工具；MoveIt、SLAM、GraspNet 仍需通过[工具扩展接口](docs/extensions.md)实现并验证。
 
 代码为 Apache-2.0。参考并致谢 [RPent](https://github.com/RLinf/RPent)；本项目不声称性能或原创性超越它。[验证状态](docs/validation.md) · [贡献指南](CONTRIBUTING.md)。

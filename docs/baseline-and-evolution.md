@@ -24,6 +24,8 @@ LIBERO's native `done` corresponds to its success predicate. For this explicit n
 
 The SFT checkpoint was trained on LIBERO-130. Standard LIBERO measures in-domain execution here; it must not be represented as unseen-task generalization. LIBERO-PRO, additional validation resets and frozen memory experiments must be reported separately.
 
+“Held-out” refers to outcomes withheld from this repair loop. It does not establish that a task or state was excluded from the VLA checkpoint's training data.
+
 ### Completed eight-task development baseline
 
 `development-v2`, job 1066102, completed all 16 episodes without infrastructure errors. Each arm uses official initial state 0 on task IDs 0 and 1 from four suites. All 13 successful episodes have recorded native terminal events; all paired initial-state hashes match.
@@ -58,17 +60,29 @@ A failed repair should change the next hypothesis or defer that branch, not term
 
 **Implementation boundary:** the archive, curriculum rules, policy-backed baseline and bounded model-authored Python tool path are implemented. The latter admits `def run(args, api)`, local JSON data, status checks and nonnested literal loops of at most four iterations. Programs may compose existing robot primitives, with per-control-tick termination and operator budgets. They have no direct file/network access, imports, evaluator access, credentials or arbitrary host capabilities. This deliberately restricted grammar is not an arbitrary Python sandbox. General harness source mutation and autonomous construction of arbitrary simulator tasks remain outside the connected execution path. Do not describe an engineering-authored integration change as the experiment model improving itself.
 
-## A real model-authored repair round
+## Three real model-authored repair rounds
 
 `examples/propose_baseline_repair.py` gives the experiment model the completed development outcomes, tool plans and first/last dual-camera observations. The model returns an evidence-citing diagnosis, falsifiable hypothesis, memory entries, a reusable skill procedure and actual Python tool source. The original response, rejected source, admitted artifact and content-addressed lineage are preserved.
 
 `benchmarks/libero-program-transfer.json` fixes four original-task families and two fresh resets **before** the proposal. Freeze the candidate's exact SHA-256 in a copy of that protocol. `examples/run_program_validation.py` compares baseline GPT and GPT with the frozen candidate on the same initial states and settings. Both have 24 decisions / 960 control ticks. There are no online edits during evaluation.
 
-The independent validator requires complete matched pairs, matching native terminal evidence and budgets, unchanged source, no task regressions, and either more successes or equal positive successes with more than 10% fewer GPT calls. The new program must actually run in at least two successful fresh instances. The validation decision is written before starting final held-out resets; held-out results never select the candidate. A four-family gate remains a small engineering check, not statistical mastery. Memory, skill and tool are evaluated together, so the experiment cannot attribute a gain to one component without additional ablations.
+The independent validator requires complete matched pairs, matching native terminal evidence and budgets, unchanged source, no task regressions, and either more successes or equal positive successes with more than 10% fewer GPT calls. The new program must actually run in at least two successful fresh instances. The validation decision is written before starting final held-out resets; held-out results never select the candidate. A four-family gate remains a small engineering check, not statistical mastery. Memory, skill and tool are evaluated together, so the experiment cannot attribute a gain to one component without additional ablations. Baseline always precedes candidate within each pair; order is not counterbalanced and the first policy inference can include warm-up. Wall time is observed system time, not an isolated model-latency estimate. Policy noise is deterministically keyed by task, reset seed and query number; simulator reset hashes are matched. This is a one-brain-model study and does not test whether stronger models need less harness.
 
 Insufficient coverage is not an exploration stop. A conditional [coverage supplement](../benchmarks/libero-program-coverage-supplement.json) was frozen before viewing any held-out outcomes: if the initial gate passes every check except having fewer than two successful fresh program-use instances, collect paired initial states 3 and 4 of the model-supported original drawer task. The candidate, budgets and thresholds remain unchanged. `examples/confirm_program_transfer.py` combines only development rows and rejects changed settings, changed candidate hashes and duplicate cases. The original gate stays in the ledger. Held-out outcomes are kept unopened until the supplemented selection decision is sealed; they may already have been collected by the worker. More reset evidence does not create a new independent task family or increase task difficulty.
 
 The export in `scripts/export_program_evolution.py` exposes the model-authored files, exact diff, gate, ledger, all paired outcomes, dual-camera replay and expansion from model call to program primitive to VLA action. Task difficulty stays unchanged until the original-task mastery criterion is met. A rejected candidate is retained for a new development hypothesis; it is not evidence that GPT cannot progress.
+
+### Fewer GPT decisions still preserve visual feedback
+
+One actually executed model plan contains this inner tool call:
+
+```json
+{"tool":"program_bounded_full_goal_delegation","arguments":{"instruction":"open the middle drawer of the cabinet"}}
+```
+
+The model-authored program composes up to eight `run_vla` segments, each with eight freshly inferred chunks. The bridge executes five actions per chunk and obtains current observations between chunks. Thus one GPT dispatch can cover up to 320 control ticks **without replaying one stale open-loop trajectory**. The external native terminal monitor interrupts it at the successful control tick. On the first fresh drawer validation, the baseline needed three GPT decisions / 108 ticks and the candidate one decision / 110 ticks. This is one successful instance, not proof of general improvement.
+
+The first four-task validation had equal 4/4 success but only a 15 → 14 call reduction, and only one successful instance actually used the generated program. It therefore failed the fixed gate. The coverage-only supplement was not triggered because its efficiency prerequisite also failed. Instead, a second model proposal received development evidence and the rejected gate, inherited the original artifact lineage, and was assigned a [fresh state-3/state-4 protocol](../benchmarks/libero-program-transfer-round2.json) before proposal generation. No held-out outcome was included in that feedback. The second model retained the program body and expanded its memory, skill and tool-description applicability to the observed Spatial bowl placement. It retained 4/4 success but used 16 calls in both arms, so it also failed. The third model then revised memory/skill/tool-description applicability to include soup placement, retaining the program body. On new states it improved development success from 3/4 to 4/4 and calls from 22 to 11; after selection was sealed, held-out success was 3/4 to 4/4 and calls 19 to 10. [All three rounds, costs and limitations](rsi/program-evolution/README.md) are public in the replay. A predeclared eight-task scope confirmation is running with the same frozen candidate; harder tasks remain locked.
 
 ## What the evolution viewer must show
 
@@ -108,4 +122,40 @@ python examples/run_ssh_broker.py \
 
 Start the broker before the first GPT episode. Every campaign directory is immutable; use a new directory after a failed attempt. A clean process exit can still contain infrastructure-error episodes: inspect each result, not just the scheduler's job status. Initialization failures, rejected loader changes, and successful model loading are retained separately from robot task outcomes.
 
-The next predeclared development scope is in [`libero-policy-eight-task.json`](../benchmarks/libero-policy-eight-task.json): task IDs 0 and 1 in Spatial, Object, Goal, and Long (`libero_10`), official initial state 0. It is planned separately with `high` reasoning effort; the two-task `low`-effort integration diagnostic is not a performance improvement baseline for that protocol. Neither scope is a full benchmark or a final held-out test.
+## Continue a rejected revision without leaking the test set
+
+After `run_program_validation.py` has sealed the development gate, extract only its complete development pairs. The worker may still be collecting held-out results; those rows and frames never enter this bundle.
+
+```bash
+python examples/record_program_evaluation.py \
+  --proposal runs/proposal-1 --campaign runs/validation-1 --activate
+python scripts/extract_development_evidence.py \
+  --campaign runs/validation-1 --output runs/development-only.tar.gz
+tar -xzf runs/development-only.tar.gz -C runs
+python examples/propose_baseline_repair.py \
+  --campaign runs/development-only --parent-proposal runs/proposal-1 \
+  --out runs/proposal-2 --key-file /private/path/to/key \
+  --model gpt-6-astra --base-url https://your-provider/v1
+```
+
+`record_program_evaluation.py` recomputes the development gate from actual traces, binds the exact candidate file, and records rejected as well as accepted evaluations. `--activate` activates only a passed development revision; it does not grant mastery or launch a harder curriculum. A rejected gate returns the next action `propose_successor_from_development_only`. Freeze a new reset protocol before each proposal and bind the returned candidate hash before executing it. The checkpoint, goal evaluator and compared budgets stay fixed. A reduced API count alone is not a claim of lower token cost; the replay tables separately report input/output tokens and observed wall time.
+
+## Repeat the bounded repair loop
+
+```bash
+# A policy endpoint and credential-isolated planner broker must already be running.
+# Run on a host with access to both the source and the compatible LIBERO runtime.
+python examples/run_program_evolution.py \
+  --campaign /path/to/completed-development-baseline \
+  --round-protocol benchmarks/libero-program-transfer.json \
+  --round-protocol benchmarks/libero-program-transfer-round2.json \
+  --round-protocol benchmarks/libero-program-transfer-round3.json \
+  --out /path/to/new-immutable-evolution-run \
+  --key-file /private/path/to/key --base-url https://your-provider/v1 \
+  --model gpt-6-astra --broker /path/to/campaign/broker \
+  --sim-python /path/to/libero/python
+```
+
+The controller snapshots all round protocols before the first proposal. It rejects reused simulator resets across development/test splits, changed task instructions, changed evaluation budgets, and model/checkpoint drift. It preserves schema-rejected proposals, permits one schema correction, binds the admitted artifact hash, evaluates it, records the independent development decision, and feeds only development evidence to the successor. A passed small gate advances to evaluation of the original task scope; it does not unlock harder tasks or establish mastery. Exhausting the predeclared rounds means the experiment budget ended, not that the model cannot improve.
+
+This initial controller supports the four-family task-0 protocol used here. The published three rounds were run through the same underlying entry points with operator-managed GPU jobs and credential-isolated brokers; the new single-host orchestration entry point was added afterward and has contract tests, not an additional end-to-end robot campaign. General simulator task generation and unrestricted harness mutation are not silently implied by this interface.
