@@ -12,6 +12,7 @@ import os
 from pathlib import Path
 
 from embodied_harness.adapters import create_environment
+from embodied_harness.broker import DirectoryPlanner
 from embodied_harness.gpt import GPTPlanner
 from embodied_harness.rsi.programs import install_program, validate_program
 from embodied_harness.runner import run_episode
@@ -50,6 +51,7 @@ def main():
     )
     p.add_argument("--reasoning-effort", default="high")
     p.add_argument("--policy-endpoint")
+    p.add_argument("--broker-root", help="Optional credential-free directory planner transport")
     p.add_argument("--checkpoint-sha256")
     p.add_argument("--max-decisions", type=int, default=24)
     p.add_argument("--max-control-ticks", type=int, default=960)
@@ -69,18 +71,17 @@ def main():
     root = Path(a.out)
     root.mkdir(parents=True, exist_ok=False)
     (root / "candidate.json").write_bytes(content)
-    planner = GPTPlanner(
+    context = {
+        "memory": candidate["memory"], "skills": [candidate["skill"]],
+        "candidate_id": candidate["candidate_id"], "status": "operator_selected_frozen_bundle",
+    }
+    planner = DirectoryPlanner(a.broker_root, a.model, timeout_s=300, context=context) if a.broker_root else GPTPlanner(
         a.model,
         base_url=a.base_url,
         reasoning_effort=a.reasoning_effort,
         stream=True,
         timeout_s=180,
-        context={
-            "memory": candidate["memory"],
-            "skills": [candidate["skill"]],
-            "candidate_id": candidate["candidate_id"],
-            "status": "operator_selected_frozen_bundle",
-        },
+        context=context,
     )
     endpoint = PolicyEndpoint(a.policy_endpoint, a.checkpoint_sha256) if a.policy_endpoint else None
     trace = Trace(root)

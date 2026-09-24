@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "name": "libero-server-broker-smoke-v1",
+  "purpose": "Post-hoc server-side engineering integration check. Not a repair-selection round, matched algorithm comparison or task difficulty increase. Both tasks were chosen after observing relay/schema issues in the wider confirmation.",
+  "model": "gpt-6-astra",
+  "reasoning_effort": "high",
+  "arms": [
+    "candidate"
+  ],
+  "max_decisions": 6,
+  "max_control_ticks": 960,
+  "success_criterion": "native_success_terminal",
+  "candidate_sha256": "6f8dc9d6e8adb62ac8df78735d465046a8f79b4c14568100c0b404312d80409c",
+  "checkpoint_sha256": "4d9089c941793f170b625c2ed0ac7a3aa09b6f103e52dbbc82e67301529d6683",
+  "recover_invalid_plans": true,
+  "new_task_generation": false,
+  "candidate_modified": false,
+  "cases": [
+    {
+      "id": "libero_spatial-00-i9-server-smoke",
+      "environment": "libero",
+      "seed": 9,
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "config": {
+        "suite": "libero_spatial",
+        "task_id": 0,
+        "size": 256,
+        "init_state_index": 9
+      },
+      "task_id": "libero_spatial-00",
+      "split": "engineering"
+    },
+    {
+      "id": "libero_10-01-i9-server-smoke",
+      "environment": "libero",
+      "seed": 9,
+      "instruction": "put both the cream cheese box and the butter in the basket",
+      "config": {
+        "suite": "libero_10",
+        "task_id": 1,
+        "size": 256,
+        "init_state_index": 9
+      },
+      "task_id": "libero_10-01",
+      "split": "engineering"
+    }
+  ]
+}

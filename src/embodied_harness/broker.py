@@ -6,6 +6,7 @@ responses are nonce-bound; observations never contain privileged task state.
 from __future__ import annotations
 
 import json
+import hashlib
 from pathlib import Path
 import time
 import uuid
@@ -29,6 +30,8 @@ class DirectoryPlanner:
         nonce = uuid.uuid4().hex
         data = {"nonce": nonce, "task": task, "observation": observation.to_dict(),
                 "tools": registry.descriptions(), "history": history[-4:],
+                "frame_sha256": {frame.name: hashlib.sha256(Path(frame.image_path).read_bytes()).hexdigest()
+                                 for frame in observation.frames},
                 "experience": self.context}
         temporary = self.root / (nonce + ".tmp")
         write_json(temporary, data)

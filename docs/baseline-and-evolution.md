@@ -185,3 +185,20 @@ python examples/run_candidate.py \
 `run_candidate.py --recover-invalid-plans` can return a rejected tool-argument schema to GPT without executing motion. The failed call still consumes its normal decision and API budget; the next decision receives the error and must produce a valid plan. There is no instruction truncation, budget extension or hidden retry. Transport failures remain separate and terminate the attempt. SSH brokers preserve the validation error type so the worker can apply the same opt-in rule.
 
 This engineering fix was prompted by an eight-task development baseline that produced a 511-character VLA instruction against its declared 500-character limit. It was added **after the recorded workers were frozen**, is disabled by default, and was not used to alter any published score. Tests cover rejection before motion, correction, budget exhaustion, broker cost accounting and non-retry of transport errors. A new matched robot evaluation is needed before claiming a performance gain from this switch.
+
+### Run the decision service on a server
+
+The Linux CPU-side `examples/run_directory_broker.py` reads the worker's shared campaign directory directly. It verifies image hashes, snapshots inputs, journals provider events and writes nonce-bound responses atomically. Completed requests are never reissued. Interrupted attempts remain errors with their available journal; a restart does not silently repeat an ambiguous paid request. The API key stays outside the campaign and generated-program namespace.
+
+```bash
+# CPU service host; key file must be private and outside RUN_ROOT.
+python examples/run_directory_broker.py --root "$RUN_ROOT" \
+  --key-file "$PRIVATE_KEY_FILE" --model "$OPENAI_MODEL" \
+  --base-url "$OPENAI_BASE_URL" --reasoning-effort high \
+  --max-requests 12 --duration 3600
+
+# GPU worker: add this option to run_candidate.py; no API key is passed to it.
+# --broker-root "$RUN_ROOT/broker" --out "$RUN_ROOT/runs/my-task"
+```
+
+The [two-task server integration protocol](../benchmarks/libero-server-broker-smoke.json) is a separate, post-hoc engineering check with the same frozen third bundle. It has six decisions / 960 ticks per task and enables explicit schema feedback. It is not a fourth model revision, a matched performance ablation, or harder-task evidence. The earlier repair and confirmation jobs continue to use their immutable source snapshots and original SSH relay.
