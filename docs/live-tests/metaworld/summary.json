@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "environment": "metaworld",
+  "task": "Move the gripper to the red spherical target marker. This is a reach task; do not grasp the marker.",
+  "seed": 0,
+  "status": "decision_budget_exhausted",
+  "agent_outcome": null,
+  "environment_success": true,
+  "success": true,
+  "decisions": 1,
+  "api_calls": 1,
+  "input_tokens": 2709,
+  "output_tokens": 178,
+  "control_ticks": 35,
+  "wall_seconds": 50.1991,
+  "protocol": "sensor_observation",
+  "model_tested": "gpt-6-sol",
+  "provider": "aixor.cc",
+  "api_mode": "responses",
+  "stream": true,
+  "plan_mode": "single"
+}

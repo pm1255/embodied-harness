@@ -1,0 +1,211 @@
+{
+  "date": "2026-09-24",
+  "provider": "AiXor",
+  "provider_model_id": "gpt-6-sol",
+  "upstream_identity_independently_verified": false,
+  "attempts": [
+    {
+      "run": "aixor-gpt6-libero-spatial0-s0",
+      "schema_version": 1,
+      "environment": "libero",
+      "task": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "seed": 0,
+      "status": "infrastructure_error",
+      "agent_outcome": null,
+      "environment_success": false,
+      "success": false,
+      "decisions": 1,
+      "api_calls": 1,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "control_ticks": 0,
+      "wall_seconds": 95.3153,
+      "protocol": "sensor_observation",
+      "model_tested": "gpt-6-sol",
+      "errors": [
+        {
+          "error_type": "TimeoutError",
+          "message": "The read operation timed out"
+        }
+      ]
+    },
+    {
+      "run": "aixor-gpt6-libero-spatial0-s0-long",
+      "schema_version": 1,
+      "environment": "libero",
+      "task": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "seed": 0,
+      "status": "infrastructure_error",
+      "agent_outcome": null,
+      "environment_success": false,
+      "success": false,
+      "decisions": 3,
+      "api_calls": 3,
+      "input_tokens": 3509,
+      "output_tokens": 509,
+      "control_ticks": 159,
+      "wall_seconds": 107.8656,
+      "protocol": "sensor_observation",
+      "model_tested": "gpt-6-sol",
+      "provider": "aixor.cc",
+      "api_mode": "responses",
+      "stream": true,
+      "errors": [
+        {
+          "error_type": "ValueError",
+          "message": "GPT did not return exactly one complete tool call"
+        }
+      ]
+    },
+    {
+      "run": "aixor-gpt6-libero-spatial0-s0-stream",
+      "schema_version": 1,
+      "environment": "libero",
+      "task": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "seed": 0,
+      "status": "infrastructure_error",
+      "agent_outcome": null,
+      "environment_success": false,
+      "success": false,
+      "decisions": 1,
+      "api_calls": 1,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "control_ticks": 0,
+      "wall_seconds": 96.6049,
+      "protocol": "sensor_observation",
+      "model_tested": "gpt-6-sol",
+      "errors": [
+        {
+          "error_type": "TimeoutError",
+          "message": "The read operation timed out"
+        }
+      ]
+    },
+    {
+      "run": "aixor-gpt6-metaworld-reach-s0",
+      "schema_version": 1,
+      "environment": "metaworld",
+      "task": "Move the gripper to the green target marker. This is a reach task; do not grasp the marker.",
+      "seed": 0,
+      "status": "infrastructure_error",
+      "agent_outcome": null,
+      "environment_success": null,
+      "success": false,
+      "decisions": 1,
+      "api_calls": 1,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "control_ticks": 0,
+      "wall_seconds": 91.2029,
+      "protocol": "sensor_observation",
+      "model_tested": "gpt-6-sol",
+      "errors": [
+        {
+          "error_type": "TimeoutError",
+          "message": "The read operation timed out"
+        }
+      ]
+    },
+    {
+      "run": "aixor-gpt6-metaworld-reach-s0-chat",
+      "schema_version": 1,
+      "environment": "metaworld",
+      "task": "Move the gripper to the red spherical target marker. This is a reach task; do not grasp the marker.",
+      "seed": 0,
+      "status": "infrastructure_error",
+      "agent_outcome": null,
+      "environment_success": null,
+      "success": false,
+      "decisions": 1,
+      "api_calls": 1,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "control_ticks": 0,
+      "wall_seconds": 91.0247,
+      "protocol": "sensor_observation",
+      "model_tested": "gpt-6-sol",
+      "errors": [
+        {
+          "error_type": "TimeoutError",
+          "message": "The read operation timed out"
+        }
+      ]
+    },
+    {
+      "run": "aixor-gpt6-metaworld-reach-s0-direct",
+      "schema_version": 1,
+      "environment": "metaworld",
+      "task": "Move the gripper to the red spherical target marker. This is a reach task; do not grasp the marker.",
+      "seed": 0,
+      "status": "infrastructure_error",
+      "agent_outcome": null,
+      "environment_success": true,
+      "success": false,
+      "decisions": 2,
+      "api_calls": 2,
+      "input_tokens": 1592,
+      "output_tokens": 60,
+      "control_ticks": 35,
+      "wall_seconds": 113.2734,
+      "protocol": "sensor_observation",
+      "model_tested": "gpt-6-sol",
+      "errors": [
+        {
+          "error_type": "ValueError",
+          "message": "GPT did not return exactly one complete tool call"
+        }
+      ]
+    },
+    {
+      "run": "aixor-gpt6-metaworld-reach-s0-one-decision",
+      "schema_version": 1,
+      "environment": "metaworld",
+      "task": "Move the gripper to the red spherical target marker. This is a reach task; do not grasp the marker.",
+      "seed": 0,
+      "status": "decision_budget_exhausted",
+      "agent_outcome": null,
+      "environment_success": true,
+      "success": true,
+      "decisions": 1,
+      "api_calls": 1,
+      "input_tokens": 2709,
+      "output_tokens": 178,
+      "control_ticks": 35,
+      "wall_seconds": 50.1991,
+      "protocol": "sensor_observation",
+      "model_tested": "gpt-6-sol",
+      "provider": "aixor.cc",
+      "api_mode": "responses",
+      "stream": true,
+      "plan_mode": "single",
+      "errors": []
+    },
+    {
+      "run": "aixor-gpt6-metaworld-reach-s0-stream",
+      "schema_version": 1,
+      "environment": "metaworld",
+      "task": "Move the gripper to the red spherical target marker. This is a reach task; do not grasp the marker.",
+      "seed": 0,
+      "status": "infrastructure_error",
+      "agent_outcome": null,
+      "environment_success": null,
+      "success": false,
+      "decisions": 1,
+      "api_calls": 1,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "control_ticks": 0,
+      "wall_seconds": 91.0417,
+      "protocol": "sensor_observation",
+      "model_tested": "gpt-6-sol",
+      "errors": [
+        {
+          "error_type": "TimeoutError",
+          "message": "The read operation timed out"
+        }
+      ]
+    }
+  ],
+  "note": "Sequential engineering diagnostics on seed 0; not a pre-registered benchmark. Missing usage on failed requests is not evidence of no billing."
+}

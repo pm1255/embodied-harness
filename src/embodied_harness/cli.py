@@ -117,10 +117,18 @@ def aggregate(root):
     results = [json.loads(p.read_text()) for p in Path(root).rglob("summary.json")]
     groups = {}
     for result in results:
-        key = (result["environment"], result.get("protocol"), result.get("model_tested"))
+        key = (
+            result["environment"],
+            result.get("protocol"),
+            result.get("model_tested"),
+            result.get("provider"),
+            result.get("api_mode"),
+            result.get("stream"),
+            result.get("plan_mode"),
+        )
         groups.setdefault(key, []).append(result)
     report = []
-    for (env, protocol, model), rows in groups.items():
+    for (env, protocol, model, provider, api_mode, stream, plan_mode), rows in groups.items():
         valid = [r for r in rows if r["status"] != "infrastructure_error"]
         known = [r for r in valid if r.get("environment_success") is not None]
         report.append(
@@ -128,6 +136,10 @@ def aggregate(root):
                 "environment": env,
                 "protocol": protocol,
                 "model": model,
+                "provider": provider,
+                "api_mode": api_mode,
+                "stream": stream,
+                "plan_mode": plan_mode,
                 "episodes": len(rows),
                 "infrastructure_errors": len(rows) - len(valid),
                 "unknown_outcomes": len(valid) - len(known),
@@ -165,6 +177,12 @@ def main(argv=None):
                 "--base-url", default=os.environ.get("OPENAI_BASE_URL", "https://api.openai.com/v1")
             )
             cmd.add_argument("--reasoning-effort")
+            cmd.add_argument("--api-timeout", type=float, default=90.0)
+            cmd.add_argument("--plan-mode", choices=["batch", "single"], default="batch")
+            cmd.add_argument(
+                "--api-mode", choices=["responses", "chat-completions"], default="responses"
+            )
+            cmd.add_argument("--stream", action="store_true", help="Read Responses SSE events")
             cmd.add_argument("--max-decisions", type=int, default=12)
             cmd.add_argument("--max-control-ticks", type=int, default=1200)
             cmd.add_argument(
@@ -223,7 +241,13 @@ def main(argv=None):
                 from .gpt import GPTPlanner
 
                 planner = GPTPlanner(
-                    args.model, base_url=args.base_url, reasoning_effort=args.reasoning_effort
+                    args.model,
+                    base_url=args.base_url,
+                    reasoning_effort=args.reasoning_effort,
+                    stream=args.stream,
+                    api_mode=args.api_mode,
+                    timeout_s=args.api_timeout,
+                    plan_mode=args.plan_mode,
                 )
                 task = args.task
         # Plugins may need initialized capabilities. Runner builds the registry after reset.

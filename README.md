@@ -8,14 +8,14 @@ Embodied Harness is a GPT-first runtime for **bounded, interruptible robot tool 
 
 It includes an offline demo, a Responses API planner, four simulator integration paths, and a portable trace viewer with camera observations, tool inputs/results, measured TCP paths and model-call accounting.
 
-> **v0.1 is an engineering alpha, not a benchmark result.** The offline demo is a deterministic kinematic fixture. GPT task success has not yet been measured. LIBERO and MetaWorld smoke tests are distinct from task-solving evaluation. RoboCasa and RoboTwin integration status is documented explicitly. No real robot has been validated.
+> **v0.1 is an engineering alpha, not a benchmark result.** The offline demo is a deterministic kinematic fixture. Initial live API diagnostics reached a MetaWorld goal with one decision, while LIBERO did not complete and repeated API failures occurred. See the [complete attempt log](docs/live-tests/README.md); this is not a success-rate estimate. LIBERO and MetaWorld smoke tests are distinct from task-solving evaluation. RoboCasa and RoboTwin integration status is documented explicitly. No real robot has been validated.
 
 ## Try it without an API key or GPU
 
 Python 3.10+:
 
 ```bash
-git clone <this-repository-url>
+git clone https://github.com/pm1255/embodied-harness.git
 cd embodied-harness
 python -m venv .venv
 source .venv/bin/activate
@@ -80,7 +80,9 @@ embodied-harness run --env metaworld --config examples/metaworld.json \
   --out runs/gpt-metaworld
 ```
 
-Keys are read from the environment, never from plans. `OPENAI_BASE_URL` is optional. The planner uses image inputs, strict function-call schemas, `parallel_tool_calls=false` and `store=false`. It does not access a ChatGPT subscription or reuse a Codex login. The operator supplies a usable API credential and model ID.
+Keys are read from the environment, never from plans. `OPENAI_BASE_URL` is optional. For gateways requiring server-sent events, add `--stream`. An explicit
+`--api-mode chat-completions` supports non-streaming compatible gateways; the
+client never silently changes protocols or retries paid requests. The client waits for a complete terminal response and never executes partial streamed arguments. The planner uses image inputs, strict function-call schemas, `parallel_tool_calls=false` and `store=false`. It does not access a ChatGPT subscription or reuse a Codex login. The operator supplies a usable API credential and model ID.
 
 The model input consists of current RGB images, robot proprioception, tool specifications and recent execution results. Simulator task success is read by the evaluator after execution; it is not sent to the planner. No demonstration actions, future target depth or annotated object poses are loaded.
 

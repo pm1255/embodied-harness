@@ -98,6 +98,10 @@ def run_episode(
                 "wall_seconds": round(time.monotonic() - started, 4),
                 "protocol": "offline_toy" if env.name == "toy" else "sensor_observation",
                 "model_tested": getattr(planner, "model", None),
+                "provider": getattr(planner, "provider_host", None),
+                "api_mode": getattr(planner, "api_mode", None),
+                "stream": getattr(planner, "stream", None),
+                "plan_mode": getattr(planner, "plan_mode", None),
             }
             trace.finish(summary)
     return summary

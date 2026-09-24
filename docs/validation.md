@@ -5,10 +5,10 @@ This file distinguishes implemented code, contract tests, simulator execution an
 | Component | Evidence | Remaining boundary |
 |---|---|---|
 | Runtime / offline demo | Unit tests, successful and injected-failure runs | Synthetic kinematic scene; no physics or GPT |
-| GPT Responses adapter | Request/response contract tests using a fake transport | Live API run not performed; no API credential configured in validation environment |
+| GPT Responses adapter | Request/response contract tests using a fake transport | Live AiXor image/function and simulator attempts recorded in [live tests](live-tests/README.md); gateway reliability remains unresolved |
 | Trace viewer | Browser inspection; tool selection and observation synchronization exercised | Sampled observations, not full-rate video |
-| MetaWorld | Actual reset, two RGB-D cameras, local servo and final evaluator run | No GPT task-solving evaluation |
-| LIBERO | Actual reset, two RGB-D cameras, local servo and final evaluator run | No GPT task-solving evaluation or official init-state benchmark |
+| MetaWorld | Actual reset, two RGB-D cameras, local servo and final evaluator run | Limited live diagnostic only; no benchmark estimate |
+| LIBERO | Actual reset, two RGB-D cameras, local servo and final evaluator run | Limited live diagnostic; no official init-state benchmark |
 | RoboCasa | Constructor and named-controller integration implemented | Assets/controller configuration not tested in a real RoboCasa run |
 | RoboTwin | Task-factory bridge, camera/pose extraction and native EE action path implemented | Requires operator task factory; not tested in an asset-backed RoboTwin run |
 | Real robots | No adapter shipped | Not validated |

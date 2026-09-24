@@ -1,4 +1,4 @@
 include README.zh-CN.md CHANGELOG.md CONTRIBUTING.md SECURITY.md
-recursive-include docs *.md *.json *.jsonl *.html *.svg
+recursive-include docs *.md *.json *.jsonl *.html *.svg *.png *.jpg *.jpeg
 recursive-include examples *.json *.py
 recursive-include tests *.py
