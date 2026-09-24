@@ -23,7 +23,7 @@ The third frozen revision passed its development gate and improved the four-task
 
 ## What actually changed
 
-- Revision 1: GPT wrote `program_bounded_full_goal_delegation`, plus evidence-citing memory and a skill, initially for opening the drawer. The program can make eight `run_vla` calls, each with eight newly inferred chunks, executing five actions per chunk: at most 320 ticks before returning to GPT. Native success interrupts every control tick. This is bounded Python interpreted through an existing primitive API, not arbitrary host execution.
+- Revision 1: GPT wrote `program_bounded_full_goal_delegation`, plus evidence-citing memory and a skill, initially for opening the drawer. The program can make eight `run_vla` calls, each with eight newly inferred chunks, executing five actions per chunk: at most 320 ticks before returning to GPT. Native success interrupts every control tick. This is bounded Python that is AST-validated, compiled into a restricted namespace, and connected to an existing primitive API, not arbitrary host execution.
 - Revision 2: GPT retained the program body and changed memory, skill and tool description to include the observed Spatial bowl placement.
 - Revision 3: GPT again retained the program body and expanded stated applicability to the observed soup placement. The prompt changes globally; improvements on another task cannot be causally attributed to this route alone.
 - The 31 Python runtime modules were identical across the three rounds. Model weights, evaluator, geometric primitives and per-episode budgets did not change. Tool registration limits were operator-fixed.

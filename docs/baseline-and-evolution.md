@@ -159,3 +159,23 @@ python examples/run_program_evolution.py \
 The controller snapshots all round protocols before the first proposal. It rejects reused simulator resets across development/test splits, changed task instructions, changed evaluation budgets, and model/checkpoint drift. It preserves schema-rejected proposals, permits one schema correction, binds the admitted artifact hash, evaluates it, records the independent development decision, and feeds only development evidence to the successor. A passed small gate advances to evaluation of the original task scope; it does not unlock harder tasks or establish mastery. Exhausting the predeclared rounds means the experiment budget ended, not that the model cannot improve.
 
 This initial controller supports the four-family task-0 protocol used here. The published three rounds were run through the same underlying entry points with operator-managed GPU jobs and credential-isolated brokers; the new single-host orchestration entry point was added afterward and has contract tests, not an additional end-to-end robot campaign. General simulator task generation and unrestricted harness mutation are not silently implied by this interface.
+
+## Apply a frozen bundle to one new task
+
+The explicit single-task entry point loads the bundle's memory and skill into GPT and registers the admitted program only after its required robot primitives are available. It checks the exact file hash and stores those same bytes in the new trace. It never substitutes a fixture for a missing VLA endpoint.
+
+```bash
+# Provide your API credential through OPENAI_API_KEY in the operator's environment.
+# The environment configuration and fixed policy endpoint must already be installed.
+python examples/run_candidate.py \
+  --bundle docs/rsi/program-evolution/data-candidate.json \
+  --expected-sha256 6f8dc9d6e8adb62ac8df78735d465046a8f79b4c14568100c0b404312d80409c \
+  --env libero --config examples/libero.json \
+  --task 'pick up the black bowl between the plate and the ramekin and place it on the plate' \
+  --model gpt-6-astra --base-url https://your-provider/v1 \
+  --policy-endpoint http://127.0.0.1:8907 \
+  --checkpoint-sha256 4d9089c941793f170b625c2ed0ac7a3aa09b6f103e52dbbc82e67301529d6683 \
+  --native-success-terminal --out runs/frozen-bundle-new-task
+```
+
+`data-candidate.json` is the exact third proposal artifact, not a JSON reconstruction from the viewer. Selecting the bundle does not imply it is validated on arbitrary tasks or environments. This convenience entry point was added after the recorded distributed experiments; its loader contract is tested, but it does not constitute an extra robot experiment. The bounded tool path validates a restricted AST and then uses Python compilation in a restricted namespace; it is not an arbitrary-Python security sandbox.

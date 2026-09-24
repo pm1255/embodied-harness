@@ -1,0 +1,77 @@
+{
+  "diagnosis": "The latest paired development evaluation retained full native success (4/4 in each arm) but used 16 decisions in both arms, so it did not pass the efficiency gate. Spatial improved from 2 to 1 decisions (72 to 73 ticks), and Goal from 3 to 1 (111 to 115 ticks), with actual program execution in both successful candidate instances. Object worsened from 4 to 5 decisions (133 to 141 ticks), and Long from 7 to 9 (269 to 356 ticks), canceling those savings. Object's candidate issued the identical complete instruction five times and nevertheless reached native success; this supplies new evidence for batching that continuation, not evidence of an already validated Object program. There is no infrastructure failure to repair and no demonstrated tick-efficiency improvement.",
+  "evidence": [
+    "discovery/libero_spatial-00-i3-validation--baseline",
+    "discovery/libero_spatial-00-i3-validation--candidate",
+    "discovery/libero_goal-00-i3-validation--baseline",
+    "discovery/libero_goal-00-i3-validation--candidate",
+    "discovery/libero_object-00-i3-validation--baseline",
+    "discovery/libero_object-00-i3-validation--candidate",
+    "discovery/libero_10-00-i3-validation--baseline",
+    "discovery/libero_10-00-i3-validation--candidate"
+  ],
+  "hypothesis": "ONE change: extend initial caller-side routing of the existing bounded full-goal program to the observed single-object alphabet-soup-to-basket task. Retain Spatial and drawer routing, retain the implementation, and leave Long orchestration unchanged. The Object candidate's five unchanged-instruction decisions suggest avoidable GPT overhead; batching may preserve native success while eliminating intervening decisions. Predict no full-task success regressions and more than 10% fewer aggregate GPT decisions at equal positive success in fresh paired validation. This prediction is untested. Object previously used shorter final calls, and uninterrupted delegation can delay corrective intervention; its successful direct-call trajectory does not guarantee successful program execution. Any success regression or failure of the frozen promotion gate rejects the proposal.",
+  "memory": [
+    {
+      "evidence": [
+        "discovery/libero_spatial-00-i3-validation--baseline",
+        "discovery/libero_spatial-00-i3-validation--candidate",
+        "discovery/libero_goal-00-i3-validation--baseline",
+        "discovery/libero_goal-00-i3-validation--candidate"
+      ],
+      "lesson": "Spatial and Goal both reached native success through the program, reducing decisions from 2 to 1 and 3 to 1 respectively, with slightly more ticks. Preserve these routes; these two development instances do not establish general mastery.",
+      "title": "Retain measured delegation benefits"
+    },
+    {
+      "evidence": [
+        "discovery/libero_object-00-i3-validation--baseline",
+        "discovery/libero_object-00-i3-validation--candidate"
+      ],
+      "lesson": "Object succeeded at 133 baseline ticks and 141 candidate ticks. The candidate repeated the exact full goal across five decisions without executing the program. Test batching this repetition; neither reduced motion cost nor Object program transfer has been demonstrated.",
+      "title": "Object now has direct continuation evidence"
+    },
+    {
+      "evidence": [
+        "discovery/libero_10-00-i3-validation--baseline",
+        "discovery/libero_10-00-i3-validation--candidate",
+        "discovery/libero_spatial-00-i3-validation--candidate",
+        "discovery/libero_goal-00-i3-validation--candidate",
+        "discovery/libero_object-00-i3-validation--candidate"
+      ],
+      "lesson": "Long remained successful but worsened from 7 decisions/269 ticks to 9/356. Overall decisions stayed at 16 despite two successful program instances. Do not claim promotion, extrapolate to Long, or count successful primitive execution as original-task completion.",
+      "title": "Aggregate retention is not aggregate improvement"
+    }
+  ],
+  "next_task_action": "validate_existing",
+  "program": {
+    "description": "Unchanged bounded delegation implementation; the only intervention is adding the observed Object task to caller-side initial routing alongside Spatial and drawer opening. args has only instruction, supplied as the exact complete original goal. Two nonnested literal-range loops provide two primitive call sites, at most eight invocations and 320 control ticks, within the 321-tick operator limit; runtime enforces the 600-second limit. VLA reobserves between chunks. Native terminal success interrupts execution automatically. Any primitive failure is propagated before further motion. Exhaustion returns control without asserting task success and does not itself end the episode. No evaluator query, scene constants, manual gripper intervention, or grasp inference.",
+    "name": "program_bounded_full_goal_delegation",
+    "source": "def run(args, api):\n    for segment in range(4):\n        result = yield from api.call(\"run_vla\", {\"instruction\": args[\"instruction\"], \"chunks\": 8})\n        if result[\"status\"] != \"succeeded\":\n            return {\"status\": \"failed\", \"data\": result[\"data\"], \"error_code\": result[\"error_code\"]}\n    for segment in range(4):\n        result = yield from api.call(\"run_vla\", {\"instruction\": args[\"instruction\"], \"chunks\": 8})\n        if result[\"status\"] != \"succeeded\":\n            return {\"status\": \"failed\", \"data\": result[\"data\"], \"error_code\": result[\"error_code\"]}\n    return {\"status\": \"failed\", \"error_code\": \"delegation_budget_exhausted\", \"data\": {\"meaning\": \"Bounded attempt exhausted; no task completion asserted\"}}\n",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "instruction": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        }
+      },
+      "required": [
+        "instruction"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "skill": {
+    "evidence": [
+      "discovery/libero_spatial-00-i3-validation--candidate",
+      "discovery/libero_goal-00-i3-validation--candidate",
+      "discovery/libero_object-00-i3-validation--candidate"
+    ],
+    "name": "Evidence-gated full-goal continuation batching",
+    "procedure": "1. Require episode evidence that a complete goal can be successfully continued without GPT instruction changes; do not infer transfer from primitive status. For this candidate, permit initial routing on the observed Spatial bowl placement, middle-drawer opening, and single-object soup placement only. 2. Invoke the program once with the exact original instruction, preserving all object disambiguation and destination requirements. 3. Allow VLA chunk-level reobservation and runtime native-success interruption; never substitute program return status for task success. 4. On primitive failure, inspect current observations and diagnose before any further motion. On cap exhaustion, resume the existing GPT policy within the remaining episode budget rather than automatically repeating the program. 5. Keep Long orchestration unchanged. Validate complete episodes first, then decision cost, and record actual program execution in successful fresh instances.",
+    "when_to_use": "When in-domain evidence shows repeated full-goal VLA continuation can succeed and intermediate GPT decisions largely repeat that goal. Routing expansion remains a falsifiable experiment; it is not a universal delegation policy."
+  },
+  "task_rationale": "Validate existing tasks under the unchanged external protocol: task 0 in Spatial, Object, Goal and Long, four fresh validation resets and separate final resets, with both GPT arms limited to 24 decisions/960 ticks. Do not select cases, modify goals or budgets, or create harder scenes. Only Object's initial program route changes relative to the evaluated predecessor. Score full original-task native success before efficiency. Promotion requires no regressions and increased success or more than 10% fewer decisions at equal positive success, plus actual program execution in two successful fresh instances. The latest predecessor met retention and the program-instance count but not aggregate efficiency; those past instances are not new candidate validation. Infrastructure errors, scoring fixes, and shorter failed attempts cannot count as improvement. This candidate remains untested until fresh paired validation; held-out results are unopened and unavailable, and development success does not establish statistical mastery.",
+  "candidate_id": "candidate/02e8eabcc4c7343d6794a354b3ec074bde0b9ab5e256d0d86a5856336a5a4f38"
+}
