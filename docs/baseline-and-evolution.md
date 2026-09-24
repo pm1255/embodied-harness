@@ -179,3 +179,9 @@ python examples/run_candidate.py \
 ```
 
 `data-candidate.json` is the exact third proposal artifact, not a JSON reconstruction from the viewer. Selecting the bundle does not imply it is validated on arbitrary tasks or environments. This convenience entry point was added after the recorded distributed experiments; its loader contract is tested, but it does not constitute an extra robot experiment. The bounded tool path validates a restricted AST and then uses Python compilation in a restricted namespace; it is not an arbitrary-Python security sandbox.
+
+### Explicit schema-error recovery for future runs
+
+`run_candidate.py --recover-invalid-plans` can return a rejected tool-argument schema to GPT without executing motion. The failed call still consumes its normal decision and API budget; the next decision receives the error and must produce a valid plan. There is no instruction truncation, budget extension or hidden retry. Transport failures remain separate and terminate the attempt. SSH brokers preserve the validation error type so the worker can apply the same opt-in rule.
+
+This engineering fix was prompted by an eight-task development baseline that produced a 511-character VLA instruction against its declared 500-character limit. It was added **after the recorded workers were frozen**, is disabled by default, and was not used to alter any published score. Tests cover rejection before motion, correction, budget exhaustion, broker cost accounting and non-retry of transport errors. A new matched robot evaluation is needed before claiming a performance gain from this switch.

@@ -10,6 +10,8 @@ from pathlib import Path
 import time
 import uuid
 
+from jsonschema import ValidationError
+
 from .rsi.core import write_json
 
 
@@ -46,6 +48,8 @@ class DirectoryPlanner:
         self.input_tokens += response["input_tokens"]
         self.output_tokens += response["output_tokens"]
         if response.get("error"):
+            if response.get("error_kind") == "ValidationError":
+                raise ValidationError(response.get("validation_message") or response["error"])
             raise RuntimeError("Decision broker: " + response["error"])
         decision = response["decision"]
         if decision["kind"] == "plan":

@@ -54,6 +54,10 @@ def main():
     p.add_argument("--max-decisions", type=int, default=24)
     p.add_argument("--max-control-ticks", type=int, default=960)
     p.add_argument("--native-success-terminal", action="store_true")
+    p.add_argument(
+        "--recover-invalid-plans", action="store_true",
+        help="Return schema errors to GPT within the existing decision budget; no motion on rejection",
+    )
     a = p.parse_args()
     if not a.model or a.max_decisions < 1 or a.max_control_ticks < 1:
         p.error("Choose an accessible model and positive episode budgets")
@@ -108,6 +112,7 @@ def main():
         max_control_ticks=a.max_control_ticks,
         tools_factory=register,
         stop_on_native_success=a.native_success_terminal,
+        recover_invalid_plans=a.recover_invalid_plans,
     )
     print(json.dumps(summary, indent=2))
 

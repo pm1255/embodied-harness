@@ -6,6 +6,8 @@ from pathlib import Path, PurePosixPath
 import subprocess
 import time
 
+from jsonschema import ValidationError
+
 from embodied_harness.gpt import GPTPlanner
 from embodied_harness.protocol import CameraFrame, Observation
 from embodied_harness.runtime import Registry, Tool
@@ -127,14 +129,30 @@ def main():
                 request["task"], Observation(**observation), registry, request["history"], trace
             )
             error = None
+            error_kind = None
+            validation_message = None
         except Exception as exc:
             decision = None
             error = (type(exc).__name__ + ": " + str(exc)).replace(key, "[redacted]")
+            error_kind = type(exc).__name__
+            validation_message = None
+            if isinstance(exc, ValidationError):
+                errors = [exc]
+                for item in errors:
+                    errors.extend(item.context)
+                bounds = [
+                    f"Argument {list(item.absolute_path)} exceeds maxLength={item.validator_value}."
+                    for item in errors if item.validator == "maxLength"
+                ]
+                validation_message = (bounds[0] if bounds else exc.message)[:1500]
+                validation_message = validation_message.replace(key, "[redacted]")
         response = {
             "nonce": nonce,
             "decision": decision,
             "events": trace.events,
             "error": error,
+            "error_kind": error_kind,
+            "validation_message": validation_message,
             "calls": planner.calls,
             "input_tokens": planner.input_tokens,
             "output_tokens": planner.output_tokens,

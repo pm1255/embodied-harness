@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import time
 
+from jsonschema import ValidationError
+
 from .runtime import Executor
 from .tools import make_registry
 
@@ -19,6 +21,7 @@ def run_episode(
     registry=None,
     tools_factory=None,
     stop_on_native_success=False,
+    recover_invalid_plans=False,
 ):
     started = time.monotonic()
     status = "decision_budget_exhausted"
@@ -40,6 +43,7 @@ def run_episode(
         max_control_ticks=max_control_ticks,
         privileged_task_state_used=False,
         stop_on_native_success=stop_on_native_success,
+        recover_invalid_plans=recover_invalid_plans,
     )
     try:
         observation = env.reset(seed)
@@ -53,7 +57,35 @@ def run_episode(
         for _ in range(max_decisions):
             trace.observation(observation)
             decisions += 1
-            decision = planner.decide(task, observation, registry, history, trace)
+            try:
+                decision = planner.decide(task, observation, registry, history, trace)
+                if recover_invalid_plans and decision["kind"] == "plan":
+                    # Validate the whole plan before any tool can move the robot.
+                    registry.validate(decision["plan"])
+            except ValidationError as exc:
+                if not recover_invalid_plans:
+                    raise
+                errors = [exc]
+                for error in errors:
+                    errors.extend(error.context)
+                bounds = [
+                    f"Argument {list(error.absolute_path)} exceeds maxLength={error.validator_value}."
+                    for error in errors if error.validator == "maxLength"
+                ]
+                message = (bounds[0] if bounds else exc.message)[:1500]
+                feedback = {
+                    "status": "rejected",
+                    "error_code": "invalid_plan",
+                    "message": message,
+                    "motion_executed": False,
+                    "next_action": "Correct the arguments using the registered tool schema.",
+                }
+                trace.emit("plan_rejected", **feedback)
+                history.append({"plan": None, "report": feedback})
+                # The failed decision is already charged to max_decisions.
+                # Transport failures and errors during execution are not retried.
+                observation = env.observe()
+                continue
             if decision["kind"] == "finish":
                 status = "agent_finished"
                 outcome = decision["outcome"]
@@ -123,6 +155,7 @@ def run_episode(
                 "stream": getattr(planner, "stream", None),
                 "plan_mode": getattr(planner, "plan_mode", None),
                 "stop_on_native_success": stop_on_native_success,
+                "recover_invalid_plans": recover_invalid_plans,
             }
             trace.finish(summary)
     return summary
