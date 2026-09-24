@@ -58,7 +58,7 @@ def video(events, source, target):
         return []
     sampled = set(obs_indices[::max(1, len(obs_indices)//35)] + [obs_indices[-1]])
     selected = {'model_response', 'tool_start', 'skill_step', 'program_step', 'program_step_end', 'geometry', 'tool_end', 'episode_end', 'vla_prediction'}
-    timeline, observation, call, geometry, primitive = [], None, None, None, None
+    timeline, observation, call, geometry, primitive, program = [], None, None, None, None, None
     with tempfile.TemporaryDirectory() as temporary:
         tmp = Path(temporary)
         for i, e in enumerate(events):
@@ -67,7 +67,9 @@ def video(events, source, target):
                 observation = payload
             if kind == 'model_response':
                 call = [{k:v for k,v in c.items() if k in ('name','arguments')} for c in payload.get('calls', [])]
-                geometry = primitive = None
+                geometry = primitive = program = None
+            if kind == 'program_step':
+                program = payload
             if kind in ('skill_step', 'program_step', 'tool_start', 'vla_prediction'):
                 primitive = payload
             if kind == 'geometry':
@@ -90,7 +92,7 @@ def video(events, source, target):
             draw.text((8, 321), f"Recorded event {e['seq']} | {kind} | sampled replay, not real-time video", fill='#b9d4ea')
             canvas.save(tmp/f'{len(timeline):05d}.png')
             timeline.append({'seq':e['seq'], 'kind':kind, 'elapsed_s':e['elapsed_s'],
-                             'call':copy.deepcopy(call), 'primitive':copy.deepcopy(primitive),
+                             'call':copy.deepcopy(call), 'primitive':copy.deepcopy(primitive), 'program':copy.deepcopy(program),
                              'geometry':copy.deepcopy(geometry),
                              'result':payload if kind in ('tool_end','program_step_end','episode_end') else None})
         subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-framerate','3','-i',str(tmp/'%05d.png'),

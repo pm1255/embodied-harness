@@ -3,6 +3,7 @@
 import argparse
 import difflib
 import gzip
+import hashlib
 import json
 from pathlib import Path
 
@@ -11,7 +12,16 @@ from export_rsi import video, wilson
 from package_baseline_evidence import public_events
 
 
-def export(proposal, campaign, destination, rejected=(), supplements=(), confirmation_gate=None):
+def export(
+    proposal,
+    campaign,
+    destination,
+    rejected=(),
+    supplements=(),
+    confirmation_gate=None,
+    parent_proposal=None,
+    prior_exports=(),
+):
     proposal, campaign, destination = map(Path, (proposal, campaign, destination))
     destination.mkdir(parents=True, exist_ok=True)
     candidate = json.loads((proposal / "candidate.json").read_text())
@@ -23,6 +33,12 @@ def export(proposal, campaign, destination, rejected=(), supplements=(), confirm
     if confirmation_gate:
         gate = json.loads(Path(confirmation_gate).read_text())
     protocol = json.loads((campaign / "protocol.json").read_text())
+    if (
+        gate["candidate_id"] != candidate["candidate_id"]
+        or protocol["candidate_sha256"]
+        != hashlib.sha256((proposal / "candidate.json").read_bytes()).hexdigest()
+    ):
+        raise ValueError("Viewer evidence must bind the exact candidate artifact")
     source_rows = [(campaign, row) for row in result["rows"]]
     additional_protocols = []
     for supplement in map(Path, supplements):
@@ -76,6 +92,32 @@ def export(proposal, campaign, destination, rejected=(), supplements=(), confirm
                     },
                 }
             )
+    ledger = EvolutionStore(proposal / "evolution").verify()
+    proposal_event = next(e for e in ledger if e["event_id"] == candidate["candidate_id"])
+    parent_id = proposal_event["payload"]["parent"]
+    parent_event = next((e for e in ledger if e["event_id"] == parent_id), None)
+    parent_candidate = (
+        json.loads((Path(parent_proposal) / "candidate.json").read_text())
+        if parent_proposal
+        else None
+    )
+    if parent_event and parent_candidate is None:
+        raise ValueError("Supply the parent proposal to compare all tool metadata accurately")
+    if parent_candidate and parent_candidate["candidate_id"] != parent_id:
+        raise ValueError("Source comparison must use the actual parent candidate")
+    names = {
+        "MEMORY.md": "memory/MEMORY.md",
+        "PROCEDURE.md": "skills/PROCEDURE.md",
+        "program.py": "tools/program.py",
+        "tool-binding.json": "harness/tool-binding.json",
+    }
+
+    def previous(name):
+        if parent_event is None:
+            return ""
+        ref = parent_event["artifacts"][names[name]]
+        return (proposal / "evolution/objects" / ref["sha256"]).read_text()
+
     changes = {}
     for name in ("MEMORY.md", "PROCEDURE.md", "program.py"):
         content = (proposal / name).read_text()
@@ -84,15 +126,13 @@ def export(proposal, campaign, destination, rejected=(), supplements=(), confirm
             "source": content,
             "diff": "".join(
                 difflib.unified_diff(
-                    [],
+                    previous(name).splitlines(True),
                     content.splitlines(True),
-                    fromfile="baseline/" + name,
+                    fromfile=parent_id + "/" + name,
                     tofile="candidate/" + name,
                 )
             ),
         }
-    ledger = EvolutionStore(proposal / "evolution").verify()
-    proposal_event = next(e for e in ledger if e["event_id"] == candidate["candidate_id"])
     binding_ref = proposal_event["artifacts"]["harness/tool-binding.json"]
     binding = (proposal / "evolution/objects" / binding_ref["sha256"]).read_text()
     (destination / "tool-binding.json").write_text(binding)
@@ -100,10 +140,24 @@ def export(proposal, campaign, destination, rejected=(), supplements=(), confirm
         "source": binding,
         "diff": "".join(
             difflib.unified_diff(
-                [],
+                previous("tool-binding.json").splitlines(True),
                 binding.splitlines(True),
-                fromfile="baseline/tool-binding.json",
+                fromfile=parent_id + "/tool-binding.json",
                 tofile="candidate/tool-binding.json",
+            )
+        ),
+    }
+    description = candidate["program"]["description"]
+    old_description = parent_candidate["program"]["description"] if parent_candidate else ""
+    (destination / "tool-description.md").write_text(description)
+    changes["tool-description.md"] = {
+        "source": description,
+        "diff": "".join(
+            difflib.unified_diff(
+                old_description.splitlines(True),
+                description.splitlines(True),
+                fromfile=parent_id + "/tool-description.md",
+                tofile="candidate/tool-description.md",
             )
         ),
     }
@@ -117,9 +171,26 @@ def export(proposal, campaign, destination, rejected=(), supplements=(), confirm
         "statistics": statistics,
         "changes": changes,
         "ledger": ledger,
+        "parent_revision": parent_id,
+        "version_history": [
+            {
+                "candidate_id": e["payload"]["candidate"],
+                "accepted": e["payload"]["accepted"],
+                "report": json.loads(
+                    (
+                        proposal / "evolution/objects" / e["artifacts"]["report"]["sha256"]
+                    ).read_text()
+                ),
+            }
+            for e in ledger
+            if e["kind"] == "candidate_evaluated"
+        ],
         "api": json.loads((proposal / "api-metadata.json").read_text()),
         "completed": result["completed"],
         "difficulty_changed": False,
+        "reader_summary": json.loads((proposal / "reader-summary.json").read_text())
+        if (proposal / "reader-summary.json").exists()
+        else None,
         "note": "One model-authored memory/skill/tool bundle; no component ablation, no new task or weight training. Small fresh-reset pilot, not a generalization or mastery claim.",
         "rejected_proposals": [
             {
@@ -130,6 +201,18 @@ def export(proposal, campaign, destination, rejected=(), supplements=(), confirm
             for path in rejected
         ],
     }
+    data["round_results"] = []
+    known_candidates = {e["event_id"] for e in ledger if e["kind"] == "change_proposed"}
+    for path in prior_exports:
+        prior = json.loads((Path(path) / "data.json").read_text())
+        if prior["candidate"]["candidate_id"] not in known_candidates or not prior["completed"]:
+            raise ValueError("Round overview must use completed ancestors of this revision")
+        data["round_results"].append(
+            {"candidate_id": prior["candidate"]["candidate_id"], "statistics": prior["statistics"]}
+        )
+    data["round_results"].append(
+        {"candidate_id": candidate["candidate_id"], "statistics": statistics}
+    )
     (destination / "data.json").write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
     template = (
         Path(__file__).resolve().parents[1] / "src/embodied_harness/web/program-evolution.html"
@@ -149,5 +232,16 @@ if __name__ == "__main__":
     p.add_argument("--rejected", action="append", default=[])
     p.add_argument("--supplement", action="append", default=[])
     p.add_argument("--confirmation-gate")
+    p.add_argument("--parent-proposal")
+    p.add_argument("--prior-export", action="append", default=[])
     a = p.parse_args()
-    export(a.proposal, a.campaign, a.destination, a.rejected, a.supplement, a.confirmation_gate)
+    export(
+        a.proposal,
+        a.campaign,
+        a.destination,
+        a.rejected,
+        a.supplement,
+        a.confirmation_gate,
+        a.parent_proposal,
+        a.prior_export,
+    )
