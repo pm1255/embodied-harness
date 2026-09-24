@@ -14,18 +14,20 @@ from .rsi.core import write_json
 
 
 class DirectoryPlanner:
-    def __init__(self, directory, model, timeout_s=180):
+    def __init__(self, directory, model, timeout_s=180, context=None):
         self.root = Path(directory)
         self.root.mkdir(parents=True, exist_ok=True)
         self.model, self.timeout = model, timeout_s
         self.calls = self.input_tokens = self.output_tokens = 0
         self.provider_host = "local_decision_broker"
         self.api_mode, self.stream, self.plan_mode = "responses", True, "batch"
+        self.context = context or {}
 
     def decide(self, task, observation, registry, history, trace):
         nonce = uuid.uuid4().hex
         data = {"nonce": nonce, "task": task, "observation": observation.to_dict(),
-                "tools": registry.descriptions(), "history": history[-4:]}
+                "tools": registry.descriptions(), "history": history[-4:],
+                "experience": self.context}
         temporary = self.root / (nonce + ".tmp")
         write_json(temporary, data)
         temporary.replace(self.root / "request.json")

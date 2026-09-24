@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "name": "libero-policy-eight-task-development-baseline-v1",
+  "purpose": "Predeclared development baseline: first two tasks in each of four evaluation suites; not full-suite or held-out performance",
+  "arms": [
+    "checkpoint_only",
+    "gpt_policy"
+  ],
+  "model": "gpt-6-astra",
+  "max_decisions": 24,
+  "max_control_ticks": 1200,
+  "success_criterion": "native_success_terminal",
+  "memory": "none",
+  "skill_updates": false,
+  "task_generation": false,
+  "cases": [
+    {
+      "id": "libero_spatial-00-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "config": {
+        "suite": "libero_spatial",
+        "task_id": 0,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_spatial-01-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the black bowl next to the ramekin and place it on the plate",
+      "config": {
+        "suite": "libero_spatial",
+        "task_id": 1,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_object-00-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the alphabet soup and place it in the basket",
+      "config": {
+        "suite": "libero_object",
+        "task_id": 0,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_object-01-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "pick up the cream cheese and place it in the basket",
+      "config": {
+        "suite": "libero_object",
+        "task_id": 1,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_goal-00-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "open the middle drawer of the cabinet",
+      "config": {
+        "suite": "libero_goal",
+        "task_id": 0,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_goal-01-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put the bowl on the stove",
+      "config": {
+        "suite": "libero_goal",
+        "task_id": 1,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_10-00-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put both the alphabet soup and the tomato sauce in the basket",
+      "config": {
+        "suite": "libero_10",
+        "task_id": 0,
+        "size": 256,
+        "init_state_index": 0
+      }
+    },
+    {
+      "id": "libero_10-01-s0",
+      "environment": "libero",
+      "seed": 0,
+      "instruction": "put both the cream cheese box and the butter in the basket",
+      "config": {
+        "suite": "libero_10",
+        "task_id": 1,
+        "size": 256,
+        "init_state_index": 0
+      }
+    }
+  ],
+  "checkpoint_repo": "RLinf/RLinf-Pi05-LIBERO-130-fullshot-SFT",
+  "checkpoint_revision": "6222623f635769bfc73c9472e29fab9b7fd8e027",
+  "checkpoint_sha256": "4d9089c941793f170b625c2ed0ac7a3aa09b6f103e52dbbc82e67301529d6683",
+  "planner_settings": {
+    "api_mode": "responses",
+    "provider_host": "aixor.cc",
+    "reasoning_effort": "high",
+    "stream": true,
+    "note": "Model label reported by provider; upstream identity not independently verified"
+  },
+  "declared_before_execution": true
+}

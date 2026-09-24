@@ -79,6 +79,7 @@ class PolicyEndpoint:
                                           "instruction": instruction, "query": self.query,
                                           "case_id": str(getattr(env, "task", env.name)), "seed": env.seed})
         self.query += 1
+        self.last_diagnostics = response.get("diagnostics", {})
         actions = np.asarray(response["actions"], dtype=float)
         if actions.ndim != 2 or actions.shape[1] != action_dim or not 1 <= len(actions) <= 50:
             raise ValueError("Invalid policy action chunk")
@@ -95,12 +96,15 @@ def register_policy(env, registry, endpoint):
 
     def run(args, ctx):
         import numpy as np
+        if env.name == "libero" and env.done:
+            return ToolResult("failed", error_code="environment_terminated")
         executed = clipped = 0
         for chunk in range(args["chunks"]):
             started = time.monotonic()
             actions = endpoint.infer(env, args["instruction"])
             ctx.trace.emit("vla_prediction", model=endpoint.metadata, chunk=chunk,
                            latency_s=time.monotonic() - started, predicted_actions=len(actions),
+                           diagnostics=getattr(endpoint, "last_diagnostics", {}),
                            executed_horizon=min(10, len(actions)))
             for action in actions[:10]:
                 action = action.copy()
@@ -123,6 +127,13 @@ def register_policy(env, registry, endpoint):
                 executed += 1
                 yield {"policy_action": action.tolist(), "action_format": action_format,
                        "chunk": chunk, "gripper_clipped": changed}
+                if env.name == "libero" and env.done:
+                    ctx.trace.emit("environment_terminal", native_done=True,
+                                   criterion="LIBERO_BDDLBaseDomain_step_success", control_tick=env.tick)
+                    ctx.observe()
+                    return ToolResult("succeeded", {"policy_actions":executed,
+                        "environment_terminated":True,
+                        "meaning":"Native environment ended; evaluator determines task success"})
             ctx.observe()
         return ToolResult("succeeded", {"policy_actions": executed, "gripper_clipped": clipped,
                                         "meaning": "Chunk executed; task completion is not verified"})

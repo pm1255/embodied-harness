@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "embodied-harness"
-version = "0.3.0"
+version = "0.4.0"
 description = "Evidence-bound robot self-improvement: benchmark-first curricula, memory, skills, and inspectable tool execution."
 readme = "README.md"
 requires-python = ">=3.10"

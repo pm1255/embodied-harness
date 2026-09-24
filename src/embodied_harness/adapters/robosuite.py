@@ -162,6 +162,12 @@ class RobosuiteEnvironment:
 class LiberoEnvironment(RobosuiteEnvironment):
     name = "libero"
 
+    def terminal_success(self):
+        # BDDLBaseDomain.step explicitly replaces done with _check_success().
+        # Retain that native terminal event: rendering calls sim.forward(), so
+        # a later contact predicate query need not reproduce the step's event.
+        return bool(getattr(self, "done", False))
+
     def __init__(
         self, directory, suite="libero_spatial", task_id=0, size=256, init_state_index=None
     ):

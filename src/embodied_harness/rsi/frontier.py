@@ -7,7 +7,7 @@ import math
 
 INFRASTRUCTURE = {'infrastructure_error', 'cancelled'}
 VALID_OUTCOMES = {'agent_finished', 'decision_budget_exhausted', 'control_budget_exhausted',
-                  'completed', 'success', 'failed'}
+                  'completed', 'success', 'failed', 'native_success'}
 
 
 def interval(successes, count):

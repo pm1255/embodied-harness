@@ -99,12 +99,15 @@ class Registry:
 
 
 class Executor:
-    def __init__(self, env, registry: Registry, trace, max_control_ticks: int = 2000):
+    def __init__(
+        self, env, registry: Registry, trace, max_control_ticks: int = 2000, terminal_condition=None
+    ):
         self.env, self.registry, self.trace = env, registry, trace
         self.cancelled = Event()
         self.lock = Lock()
         self.ticks = 0
         self.max_control_ticks = max_control_ticks
+        self.terminal_condition = terminal_condition
 
     def cancel(self):
         # Driver stop is called by the execution thread at its next tick boundary.
@@ -142,6 +145,10 @@ class Executor:
                 result = self._run(step, ctx)
                 results.append({"id": step["id"], **result.to_dict()})
                 ctx.observe()
+                if self.cancelled.is_set():
+                    return {"status": "cancelled", "steps": results}
+                if self.terminal_condition and self.terminal_condition() is True:
+                    return {"status": "environment_terminated", "steps": results}
                 if result.status != "succeeded":
                     self.trace.emit(
                         "decision_required", reason=result.error_code, step_id=step["id"]
@@ -182,6 +189,15 @@ class Executor:
                 ticks += 1
                 self.ticks += 1
                 self.trace.emit("control_tick", step_id=step["id"], tick=ticks, **event)
+                if self.terminal_condition and self.terminal_condition() is True:
+                    self.trace.emit(
+                        "environment_terminal",
+                        condition_met=True,
+                        source="adapter_terminal_condition",
+                        control_tick=self.ticks,
+                    )
+                    result = ToolResult("succeeded", {"environment_terminated": True})
+                    break
         except (ToolFailure, ValueError) as exc:
             result = ToolResult("failed", {"message": str(exc)}, type(exc).__name__)
         except Exception as exc:

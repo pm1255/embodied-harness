@@ -211,6 +211,7 @@ class GPTPlanner:
             provider=self.provider_host,
             api_mode=self.api_mode,
             plan_mode=self.plan_mode,
+            reasoning_effort=self.reasoning_effort,
             stream=self.stream,
             request_index=self.calls,
             observation_id=observation.id,

@@ -7,6 +7,15 @@
 
 A small GPT-first runtime that separates **visual decisions, geometry, local control and evaluation**. The model calls implemented tools instead of generating every controller command. It can submit one primitive or a bounded plan; the executor returns control when the plan ends or a step fails.
 
+**Measured baseline:** [watch all 16 paired LIBERO episodes](https://pm1255.github.io/embodied-harness/rsi/baseline/) with GPT-6 Astra and the official LIBERO π0.5 checkpoint. [References, implementation and limits](docs/baseline-and-evolution.md).
+
+| Eight original tasks, fixed development resets | Native successes | GPT calls | Control ticks | Infrastructure errors |
+|---|---:|---:|---:|---:|
+| Frozen π0.5 alone | 7/8 | 0 | 2,017 | 0 |
+| GPT + π0.5 and geometric tools | 6/8 | 53 | 1,864 | 0 |
+
+GPT rescued one policy-only failure but regressed on a drawer task and prematurely declared a two-object task complete. This identifies a concrete orchestration repair target; it does **not** establish a GPT capability limit. Eight in-domain tasks / one state each are not full-suite performance, unseen-task generalization, or a claim of superiority to RPent. The earlier three-decision pilot used a different protocol and is not an evolution baseline.
+
 ## Current direction: master existing benchmarks before generating challenges
 
 **Original tasks → failure decomposition → reuse existing practice → create only missing subtask practice → retest the whole original task.** Harder environments and new challenge tasks unlock only after every task in the frozen scope is reliably mastered.
@@ -15,7 +24,7 @@ Environment interventions serve separate robustness, assisted-practice and harde
 
 [Curriculum and environment rules](docs/benchmark-first-rsi.md) · [Curriculum status](https://pm1255.github.io/embodied-harness/rsi/curriculum/) · [186 registered existing tasks](benchmarks/rsi-benchmark-first.json)
 
-The work-order state machine, whole-scope gate, decomposition checks and reuse rules are implemented and tested. A general autonomous consumer with task-specific subgoal checkers and repair execution still needs integration. **The current work order runs no new model or simulator episodes.** The 186-entry inventory includes RoboCasa/RoboTwin subsets and is not a completed benchmark score.
+The work-order state machine, whole-scope gate, decomposition checks and reuse rules are implemented and tested. The new LIBERO path connects model-authored memory, skill procedures and bounded Python tools to fresh paired evaluation. General arbitrary harness mutation and task-specific subgoal execution across all adapters remain incomplete. The 186-entry inventory includes RoboCasa/RoboTwin subsets and is not a completed benchmark score.
 
 ## Historical v1: tasks → failures → memory → skills → held-out tests
 
