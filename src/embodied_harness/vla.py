@@ -51,7 +51,8 @@ class PolicyEndpoint:
         import numpy as np
         contract = self.metadata["contract"]
         if contract == "robotwin_aloha_qpos14_v1":
-            raw = env.env.get_obs()
+            raw = (env.raw_obs if getattr(env, "raw_obs_tick", None) == env.tick
+                   else env.env.get_obs())
             cameras = {slot: raw["observation"][camera]["rgb"] for slot, camera in
                        (("0", "head_camera"), ("1", "left_camera"), ("2", "right_camera"))}
             state = np.asarray(raw["joint_action"]["vector"], dtype=float)

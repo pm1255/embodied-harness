@@ -1,0 +1,3384 @@
+{
+  "events": [
+    {
+      "seq": 0,
+      "event_id": "protocol.json",
+      "kind": "protocol",
+      "actor": "experiment_operator",
+      "observed_at": "2026-09-24T07:56:44.135463+00:00",
+      "previous": null,
+      "payload": {
+        "source": "protocol.json"
+      },
+      "artifacts": {
+        "document": {
+          "sha256": "92665d77984f02ef60f7e5fd94032199d007984e9076cea0331f6ab57f47ef30",
+          "bytes": 1103,
+          "media_type": "application/json"
+        }
+      },
+      "hash": "823303fbdc8b21ff8466464466a23b7f1cb7a75d4656d78cf50a307d4f1b17d0"
+    },
+    {
+      "seq": 1,
+      "event_id": "designer-retry-amendment.json",
+      "kind": "protocol",
+      "actor": "experiment_operator",
+      "observed_at": "2026-09-24T07:56:44.136699+00:00",
+      "previous": "823303fbdc8b21ff8466464466a23b7f1cb7a75d4656d78cf50a307d4f1b17d0",
+      "payload": {
+        "source": "designer-retry-amendment.json"
+      },
+      "artifacts": {
+        "document": {
+          "sha256": "178e3dc7eea351c0d5ab75a98a59a13b9122c70e746d9a28d845d2072f8973a8",
+          "bytes": 342,
+          "media_type": "application/json"
+        }
+      },
+      "hash": "91d04e92047f20b7354436bd21d2f13bb757eadc99ba396ea7678012628647d5"
+    },
+    {
+      "seq": 2,
+      "event_id": "evaluation-code.json",
+      "kind": "protocol",
+      "actor": "experiment_operator",
+      "observed_at": "2026-09-24T07:56:44.137687+00:00",
+      "previous": "91d04e92047f20b7354436bd21d2f13bb757eadc99ba396ea7678012628647d5",
+      "payload": {
+        "source": "evaluation-code.json"
+      },
+      "artifacts": {
+        "document": {
+          "sha256": "764531aa9b32cf20aea84a264c43ed7d6f5c37fd6c677c22cb3f5bc51b80bc3f",
+          "bytes": 2595,
+          "media_type": "application/json"
+        }
+      },
+      "hash": "6c91b37db77b03f23b512963c5d17ca780d78b1c1a4de936465104cbde7e5b0d"
+    },
+    {
+      "seq": 3,
+      "event_id": "cycle-1-scenarios.json",
+      "kind": "tasks_proposed",
+      "actor": "experiment_brain",
+      "observed_at": "2026-09-24T07:56:44.138898+00:00",
+      "previous": "6c91b37db77b03f23b512963c5d17ca780d78b1c1a4de936465104cbde7e5b0d",
+      "payload": {
+        "cycle": 1,
+        "source": "cycle-1-scenarios.json",
+        "parent_approved_snapshot": "baseline"
+      },
+      "artifacts": {
+        "document": {
+          "sha256": "2aeb1da0d4da787cee980cd03b49a08ff78d4f977d63aee21097d122cd8bc6dd",
+          "bytes": 2225,
+          "media_type": "application/json"
+        }
+      },
+      "hash": "ba4c833eea5335cd0b6cf6195903c3f82f3ad49496e31736cb0dc49ad66942d5"
+    },
+    {
+      "seq": 4,
+      "event_id": "cycle-1-rejected-reflection.json",
+      "kind": "proposal_rejected",
+      "actor": "experiment_evaluator",
+      "observed_at": "2026-09-24T07:56:44.139777+00:00",
+      "previous": "ba4c833eea5335cd0b6cf6195903c3f82f3ad49496e31736cb0dc49ad66942d5",
+      "payload": {
+        "cycle": 1,
+        "source": "cycle-1-rejected-reflection.json",
+        "parent_approved_snapshot": "baseline"
+      },
+      "artifacts": {
+        "document": {
+          "sha256": "1229f298cdb614a85b6fb5a71008c04d7faba80726450b442241c84ee75be6ae",
+          "bytes": 4958,
+          "media_type": "application/json"
+        }
+      },
+      "hash": "2185805ab52b06352ce8c0dab2fa3e861b77d39bf6837d0af9d8d8d4441749f0"
+    },
+    {
+      "seq": 5,
+      "event_id": "cycle-1-candidate.json",
+      "kind": "candidate_snapshot",
+      "actor": "experiment_brain",
+      "observed_at": "2026-09-24T07:56:44.140919+00:00",
+      "previous": "2185805ab52b06352ce8c0dab2fa3e861b77d39bf6837d0af9d8d8d4441749f0",
+      "payload": {
+        "cycle": 1,
+        "source": "cycle-1-candidate.json",
+        "parent_approved_snapshot": "baseline"
+      },
+      "artifacts": {
+        "document": {
+          "sha256": "aa2105ce2cd8a68990d819154b167ebf177d15ab5f9222bd6a77de142cba215e",
+          "bytes": 4918,
+          "media_type": "application/json"
+        }
+      },
+      "hash": "f02338350446aed79ac62ffa9820ba96cd462efa90c4914c4c3709819138b110"
+    },
+    {
+      "seq": 6,
+      "event_id": "cycle-1-gate.json",
+      "kind": "promotion_decision",
+      "actor": "experiment_evaluator",
+      "observed_at": "2026-09-24T07:56:44.142115+00:00",
+      "previous": "f02338350446aed79ac62ffa9820ba96cd462efa90c4914c4c3709819138b110",
+      "payload": {
+        "cycle": 1,
+        "source": "cycle-1-gate.json",
+        "parent_approved_snapshot": "baseline"
+      },
+      "artifacts": {
+        "document": {
+          "sha256": "55cae16adb52a1da24ba151d61dd57dfdac1239f686c9933e527c492cace7732",
+          "bytes": 518,
+          "media_type": "application/json"
+        }
+      },
+      "hash": "984a7433ef0acdc968b8ed22dac8d7b1f574b261fd9f46654f20b82cf1cb1992"
+    },
+    {
+      "seq": 7,
+      "event_id": "cycle-1-MEMORY.md",
+      "kind": "memory_document",
+      "actor": "experiment_brain",
+      "observed_at": "2026-09-24T07:56:44.142980+00:00",
+      "previous": "984a7433ef0acdc968b8ed22dac8d7b1f574b261fd9f46654f20b82cf1cb1992",
+      "payload": {
+        "cycle": 1
+      },
+      "artifacts": {
+        "markdown": {
+          "sha256": "3e50660ac7e246be5fa2d330bb5c396170513ef0b4ba7b4f74b420f1129960c2",
+          "bytes": 1114,
+          "media_type": "text/markdown"
+        }
+      },
+      "hash": "1ffa356b73dd404d1350fa5d3ff800b43fe6a9e92ea924082d04efc6e9492ed6"
+    },
+    {
+      "seq": 8,
+      "event_id": "cycle-2-scenarios.json",
+      "kind": "tasks_proposed",
+      "actor": "experiment_brain",
+      "observed_at": "2026-09-24T07:56:44.144406+00:00",
+      "previous": "1ffa356b73dd404d1350fa5d3ff800b43fe6a9e92ea924082d04efc6e9492ed6",
+      "payload": {
+        "cycle": 2,
+        "source": "cycle-2-scenarios.json",
+        "parent_approved_snapshot": "cycle-1-gate.json"
+      },
+      "artifacts": {
+        "document": {
+          "sha256": "7d65fc281f33aac93527d979244eef577609c2afc828047575f91d663daf0bd4",
+          "bytes": 3007,
+          "media_type": "application/json"
+        }
+      },
+      "hash": "c50a714aab3c2f8e3df3a29533cf3b6da8c7e72ed165609499ef97a14c521700"
+    },
+    {
+      "seq": 9,
+      "event_id": "cycle-2-candidate.json",
+      "kind": "candidate_snapshot",
+      "actor": "experiment_brain",
+      "observed_at": "2026-09-24T07:56:44.145419+00:00",
+      "previous": "c50a714aab3c2f8e3df3a29533cf3b6da8c7e72ed165609499ef97a14c521700",
+      "payload": {
+        "cycle": 2,
+        "source": "cycle-2-candidate.json",
+        "parent_approved_snapshot": "cycle-1-gate.json"
+      },
+      "artifacts": {
+        "document": {
+          "sha256": "83595d9d4b5920d7d4214ef73bf2c075ab598b75c8e431c06070a2fe63b5e653",
+          "bytes": 8576,
+          "media_type": "application/json"
+        }
+      },
+      "hash": "9536d84d0fc6a37846ca9f2ca5755cb0a55206af21158d1285f661ec23c48a94"
+    },
+    {
+      "seq": 10,
+      "event_id": "cycle-2-gate.json",
+      "kind": "promotion_decision",
+      "actor": "experiment_evaluator",
+      "observed_at": "2026-09-24T07:56:44.146259+00:00",
+      "previous": "9536d84d0fc6a37846ca9f2ca5755cb0a55206af21158d1285f661ec23c48a94",
+      "payload": {
+        "cycle": 2,
+        "source": "cycle-2-gate.json",
+        "parent_approved_snapshot": "cycle-1-gate.json"
+      },
+      "artifacts": {
+        "document": {
+          "sha256": "ba88c1649d880635086e45eaa90cdb64f107337d71b6ca1107bcb4497feee635",
+          "bytes": 517,
+          "media_type": "application/json"
+        }
+      },
+      "hash": "9a4840fe3257029edefbb6d5647223e733ccd7e65d11cf7249453deecbf85852"
+    },
+    {
+      "seq": 11,
+      "event_id": "cycle-2-MEMORY.md",
+      "kind": "memory_document",
+      "actor": "experiment_brain",
+      "observed_at": "2026-09-24T07:56:44.147288+00:00",
+      "previous": "9a4840fe3257029edefbb6d5647223e733ccd7e65d11cf7249453deecbf85852",
+      "payload": {
+        "cycle": 2
+      },
+      "artifacts": {
+        "markdown": {
+          "sha256": "bc143fe95503b5da67dd48c83f79db216f26fa88e0ef165b4fb736663e812bd5",
+          "bytes": 3194,
+          "media_type": "text/markdown"
+        }
+      },
+      "hash": "ea1954a46669e6774cd45fe08e3bfe0302956e42d9309e03babe4f8497ea6273"
+    },
+    {
+      "seq": 12,
+      "event_id": "cycle-1-reflect-attempt-1.json",
+      "kind": "designer_attempt",
+      "actor": "experiment_brain",
+      "observed_at": "2026-09-24T07:56:44.149564+00:00",
+      "previous": "ea1954a46669e6774cd45fe08e3bfe0302956e42d9309e03babe4f8497ea6273",
+      "payload": {
+        "status": "failed",
+        "source": "brain/cycle-1-reflect-attempt-1.json"
+      },
+      "artifacts": {
+        "record": {
+          "sha256": "c0188c5a7a1250be359e8dcb901c7c86161f088d23c76c287299ea401b7fe5cc",
+          "bytes": 235,
+          "media_type": "application/json"
+        }
+      },
+      "hash": "9fd40a80e10ed0b33df1f66070535f1a49da8c6b3ea8142a5e9cc86a6dd0a94d"
+    },
+    {
+      "seq": 13,
+      "event_id": "cycle-1-reflect-attempt-2.json",
+      "kind": "designer_attempt",
+      "actor": "experiment_brain",
+      "observed_at": "2026-09-24T07:56:44.151126+00:00",
+      "previous": "9fd40a80e10ed0b33df1f66070535f1a49da8c6b3ea8142a5e9cc86a6dd0a94d",
+      "payload": {
+        "status": "returned",
+        "source": "brain/cycle-1-reflect-attempt-2.json"
+      },
+      "artifacts": {
+        "record": {
+          "sha256": "642f65b22ef564deb6565f46fc42a977a383eb5ba350cc84ffd2c1cd13444285",
+          "bytes": 7991,
+          "media_type": "application/json"
+        }
+      },
+      "hash": "738871b833d240731a0d65ca1849c1dbfbebe6110ccd8b329597eedd59ae6e37"
+    },
+    {
+      "seq": 14,
+      "event_id": "cycle-1-repair-attempt-1.json",
+      "kind": "designer_attempt",
+      "actor": "experiment_brain",
+      "observed_at": "2026-09-24T07:56:44.152963+00:00",
+      "previous": "738871b833d240731a0d65ca1849c1dbfbebe6110ccd8b329597eedd59ae6e37",
+      "payload": {
+        "status": "returned",
+        "source": "brain/cycle-1-repair-attempt-1.json"
+      },
+      "artifacts": {
+        "record": {
+          "sha256": "9bc8bdea8c0bce6fb42f0fb799ef9c1c6917f4677fec2060565df036d4e1c497",
+          "bytes": 6370,
+          "media_type": "application/json"
+        }
+      },
+      "hash": "2ab2a3d62592074c0bdcb91fa983804a16eb891a15ccdf434f52f351951be29a"
+    },
+    {
+      "seq": 15,
+      "event_id": "cycle-2-generate-attempt-1.json",
+      "kind": "designer_attempt",
+      "actor": "experiment_brain",
+      "observed_at": "2026-09-24T07:56:44.154629+00:00",
+      "previous": "2ab2a3d62592074c0bdcb91fa983804a16eb891a15ccdf434f52f351951be29a",
+      "payload": {
+        "status": "returned",
+        "source": "brain/cycle-2-generate-attempt-1.json"
+      },
+      "artifacts": {
+        "record": {
+          "sha256": "9fb5d4dd89f6b63d7427094eba19f92ab02a174881a1f5f95d3178583cbf5dd3",
+          "bytes": 4337,
+          "media_type": "application/json"
+        }
+      },
+      "hash": "b7a14559562ce4fdbff3125ed94aa5b11d2711a7fb4d179f6db3dc04a52c4527"
+    },
+    {
+      "seq": 16,
+      "event_id": "cycle-2-reflect-attempt-1.json",
+      "kind": "designer_attempt",
+      "actor": "experiment_brain",
+      "observed_at": "2026-09-24T07:56:44.156649+00:00",
+      "previous": "b7a14559562ce4fdbff3125ed94aa5b11d2711a7fb4d179f6db3dc04a52c4527",
+      "payload": {
+        "status": "failed",
+        "source": "brain/cycle-2-reflect-attempt-1.json"
+      },
+      "artifacts": {
+        "record": {
+          "sha256": "4762ff0ea98ff5603dc09e86f5dc00cbfabb9a1b17337e94ec3eac0025f02392",
+          "bytes": 238996,
+          "media_type": "application/json"
+        }
+      },
+      "hash": "fe7277c6e1b791784e4169f17c3028c273a8e62b59936465c43388493c3ecca7"
+    },
+    {
+      "seq": 17,
+      "event_id": "cycle-2-reflect-attempt-2.json",
+      "kind": "designer_attempt",
+      "actor": "experiment_brain",
+      "observed_at": "2026-09-24T07:56:44.157968+00:00",
+      "previous": "fe7277c6e1b791784e4169f17c3028c273a8e62b59936465c43388493c3ecca7",
+      "payload": {
+        "status": "returned",
+        "source": "brain/cycle-2-reflect-attempt-2.json"
+      },
+      "artifacts": {
+        "record": {
+          "sha256": "ccf0ca9154c321f886d4d22de16f5766d4afd2f77b1754e47cd1e8c39a49d982",
+          "bytes": 11555,
+          "media_type": "application/json"
+        }
+      },
+      "hash": "5dad1fbc875c12a1bb1acb599724c37501a4adddafee29785a01a974e56c6493"
+    },
+    {
+      "seq": 18,
+      "event_id": "episodes/cycle-1-discover/c1t1-s11-combined",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.162136+00:00",
+      "previous": "5dad1fbc875c12a1bb1acb599724c37501a4adddafee29785a01a974e56c6493",
+      "payload": {
+        "split": "discovery",
+        "arm": "combined",
+        "case_id": "c1t1",
+        "seed": 11
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "fdd0b756ef6845074f2b9f2dd2ef94d3bb46d76f462c68f8b53846cf635d849c",
+          "bytes": 558,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "c9831b0b8aeb242bc8387c275b647f4257f772cd14c28b80ec0b557586464fcb",
+          "bytes": 982,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "2c0f8412b6a5ea9d079600d0074e02645b6fde6d49bb66fa7d9df144059f3134",
+          "bytes": 11551,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "e2fe539978783833026e5af8d7da7798bb12c9c0bd730c7e3200ad4172ea7496"
+    },
+    {
+      "seq": 19,
+      "event_id": "episodes/cycle-1-discover/c1t2-s11-combined",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.164581+00:00",
+      "previous": "e2fe539978783833026e5af8d7da7798bb12c9c0bd730c7e3200ad4172ea7496",
+      "payload": {
+        "split": "discovery",
+        "arm": "combined",
+        "case_id": "c1t2",
+        "seed": 11
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "171f7cacac7d2fc04401481879938c898a5945101a5e1497f5d82a606bafbe59",
+          "bytes": 556,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "7e58c46e7af60504da22bbfb3187f905e0234311df6877d8e0c7115338544fd0",
+          "bytes": 953,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "da5f005ce2ba21193b96da581e995a24970e9d7bfc814f8e508e3badcd6a2fa1",
+          "bytes": 168032,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "0e84cffeae3608566a5d6830f604c292dee9d5b7b7e3a183f6b3798291895148"
+    },
+    {
+      "seq": 20,
+      "event_id": "episodes/cycle-1-discover/c1t3-s11-combined",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.167477+00:00",
+      "previous": "0e84cffeae3608566a5d6830f604c292dee9d5b7b7e3a183f6b3798291895148",
+      "payload": {
+        "split": "discovery",
+        "arm": "combined",
+        "case_id": "c1t3",
+        "seed": 11
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "a07813271888b9eb934bf644ba955c88e71977ef79b551031dd0837c20878a54",
+          "bytes": 568,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "e2c7e99a1be0b78eff2ea8f4df352cfb433bd32f392ec910d90bc6276bbe2224",
+          "bytes": 993,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "486115fd1d166148fa2cb25c9dd15a93ff9bed661138de31d79780c0a1490d9e",
+          "bytes": 244284,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "721cca77b1c7e1ec7eff73fae1adf0ad3425c6afec90dd36a987f77e906bbe03"
+    },
+    {
+      "seq": 21,
+      "event_id": "episodes/cycle-1-validate/c1t1-s31-baseline",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.169962+00:00",
+      "previous": "721cca77b1c7e1ec7eff73fae1adf0ad3425c6afec90dd36a987f77e906bbe03",
+      "payload": {
+        "split": "validation",
+        "arm": "baseline",
+        "case_id": "c1t1",
+        "seed": 31
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "a2c33d435cc405baaf02df4903d303aaac714beb169ff23bbb3e9b3966cbcc9a",
+          "bytes": 554,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "61bff2561dac16377731e7f48bc97fe2f2fd62357d8e67726768a78ad2eb3f5b",
+          "bytes": 983,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "a55350235035c009b104420dbbb982cedfb052c116f908156170d3c5aeff72fe",
+          "bytes": 5128,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "88f16c62f326a5e9dc8c9a78850fc14043c155c2bdad8a1a2d37efba0dfc3c79"
+    },
+    {
+      "seq": 22,
+      "event_id": "episodes/cycle-1-validate/c1t1-s31-combined",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.172434+00:00",
+      "previous": "88f16c62f326a5e9dc8c9a78850fc14043c155c2bdad8a1a2d37efba0dfc3c79",
+      "payload": {
+        "split": "validation",
+        "arm": "combined",
+        "case_id": "c1t1",
+        "seed": 31
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "24bf8ad61e232c7ca2f8f8a14793e074d590954ac59fec3f92e5613edc274538",
+          "bytes": 567,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "df615f9a594cd94078975c3bf5227eed65149ac1904978903895912153c97105",
+          "bytes": 5466,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "8e1d447aabdf45fd3c5b1bb10ea0915706d69f37e4369b5b12992f1bbd2004fb",
+          "bytes": 58040,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "50c568e7eec06ea819c72f5f8286b3d5dcf76e16e6a7ce997a39559d11ff3f71"
+    },
+    {
+      "seq": 23,
+      "event_id": "episodes/cycle-1-validate/c1t2-s31-baseline",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.175351+00:00",
+      "previous": "50c568e7eec06ea819c72f5f8286b3d5dcf76e16e6a7ce997a39559d11ff3f71",
+      "payload": {
+        "split": "validation",
+        "arm": "baseline",
+        "case_id": "c1t2",
+        "seed": 31
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "a1e48a402b6af4480306547c41bf435cdb7a31b487cd2beaaf82ed807c629687",
+          "bytes": 557,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "20dbcf4755df65ec359e6bfebc34477b25c4547e6f977ea9360fe435638348cd",
+          "bytes": 954,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "db0fc10b599f8cfa91df70be5af2df6c25a5f0ce3d684764bec7b7b7532744c0",
+          "bytes": 150084,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "84101582e7b78a263f0a1cd124d5d22511fccd878ca590f14a4c7951d84c06a2"
+    },
+    {
+      "seq": 24,
+      "event_id": "episodes/cycle-1-validate/c1t2-s31-combined",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.178276+00:00",
+      "previous": "84101582e7b78a263f0a1cd124d5d22511fccd878ca590f14a4c7951d84c06a2",
+      "payload": {
+        "split": "validation",
+        "arm": "combined",
+        "case_id": "c1t2",
+        "seed": 31
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "d3031458c9ef72423ae298ebfac7992633e6790f56fb9b72dcf8764d11dbaa49",
+          "bytes": 555,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "340b3fbcdfbb4ebf496c5bd7738ba3d7f4d1918341e41d84809b5f4e6ea4dab9",
+          "bytes": 5437,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "5a05849bec3d31f0c121bb8bd61263f1594c5fab6bcf25018bcb47a3dd80bcad",
+          "bytes": 244723,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "5e264103db4ed6fab73b5bb6fd1a4205b1575051ad1025f9867d9b5c5b7b8e46"
+    },
+    {
+      "seq": 25,
+      "event_id": "episodes/cycle-1-validate/c1t3-s31-baseline",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.181523+00:00",
+      "previous": "5e264103db4ed6fab73b5bb6fd1a4205b1575051ad1025f9867d9b5c5b7b8e46",
+      "payload": {
+        "split": "validation",
+        "arm": "baseline",
+        "case_id": "c1t3",
+        "seed": 31
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "9306aeed9f13b93c47c55819baf9fb4a88af492706619c383af9857d20e3472e",
+          "bytes": 570,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "96e388e61fa644d0c36fe804ac3edd5186eae3c5e139ac34bbaf44a857094e88",
+          "bytes": 994,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "25876c55c691b78694236225fe6378f3e3f5223746c5b7c266026a83d987bdea",
+          "bytes": 208560,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "0724749f52bfe4099f8a805deb958b801fbe24e909b9b5437b1ed43a01807d97"
+    },
+    {
+      "seq": 26,
+      "event_id": "episodes/cycle-1-validate/c1t3-s31-combined",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.185383+00:00",
+      "previous": "0724749f52bfe4099f8a805deb958b801fbe24e909b9b5437b1ed43a01807d97",
+      "payload": {
+        "split": "validation",
+        "arm": "combined",
+        "case_id": "c1t3",
+        "seed": 31
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "8614ea9de95bdc58226085db9f7919fc5fcd63d62a4eefa2cdfaf6e1edeeb965",
+          "bytes": 570,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "04aff369a0f7cf0c84de290e504411fc97f0a073c2ee7e8cd01495ef5e8091e0",
+          "bytes": 5477,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "f1d554775a0adc9c262dcb1aaf779e55cc1d973a2a2aa82a342e008e841d8ec2",
+          "bytes": 174412,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "ffcee38b8fb4b105f0911c984b6002a5b0e02064595e5488f6a545103e3c5976"
+    },
+    {
+      "seq": 27,
+      "event_id": "episodes/cycle-2-discover/c2t1-s11-combined",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.188920+00:00",
+      "previous": "ffcee38b8fb4b105f0911c984b6002a5b0e02064595e5488f6a545103e3c5976",
+      "payload": {
+        "split": "discovery",
+        "arm": "combined",
+        "case_id": "c2t1",
+        "seed": 11
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "4c5dd10eba0a337574eb9337f5a46bb29dfe43fa047db4078d3dd8dda3152e7b",
+          "bytes": 563,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "6989bd335582c77fba398aae51f000343698d0acaeef6461aeaa0d70f58b9ae8",
+          "bytes": 1231,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "43bb9ba55208f879b6ea3d466dec55c38d059ebf899d6e47795429d9f329e345",
+          "bytes": 246229,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "5cb86c09ca63b878bddda5aae2ad7a52a1a53cdf4e93702c8efe31fe66cc82d7"
+    },
+    {
+      "seq": 28,
+      "event_id": "episodes/cycle-2-discover/c2t2-s11-combined",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.192279+00:00",
+      "previous": "5cb86c09ca63b878bddda5aae2ad7a52a1a53cdf4e93702c8efe31fe66cc82d7",
+      "payload": {
+        "split": "discovery",
+        "arm": "combined",
+        "case_id": "c2t2",
+        "seed": 11
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "da2e36df3c912ce1319889c77bd5ba5e29b7fcc0726c09a90767e5560a7b5b30",
+          "bytes": 542,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "44d499d9f506f95afd475af6d5c1afd0ac99c78f436cb91c60e2dc03bdb69e7e",
+          "bytes": 1228,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "d9d0b3c34c3a43dac411d7fb7b9d32bbd130d1c9b5c14b671a4c8863696b3570",
+          "bytes": 210935,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "883f5ef9c698d94f53c26c2c982597775589070e3fdd7fad8eddd77242ca14b7"
+    },
+    {
+      "seq": 29,
+      "event_id": "episodes/cycle-2-discover/c2t3-s11-combined",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.196551+00:00",
+      "previous": "883f5ef9c698d94f53c26c2c982597775589070e3fdd7fad8eddd77242ca14b7",
+      "payload": {
+        "split": "discovery",
+        "arm": "combined",
+        "case_id": "c2t3",
+        "seed": 11
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "cd5ec05d15f3d818da4b8b5ed7507026235bec6648b3ae851345232f10acc94d",
+          "bytes": 581,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "18c7e5459e8181a0a1ccd99a618f7b32c0d5ada4458b254a7aa6a52e6db78ce4",
+          "bytes": 1251,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "01edbe6561835da27fc17ebca8a507111b5759553c9d9d3ea77ec7041a833ef9",
+          "bytes": 208623,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "a9a66ebaee7178d3ba124ea94ac3b378cddd2d98f2abf4d449ef597d2378639d"
+    },
+    {
+      "seq": 30,
+      "event_id": "episodes/cycle-2-validate/c1t1-s31-baseline",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.200556+00:00",
+      "previous": "a9a66ebaee7178d3ba124ea94ac3b378cddd2d98f2abf4d449ef597d2378639d",
+      "payload": {
+        "split": "validation",
+        "arm": "baseline",
+        "case_id": "c1t1",
+        "seed": 31
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "91be5141fa3aeae1850f323bf46df002710e9fc610e57ede75626e855f00366c",
+          "bytes": 559,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "6924c64ee74d5a8a853c14b7c4e441156e805a70bec9e6e8b4b54dfbbd8724bb",
+          "bytes": 983,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "528b32b797836b5092d1c32949c5fd7c83a92f641ac6bf523a5ac940e969bc39",
+          "bytes": 11355,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "83d24915c1dae85e5dd3e7c581f72d84d2d71236065c0274bddbb87bb76c33a7"
+    },
+    {
+      "seq": 31,
+      "event_id": "episodes/cycle-2-validate/c1t1-s31-combined",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.204938+00:00",
+      "previous": "83d24915c1dae85e5dd3e7c581f72d84d2d71236065c0274bddbb87bb76c33a7",
+      "payload": {
+        "split": "validation",
+        "arm": "combined",
+        "case_id": "c1t1",
+        "seed": 31
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "fd7cc01edfdac364084a32d0c453693a11743875b7b1df90b18ae2c7f0c5c2fd",
+          "bytes": 563,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "9abe632e584693619a6b09f5ac1a291df3f386112fc037d4fb8d59ed5ebab583",
+          "bytes": 8974,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "0be75c7b88ed62e9707c37047e2fdae999f76ab78b5babaf1f01caf9dea15b84",
+          "bytes": 94744,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "757c006a947c933581df3504f7eb7d90e66ddebfd063fc7c5f7b9697bf0ea125"
+    },
+    {
+      "seq": 32,
+      "event_id": "episodes/cycle-2-validate/c1t2-s31-baseline",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.209181+00:00",
+      "previous": "757c006a947c933581df3504f7eb7d90e66ddebfd063fc7c5f7b9697bf0ea125",
+      "payload": {
+        "split": "validation",
+        "arm": "baseline",
+        "case_id": "c1t2",
+        "seed": 31
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "247778c1215f9f963e05f87daf30f18579bb27cc32cd6927dc58750a59fb7b9b",
+          "bytes": 550,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "d2d2706fe249cd67150d5f87fc33f4131a83a434ac62dbbfdcfe091289603257",
+          "bytes": 954,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "94b225903b0aba3da5c7f61415046ca7c3607434e6a29efaf0cf6360cb6a9c1b",
+          "bytes": 168673,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "03ac68745cee7bbb8ff587a5751557d1895a2e45dded53ea3b3fa7f6cb3b2c83"
+    },
+    {
+      "seq": 33,
+      "event_id": "episodes/cycle-2-validate/c1t2-s31-combined",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.213535+00:00",
+      "previous": "03ac68745cee7bbb8ff587a5751557d1895a2e45dded53ea3b3fa7f6cb3b2c83",
+      "payload": {
+        "split": "validation",
+        "arm": "combined",
+        "case_id": "c1t2",
+        "seed": 31
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "24ddf3ef5f1ad002a26e58e8b725ae75b58b688108e153c1c5112f16b9ec2589",
+          "bytes": 554,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "377e368aa7059901908930093aa76d3bc56922f2c28327a325098786392b91cf",
+          "bytes": 8945,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "9576bacead219d0e653e1c07be6c43d742e3ca6709fed86c27225c4937433a62",
+          "bytes": 262516,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "d97570e25ce1b1d90322a9095068efcf41f2d78cc587ca78e1f419725414a2f5"
+    },
+    {
+      "seq": 34,
+      "event_id": "episodes/cycle-2-validate/c1t3-s31-baseline",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.217909+00:00",
+      "previous": "d97570e25ce1b1d90322a9095068efcf41f2d78cc587ca78e1f419725414a2f5",
+      "payload": {
+        "split": "validation",
+        "arm": "baseline",
+        "case_id": "c1t3",
+        "seed": 31
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "b5f34618245fa72bb59094cbe9568e80cfc1fb4f2348c48860220278e97277fd",
+          "bytes": 564,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "61c7cba5b6ed6561a30ed80989f5d9e610fefa8451de6bb040e351b30dbf1234",
+          "bytes": 994,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "1bff936490bc482c31d08e889fe88da2b64b43d7d4c8658b87c77cbfd3e74a13",
+          "bytes": 81706,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "d6455187b9ed56786f202319122aaf8e02be194764f5ccb8c851431d5be4e273"
+    },
+    {
+      "seq": 35,
+      "event_id": "episodes/cycle-2-validate/c1t3-s31-combined",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.222875+00:00",
+      "previous": "d6455187b9ed56786f202319122aaf8e02be194764f5ccb8c851431d5be4e273",
+      "payload": {
+        "split": "validation",
+        "arm": "combined",
+        "case_id": "c1t3",
+        "seed": 31
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "1d958b56bab33b3c3f2a59fad54dc7e795c1c534c81a73bbeab09716aaa2b5d9",
+          "bytes": 564,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "3f6e492b49ac3a4b5a8e69805eba14669572740629df50424066698c5b7c830d",
+          "bytes": 8985,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "ad7b03e76e3f480585feba1679a0d00ceef84da8c1132867f3e474592be83766",
+          "bytes": 72998,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "b9c801be6fff8fa8bb2aa150bdc10a0eefcc42cb4ed40d30c0453e4b0fa8a44b"
+    },
+    {
+      "seq": 36,
+      "event_id": "episodes/cycle-2-validate/c2t1-s31-baseline",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.227454+00:00",
+      "previous": "b9c801be6fff8fa8bb2aa150bdc10a0eefcc42cb4ed40d30c0453e4b0fa8a44b",
+      "payload": {
+        "split": "validation",
+        "arm": "baseline",
+        "case_id": "c2t1",
+        "seed": 31
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "deea3e985b3c38e4238abb994912e2e53efd1db7017c42240f39b04b136ef5a0",
+          "bytes": 563,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "a50d0984eb03e517f780a2918e4e65aaf908400223d1bd7b9cb62f9210c638ba",
+          "bytes": 1232,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "a47b18361b01ede922570fa63c1553df0042751ff960aa725b55f35ffd0acfa7",
+          "bytes": 229058,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "c1b91bd159461da7dcc5865b49b67fe23e06e0e55ee43dc6e6a1d92bfd8b4bd9"
+    },
+    {
+      "seq": 37,
+      "event_id": "episodes/cycle-2-validate/c2t1-s31-combined",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.232955+00:00",
+      "previous": "c1b91bd159461da7dcc5865b49b67fe23e06e0e55ee43dc6e6a1d92bfd8b4bd9",
+      "payload": {
+        "split": "validation",
+        "arm": "combined",
+        "case_id": "c2t1",
+        "seed": 31
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "38f7cbd161ae6a004f668511f9d97dc64f5e9cd30cb1436596e7b3ebcd02f414",
+          "bytes": 557,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "64b40f06cee53b98499aafbc00bb21fa6dddde4fc6397fc159633eb51fa60440",
+          "bytes": 9223,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "f8bbc8bc6b999bbbae6d5d83699438eac24550619f1f80e2ad8e27d1195947c4",
+          "bytes": 74020,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "a5af5a64ca1a3221c0ae22700c70af23a92e2bedc2df9c63d4933aaa5177cbd1"
+    },
+    {
+      "seq": 38,
+      "event_id": "episodes/cycle-2-validate/c2t2-s31-baseline",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.238166+00:00",
+      "previous": "a5af5a64ca1a3221c0ae22700c70af23a92e2bedc2df9c63d4933aaa5177cbd1",
+      "payload": {
+        "split": "validation",
+        "arm": "baseline",
+        "case_id": "c2t2",
+        "seed": 31
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "16df1fdfa06805e4cf0e4503231ebfa8d2e5255b8390736b1573c94e57c0f0cf",
+          "bytes": 543,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "5da32dd1df66971d4c8f99240b3badb1f4e372bc5f9bcffad41f2916922d30d8",
+          "bytes": 1229,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "248ba499a92264592ce5ade3eb1b4a8451681c72f838546fe6cd74348736193e",
+          "bytes": 66675,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "d36bf62a1d21b564e14ad722011a2681e1c998b1f3c6f39963380dbf5c9d7cdb"
+    },
+    {
+      "seq": 39,
+      "event_id": "episodes/cycle-2-validate/c2t2-s31-combined",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.243776+00:00",
+      "previous": "d36bf62a1d21b564e14ad722011a2681e1c998b1f3c6f39963380dbf5c9d7cdb",
+      "payload": {
+        "split": "validation",
+        "arm": "combined",
+        "case_id": "c2t2",
+        "seed": 31
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "ca9d118c522e29f7b05fff3247488e1cfec2866113a6e8bfa35bb7da0ad096bb",
+          "bytes": 547,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "c2c09589ef78b245e71252cbded803495a93566d8d71567b7184aeddd77b7def",
+          "bytes": 9220,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "8a4b1f0adf0b5da5c8cf6c5c74c504507d7de31eed348773573070b44719854d",
+          "bytes": 237419,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "44a7cd011dd68349e1c9bdd84dc8bec97a51847ccab3dfcfb0b4b70644d6b979"
+    },
+    {
+      "seq": 40,
+      "event_id": "episodes/cycle-2-validate/c2t3-s31-baseline",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.248459+00:00",
+      "previous": "44a7cd011dd68349e1c9bdd84dc8bec97a51847ccab3dfcfb0b4b70644d6b979",
+      "payload": {
+        "split": "validation",
+        "arm": "baseline",
+        "case_id": "c2t3",
+        "seed": 31
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "da7ebed322b09e3c96e8c052d42e23a478583900e14eeaab1ebb17ca3a4356a6",
+          "bytes": 581,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "7398f9a6451112e29f4ec0093bd6f5c559089067093c3e4e91793ab79dd613d0",
+          "bytes": 1252,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "35cad73a9299ef1872819ddfb0caefabeeea736fece20f56eda36aa805e050e6",
+          "bytes": 108660,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "5f4754ad71597ad37466afaac7c655e2248d89640aa0a26be8ce3466e72cf29f"
+    },
+    {
+      "seq": 41,
+      "event_id": "episodes/cycle-2-validate/c2t3-s31-combined",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.253396+00:00",
+      "previous": "5f4754ad71597ad37466afaac7c655e2248d89640aa0a26be8ce3466e72cf29f",
+      "payload": {
+        "split": "validation",
+        "arm": "combined",
+        "case_id": "c2t3",
+        "seed": 31
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "e9558a80989eba8f0782fdd567b25dce7b10d0e040f5f94a0a832147722625d6",
+          "bytes": 581,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "8ce3dd77aed6a6fa18812ad1a9cfa89fd2e191b6e60b25d775119d27b9a4f33d",
+          "bytes": 9243,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "0b75b2210e1b98aa610cf7c08378708159aec04bc4fadb246e9d6e1a5cb17dd4",
+          "bytes": 106913,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "649565a88de6b8ade7cef86e092ca9635829052425ff8482926b941ab118613c"
+    },
+    {
+      "seq": 42,
+      "event_id": "episodes/heldout/c1t1-s101-baseline",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.258527+00:00",
+      "previous": "649565a88de6b8ade7cef86e092ca9635829052425ff8482926b941ab118613c",
+      "payload": {
+        "split": "heldout",
+        "arm": "baseline",
+        "case_id": "c1t1",
+        "seed": 101
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "ef192240adb4f7889f0fc104a06bd3c9de83c8153f7670ec04b128ccb8b48836",
+          "bytes": 568,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "7890b4651e8a986443b17bdd7b6bfc0efc5d2a5d7eac2f3aab73aaa3d7de9e6f",
+          "bytes": 973,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "abb71006570f116785b5f7bf82c80afca495e9ccf5be0f5bf7be7dcf0f44b4a8",
+          "bytes": 209365,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "dacc9f7d8bea773cb8d7e9ec3e756c0e177707e467a66e80bb12670bae71ddbd"
+    },
+    {
+      "seq": 43,
+      "event_id": "episodes/heldout/c1t1-s101-combined",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.263612+00:00",
+      "previous": "dacc9f7d8bea773cb8d7e9ec3e756c0e177707e467a66e80bb12670bae71ddbd",
+      "payload": {
+        "split": "heldout",
+        "arm": "combined",
+        "case_id": "c1t1",
+        "seed": 101
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "fa3955e1fefa503a7d29ad0d5d55ffaddff5e85b88d93259cfbe3b478604ef89",
+          "bytes": 567,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "dae817d207759583a1faa8bd9bb0a1339367f7f4b1496a5f997f01a938239d91",
+          "bytes": 8964,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "bd0dc5f3269b72bfd3b71e2c54bbb388d2ea5dd71fcbf5e306e5b66bdfa9effb",
+          "bytes": 82537,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "3b725d514f9f306c487ad1e0b3eac224c4cd837f27408902affd45a568624cc7"
+    },
+    {
+      "seq": 44,
+      "event_id": "episodes/heldout/c1t1-s101-memory",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.270612+00:00",
+      "previous": "3b725d514f9f306c487ad1e0b3eac224c4cd837f27408902affd45a568624cc7",
+      "payload": {
+        "split": "heldout",
+        "arm": "memory",
+        "case_id": "c1t1",
+        "seed": 101
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "c726fd3352371cba76d45a26a0fddf573a0ec8727d47c89d9ca1c10d65500f80",
+          "bytes": 567,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "e08ca586979837c32b987d4b2536ac4efbd2ec64e072939363f1680c54a8021b",
+          "bytes": 4763,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "18e557b0ebb394b22c7265b940215e2b038223c852146bc4d2647ca8d75dee19",
+          "bytes": 260188,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "c68c82497163959d01c32a4449bfb3f397733c61cfff2da70d20c82e88e7c59a"
+    },
+    {
+      "seq": 45,
+      "event_id": "episodes/heldout/c1t1-s101-skills",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.275928+00:00",
+      "previous": "c68c82497163959d01c32a4449bfb3f397733c61cfff2da70d20c82e88e7c59a",
+      "payload": {
+        "split": "heldout",
+        "arm": "skills",
+        "case_id": "c1t1",
+        "seed": 101
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "6b943df17a1c11c111bd2caeeb209f58b7165c8d9f1b1cc76672ece12f47ed46",
+          "bytes": 568,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "e01722931947b61cbed05fb8e18238b3484381a254a7aa3a0f2fd029d41d66d9",
+          "bytes": 5166,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "5aa2490252c5da1cc6d6475c82f5470295093996c1f8b0d2a4e58fae12775000",
+          "bytes": 189490,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "49e310a891d48475c1d5f1fe12e39d93ce6e12f8d4786229339c4e91525867e3"
+    },
+    {
+      "seq": 46,
+      "event_id": "episodes/heldout/c1t1-s102-baseline",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.281302+00:00",
+      "previous": "49e310a891d48475c1d5f1fe12e39d93ce6e12f8d4786229339c4e91525867e3",
+      "payload": {
+        "split": "heldout",
+        "arm": "baseline",
+        "case_id": "c1t1",
+        "seed": 102
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "22da61cf21988c5d605c1164694e92ce04f8036d2e961d16d7d270df36775afa",
+          "bytes": 567,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "5b28f5d5a6954ca3d5527b941b5c48c7c0b02194a4cd21716555b1674817afc7",
+          "bytes": 973,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "d06871a5786e659ad17053ce779deee1f4d3e3fac56dad61b7b8bec763c970fc",
+          "bytes": 108064,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "80c1d045709c2716eace0cce02e1430a8978a938854ce9d88df783c5d1559673"
+    },
+    {
+      "seq": 47,
+      "event_id": "episodes/heldout/c1t1-s102-combined",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.287375+00:00",
+      "previous": "80c1d045709c2716eace0cce02e1430a8978a938854ce9d88df783c5d1559673",
+      "payload": {
+        "split": "heldout",
+        "arm": "combined",
+        "case_id": "c1t1",
+        "seed": 102
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "cd11b75850083e939b695d5875b96d46a56a4da2729693f847734485437d8899",
+          "bytes": 568,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "d3adcfd38d04020e9920561e8e34e62ce15bd53c97d73b9fdb28a337a1fea5e3",
+          "bytes": 8964,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "dddddf59fb8edca5da9bd3afa4fb675af9be3a3b4b1d17c3cb266107efe7432e",
+          "bytes": 204575,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "71f93824deae293021217e44745a4c6f048aed075f787775260303bc09d3dfa7"
+    },
+    {
+      "seq": 48,
+      "event_id": "episodes/heldout/c1t1-s102-memory",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.294531+00:00",
+      "previous": "71f93824deae293021217e44745a4c6f048aed075f787775260303bc09d3dfa7",
+      "payload": {
+        "split": "heldout",
+        "arm": "memory",
+        "case_id": "c1t1",
+        "seed": 102
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "e4c2cfe0590b6ad4f414f7dd1ec9d4fa55fb217173d7e5bb9ce9cac56737b6e4",
+          "bytes": 563,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "6725b45797319e1a511f8760d91f5d978b80c09d3866a9f777fed1074dac1cc9",
+          "bytes": 4763,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "54074760fb0b2b02064b94d089631eb3c6c885ae0ec5c6ccdd4ce67224d8fddb",
+          "bytes": 220297,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "9e142ad3fe079b3c0681d2b586cf5264de28b0d986066469bb3822033a74474a"
+    },
+    {
+      "seq": 49,
+      "event_id": "episodes/heldout/c1t1-s102-skills",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.300261+00:00",
+      "previous": "9e142ad3fe079b3c0681d2b586cf5264de28b0d986066469bb3822033a74474a",
+      "payload": {
+        "split": "heldout",
+        "arm": "skills",
+        "case_id": "c1t1",
+        "seed": 102
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "dd4770d07de645f4c7b43f17de441c90564dd46e78319a77f0843564d9529c54",
+          "bytes": 561,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "d37038ea1084a9124ef567f895fc53513be93225e0b3936f1bdc78f1ddc695f5",
+          "bytes": 5166,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "4567b1054d506a007ef6ec084e7ea6d824e4355ba384fcee9aa04ed7c2c9cc1e",
+          "bytes": 83831,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "5cc3d9d46e7e819263acea9031a3ddea5183123ac932083675aaf040e6a3a773"
+    },
+    {
+      "seq": 50,
+      "event_id": "episodes/heldout/c1t2-s101-baseline",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.306365+00:00",
+      "previous": "5cc3d9d46e7e819263acea9031a3ddea5183123ac932083675aaf040e6a3a773",
+      "payload": {
+        "split": "heldout",
+        "arm": "baseline",
+        "case_id": "c1t2",
+        "seed": 101
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "79f805054e10e653b02b7dfd4f587142e6788d3a0d8abe6c77051e5d00cba80d",
+          "bytes": 551,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "c434f4717e46b6bf5eac6d8d9ec2325b635c20d771b4d0d134d812dce33ee93c",
+          "bytes": 944,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "ce694d547495fa43967158d809ed63957e10fbc9a3824ca112dd71896bc69ce3",
+          "bytes": 226752,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "c97103d1b8b45eec0950b7daa83e066f03827e0bd0d3478ddc8ab19bd6d1950a"
+    },
+    {
+      "seq": 51,
+      "event_id": "episodes/heldout/c1t2-s101-combined",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.312533+00:00",
+      "previous": "c97103d1b8b45eec0950b7daa83e066f03827e0bd0d3478ddc8ab19bd6d1950a",
+      "payload": {
+        "split": "heldout",
+        "arm": "combined",
+        "case_id": "c1t2",
+        "seed": 101
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "c1e8bd290aadd08aa9622b7ccdda2e609ce8ec599975562c36ea88211df5edb7",
+          "bytes": 549,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "a18b1f55835e63c9d0f7ae665f9ffe85092bac09223af62580685a93a80aca28",
+          "bytes": 8935,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "31455f332c561c3e74c7d520f6f00ce709b7cf5070d00277ee5fcef305af3db5",
+          "bytes": 193521,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "b692b965789c98968cec5884106884f8657f7e3c409650fe8084fd8ae2e4edea"
+    },
+    {
+      "seq": 52,
+      "event_id": "episodes/heldout/c1t2-s101-memory",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.318514+00:00",
+      "previous": "b692b965789c98968cec5884106884f8657f7e3c409650fe8084fd8ae2e4edea",
+      "payload": {
+        "split": "heldout",
+        "arm": "memory",
+        "case_id": "c1t2",
+        "seed": 101
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "ba33f8cf8c06ceb838c3d371e69f4091e8aeab95fa9cdee8529880ca3de4e973",
+          "bytes": 539,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "a1ed6ac6a368336d48d913888ec6a8a2251b6dd00355c48be43ead82d157bf5b",
+          "bytes": 4734,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "db46cbd3759854717e8f024a3ba249f7349b4d422348c43f6b6961569d7f7fd6",
+          "bytes": 6353,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "25db41481d30041ce77f2150f72259b5cd12f4c3f4c3b287ca017c7cd832d079"
+    },
+    {
+      "seq": 53,
+      "event_id": "episodes/heldout/c1t2-s101-skills",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.324540+00:00",
+      "previous": "25db41481d30041ce77f2150f72259b5cd12f4c3f4c3b287ca017c7cd832d079",
+      "payload": {
+        "split": "heldout",
+        "arm": "skills",
+        "case_id": "c1t2",
+        "seed": 101
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "0152373483ec3a94e334b0f044217270d380e1dfdc60d8d1898f6e4275b2d7bc",
+          "bytes": 539,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "4323bfcb1cb922e57a76b6574ad6294293cef64ce93ee4e9920277b9a9fb5720",
+          "bytes": 5137,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "5fe9c9aa72cb3fa96065cf1030eae64c9adbc429985f7852d09e7da79e0f6a4a",
+          "bytes": 8862,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "e8e6e74a2bc0ca02c85cc4b496955c8bfa46cceed8f1ed65208dd6f5c3496dce"
+    },
+    {
+      "seq": 54,
+      "event_id": "episodes/heldout/c1t2-s102-baseline",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.330524+00:00",
+      "previous": "e8e6e74a2bc0ca02c85cc4b496955c8bfa46cceed8f1ed65208dd6f5c3496dce",
+      "payload": {
+        "split": "heldout",
+        "arm": "baseline",
+        "case_id": "c1t2",
+        "seed": 102
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "1b398b181099dee1cd2d107c65f04f224333c02c19756b2a5f757882918bddb0",
+          "bytes": 539,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "078b61496e6730c1ea40e8397f97a2470d50d4c5b416edf22d3752f131038150",
+          "bytes": 944,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "3fd29692ff8ee20c365955a1125a4ffbca9d76fae8a235992e374edf427a7a34",
+          "bytes": 4807,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "5da692a83d1b64ab5a9841c8454debf64f05a8fa6b43f6bbeafcd6ba8e8cff32"
+    },
+    {
+      "seq": 55,
+      "event_id": "episodes/heldout/c1t2-s102-combined",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.337262+00:00",
+      "previous": "5da692a83d1b64ab5a9841c8454debf64f05a8fa6b43f6bbeafcd6ba8e8cff32",
+      "payload": {
+        "split": "heldout",
+        "arm": "combined",
+        "case_id": "c1t2",
+        "seed": 102
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "2c1d85280226c6c3e93b89967aba4bae27a0b661ee87ad4f419b17bd3d0a6339",
+          "bytes": 553,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "7253cc9e2b195bd4349d48728ec84b09557a5a8fbd66de6944f17c7631220479",
+          "bytes": 8935,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "8e548e93e2b450aac7ba304d6b05460ba8117094ce2879c655c5908e8933453b",
+          "bytes": 262268,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "e5281fb17b9dd04a325098493f6735435b44a623a9ae99a97f008c1c4de786ce"
+    },
+    {
+      "seq": 56,
+      "event_id": "episodes/heldout/c1t2-s102-memory",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.344018+00:00",
+      "previous": "e5281fb17b9dd04a325098493f6735435b44a623a9ae99a97f008c1c4de786ce",
+      "payload": {
+        "split": "heldout",
+        "arm": "memory",
+        "case_id": "c1t2",
+        "seed": 102
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "2cc84daf5f48d42b39a3e69b4a943bb290511fa3f9f4289225b51f37c2e74f58",
+          "bytes": 550,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "7a5f246d58cbd6bc68f64c0e1cd411afcb92ed96e8564bce5dada24784d43ca2",
+          "bytes": 4734,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "aa8d9cffd7ecb4e5d25cb9c190a83a249e1d6f4766106c5c60019d81ef98c87c",
+          "bytes": 201010,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "c039d8f19b134e27870f0eaada2dcc4ac741229c16a48b3ea4f1ecf47553b972"
+    },
+    {
+      "seq": 57,
+      "event_id": "episodes/heldout/c1t2-s102-skills",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.351427+00:00",
+      "previous": "c039d8f19b134e27870f0eaada2dcc4ac741229c16a48b3ea4f1ecf47553b972",
+      "payload": {
+        "split": "heldout",
+        "arm": "skills",
+        "case_id": "c1t2",
+        "seed": 102
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "3b99164119126fa051813bb44035c4901f8051138a3d0498055874f9c9707602",
+          "bytes": 552,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "b4e6d87bb4f37d0006e31bdc681d7179cf8a4f4954b73abf746092c54f4d37d3",
+          "bytes": 5137,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "4a5b784e7e076681ed784a8d4818b8ede1b51264f12c95a52d110e14ef15bc29",
+          "bytes": 259461,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "5550f853eba8341844f4e7da96a34da6ab740fc712dc187fb5acf7b750e358da"
+    },
+    {
+      "seq": 58,
+      "event_id": "episodes/heldout/c1t3-s101-combined",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.358021+00:00",
+      "previous": "5550f853eba8341844f4e7da96a34da6ab740fc712dc187fb5acf7b750e358da",
+      "payload": {
+        "split": "heldout",
+        "arm": "combined",
+        "case_id": "c1t3",
+        "seed": 101
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "1fa01c97d1847142c4e5a92795e3a6edb0fdb61f2821e79027ddce1e63fc7a59",
+          "bytes": 552,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "54e3a74f411199b3e7a79cd1dcc0ce6c319534abeb7a35b94e60d1920f8b34b1",
+          "bytes": 8975,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "a07b538bcd53a771e50c811b3df900e4dc267491757cf2653b0a524aa182752e",
+          "bytes": 8254,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "b996d50515a402096ef0e49264d5848932123d067fea5afd520f22dbb1bed7cd"
+    },
+    {
+      "seq": 59,
+      "event_id": "episodes/heldout/c1t3-s101-memory",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T07:56:44.365001+00:00",
+      "previous": "b996d50515a402096ef0e49264d5848932123d067fea5afd520f22dbb1bed7cd",
+      "payload": {
+        "split": "heldout",
+        "arm": "memory",
+        "case_id": "c1t3",
+        "seed": 101
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "b807ed38ca306c503b8fe3acf9afa82e9a5dcec82b615fbf880924cd736063c7",
+          "bytes": 551,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "2565cde1d78a9de8d219b41b04cb154dc67642de152a07f4a4b096fc89ce41a0",
+          "bytes": 4774,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "432439ba5469e67051f2a8b36750b2c47da8c3d5177b06b96567414037783a3a",
+          "bytes": 6121,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "2911919dbc660c0ff3d148ffe87caf38e9c5813b26f7f0ed9cfd50b3045c6fc8"
+    },
+    {
+      "seq": 60,
+      "event_id": "episodes/heldout/c1t3-s101-baseline",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:03:31.347885+00:00",
+      "previous": "2911919dbc660c0ff3d148ffe87caf38e9c5813b26f7f0ed9cfd50b3045c6fc8",
+      "payload": {
+        "split": "heldout",
+        "arm": "baseline",
+        "case_id": "c1t3",
+        "seed": 101
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "662529e0babb6a6f061ccff168c9fc05132434281b6dc848a3fefda15471e0f7",
+          "bytes": 562,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "2208b34242209fa29f4f2aacf816a14927f7f3776bc1e124f8cb76b24bd4603e",
+          "bytes": 984,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "40280d994c3c61558e8d9d26de739a1a833f25ccb339004fc9df663069e2a284",
+          "bytes": 147713,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "57894899744bfb6c5ee68c22213f162144c4f8d69530eaf0f13a4be82aa87f8f"
+    },
+    {
+      "seq": 61,
+      "event_id": "episodes/heldout/c1t3-s101-skills",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:03:31.369581+00:00",
+      "previous": "57894899744bfb6c5ee68c22213f162144c4f8d69530eaf0f13a4be82aa87f8f",
+      "payload": {
+        "split": "heldout",
+        "arm": "skills",
+        "case_id": "c1t3",
+        "seed": 101
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "ec77b2d5ad5087bd34a0ff1c78901c4cb5958ba84e60fc2b6100610cacab54e8",
+          "bytes": 568,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "73268f1e53da6802b8134e15482a2188e8171aa716a1541b2b4e420e064ad684",
+          "bytes": 5177,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "c50123d2fa381197c12f263f97836d52ebb0c74b9afc1f46e82a6e063e28307f",
+          "bytes": 177701,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "e78b491444ad49aad88479d8b5198f4dce3c65252bd06ba80d1a0adebd7fe537"
+    },
+    {
+      "seq": 62,
+      "event_id": "episodes/heldout/c1t3-s102-baseline",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:03:31.376546+00:00",
+      "previous": "e78b491444ad49aad88479d8b5198f4dce3c65252bd06ba80d1a0adebd7fe537",
+      "payload": {
+        "split": "heldout",
+        "arm": "baseline",
+        "case_id": "c1t3",
+        "seed": 102
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "084dca27a4304806c48201563f177d59f37d384191b7f0d3bcebc573043ce6da",
+          "bytes": 561,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "e1a389b54270bd3dc1d737baa6ca29f7c70e7046f85cc9e4571a03025213104b",
+          "bytes": 984,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "98f8e833532ab424542a4bb3fcc0ff01f9bbd5260d71d419dfaae2752c9a58e7",
+          "bytes": 115965,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "edc220396ab406668a02080f252d74405b88e033ae6a806619485a9628b2c12f"
+    },
+    {
+      "seq": 63,
+      "event_id": "episodes/heldout/c1t3-s102-combined",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:03:31.384839+00:00",
+      "previous": "edc220396ab406668a02080f252d74405b88e033ae6a806619485a9628b2c12f",
+      "payload": {
+        "split": "heldout",
+        "arm": "combined",
+        "case_id": "c1t3",
+        "seed": 102
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "08db5ef4ec070d6c54ac8f0620a9497fcd6ad2d5c7610aaa5254fef09b2248da",
+          "bytes": 567,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "ec941ba5f225b31bdfdac0e6c285c9700e452bd3e9c050a7549d957dd8eabe41",
+          "bytes": 8975,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "8cc4295b72e309f3f84e1180c417df14ce88a5eb6eed2be9c6d5c6d028c34b3d",
+          "bytes": 243110,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "701410407b04d0900c688639e4f6983c6e22e99c35f658e0b4d34707ab99203e"
+    },
+    {
+      "seq": 64,
+      "event_id": "episodes/heldout/c1t3-s102-memory",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:03:31.392554+00:00",
+      "previous": "701410407b04d0900c688639e4f6983c6e22e99c35f658e0b4d34707ab99203e",
+      "payload": {
+        "split": "heldout",
+        "arm": "memory",
+        "case_id": "c1t3",
+        "seed": 102
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "45af0d17986b0018852ffc5bd5e5ebbd5137fc9072afaa96dbbd3606e778fe44",
+          "bytes": 568,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "87957fb172d8887e9e9076ea632925dc5f0e43c432a9fd3770312b112d1ddcfe",
+          "bytes": 4774,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "739f97a900b0ffbaa46e57d778c2a9bc5d2bdc406673ebdd61a848bcab83962a",
+          "bytes": 224235,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "ecb50ac86dc76e3c97bb9058b580d48511eb7a6cdbc4c16857f35d6ec30b69b0"
+    },
+    {
+      "seq": 65,
+      "event_id": "episodes/heldout/c1t3-s102-skills",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:03:31.399797+00:00",
+      "previous": "ecb50ac86dc76e3c97bb9058b580d48511eb7a6cdbc4c16857f35d6ec30b69b0",
+      "payload": {
+        "split": "heldout",
+        "arm": "skills",
+        "case_id": "c1t3",
+        "seed": 102
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "f953629f2efa4f8bc7ccf6f319ea29510b21d76c4270d20086e9e5ce85e44131",
+          "bytes": 552,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "611482c3ddd85df6c608522fd099e5848420f0a8ed674d337e6dde1991d0de8b",
+          "bytes": 5177,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "83524188056acbed3af4c8bd854a04880d41102219ea3c7fc7eddbd8dcdb1343",
+          "bytes": 7062,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "e8118c0d226cedbc0291e59d2601562695a2f02d1f14a16c580685c21c2a0a41"
+    },
+    {
+      "seq": 66,
+      "event_id": "episodes/heldout/c2t1-s101-baseline",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:03:31.408106+00:00",
+      "previous": "e8118c0d226cedbc0291e59d2601562695a2f02d1f14a16c580685c21c2a0a41",
+      "payload": {
+        "split": "heldout",
+        "arm": "baseline",
+        "case_id": "c2t1",
+        "seed": 101
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "2882e13a652c95abe0a67211d55fb1ad972146f7931e6ba5fd9bd0f23cfac8ba",
+          "bytes": 562,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "a2a545ff53044cae38f370f959cfa123c98e6b754c200f0e9a667a6039775fa7",
+          "bytes": 1222,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "a69823472b0c15b0c260fde1940470330df1d2fdc67750b32b7f410025af2b80",
+          "bytes": 228393,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "bb8d6572400301cb70edd103650c3f8c692318e8910c5161172280f02ed13d33"
+    },
+    {
+      "seq": 67,
+      "event_id": "episodes/heldout/c2t1-s101-combined",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:03:31.415940+00:00",
+      "previous": "bb8d6572400301cb70edd103650c3f8c692318e8910c5161172280f02ed13d33",
+      "payload": {
+        "split": "heldout",
+        "arm": "combined",
+        "case_id": "c2t1",
+        "seed": 101
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "cc000867833fd7711d51c369353ead5307e940782ae4aac698ff19f26df0d8ce",
+          "bytes": 562,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "74ca119e09bb4bfe4b3d9975f1bc897c8de68df083acc61e93e4c78b0318ae96",
+          "bytes": 9213,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "7f46520c4e25b7e2eb6f1ef86c624638d4d0fc4f220fb18b83df346ffe8ef288",
+          "bytes": 230338,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "a35ada77ca30a439015ef9d7b2f5ee65699f1e3b6e4a206710cd689b61494942"
+    },
+    {
+      "seq": 68,
+      "event_id": "episodes/heldout/c2t1-s101-memory",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:03:31.425416+00:00",
+      "previous": "a35ada77ca30a439015ef9d7b2f5ee65699f1e3b6e4a206710cd689b61494942",
+      "payload": {
+        "split": "heldout",
+        "arm": "memory",
+        "case_id": "c2t1",
+        "seed": 101
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "bece683e2a949dd608ebc918bde62ee22a3e25994829e46ee8a17b9623031c87",
+          "bytes": 560,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "63f5a3d402f1996563822d8c0ded85c99c51058f0a07d6a71a952ea3a4629ec3",
+          "bytes": 5012,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "e7df20dd33905179c61fc6c5994b78b4229c8fd938f15ecf5e0145d1bde02e85",
+          "bytes": 221336,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "7ae45e5b15bce7e587c93924cb6433a0c08be9dc31f1208ac5e173e1e14bafd3"
+    },
+    {
+      "seq": 69,
+      "event_id": "episodes/heldout/c2t1-s101-skills",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:03:31.433398+00:00",
+      "previous": "7ae45e5b15bce7e587c93924cb6433a0c08be9dc31f1208ac5e173e1e14bafd3",
+      "payload": {
+        "split": "heldout",
+        "arm": "skills",
+        "case_id": "c2t1",
+        "seed": 101
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "722c82e44015995ed617758a9acf1a310a32447d71d6295923ff83612e452cd9",
+          "bytes": 562,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "4d9511c3eae81aeb0070a4ae9a006f0c9f47f429b5a81adfe6b74653b440b86d",
+          "bytes": 5415,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "a75a42b82d0acbd4e352c8406a35f394fa4df063b59e17f6ba0d28cb1216e302",
+          "bytes": 239388,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "554042bce4f0987f39a77af562fe0f9e91aee0f7e1289b9c7251ed079b88fe93"
+    },
+    {
+      "seq": 70,
+      "event_id": "episodes/heldout/c2t1-s102-memory",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:03:31.442365+00:00",
+      "previous": "554042bce4f0987f39a77af562fe0f9e91aee0f7e1289b9c7251ed079b88fe93",
+      "payload": {
+        "split": "heldout",
+        "arm": "memory",
+        "case_id": "c2t1",
+        "seed": 102
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "324746c03e9943f229d779b82efc78517c1a778967e97a97979670f6e26479cb",
+          "bytes": 559,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "fa963b61552a0c7aa4c9f18e8d3a23380c3bd080bcf21eeb75da53fd634d0647",
+          "bytes": 5012,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "9b515643154bb587a3d8fe192d43b455d8aeb79c974a6fb02d74c5702ad8c49e",
+          "bytes": 226004,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "b7cc4199fe08cca4497942151d8407e5b9fef0e1b58de25795e9d0395d51a0d8"
+    },
+    {
+      "seq": 71,
+      "event_id": "episodes/heldout/c2t1-s102-skills",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:03:31.450279+00:00",
+      "previous": "b7cc4199fe08cca4497942151d8407e5b9fef0e1b58de25795e9d0395d51a0d8",
+      "payload": {
+        "split": "heldout",
+        "arm": "skills",
+        "case_id": "c2t1",
+        "seed": 102
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "f42cdfa34af3b96472b154f85b29d4badf5383941e80b82688f3431320c23189",
+          "bytes": 554,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "f43612910e01dd8840e226c6f294944d53d6ca78f365292c3a87be7629896539",
+          "bytes": 5415,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "04d9c08b4f85d243bcbd9e3300fac34ba8608de6355a9935ed71033e9c45e344",
+          "bytes": 57878,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "63b10a7e3fde2f45344ae1e394daf41bc465740b7372cce13bfc69082008dbd5"
+    },
+    {
+      "seq": 72,
+      "event_id": "episodes/heldout/c2t1-s102-baseline",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:06:42.258343+00:00",
+      "previous": "63b10a7e3fde2f45344ae1e394daf41bc465740b7372cce13bfc69082008dbd5",
+      "payload": {
+        "split": "heldout",
+        "arm": "baseline",
+        "case_id": "c2t1",
+        "seed": 102
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "87f029aa83d65b2f1052881336d0f76d9eb36923b7cd3f32cb4d3211651039ff",
+          "bytes": 562,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "bb21a1951b2956d7e935f3d90aa8f40a7dc3ed5d2270355f67be187ea075324c",
+          "bytes": 1222,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "0fc4e81faaaadc099c02e41a01ae051af94a5e3a410bc86f77fbc2dabd513eae",
+          "bytes": 245128,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "5e6081c259cc794a2a763d67b29dca7df5f7b0fae843d1db5981003233f3fbd2"
+    },
+    {
+      "seq": 73,
+      "event_id": "episodes/heldout/c2t1-s102-combined",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:06:42.277665+00:00",
+      "previous": "5e6081c259cc794a2a763d67b29dca7df5f7b0fae843d1db5981003233f3fbd2",
+      "payload": {
+        "split": "heldout",
+        "arm": "combined",
+        "case_id": "c2t1",
+        "seed": 102
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "b71f504003718822a7b8fdd9cfac2c8dadaefe9312be206a40b4cc37ab74e6be",
+          "bytes": 561,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "b6505e239ed5b99e526fa9a908cc9ac3c20fa7a4c50d9f572f447ac72b75fea4",
+          "bytes": 9213,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "e2e54384ae6943a4f627d1b323b7352d3b7f91c30562d2ac8d1e23dbc9f3e918",
+          "bytes": 227404,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "67cdd22cc6b8648d766791d5895598c2bae2d5be0d81a33aee1c17f7e1217adc"
+    },
+    {
+      "seq": 74,
+      "event_id": "episodes/heldout/c2t2-s101-baseline",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:06:42.304484+00:00",
+      "previous": "67cdd22cc6b8648d766791d5895598c2bae2d5be0d81a33aee1c17f7e1217adc",
+      "payload": {
+        "split": "heldout",
+        "arm": "baseline",
+        "case_id": "c2t2",
+        "seed": 101
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "b1e019371dbbb73e332abec3619c1577330f7460fcc9099b94d53f55e233481d",
+          "bytes": 544,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "d505fe61a8ef049cc889db962fb972d87e88bcb2c6aed2b85883d488012d062d",
+          "bytes": 1219,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "7961e223ba43107aef739ad5e605c3c3a85eefa8ca312540d73aa143e2e60f8f",
+          "bytes": 91391,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "c6238397a822185d9421a7e02d4062d71eaed13544adab74b644d864e75ed32d"
+    },
+    {
+      "seq": 75,
+      "event_id": "episodes/heldout/c2t2-s101-combined",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:06:42.313628+00:00",
+      "previous": "c6238397a822185d9421a7e02d4062d71eaed13544adab74b644d864e75ed32d",
+      "payload": {
+        "split": "heldout",
+        "arm": "combined",
+        "case_id": "c2t2",
+        "seed": 101
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "9594877a6fdad8148d43d95582fd86701f4d7b3f18b2ba9378b4af795f899907",
+          "bytes": 537,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "bce1d81aa93cbda4ffae72d90df5f96ebed0e60cedcff4157d2cb2454d88f177",
+          "bytes": 9210,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "babb678560781790d062e511dfe6c7b0fa5fbbbbd9c332fe01627ba6fd2d147c",
+          "bytes": 60355,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "b991233be08f585b708804b28286ed4d234fb22ea41e1dda731d5aa068595329"
+    },
+    {
+      "seq": 76,
+      "event_id": "episodes/heldout/c2t2-s101-memory",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:06:42.322942+00:00",
+      "previous": "b991233be08f585b708804b28286ed4d234fb22ea41e1dda731d5aa068595329",
+      "payload": {
+        "split": "heldout",
+        "arm": "memory",
+        "case_id": "c2t2",
+        "seed": 101
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "2f19ded1949aa7ef2b9f459c5ecea4936b8078f26d74bab9a4bbd3d6936a0832",
+          "bytes": 540,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "08a62273832a681de17b6a66669a667813e54e86999fbf2b2c705079157df41c",
+          "bytes": 5009,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "56f42a0e31b0afa83d78db554335592532025f44cf1ba6c1b43c833fe6365962",
+          "bytes": 118907,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "041d421a75122631c13a50c0451e2fe657c877e0e97a59fda2982c2e72f095b7"
+    },
+    {
+      "seq": 77,
+      "event_id": "episodes/heldout/c2t2-s101-skills",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:06:42.332979+00:00",
+      "previous": "041d421a75122631c13a50c0451e2fe657c877e0e97a59fda2982c2e72f095b7",
+      "payload": {
+        "split": "heldout",
+        "arm": "skills",
+        "case_id": "c2t2",
+        "seed": 101
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "811beba951c53ef5bf4a91b30ac8653adcb630fb567af2241775c70045d1b359",
+          "bytes": 540,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "17d3df5fef83fc7e4e7e34fa78fe97e20b6cb30047963db033e6947660b44fbd",
+          "bytes": 5412,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "ecbe8c85685c6daf2b4618b059e26efab96cececa666aa45f285c807660cd95a",
+          "bytes": 90874,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "dae94215b37f43ba124ded361b10288cdb8e2f154bdf8ec3339b1bfbb7c4575b"
+    },
+    {
+      "seq": 78,
+      "event_id": "episodes/heldout/c2t2-s102-baseline",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:06:42.342008+00:00",
+      "previous": "dae94215b37f43ba124ded361b10288cdb8e2f154bdf8ec3339b1bfbb7c4575b",
+      "payload": {
+        "split": "heldout",
+        "arm": "baseline",
+        "case_id": "c2t2",
+        "seed": 102
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "cfda73a06479a3b1dadb754d70446d3c1c19366087485207e64a167786a978b9",
+          "bytes": 529,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "970a898a6c81c798b7280d612dd6c214dfc23ef8c4afab52eb5a1df6f623e7ea",
+          "bytes": 1219,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "bd786d8faf4b42289aa8cb60f50e1baefa1cef5cf5136d9b0c66227a12143165",
+          "bytes": 4821,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "de7337c4589eb5a5a51ccef7c43880d0054569fbf2e2d3961bd42f7ac062608e"
+    },
+    {
+      "seq": 79,
+      "event_id": "episodes/heldout/c2t2-s102-combined",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:12:40.954818+00:00",
+      "previous": "de7337c4589eb5a5a51ccef7c43880d0054569fbf2e2d3961bd42f7ac062608e",
+      "payload": {
+        "split": "heldout",
+        "arm": "combined",
+        "case_id": "c2t2",
+        "seed": 102
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "59599a7ac25285a91cb6e94965653f215a8a88a665737324121bbba72b246f5c",
+          "bytes": 539,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "bc2f60c3a24baa7e505ea9098eccd6fef6dbe46043af5a349a205886264456ac",
+          "bytes": 9210,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "3256af0dbd5662be4e855913570067f4ec7f5a0745342c53317d40f05f00bd71",
+          "bytes": 197873,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "4daad2d806913f7b89359201cc3efcd7fb7a3434f3b8d10866e2b1371468259d"
+    },
+    {
+      "seq": 80,
+      "event_id": "episodes/heldout/c2t2-s102-memory",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:12:40.964817+00:00",
+      "previous": "4daad2d806913f7b89359201cc3efcd7fb7a3434f3b8d10866e2b1371468259d",
+      "payload": {
+        "split": "heldout",
+        "arm": "memory",
+        "case_id": "c2t2",
+        "seed": 102
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "c4565662922084885c770364b5f90bd73eb10acef59592877326872c07732e11",
+          "bytes": 546,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "8adc7e3f026335077151d6f97e2f0e28836297c5eb800048945883b705c40edf",
+          "bytes": 5009,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "a46ba1e248bad2acc09360451238a1256c43046c44785449cb3d321a853e192f",
+          "bytes": 136201,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "bb4aa69ed316102f8e047a4596ffc00993790d9cb6dfc40737a269abd9aa9b5c"
+    },
+    {
+      "seq": 81,
+      "event_id": "episodes/heldout/c2t2-s102-skills",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:12:40.974755+00:00",
+      "previous": "bb4aa69ed316102f8e047a4596ffc00993790d9cb6dfc40737a269abd9aa9b5c",
+      "payload": {
+        "split": "heldout",
+        "arm": "skills",
+        "case_id": "c2t2",
+        "seed": 102
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "ebf32eda38885f12dbf56bfe39275c2f4f8bb15d0e4c3fd9a06c3b100fc26550",
+          "bytes": 545,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "e9dbdcd3bafa715ed9d0824000ab18384d84edaa05c28d1e8174ae3b1c0902e6",
+          "bytes": 5412,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "7fe6f69e1c21f5f34510b1dd2aaa1ab10d064deba8e81c20c2bca0ee1bec9ab3",
+          "bytes": 240709,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "d62d0c11848b30999d7ccde867d9d23be5649af4d0ae87970c9a6e813b2c1bbb"
+    },
+    {
+      "seq": 82,
+      "event_id": "episodes/heldout/c2t3-s101-baseline",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:12:40.985498+00:00",
+      "previous": "d62d0c11848b30999d7ccde867d9d23be5649af4d0ae87970c9a6e813b2c1bbb",
+      "payload": {
+        "split": "heldout",
+        "arm": "baseline",
+        "case_id": "c2t3",
+        "seed": 101
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "96bc13b5209c1bec091b96b33bf83da1b1d315b420e7ca15e9d02da249dab5f0",
+          "bytes": 580,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "642213ba82b9da693ed4e13c6c84fe61e6caae7bea52cec340a78495aa9fead6",
+          "bytes": 1242,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "3b44716467f546e6697c620745dadc0f652676d76cc085c7de588331ca62db9c",
+          "bytes": 125112,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "04f0be84d0eb8c0e7107ebab976bbb737a4be0998e0aec5c378ac4b152b459c5"
+    },
+    {
+      "seq": 83,
+      "event_id": "episodes/heldout/c2t3-s101-combined",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:12:40.995877+00:00",
+      "previous": "04f0be84d0eb8c0e7107ebab976bbb737a4be0998e0aec5c378ac4b152b459c5",
+      "payload": {
+        "split": "heldout",
+        "arm": "combined",
+        "case_id": "c2t3",
+        "seed": 101
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "f6c2303781f11cd0de628c45ac0f34ff96b3cf70d3d4b15a3f5de7319609ee00",
+          "bytes": 583,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "3f8300cc8cc697ba8d13677ad9bfeff04148258cd422fd330e7b0d9406ed9eb0",
+          "bytes": 9233,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "eda41d2d4aec2f8cc9e883c01168a57e03606c744008472f407dbe380b9b2a92",
+          "bytes": 244751,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "8401f2715b387c4530e683e2ed1a760d9324aea6f3845e0790b625bf21f9ef76"
+    },
+    {
+      "seq": 84,
+      "event_id": "episodes/heldout/c2t3-s101-memory",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:12:41.006946+00:00",
+      "previous": "8401f2715b387c4530e683e2ed1a760d9324aea6f3845e0790b625bf21f9ef76",
+      "payload": {
+        "split": "heldout",
+        "arm": "memory",
+        "case_id": "c2t3",
+        "seed": 101
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "b74090fe9cf1a88f61b3837ac87a005d97d8764a4b3c4afd40af9f0d2d595cf6",
+          "bytes": 583,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "5a590f0f226c3899479198d799c0234559de3653b814f84602cbf1b3c6b89d0d",
+          "bytes": 5032,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "dacc49af68456cf4d953210bc322e983addfd18d3d2f58b4d94c0e35446103e8",
+          "bytes": 238608,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "cffa7646dd4597bc0d0d485f1fb0ecec8181dd198697f0eb2e40e738fc3273e8"
+    },
+    {
+      "seq": 85,
+      "event_id": "episodes/heldout/c2t3-s101-skills",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:12:41.018357+00:00",
+      "previous": "cffa7646dd4597bc0d0d485f1fb0ecec8181dd198697f0eb2e40e738fc3273e8",
+      "payload": {
+        "split": "heldout",
+        "arm": "skills",
+        "case_id": "c2t3",
+        "seed": 101
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "0bb6a4d489064788b1b711f92f7ca31c5fe095136162bc0802b42c65ebd01d5f",
+          "bytes": 570,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "92af49c2af4bf62748198716639c50279aec74e4b63d42d32d62f4c099fb9603",
+          "bytes": 5435,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "5861e192154c5ec2763b3111bea8d2bed48ae030505632abdc46b3b8cf7d63ff",
+          "bytes": 8646,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "29529a9f198d0fcb41b4cd4147ab6241ebab86fd80054fe51c5adfe6715da0b4"
+    },
+    {
+      "seq": 86,
+      "event_id": "episodes/heldout/c2t3-s102-combined",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:12:41.030512+00:00",
+      "previous": "29529a9f198d0fcb41b4cd4147ab6241ebab86fd80054fe51c5adfe6715da0b4",
+      "payload": {
+        "split": "heldout",
+        "arm": "combined",
+        "case_id": "c2t3",
+        "seed": 102
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "65d58fb8d106ef0d3ab2d59fdce967ee5e47dcbbd637ebbda7dc4e6a3c42af7f",
+          "bytes": 584,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "93bb2b858b82a3099e9739b8803d76ef399cf3eadd8ba652d3af0d951bade0a7",
+          "bytes": 9233,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "c345d3505eb0c0881e807743bf31ca7da8c85fff63bb211f980aa87720cbef71",
+          "bytes": 243438,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "4ffa5bd8f3f7109f3c7564bbcf5729d5b8f4008edc9f693bdc205cd2ad41560a"
+    },
+    {
+      "seq": 87,
+      "event_id": "episodes/heldout/c2t3-s102-memory",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:12:41.042535+00:00",
+      "previous": "4ffa5bd8f3f7109f3c7564bbcf5729d5b8f4008edc9f693bdc205cd2ad41560a",
+      "payload": {
+        "split": "heldout",
+        "arm": "memory",
+        "case_id": "c2t3",
+        "seed": 102
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "1eb6b959713fc8ea2ce615abc791e1c8041fe74d0d85c9a387dc3a813eccb264",
+          "bytes": 577,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "a4adc7a366d6378c7b90c0aecf7a9c16c030a43248796eedf44433300fbaa5c2",
+          "bytes": 5032,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "3b8f44758c458a582a94080421ae4a5c6bbacafcb969cf950130fae247a0e5d5",
+          "bytes": 32161,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "007fd549b0f616028ec1b50785126048dee28a5ff05feec98be5edc27f751acb"
+    },
+    {
+      "seq": 88,
+      "event_id": "episodes/heldout/c2t3-s102-skills",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:12:41.054265+00:00",
+      "previous": "007fd549b0f616028ec1b50785126048dee28a5ff05feec98be5edc27f751acb",
+      "payload": {
+        "split": "heldout",
+        "arm": "skills",
+        "case_id": "c2t3",
+        "seed": 102
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "7bb9c2cafc318206ffeac95be31b8b7198d6e3a18d8fb72c5cb13f29ed67db03",
+          "bytes": 586,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "dfd1bd460f5c6b79a6c29dea588a7b08e3029986f44387f8bb8fbe49f1a7203f",
+          "bytes": 5435,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "67b921f51ea0543de1652653892246e9fe8dee13341bdce16b27d10ea8196384",
+          "bytes": 211826,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "b079c4de0daae7d030ac39447d06b700e76d3b99f1e1a72a2d741753aaeb8b7e"
+    },
+    {
+      "seq": 89,
+      "event_id": "specialist/click_bell",
+      "kind": "tool_diagnostic",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:12:41.071161+00:00",
+      "previous": "b079c4de0daae7d030ac39447d06b700e76d3b99f1e1a72a2d741753aaeb8b7e",
+      "payload": {
+        "run": "click_bell",
+        "scope": "separate_tool_diagnostic_not_RSI_gain",
+        "status": "infrastructure_error",
+        "success": false,
+        "environment_success": false,
+        "control_ticks": 0
+      },
+      "artifacts": {
+        "trace": {
+          "sha256": "f0d5d0d8f4048857a58f5aabadffd100045747cd5ba6404808d221a62bcb5007",
+          "bytes": 4845,
+          "media_type": "application/x-ndjson"
+        },
+        "summary": {
+          "sha256": "b75ef54a7fad46a96ed201a90868638185ca0c19dfce51b99865ef782b752960",
+          "bytes": 524,
+          "media_type": "application/json"
+        }
+      },
+      "hash": "264cf8994463e80546c8a14844429def4bbd681100c86abb69fd8ac0e70e7c69"
+    },
+    {
+      "seq": 90,
+      "event_id": "specialist/inference-repaired/click_bell",
+      "kind": "tool_diagnostic",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:12:41.081189+00:00",
+      "previous": "264cf8994463e80546c8a14844429def4bbd681100c86abb69fd8ac0e70e7c69",
+      "payload": {
+        "run": "inference-repaired/click_bell",
+        "scope": "separate_tool_diagnostic_not_RSI_gain",
+        "status": "no_final_summary_preserved"
+      },
+      "artifacts": {
+        "trace": {
+          "sha256": "3cd3f716d3a808941869e91d56a0ce9399b1ee949d603c3b8b88967a0492a5c7",
+          "bytes": 28306,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "7759daeaf6f5e598165473f2682abfba8b0bc8b5ca629350fca9a40c534214f6"
+    },
+    {
+      "seq": 91,
+      "event_id": "specialist/open_microwave",
+      "kind": "tool_diagnostic",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:12:41.091787+00:00",
+      "previous": "7759daeaf6f5e598165473f2682abfba8b0bc8b5ca629350fca9a40c534214f6",
+      "payload": {
+        "run": "open_microwave",
+        "scope": "separate_tool_diagnostic_not_RSI_gain",
+        "status": "infrastructure_error",
+        "success": false,
+        "environment_success": false,
+        "control_ticks": 0
+      },
+      "artifacts": {
+        "trace": {
+          "sha256": "b926c0b16a09b8b01cc7500942eb6bde236f3c3a44405e9e41d52eaaefa100f5",
+          "bytes": 4843,
+          "media_type": "application/x-ndjson"
+        },
+        "summary": {
+          "sha256": "cc827bf116c6a81aab1ac814ada18cbce1449d8630042b6feae41bcb02e34aea",
+          "bytes": 522,
+          "media_type": "application/json"
+        }
+      },
+      "hash": "32f3144c65c8b9dda834152ae32b328b14dc16a973f52f38c6a15a5db9811e0b"
+    },
+    {
+      "seq": 92,
+      "event_id": "specialist/raster/click_bell",
+      "kind": "tool_diagnostic",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:12:41.102470+00:00",
+      "previous": "32f3144c65c8b9dda834152ae32b328b14dc16a973f52f38c6a15a5db9811e0b",
+      "payload": {
+        "run": "raster/click_bell",
+        "scope": "separate_tool_diagnostic_not_RSI_gain",
+        "status": "infrastructure_error",
+        "success": false,
+        "environment_success": true,
+        "control_ticks": 90
+      },
+      "artifacts": {
+        "trace": {
+          "sha256": "5eb087ae9136d609ba92f8f6727ef4494b03744c8558a56d6a0c9a6d94945865",
+          "bytes": 129462,
+          "media_type": "application/x-ndjson"
+        },
+        "summary": {
+          "sha256": "09ed3cda95efc9491dbe7fa01576f06b57d802681a917d52c64660b5d0b5923c",
+          "bytes": 531,
+          "media_type": "application/json"
+        }
+      },
+      "hash": "bccb5850d718d0058875299a24628081d783da7501b8122c9d249c838d02950f"
+    },
+    {
+      "seq": 93,
+      "event_id": "specialist/raster/open_microwave",
+      "kind": "tool_diagnostic",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:12:41.113415+00:00",
+      "previous": "bccb5850d718d0058875299a24628081d783da7501b8122c9d249c838d02950f",
+      "payload": {
+        "run": "raster/open_microwave",
+        "scope": "separate_tool_diagnostic_not_RSI_gain",
+        "status": "decision_budget_exhausted",
+        "success": false,
+        "environment_success": false,
+        "control_ticks": 220
+      },
+      "artifacts": {
+        "trace": {
+          "sha256": "d3147fccb4f286b4a550034763ac501d2e48477bec708aaa4d4d9a1b2d70cf2d",
+          "bytes": 234135,
+          "media_type": "application/x-ndjson"
+        },
+        "summary": {
+          "sha256": "5f34f3e4c7162b205e9a3136407eedc04d62b797b74c843f92bd524d17c5d2e3",
+          "bytes": 536,
+          "media_type": "application/json"
+        }
+      },
+      "hash": "4ba4051625f3dffa45446270614184039d458ed16e10844b964aa7b48ba28710"
+    },
+    {
+      "seq": 94,
+      "event_id": "specialist/repaired/click_bell",
+      "kind": "tool_diagnostic",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:12:41.124354+00:00",
+      "previous": "4ba4051625f3dffa45446270614184039d458ed16e10844b964aa7b48ba28710",
+      "payload": {
+        "run": "repaired/click_bell",
+        "scope": "separate_tool_diagnostic_not_RSI_gain",
+        "status": "infrastructure_error",
+        "success": false,
+        "environment_success": false,
+        "control_ticks": 0
+      },
+      "artifacts": {
+        "trace": {
+          "sha256": "dd592c6c9ba0ec1b3abed01aafc32ff1f5965356d6b0d8a01cb42433b2f51f4e",
+          "bytes": 8148,
+          "media_type": "application/x-ndjson"
+        },
+        "summary": {
+          "sha256": "e511e61eb7abec07d0a7e292ce80fff414ca750a4da509ecb0ea02cb25da87d7",
+          "bytes": 528,
+          "media_type": "application/json"
+        }
+      },
+      "hash": "f581f5d39ceab5f5a78a2e0845b2ca89120ff4d06ea723e0c12be1e7322a5580"
+    },
+    {
+      "seq": 95,
+      "event_id": "specialist/repaired/open_microwave",
+      "kind": "tool_diagnostic",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:12:41.135271+00:00",
+      "previous": "f581f5d39ceab5f5a78a2e0845b2ca89120ff4d06ea723e0c12be1e7322a5580",
+      "payload": {
+        "run": "repaired/open_microwave",
+        "scope": "separate_tool_diagnostic_not_RSI_gain",
+        "status": "infrastructure_error",
+        "success": false,
+        "environment_success": false,
+        "control_ticks": 0
+      },
+      "artifacts": {
+        "trace": {
+          "sha256": "2115c7b240d11d70268e32ac89b5e65e51bf1b9956063904aaac831ed2ab7ed4",
+          "bytes": 8805,
+          "media_type": "application/x-ndjson"
+        },
+        "summary": {
+          "sha256": "c3aec29d6b5c7b98586a2dad9ecd54ced9b9c737eea35160640a4d0e3e69f70d",
+          "bytes": 527,
+          "media_type": "application/json"
+        }
+      },
+      "hash": "7d2424dcecf71e6a09cb6cb4e0b20c8d52c32d4e9ca2e1d7bd5e9db83152ccfd"
+    },
+    {
+      "seq": 96,
+      "event_id": "engineering/1ff32df0b6b0ef3196cc7cd4de9b08b51a7a93c639793d3e0fb927c3b9617981",
+      "kind": "implementation_snapshot",
+      "actor": "coding_agent",
+      "observed_at": "2026-09-24T08:12:41.149052+00:00",
+      "previous": "7d2424dcecf71e6a09cb6cb4e0b20c8d52c32d4e9ca2e1d7bd5e9db83152ccfd",
+      "payload": {
+        "purpose": "Evolution archive and frontier tooling",
+        "used_by_v1_experiment": false,
+        "note": "Engineering work, not an autonomous modification by the experiment brain"
+      },
+      "artifacts": {
+        "src/embodied_harness/rsi/__init__.py": {
+          "sha256": "a9e0215f9d32181a9e98756fbf896f76fc0ff476a926540c7b57f2a53c4610a8",
+          "bytes": 79,
+          "media_type": "text/x-python"
+        },
+        "src/embodied_harness/rsi/candidates.py": {
+          "sha256": "9c34b7eb845fbfcfee6a0b509acbecd6cd00ed45309283f0ff6a57b8ba03ec16",
+          "bytes": 5799,
+          "media_type": "text/x-python"
+        },
+        "src/embodied_harness/rsi/core.py": {
+          "sha256": "6ee93ed8619248bc295684af0569a8e079c915a0d26188e8b16bc4cbb2c05e91",
+          "bytes": 7183,
+          "media_type": "text/x-python"
+        },
+        "src/embodied_harness/rsi/evolution.py": {
+          "sha256": "3f91c544e45505cbc18ed77b20a4dead48c5eb777589c4e11333c55b61e33a64",
+          "bytes": 3104,
+          "media_type": "text/x-python"
+        },
+        "src/embodied_harness/rsi/experiment.py": {
+          "sha256": "4d3d0ead81ea5093acbac57c372d5177a2cde8f165be5671d7b69d36fc89674a",
+          "bytes": 22321,
+          "media_type": "text/x-python"
+        },
+        "src/embodied_harness/rsi/frontier.py": {
+          "sha256": "111aea0006d6c5b1f18606af27a8473c809aa04aee70c58bf3fb655a649f0d4f",
+          "bytes": 8181,
+          "media_type": "text/x-python"
+        },
+        "src/embodied_harness/rsi/inspection.py": {
+          "sha256": "129ad9c17c4858342015b0c741eb0e6aa4f770392468dcbe74a724906761fadf",
+          "bytes": 2799,
+          "media_type": "text/x-python"
+        },
+        "src/embodied_harness/rsi/replay.py": {
+          "sha256": "8a8a6ce99f2bc5ff78097587ccd1c1e654832eff8be527d259c24730d6c1b9fc",
+          "bytes": 1764,
+          "media_type": "text/x-python"
+        }
+      },
+      "hash": "764b28e3d7c6ac285334e31fd9cb748d6a2534a7bd69e2f5e54e0b5272ba256c"
+    },
+    {
+      "seq": 97,
+      "event_id": "episodes/heldout/c2t3-s102-baseline",
+      "kind": "rollout",
+      "actor": "experiment_runtime",
+      "observed_at": "2026-09-24T08:12:59.238605+00:00",
+      "previous": "764b28e3d7c6ac285334e31fd9cb748d6a2534a7bd69e2f5e54e0b5272ba256c",
+      "payload": {
+        "split": "heldout",
+        "arm": "baseline",
+        "case_id": "c2t3",
+        "seed": 102
+      },
+      "artifacts": {
+        "result": {
+          "sha256": "7029ea0c72f9bae279d31e60a1e82f186400d66320868d8e7b1e1c70b45bc79c",
+          "bytes": 585,
+          "media_type": "application/json"
+        },
+        "inputs": {
+          "sha256": "3616f98ea1856fb2e172d04022a71a3aa40f89739ccde701b11b340418a0e336",
+          "bytes": 1242,
+          "media_type": "application/json"
+        },
+        "trace": {
+          "sha256": "72910fedb980bff684fa3ccaba9fe3e589f41b822d6f3ce65b461ec8105a1d76",
+          "bytes": 259387,
+          "media_type": "application/x-ndjson"
+        }
+      },
+      "hash": "423e42c0c00f878a807fb575046813684b3314ee5deef5fc36f146a9a5851312"
+    },
+    {
+      "seq": 98,
+      "event_id": "benchmark.json",
+      "kind": "protocol",
+      "actor": "experiment_operator",
+      "observed_at": "2026-09-24T08:14:15.419371+00:00",
+      "previous": "423e42c0c00f878a807fb575046813684b3314ee5deef5fc36f146a9a5851312",
+      "payload": {
+        "source": "benchmark.json"
+      },
+      "artifacts": {
+        "document": {
+          "sha256": "d2d538303776be0217e4dd0a476c71ff5708fa2e4b822610224673fb8f7363b0",
+          "bytes": 15709,
+          "media_type": "application/json"
+        }
+      },
+      "hash": "57daf33da29ac8b2e0ab0b9b42083880e1673a6c5d29a3bd5976c6a29731a5e1"
+    },
+    {
+      "seq": 99,
+      "event_id": "results.json",
+      "kind": "protocol",
+      "actor": "experiment_operator",
+      "observed_at": "2026-09-24T08:14:15.430518+00:00",
+      "previous": "57daf33da29ac8b2e0ab0b9b42083880e1673a6c5d29a3bd5976c6a29731a5e1",
+      "payload": {
+        "source": "results.json"
+      },
+      "artifacts": {
+        "document": {
+          "sha256": "7c011cad96f577076a54555ed02b2b8ebb397f1b903ce97646d8720838cfaca1",
+          "bytes": 426378,
+          "media_type": "application/json"
+        }
+      },
+      "hash": "67b292756032f3e233189b819b259a7a9fd64f2c6d01cd22344cb833e7bf88a5"
+    },
+    {
+      "seq": 100,
+      "event_id": "runtime.json",
+      "kind": "protocol",
+      "actor": "experiment_operator",
+      "observed_at": "2026-09-24T08:14:15.441615+00:00",
+      "previous": "67b292756032f3e233189b819b259a7a9fd64f2c6d01cd22344cb833e7bf88a5",
+      "payload": {
+        "source": "runtime.json"
+      },
+      "artifacts": {
+        "document": {
+          "sha256": "5bf3b736ff799f4a1d18694fde53319d836fee0847dc4e9416e70d5b9d7bd924",
+          "bytes": 444,
+          "media_type": "application/json"
+        }
+      },
+      "hash": "985612b092665e38fa28f9697391ed3bae794aa1f274af9a9834fd02238e1374"
+    },
+    {
+      "seq": 101,
+      "event_id": "archive-frame-audit.json",
+      "kind": "protocol",
+      "actor": "experiment_operator",
+      "observed_at": "2026-09-24T08:14:15.452913+00:00",
+      "previous": "985612b092665e38fa28f9697391ed3bae794aa1f274af9a9834fd02238e1374",
+      "payload": {
+        "source": "archive-frame-audit.json"
+      },
+      "artifacts": {
+        "document": {
+          "sha256": "d4b509511ed36e7961ded3a0c64a579815619d5f14792eb9aa22bb9222359530",
+          "bytes": 176,
+          "media_type": "application/json"
+        }
+      },
+      "hash": "050d309def97ffc6bd1f70e8812b9cb9e76bd66318e8d0b2175b270ac8b6145f"
+    }
+  ],
+  "head_hash": "050d309def97ffc6bd1f70e8812b9cb9e76bd66318e8d0b2175b270ac8b6145f",
+  "import_semantics": "Append order is archival observation order, not original experiment chronology.",
+  "revisions": [
+    {
+      "cycle": 1,
+      "candidate_hash": "65ddc7d7399e2a6b1ed7e52a659149c338ef4cf3a91946d35527bb464a33a2b3",
+      "gate": {
+        "cycle": 1,
+        "gate": {
+          "accepted": false,
+          "baseline_successes": 0,
+          "candidate_successes": 0,
+          "baseline_calls": 17,
+          "candidate_calls": 22,
+          "regressions": [],
+          "infrastructure_error": false,
+          "meaning": "Small development gate, not a statistical generalization claim"
+        },
+        "rejected_programs": [],
+        "candidate_hash": "65ddc7d7399e2a6b1ed7e52a659149c338ef4cf3a91946d35527bb464a33a2b3",
+        "promoted_snapshot_hash": "f63a0c1463259d25cfc04f8498581ac018e9d67e6788847cf55d7da2953916da"
+      },
+      "memory_diff": "--- candidate-0\n+++ candidate-1\n@@ -0,0 +1,27 @@\n+# Robot memory\n+\n+Evidence-bound observations and hypotheses, not hidden reasoning.\n+\n+## Treat pixel reachability as unverified\n+\n+Applies to: push-v3, peg-insert-side-v3\n+\n+Pixel-selected targets can be unreachable or outside the workspace under yaw or low-light views. Treat move_to_pixel failure as a hard branch and do not issue dependent actions as if contact occurred.\n+\n+Evidence: episodes/cycle-1-discover/c1t1-s11-combined, episodes/cycle-1-discover/c1t3-s11-combined\n+\n+## Do not equate TCP motion with task completion\n+\n+Applies to: button-press-v3\n+\n+Repeated small forward motions do not establish button contact or completion. Use visual re-observation and a bounded retry policy, and judge success from the final state rather than tool completion.\n+\n+Evidence: episodes/cycle-1-discover/c1t2-s11-combined\n+\n+## Keep grasp status explicitly unverified\n+\n+Applies to: peg-insert-side-v3\n+\n+Gripper closure is not evidence of a grasp, and insertion should not be planned as though the peg is held. Verify task-relevant object motion or use conservative bounded actions.\n+\n+Evidence: episodes/cycle-1-discover/c1t3-s11-combined",
+      "skills_diff": "--- candidate-0\n+++ candidate-1\n@@ -1 +1,117 @@\n-[]\n+[\n+  {\n+    \"description\": \"Approach a visible puck surface and apply one controlled push displacement. The caller must supply a fresh visible puck pixel and observation ID; this sequence does not verify contact or target success.\",\n+    \"evidence\": [\n+      \"episodes/cycle-1-discover/c1t1-s11-combined\"\n+    ],\n+    \"name\": \"skill_push_visible_target\",\n+    \"steps\": [\n+      {\n+        \"tool\": \"move_to_pixel\",\n+        \"arguments\": {\n+          \"approach\": \"surface\",\n+          \"arm\": \"arm\",\n+          \"camera\": {\n+            \"$arg\": \"camera\"\n+          },\n+          \"observation_id\": {\n+            \"$arg\": \"observation_id\"\n+          },\n+          \"pixel\": {\n+            \"$arg\": \"pixel\"\n+          }\n+        }\n+      },\n+      {\n+        \"tool\": \"move_relative\",\n+        \"arguments\": {\n+          \"arm\": \"arm\",\n+          \"direction\": \"forward\",\n+          \"distance\": \"small\"\n+        }\n+      }\n+    ],\n+    \"tasks\": [\n+      \"push-v3\"\n+    ]\n+  },\n+  {\n+    \"description\": \"Reach a currently visible button surface and apply one inward displacement. Tool completion only reports TCP movement; inspect a later observation for button state.\",\n+    \"evidence\": [\n+      \"episodes/cycle-1-discover/c1t2-s11-combined\"\n+    ],\n+    \"name\": \"skill_press_visible_button\",\n+    \"steps\": [\n+      {\n+        \"tool\": \"move_to_pixel\",\n+        \"arguments\": {\n+          \"approach\": \"surface\",\n+          \"arm\": \"arm\",\n+          \"camera\": {\n+            \"$arg\": \"camera\"\n+          },\n+          \"observation_id\": {\n+            \"$arg\": \"observation_id\"\n+          },\n+          \"pixel\": {\n+            \"$arg\": \"pixel\"\n+          }\n+        }\n+      },\n+      {\n+        \"tool\": \"move_relative\",\n+        \"arguments\": {\n+          \"arm\": \"arm\",\n+          \"direction\": \"forward\",\n+          \"distance\": \"small\"\n+        }\n+      }\n+    ],\n+    \"tasks\": [\n+      \"button-press-v3\"\n+    ]\n+  },\n+  {\n+    \"description\": \"Attempt a conservative visible peg approach, close the gripper, and make one insertion displacement. Closure is not treated as grasp verification; use only when the target is reachable and insertion direction is appropriate.\",\n+    \"evidence\": [\n+      \"episodes/cycle-1-discover/c1t3-s11-combined\"\n+    ],\n+    \"name\": \"skill_attempt_peg_insert\",\n+    \"steps\": [\n+      {\n+        \"tool\": \"move_to_pixel\",\n+        \"arguments\": {\n+          \"approach\": \"above\",\n+          \"arm\": \"arm\",\n+          \"camera\": {\n+            \"$arg\": \"camera\"\n+          },\n+          \"observation_id\": {\n+            \"$arg\": \"observation_id\"\n+          },\n+          \"pixel\": {\n+            \"$arg\": \"pixel\"\n+          }\n+        }\n+      },\n+      {\n+        \"tool\": \"set_gripper\",\n+        \"arguments\": {\n+          \"arm\": \"arm\",\n+          \"state\": \"closed\"\n+        }\n+      },\n+      {\n+        \"tool\": \"move_relative\",\n+        \"arguments\": {\n+          \"arm\": \"arm\",\n+          \"direction\": \"forward\",\n+          \"distance\": \"small\"\n+        }\n+      }\n+    ],\n+    \"tasks\": [\n+      \"peg-insert-side-v3\"\n+    ]\n+  }\n+]"
+    },
+    {
+      "cycle": 2,
+      "candidate_hash": "db1b930a0156e0240d75521b64c37f9a8e9b1e3bd474cf0830e4583551f48dde",
+      "gate": {
+        "cycle": 2,
+        "gate": {
+          "accepted": false,
+          "baseline_successes": 0,
+          "candidate_successes": 0,
+          "baseline_calls": 27,
+          "candidate_calls": 32,
+          "regressions": [],
+          "infrastructure_error": true,
+          "meaning": "Small development gate, not a statistical generalization claim"
+        },
+        "rejected_programs": [],
+        "candidate_hash": "db1b930a0156e0240d75521b64c37f9a8e9b1e3bd474cf0830e4583551f48dde",
+        "promoted_snapshot_hash": "f63a0c1463259d25cfc04f8498581ac018e9d67e6788847cf55d7da2953916da"
+      },
+      "memory_diff": "--- candidate-1\n+++ candidate-2\n@@ -2,26 +2,50 @@\n \n Evidence-bound observations and hypotheses, not hidden reasoning.\n \n-## Treat pixel reachability as unverified\n+## Pixel projection can be unreachable or poorly conditioned\n \n-Applies to: push-v3, peg-insert-side-v3\n+Applies to: push-v3, peg-insert-side-v3, *\n \n-Pixel-selected targets can be unreachable or outside the workspace under yaw or low-light views. Treat move_to_pixel failure as a hard branch and do not issue dependent actions as if contact occurred.\n+Pixel targets repeatedly produced outside_workspace, target_not_reached, or motion_stalled, especially when the projected point was near a boundary or required an inferred depth. Treat move_to_pixel as a surface/above reach only, not as a free-space waypoint or reliable contact-pose estimator; use fresh observations and conservative follow-up motions.\n \n-Evidence: episodes/cycle-1-discover/c1t1-s11-combined, episodes/cycle-1-discover/c1t3-s11-combined\n+Evidence: episodes/cycle-1-discover/c1t1-s11-combined, episodes/cycle-1-validate/c1t1-s31-combined, episodes/cycle-1-discover/c1t3-s11-combined\n \n-## Do not equate TCP motion with task completion\n+## TCP reach and forward motion do not verify a full press\n \n Applies to: button-press-v3\n \n-Repeated small forward motions do not establish button contact or completion. Use visual re-observation and a bounded retry policy, and judge success from the final state rather than tool completion.\n+Repeated successful TCP reaches and small forward motions did not establish a verified button press, and retries consumed decision/control budget. A reached TCP target is not evidence that contact occurred or that the button reached its terminal state; use a short, explicit contact-plus-inward sequence and validate from the task outcome.\n \n-Evidence: episodes/cycle-1-discover/c1t2-s11-combined\n+Evidence: episodes/cycle-1-discover/c1t2-s11-combined, episodes/cycle-1-validate/c1t2-s31-baseline, episodes/cycle-1-validate/c1t2-s31-combined\n \n-## Keep grasp status explicitly unverified\n+## Gripper closure is not grasp confirmation\n \n-Applies to: peg-insert-side-v3\n+Applies to: peg-insert-side-v3, pick-place-v3\n \n-Gripper closure is not evidence of a grasp, and insertion should not be planned as though the peg is held. Verify task-relevant object motion or use conservative bounded actions.\n+Closing the gripper returned grasp_verified=false in peg and pick-place attempts. Do not infer grasp, lift, transport, or placement success from closure or TCP motion; treat grasp as unverified unless the environment outcome visibly confirms object movement and placement.\n \n-Evidence: episodes/cycle-1-discover/c1t3-s11-combined\n+Evidence: episodes/cycle-1-discover/c1t3-s11-combined, episodes/cycle-1-validate/c1t3-s31-combined, episodes/cycle-2-discover/c2t3-s11-combined\n+\n+## Handle approach and contact are the bottleneck before pulling\n+\n+Applies to: door-open-v3, drawer-open-v3\n+\n+Door and drawer approaches often stalled during descent or pixel reaching, even when later relative motions could execute. Contact tasks need clearance-aware, incremental approach motions; large pull motions are only meaningful after a reachable handle pose is established.\n+\n+Evidence: episodes/cycle-2-discover/c2t1-s11-combined, episodes/cycle-2-discover/c2t2-s11-combined\n+\n+## Agent completion summaries do not establish environment success\n+\n+Applies to: drawer-open-v3\n+\n+The drawer episode ended unsuccessfully despite a sequence of successful approach, closure, and backward motions; the episode summary asserted visible opening, but environment_success remained false. Treat agent-reported completion and TCP step success as hypotheses, not task validation.\n+\n+Evidence: episodes/cycle-2-discover/c2t2-s11-combined\n+\n+## Open-loop transport can exhaust budget before placement\n+\n+Applies to: pick-place-v3\n+\n+Pick-place reached and closed on the object, then transported through several relative moves, but a later transport step returned target_not_reached and the tool protocol failed before placement. Long open-loop transports are vulnerable to workspace and budget limits; split transport conservatively and reserve steps for target placement and release.\n+\n+Evidence: episodes/cycle-2-discover/c2t3-s11-combined",
+      "skills_diff": "--- candidate-1\n+++ candidate-2\n@@ -1,10 +1,57 @@\n [\n   {\n-    \"description\": \"Approach a visible puck surface and apply one controlled push displacement. The caller must supply a fresh visible puck pixel and observation ID; this sequence does not verify contact or target success.\",\n+    \"description\": \"Reach a currently visible surface or an above-surface point, then apply a small relative contact motion. Use only with a fresh observation and conservative distances; successful execution does not verify contact.\",\n     \"evidence\": [\n-      \"episodes/cycle-1-discover/c1t1-s11-combined\"\n+      \"episodes/cycle-1-discover/c1t2-s11-combined\",\n+      \"episodes/cycle-2-discover/c2t1-s11-combined\",\n+      \"episodes/cycle-2-discover/c2t2-s11-combined\"\n     ],\n-    \"name\": \"skill_push_visible_target\",\n+    \"name\": \"skill_conservative_pixel_contact\",\n+    \"steps\": [\n+      {\n+        \"tool\": \"move_to_pixel\",\n+        \"arguments\": {\n+          \"approach\": {\n+            \"$arg\": \"approach\"\n+          },\n+          \"arm\": \"arm\",\n+          \"camera\": {\n+            \"$arg\": \"camera\"\n+          },\n+          \"observation_id\": {\n+            \"$arg\": \"observation_id\"\n+          },\n+          \"pixel\": {\n+            \"$arg\": \"pixel\"\n+          }\n+        }\n+      },\n+      {\n+        \"tool\": \"move_relative\",\n+        \"arguments\": {\n+          \"arm\": \"arm\",\n+          \"direction\": {\n+            \"$arg\": \"contact_direction\"\n+          },\n+          \"distance\": \"small\"\n+        }\n+      }\n+    ],\n+    \"tasks\": [\n+      \"button-press-v3\",\n+      \"door-open-v3\",\n+      \"drawer-open-v3\",\n+      \"*\"\n+    ]\n+  },\n+  {\n+    \"description\": \"Use a visible target projection followed by several small inward motions for a button-like interaction. This is a testable action sequence, not a claim that the terminal state will be reached.\",\n+    \"evidence\": [\n+      \"episodes/cycle-1-discover/c1t2-s11-combined\",\n+      \"episodes/cycle-1-validate/c1t2-s31-baseline\",\n+      \"episodes/cycle-1-validate/c1t2-s31-combined\"\n+    ],\n+    \"name\": \"skill_incremental_button_press\",\n     \"steps\": [\n       {\n         \"tool\": \"move_to_pixel\",\n@@ -29,33 +76,13 @@\n           \"direction\": \"forward\",\n           \"distance\": \"small\"\n         }\n-      }\n-    ],\n-    \"tasks\": [\n-      \"push-v3\"\n-    ]\n-  },\n-  {\n-    \"description\": \"Reach a currently visible button surface and apply one inward displacement. Tool completion only reports TCP movement; inspect a later observation for button state.\",\n-    \"evidence\": [\n-      \"episodes/cycle-1-discover/c1t2-s11-combined\"\n-    ],\n-    \"name\": \"skill_press_visible_button\",\n-    \"steps\": [\n+      },\n       {\n-        \"tool\": \"move_to_pixel\",\n+        \"tool\": \"move_relative\",\n         \"arguments\": {\n-          \"approach\": \"surface\",\n           \"arm\": \"arm\",\n-          \"camera\": {\n-            \"$arg\": \"camera\"\n-          },\n-          \"observation_id\": {\n-            \"$arg\": \"observation_id\"\n-          },\n-          \"pixel\": {\n-            \"$arg\": \"pixel\"\n-          }\n+          \"direction\": \"forward\",\n+          \"distance\": \"small\"\n         }\n       },\n       {\n@@ -72,11 +99,12 @@\n     ]\n   },\n   {\n-    \"description\": \"Attempt a conservative visible peg approach, close the gripper, and make one insertion displacement. Closure is not treated as grasp verification; use only when the target is reachable and insertion direction is appropriate.\",\n+    \"description\": \"Attempt a compact pick-and-place chain using a fresh object projection, explicit closure, a small lift, and a fresh target projection before release. Closure and motion remain unverified until the environment reports success.\",\n     \"evidence\": [\n-      \"episodes/cycle-1-discover/c1t3-s11-combined\"\n+      \"episodes/cycle-1-discover/c1t3-s11-combined\",\n+      \"episodes/cycle-2-discover/c2t3-s11-combined\"\n     ],\n-    \"name\": \"skill_attempt_peg_insert\",\n+    \"name\": \"skill_cautious_pick_place\",\n     \"steps\": [\n       {\n         \"tool\": \"move_to_pixel\",\n@@ -84,14 +112,22 @@\n           \"approach\": \"above\",\n           \"arm\": \"arm\",\n           \"camera\": {\n-            \"$arg\": \"camera\"\n+            \"$arg\": \"object_camera\"\n           },\n           \"observation_id\": {\n-            \"$arg\": \"observation_id\"\n+            \"$arg\": \"object_observation_id\"\n           },\n           \"pixel\": {\n-            \"$arg\": \"pixel\"\n+            \"$arg\": \"object_pixel\"\n           }\n+        }\n+      },\n+      {\n+        \"tool\": \"move_relative\",\n+        \"arguments\": {\n+          \"arm\": \"arm\",\n+          \"direction\": \"down\",\n+          \"distance\": \"small\"\n         }\n       },\n       {\n@@ -105,13 +141,13 @@\n         \"tool\": \"move_relative\",\n         \"arguments\": {\n           \"arm\": \"arm\",\n-          \"direction\": \"forward\",\n+          \"direction\": \"up\",\n           \"distance\": \"small\"\n         }\n       }\n     ],\n     \"tasks\": [\n-      \"peg-insert-side-v3\"\n+      \"pick-place-v3\"\n     ]\n   }\n ]"
+    }
+  ],
+  "frontiers": [
+    {
+      "stratum": "c1t1 / combined / cycle-1-discover",
+      "attempts": 1,
+      "valid": 0,
+      "infrastructure": 1,
+      "unknown": 0,
+      "task_validated": false,
+      "success_interval95": [
+        0.0,
+        1.0
+      ],
+      "state": "infrastructure_limited",
+      "next": "Repair execution reliability; do not infer a capability boundary"
+    },
+    {
+      "stratum": "c1t2 / combined / cycle-1-discover",
+      "attempts": 1,
+      "valid": 1,
+      "infrastructure": 0,
+      "unknown": 0,
+      "task_validated": false,
+      "success_interval95": [
+        0,
+        0.7934506856227534
+      ],
+      "state": "task_unverified",
+      "next": "Validate task semantics and a positive witness before learning from failures"
+    },
+    {
+      "stratum": "c1t3 / combined / cycle-1-discover",
+      "attempts": 1,
+      "valid": 1,
+      "infrastructure": 0,
+      "unknown": 0,
+      "task_validated": false,
+      "success_interval95": [
+        0,
+        0.7934506856227534
+      ],
+      "state": "task_unverified",
+      "next": "Validate task semantics and a positive witness before learning from failures"
+    },
+    {
+      "stratum": "c1t1 / baseline / cycle-1-validate",
+      "attempts": 1,
+      "valid": 0,
+      "infrastructure": 1,
+      "unknown": 0,
+      "task_validated": false,
+      "success_interval95": [
+        0.0,
+        1.0
+      ],
+      "state": "infrastructure_limited",
+      "next": "Repair execution reliability; do not infer a capability boundary"
+    },
+    {
+      "stratum": "c1t1 / combined / cycle-1-validate",
+      "attempts": 1,
+      "valid": 1,
+      "infrastructure": 0,
+      "unknown": 0,
+      "task_validated": false,
+      "success_interval95": [
+        0,
+        0.7934506856227534
+      ],
+      "state": "task_unverified",
+      "next": "Validate task semantics and a positive witness before learning from failures"
+    },
+    {
+      "stratum": "c1t2 / baseline / cycle-1-validate",
+      "attempts": 1,
+      "valid": 1,
+      "infrastructure": 0,
+      "unknown": 0,
+      "task_validated": false,
+      "success_interval95": [
+        0,
+        0.7934506856227534
+      ],
+      "state": "task_unverified",
+      "next": "Validate task semantics and a positive witness before learning from failures"
+    },
+    {
+      "stratum": "c1t2 / combined / cycle-1-validate",
+      "attempts": 1,
+      "valid": 1,
+      "infrastructure": 0,
+      "unknown": 0,
+      "task_validated": false,
+      "success_interval95": [
+        0,
+        0.7934506856227534
+      ],
+      "state": "task_unverified",
+      "next": "Validate task semantics and a positive witness before learning from failures"
+    },
+    {
+      "stratum": "c1t3 / baseline / cycle-1-validate",
+      "attempts": 1,
+      "valid": 1,
+      "infrastructure": 0,
+      "unknown": 0,
+      "task_validated": false,
+      "success_interval95": [
+        0,
+        0.7934506856227534
+      ],
+      "state": "task_unverified",
+      "next": "Validate task semantics and a positive witness before learning from failures"
+    },
+    {
+      "stratum": "c1t3 / combined / cycle-1-validate",
+      "attempts": 1,
+      "valid": 1,
+      "infrastructure": 0,
+      "unknown": 0,
+      "task_validated": false,
+      "success_interval95": [
+        0,
+        0.7934506856227534
+      ],
+      "state": "task_unverified",
+      "next": "Validate task semantics and a positive witness before learning from failures"
+    },
+    {
+      "stratum": "c2t1 / combined / cycle-2-discover",
+      "attempts": 1,
+      "valid": 1,
+      "infrastructure": 0,
+      "unknown": 0,
+      "task_validated": false,
+      "success_interval95": [
+        0,
+        0.7934506856227534
+      ],
+      "state": "task_unverified",
+      "next": "Validate task semantics and a positive witness before learning from failures"
+    },
+    {
+      "stratum": "c2t2 / combined / cycle-2-discover",
+      "attempts": 1,
+      "valid": 1,
+      "infrastructure": 0,
+      "unknown": 0,
+      "task_validated": false,
+      "success_interval95": [
+        0,
+        0.7934506856227534
+      ],
+      "state": "task_unverified",
+      "next": "Validate task semantics and a positive witness before learning from failures"
+    },
+    {
+      "stratum": "c2t3 / combined / cycle-2-discover",
+      "attempts": 1,
+      "valid": 0,
+      "infrastructure": 1,
+      "unknown": 0,
+      "task_validated": false,
+      "success_interval95": [
+        0.0,
+        1.0
+      ],
+      "state": "infrastructure_limited",
+      "next": "Repair execution reliability; do not infer a capability boundary"
+    },
+    {
+      "stratum": "c1t1 / baseline / cycle-2-validate",
+      "attempts": 1,
+      "valid": 0,
+      "infrastructure": 1,
+      "unknown": 0,
+      "task_validated": false,
+      "success_interval95": [
+        0.0,
+        1.0
+      ],
+      "state": "infrastructure_limited",
+      "next": "Repair execution reliability; do not infer a capability boundary"
+    },
+    {
+      "stratum": "c1t1 / combined / cycle-2-validate",
+      "attempts": 1,
+      "valid": 0,
+      "infrastructure": 1,
+      "unknown": 0,
+      "task_validated": false,
+      "success_interval95": [
+        0.0,
+        1.0
+      ],
+      "state": "infrastructure_limited",
+      "next": "Repair execution reliability; do not infer a capability boundary"
+    },
+    {
+      "stratum": "c1t2 / baseline / cycle-2-validate",
+      "attempts": 1,
+      "valid": 0,
+      "infrastructure": 1,
+      "unknown": 0,
+      "task_validated": false,
+      "success_interval95": [
+        0.0,
+        1.0
+      ],
+      "state": "infrastructure_limited",
+      "next": "Repair execution reliability; do not infer a capability boundary"
+    },
+    {
+      "stratum": "c1t2 / combined / cycle-2-validate",
+      "attempts": 1,
+      "valid": 1,
+      "infrastructure": 0,
+      "unknown": 0,
+      "task_validated": false,
+      "success_interval95": [
+        0,
+        0.7934506856227534
+      ],
+      "state": "task_unverified",
+      "next": "Validate task semantics and a positive witness before learning from failures"
+    },
+    {
+      "stratum": "c1t3 / baseline / cycle-2-validate",
+      "attempts": 1,
+      "valid": 1,
+      "infrastructure": 0,
+      "unknown": 0,
+      "task_validated": false,
+      "success_interval95": [
+        0,
+        0.7934506856227534
+      ],
+      "state": "task_unverified",
+      "next": "Validate task semantics and a positive witness before learning from failures"
+    },
+    {
+      "stratum": "c1t3 / combined / cycle-2-validate",
+      "attempts": 1,
+      "valid": 0,
+      "infrastructure": 1,
+      "unknown": 0,
+      "task_validated": false,
+      "success_interval95": [
+        0.0,
+        1.0
+      ],
+      "state": "infrastructure_limited",
+      "next": "Repair execution reliability; do not infer a capability boundary"
+    },
+    {
+      "stratum": "c2t1 / baseline / cycle-2-validate",
+      "attempts": 1,
+      "valid": 1,
+      "infrastructure": 0,
+      "unknown": 0,
+      "task_validated": false,
+      "success_interval95": [
+        0,
+        0.7934506856227534
+      ],
+      "state": "task_unverified",
+      "next": "Validate task semantics and a positive witness before learning from failures"
+    },
+    {
+      "stratum": "c2t1 / combined / cycle-2-validate",
+      "attempts": 1,
+      "valid": 0,
+      "infrastructure": 1,
+      "unknown": 0,
+      "task_validated": false,
+      "success_interval95": [
+        0.0,
+        1.0
+      ],
+      "state": "infrastructure_limited",
+      "next": "Repair execution reliability; do not infer a capability boundary"
+    },
+    {
+      "stratum": "c2t2 / baseline / cycle-2-validate",
+      "attempts": 1,
+      "valid": 1,
+      "infrastructure": 0,
+      "unknown": 0,
+      "task_validated": false,
+      "success_interval95": [
+        0,
+        0.7934506856227534
+      ],
+      "state": "task_unverified",
+      "next": "Validate task semantics and a positive witness before learning from failures"
+    },
+    {
+      "stratum": "c2t2 / combined / cycle-2-validate",
+      "attempts": 1,
+      "valid": 1,
+      "infrastructure": 0,
+      "unknown": 0,
+      "task_validated": false,
+      "success_interval95": [
+        0,
+        0.7934506856227534
+      ],
+      "state": "task_unverified",
+      "next": "Validate task semantics and a positive witness before learning from failures"
+    },
+    {
+      "stratum": "c2t3 / baseline / cycle-2-validate",
+      "attempts": 1,
+      "valid": 0,
+      "infrastructure": 1,
+      "unknown": 0,
+      "task_validated": false,
+      "success_interval95": [
+        0.0,
+        1.0
+      ],
+      "state": "infrastructure_limited",
+      "next": "Repair execution reliability; do not infer a capability boundary"
+    },
+    {
+      "stratum": "c2t3 / combined / cycle-2-validate",
+      "attempts": 1,
+      "valid": 0,
+      "infrastructure": 1,
+      "unknown": 0,
+      "task_validated": false,
+      "success_interval95": [
+        0.0,
+        1.0
+      ],
+      "state": "infrastructure_limited",
+      "next": "Repair execution reliability; do not infer a capability boundary"
+    }
+  ],
+  "frontier_note": "Retrospective development-only diagnostic, not the policy used in v1. No scene-specific positive witness was archived. Arms are not pooled. The final test is excluded. This cannot establish a local plateau."
+}

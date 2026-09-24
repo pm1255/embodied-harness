@@ -90,5 +90,19 @@ def make_source_environment(*, seed, task, size=256):
     )
     random.seed(seed)
     native = getattr(importlib.import_module("envs." + task), task)()
-    native.setup_demo(now_ep_num=0, seed=seed, is_test=True, **config)
+    backend = os.environ.get("ROBOTWIN_RENDER_BACKEND", "native")
+    if backend not in ("native", "raster"):
+        raise ValueError("ROBOTWIN_RENDER_BACKEND must be native or raster")
+    if backend == "raster":
+        # Upstream hardcodes rt/32 samples in setup_demo. Select an explicit
+        # alternative without modifying its source; each episode is isolated.
+        import sapien.render
+        original = sapien.render.set_camera_shader_dir
+        sapien.render.set_camera_shader_dir = lambda *_: original("default")
+        try:
+            native.setup_demo(now_ep_num=0, seed=seed, is_test=True, **config)
+        finally:
+            sapien.render.set_camera_shader_dir = original
+    else:
+        native.setup_demo(now_ep_num=0, seed=seed, is_test=True, **config)
     return native

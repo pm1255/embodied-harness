@@ -4,6 +4,8 @@ Embodied Harness now includes an experimental **non-parametric self-improvement 
 
 The design is inspired by [NVIDIA ASPIRE](https://research.nvidia.com/labs/gear/aspire/) and its [open implementation](https://github.com/NVlabs/ASPIRE). ASPIRE already establishes iterative skill programming and reusable skill libraries. We do **not** claim to invent that approach, reproduce its paper, or outperform ASPIRE / RPent. Our contribution here is an inspectable small implementation with typed skills, evidence-bound memory, explicit promotion records and paired ablations.
 
+For the next-generation exploration/absorption controller and precise implemented-versus-planned status, see [frontier evolution](frontier-evolution.md).
+
 ## What the brain can change
 
 | Artifact | Model writes | Harness enforces | What is frozen for testing |

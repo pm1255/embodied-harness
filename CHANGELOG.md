@@ -2,6 +2,10 @@
 
 ## 0.2.0 — experimental RSI Lab
 
+- Preserve content-addressed evolution branches, rejected proposals, component source artifacts and activation/rollback records.
+- Add development-only frontier diagnostics, conservative paired stopping evidence and memory/skill revision visualization.
+- Distinguish implemented v1 experiments from v2 infrastructure and unexecuted arbitrary-code proposals.
+
 - Add two-cycle GPT scenario discovery and multimodal development-failure reflection.
 - Add evidence-bound Markdown memory and task-scoped retrieval.
 - Compile typed, parameterized primitive compositions into bounded skills; reject stale pixel recipes and preserve invalid proposals.

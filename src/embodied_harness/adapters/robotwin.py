@@ -53,6 +53,7 @@ class RoboTwinEnvironment:
 
     def observe(self):
         self.raw_obs = self.env.get_obs()
+        self.raw_obs_tick = self.tick
         self.frame += 1
         frames = []
         for camera, data in self.raw_obs["observation"].items():

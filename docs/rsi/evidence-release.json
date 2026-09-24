@@ -1,0 +1,12 @@
+{
+  "files": 5390,
+  "sha256": "72eb7d33da2004c739d1728758c2890b25df6312f06de9ad54e1e29f3cc1630f",
+  "bytes": 261439875,
+  "release_url": "https://github.com/pm1255/embodied-harness/releases/tag/v0.2.0",
+  "filename": "embodied-harness-rsi-v1-public-evidence-20260924.tar.gz",
+  "private_archive_sha256": "66d16271a09402c839763bfde289ef8e9993b1cb65306493a5609dda3e9aa9bb",
+  "evolution_head": "050d309def97ffc6bd1f70e8812b9cb9e76bd66318e8d0b2175b270ac8b6145f",
+  "episodes": 72,
+  "omitted_camera_scratch_files": 6106,
+  "scratch_files_missing_from_recorded_frames": 0
+}

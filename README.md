@@ -11,7 +11,24 @@ A small GPT-first runtime that separates **visual decisions, geometry, local con
 
 The experimental RSI loop lets GPT propose **real simulator scenario configurations**, inspect multimodal development failures, write a versioned `MEMORY.md`, and compile parameterized primitive programs into callable skills. Model weights stay frozen. Candidates must pass a development gate; an independent four-arm test checks whether memory and skills actually help.
 
-**[Open the RSI experiment dashboard](https://pm1255.github.io/embodied-harness/rsi/experiment-v1/)** · [Design and limits](docs/rsi-design.md) · [Frozen-benchmark reproduction](benchmarks/rsi-protocol.md) · [Results and conclusions](docs/rsi/README.md)
+**[Open the RSI experiment dashboard](https://pm1255.github.io/embodied-harness/rsi/experiment-v1/)** · [Design and limits](docs/rsi-design.md) · [Frozen-benchmark reproduction](benchmarks/rsi-protocol.md) · [Results and conclusions](docs/rsi/README.md) · [Frontier exploration and stopping rules](docs/frontier-evolution.md) · [Actual π0.5 tool runs](https://pm1255.github.io/embodied-harness/rsi/pi05/)
+
+**Completed pilot:** 72 episodes: 24 development and 48 final-test episodes. No improvement is established.
+
+| Final test | Successes | GPT calls | Infrastructure-error episodes |
+|---|---:|---:|---:|
+| Baseline | 1/12 | 69 | 3 |
+| Memory | 1/12 | 62 | 5 |
+| Skills | 0/12 | 61 | 4 |
+| Memory + skills | 0/12 | 66 | 3 |
+
+Six adaptively selected native task families, two held-out seeds each. Both candidate bundles were rejected by the development gate. Errors stay in the denominator; lower request counts do not establish greater efficiency when runs fail early. The [full report](docs/rsi/README.md) includes uncertainty and paired comparisons.
+
+| Memory-only door opening: one successful test episode | GPT → π0.5 bell: physical success, later API failure |
+|---|---|
+| [![Door replay](docs/rsi/door-memory-replay.gif)](https://pm1255.github.io/embodied-harness/rsi/experiment-v1/) | [![π0.5 tool replay](docs/rsi/pi05-bell-replay.gif)](https://pm1255.github.io/embodied-harness/rsi/pi05/) |
+
+These are sampled event replays, not real-time video. One success is not evidence of general improvement. [Download the full-frame evidence release](https://github.com/pm1255/embodied-harness/releases/tag/v0.2.0).
 
 ```mermaid
 flowchart LR

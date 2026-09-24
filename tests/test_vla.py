@@ -29,7 +29,7 @@ def test_vla_rejects_bad_chunk_before_robot_control(monkeypatch):
             return {'observation':{c:{'rgb':np.zeros((8,8,3),dtype=np.uint8)} for c in
                                    ['head_camera','left_camera','right_camera']},
                     'joint_action':{'vector':[0]*14}}
-    env = type('Env', (), {'env':Native(), 'task':'click_bell', 'seed':0, 'name':'robotwin'})()
+    env = type('Env', (), {'env':Native(), 'task':'click_bell', 'seed':0, 'name':'robotwin', 'tick':0})()
     for bad in ([[float('nan')]*14], [[0]*7], [[9]*14], []):
         policy.request = lambda *_, data=bad: {'actions':data}
         with pytest.raises(ValueError):
@@ -41,3 +41,26 @@ def test_vla_rejects_bad_chunk_before_robot_control(monkeypatch):
         return {'actions':[[0]*14]*10}
     policy.request = valid
     assert policy.infer(env, 'Press bell').shape == (10,14)
+
+
+def test_vla_cache_is_invalidated_by_robot_motion(monkeypatch):
+    metadata = {'checkpoint_sha256':'abc', 'contract':'robotwin_aloha_qpos14_v1'}
+    monkeypatch.setattr(PolicyEndpoint, 'request', lambda *_: metadata)
+    policy = PolicyEndpoint('http://127.0.0.1:8907', 'abc')
+    raw = {'observation':{c:{'rgb':np.zeros((8,8,3),dtype=np.uint8)} for c in
+                          ['head_camera','left_camera','right_camera']},
+           'joint_action':{'vector':[0.0]*14}}
+    class Native:
+        reads = 0
+        def get_obs(self):
+            self.reads += 1
+            return raw
+    native = Native()
+    env = type('Env', (), {'env':native, 'raw_obs':raw, 'raw_obs_tick':0, 'tick':0,
+                           'seed':0, 'task':'click_bell', 'name':'robotwin'})()
+    policy.request = lambda *_: {'actions':[[0.0]*14]}
+    policy.infer(env, 'Press bell')
+    assert native.reads == 0
+    env.tick += 1
+    policy.infer(env, 'Press bell')
+    assert native.reads == 1

@@ -13,6 +13,7 @@ import tempfile
 
 from PIL import Image, ImageDraw, ImageOps
 from embodied_harness.rsi.core import digest, write_json
+from embodied_harness.rsi.inspection import inspect_evolution
 
 
 def wilson(k, n):
@@ -79,7 +80,7 @@ def video(events, source, target):
                 continue
             frames = observation['frames']
             if any(f['name']=='head_camera' for f in frames):
-                frames = sorted(frames, key=lambda x: 0 if x['name']=='head_camera' else 1)
+                frames = sorted(frames, key=lambda x: {'head_camera':0,'front_camera':1}.get(x['name'],2))
             canvas = Image.new('RGB', (768, 336), '#101b29')
             draw = ImageDraw.Draw(canvas)
             for j, frame in enumerate(frames[:2]):
@@ -115,7 +116,8 @@ def export(source, destination, partial=False):
         for path in sorted(source.glob('episodes/*/*/result.json')):
             result['rows'].append({**json.loads(path.with_name('job.json').read_text()),
                                    'result':json.loads(path.read_text())})
-        benchmark = {'sha256':'pending — heldout evaluation not frozen/completed'}
+        benchmark = (json.loads((source/'benchmark.json').read_text()) if (source/'benchmark.json').exists()
+                     else {'sha256':'pending — heldout benchmark not frozen'})
     data = {'complete':not partial, 'protocol':result['protocol'], 'cases':result['cases'],
             'cycles':result['cycles'], 'benchmark_sha256':benchmark['sha256'],
             'memory_versions':[], 'rows':[]}
@@ -176,6 +178,8 @@ def export(source, destination, partial=False):
     data['designer_attempts'] = [json.loads(p.read_text()) for p in sorted((source/'brain').glob('*attempt*.json'))]
     for attempt in data['designer_attempts']:
         attempt.pop('prompt', None)
+    data['evolution'] = inspect_evolution(source)
+    write_json(destination/'evolution.json', data['evolution'])
     write_json(destination/'data.json', data)
     for name in ['protocol.json','benchmark.json','MEMORY.md','designer-retry-amendment.json']:
         if (source/name).exists():

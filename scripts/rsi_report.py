@@ -14,7 +14,8 @@ def report(source, target):
     lines = ['# RSI Lab 实测记录', '',
              '**状态：'+('完整实验已结束。' if data['complete'] else '实验进行中；下列结果尚不完整，不能作为最终结论。')+'**', '',
              '[交互式实验台](https://pm1255.github.io/embodied-harness/rsi/experiment-v1/) · '
-             '[冻结 benchmark](experiment-v1/benchmark.json) · [系统设计](../rsi-design.md)', '',
+             '[冻结 benchmark](experiment-v1/benchmark.json) · [系统设计](../rsi-design.md) · '
+             '[边界探索与停滞判据](../frontier-evolution.md) · [π0.5 工具诊断](pi05/README.md)', '',
              '这是冻结 GPT 权重的非参数改进实验：任务生成、失败总结、记忆检索和技能组合，不是基础模型权重训练。'
              '使用 AiXor 报告为 `gpt-6-sol` 的模型；没有独立验证上游身份。', '',
              '## 独立测试', '',
@@ -72,6 +73,11 @@ def report(source, target):
                   '本轮记忆多次强调接触、抓取未验证，以及像素投影不可达；候选技能仍主要组合既有运动原语。'
                   '这些观察支持继续改进接触与抓取工具的方向，但还不能证明增加总结文字就能弥补控制能力。'
                   'π0.5 的工具集成另列实验，不混入这张 MetaWorld 对照表。']
+    if data.get('evolution'):
+        lines += ['', '## 进化档案', '',
+                  f"保留 {len(data['evolution']['events'])} 条归档事件，包括两轮候选、拒绝结果、原始设计请求、回合证据与独立工具诊断。",
+                  f"链头 SHA-256：`{data['evolution']['head_hash']}`。",
+                  '新增边界诊断只使用开发数据；它没有参与本次 v1 的任务选择。自动执行任意生成工具源码仍未实现，源码提案目前只归档。']
     target.parent.mkdir(parents=True,exist_ok=True)
     target.write_text('\n'.join(lines)+'\n',encoding='utf-8')
 

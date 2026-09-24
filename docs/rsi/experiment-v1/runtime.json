@@ -1,15 +1,13 @@
 {
   "python": "3.10.20",
-  "platform": "Darwin",
-  "architecture": "arm64",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
   "packages": {
     "metaworld": "3.1.1",
     "mujoco": "3.3.0",
     "numpy": "1.26.4",
-    "Pillow": "12.3.0",
+    "pillow": "12.3.0",
     "gymnasium": "1.3.0"
   },
-  "model": "gpt-6-sol",
-  "provider": "aixor.cc",
-  "upstream_identity_independently_verified": false
+  "recording_note": "Captured after completion; package environment used for local MetaWorld runs.",
+  "v1_source_reference": "50046c4bacca36546adf2cc3b440be1d263f0033; see evaluation-code.json for actual recorded source hashes"
 }

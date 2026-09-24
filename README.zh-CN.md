@@ -11,7 +11,24 @@
 
 新增的 RSI 实验允许 GPT 提出场景配置，在真实仿真中尝试，依据开发回合生成 `MEMORY.md` 和可调用技能，再用冻结测试集检查效果。**大模型权重不更新；改进来自显式经验和技能，是否有效由实验决定。**
 
-**[打开 RSI 实验可视化](https://pm1255.github.io/embodied-harness/rsi/experiment-v1/)** · [结果与结论](docs/rsi/README.md) · [系统设计](docs/rsi-design.md) · [复测冻结 benchmark](benchmarks/rsi-protocol.md)
+**[打开 RSI 实验可视化](https://pm1255.github.io/embodied-harness/rsi/experiment-v1/)** · [结果与结论](docs/rsi/README.md) · [系统设计](docs/rsi-design.md) · [复测冻结 benchmark](benchmarks/rsi-protocol.md) · [能力边界、吸收与停滞判据](docs/frontier-evolution.md) · [π0.5 实测回放](https://pm1255.github.io/embodied-harness/rsi/pi05/)
+
+**已完成 72 回合：24 个开发回合 + 48 个独立测试回合。当前没有证明能力提升。**
+
+| 独立测试 | 成功 | GPT 次数 | 基础设施错误 |
+|---|---:|---:|---:|
+| 基础工具 | 1/12 | 69 | 3 |
+| 加记忆 | 1/12 | 62 | 5 |
+| 加技能 | 0/12 | 61 | 4 |
+| 记忆 + 技能 | 0/12 | 66 | 3 |
+
+两轮候选均未通过开发准入。包含所有接口失败；失败提前结束造成的调用减少，不能当作效率提升。六个任务族各两个测试种子，样本不足以证明能力上限。[完整结论与区间](docs/rsi/README.md)。
+
+| 记忆组开门：一次成功的测试回合 | GPT → π0.5 按铃：物理成功，后续 API 失败 |
+|---|---|
+| [![开门回放](docs/rsi/door-memory-replay.gif)](https://pm1255.github.io/embodied-harness/rsi/experiment-v1/) | [![π0.5 工具回放](docs/rsi/pi05-bell-replay.gif)](https://pm1255.github.io/embodied-harness/rsi/pi05/) |
+
+动图为抽样事件回放，不是实时录像。单次成功不代表整体提升。[下载包含完整观测图像的证据包](https://github.com/pm1255/embodied-harness/releases/tag/v0.2.0)。
 
 | 模块 | 现在实际做的事 |
 |---|---|
